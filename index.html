@@ -3,207 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kin Registry | The Official Yellow Pages of Solomon Kin</title>
+    <title>Member Inbox | Kin Pages Correspondence</title>
     <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #1a1a1a;
-            --kin-text: #cccccc;
-        }
-
-        body {
-            background-color: var(--kin-black);
-            color: var(--kin-text);
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding-top: 80px; /* Space for the fixed gatekeeper bar */
-        }
+        :root { --gold: #d4af37; --bg: #050505; --panel: #111; --active: #1a1a1a; --border: #333; }
+        body { background: var(--bg); color: #fff; font-family: 'Helvetica Neue', sans-serif; margin: 0; padding-top: 80px; height: 100vh; overflow: hidden; }
 
         /* OMNIPRESENT GATEKEEPER BAR */
         .gatekeeper-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 70px;
-            background: rgba(5, 5, 5, 0.95);
-            border-bottom: 2px solid var(--kin-gold);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            box-sizing: border-box;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%; height: 70px; background: rgba(5, 5, 5, 0.95);
+            border-bottom: 2px solid var(--gold); display: flex; justify-content: space-between;
+            align-items: center; padding: 0 40px; box-sizing: border-box; z-index: 1000; backdrop-filter: blur(10px);
         }
-
-        .brand-sect { display: flex; align-items: center; gap: 15px; }
-        .sk-seal { width: 40px; height: 40px; border: 1px solid var(--kin-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--kin-gold); font-weight: bold; font-size: 0.7rem; }
+        .brand-sect { display: flex; align-items: center; gap: 15px; text-decoration: none; }
         .brand-sect h1 { font-size: 1.2rem; color: #fff; margin: 0; letter-spacing: 2px; }
 
-        .gate-actions { display: flex; gap: 20px; }
-        .gate-link { text-decoration: none; color: #fff; font-size: 0.8rem; font-weight: bold; padding: 10px 20px; border: 1px solid transparent; transition: 0.3s; }
-        .gate-link:hover { color: var(--kin-gold); }
-        .gate-btn { background: var(--kin-gold); color: #000; border-radius: 2px; }
-        .gate-btn:hover { background: #fff; }
-
-        /* DIRECTORY LAYOUT */
-        .directory-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* INBOX LAYOUT */
+        .inbox-container {
+            display: grid; grid-template-columns: 350px 1fr; height: calc(100vh - 70px);
+            max-width: 1400px; margin: 0 auto; border-left: 1px solid var(--border); border-right: 1px solid var(--border);
         }
 
-        .directory-header {
-            text-align: center;
-            border-bottom: 1px solid var(--kin-grey);
-            padding-bottom: 40px;
-            margin-bottom: 40px;
-        }
-
-        .directory-header h2 { font-size: 3rem; color: var(--kin-gold); margin: 0; text-transform: uppercase; letter-spacing: -2px; }
-        .directory-header p { font-family: serif; font-style: italic; font-size: 1.2rem; color: #666; }
-
-        /* ALPHABETICAL NAVIGATION */
-        .alpha-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .alpha-nav a {
-            text-decoration: none;
-            color: #444;
-            font-weight: bold;
-            font-size: 0.9rem;
-            padding: 5px 10px;
-            border: 1px solid #222;
-            transition: 0.3s;
-        }
-
-        .alpha-nav a:hover { border-color: var(--kin-gold); color: var(--kin-gold); }
-
-        /* LISTINGS GRID */
-        .listing-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .listing-card {
-            background: var(--kin-grey);
-            border: 1px solid #333;
-            padding: 25px;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        .listing-card:hover { border-color: var(--kin-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        /* Thread List */
+        .thread-list { background: var(--panel); border-right: 1px solid var(--border); overflow-y: auto; }
+        .list-header { padding: 20px; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--gold); letter-spacing: 1px; }
         
-        .listing-card .category { font-size: 0.65rem; color: var(--kin-gold); text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
-        .listing-card h3 { margin: 0; color: #fff; font-size: 1.4rem; }
-        .listing-card .ein-status { font-family: monospace; font-size: 0.7rem; color: #00ff41; margin-top: 5px; display: block; }
-        .listing-card p { font-size: 0.85rem; line-height: 1.5; color: #999; margin: 15px 0; }
-        
-        .listing-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #222; padding-top: 15px; }
-        .listing-footer a { color: var(--kin-gold); text-decoration: none; font-size: 0.8rem; font-weight: bold; }
-        .listing-footer .location { font-size: 0.7rem; color: #555; }
+        .thread-item { padding: 20px; border-bottom: 1px solid #1a1a1a; cursor: pointer; transition: 0.2s; }
+        .thread-item:hover { background: #161616; }
+        .thread-item.active { background: var(--active); border-left: 4px solid var(--gold); }
+        .thread-item h4 { margin: 0 0 5px 0; font-size: 0.9rem; color: #fff; }
+        .thread-item p { margin: 0; font-size: 0.75rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .thread-date { float: right; font-size: 0.65rem; color: #444; }
 
-        /* FOUNDATION BAR */
-        .foundation-ticker {
-            background: var(--kin-gold);
-            color: #000;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 60px;
-        }
+        /* Message Content */
+        .message-view { display: flex; flex-direction: column; background: var(--bg); }
+        .message-header { padding: 30px; border-bottom: 1px solid var(--border); }
+        .message-header h2 { margin: 0; font-size: 1.4rem; color: var(--gold); }
+        .sender-info { font-size: 0.8rem; color: #666; margin-top: 10px; }
+
+        .message-body { flex-grow: 1; padding: 40px; line-height: 1.6; color: #bbb; overflow-y: auto; }
+        .foundation-notice { background: #0c0c0c; border: 1px solid #222; padding: 15px; font-size: 0.75rem; margin-top: 20px; color: #555; }
+
+        .reply-box { padding: 20px; border-top: 1px solid var(--border); background: var(--panel); }
+        textarea { width: 100%; background: #000; border: 1px solid var(--border); color: #fff; padding: 15px; box-sizing: border-box; resize: none; }
+        .send-btn { background: var(--gold); color: #000; border: none; padding: 10px 25px; font-weight: bold; margin-top: 10px; cursor: pointer; float: right; }
     </style>
 </head>
 <body>
 
 <div class="gatekeeper-bar">
-    <div class="brand-sect">
-        <div class="sk-seal">SKR</div>
-        <h1>KIN PAGES</h1>
-    </div>
-    <div class="gate-actions">
-        <a href="login.html" class="gate-link">MEMBER LOGIN</a>
-        <a href="register.html" class="gate-link gate-btn">REGISTER ENTITY (EIN)</a>
-    </div>
+    <a href="index.html" class="brand-sect">
+        <h1 style="color:var(--gold);">KIN PAGES</h1>
+    </a>
+    <div style="color:#fff; font-size:0.8rem;">ENTITY: <strong>ANCESTRAL GRACE STUDIO</strong></div>
 </div>
 
-<div class="directory-container">
-    <header class="directory-header">
-        <h2>The Master Registry</h2>
-        <p>Verified Business Identities & Canvas Depository Collections</p>
-    </header>
-
-    <div class="alpha-nav">
-        <a href="#">A</a><a href="#">B</a><a href="#">C</a><a href="#">D</a><a href="#">E</a><a href="#">F</a><a href="#">G</a><a href="#">H</a><a href="#">I</a><a href="#">J</a><a href="#">K</a><a href="#">L</a><a href="#">M</a><a href="#">N</a><a href="#">O</a><a href="#">P</a><a href="#">Q</a><a href="#">R</a><a href="#">S</a><a href="#">T</a><a href="#">U</a><a href="#">V</a><a href="#">W</a><a href="#">X</a><a href="#">Y</a><a href="#">Z</a>
-    </div>
-
-    <div class="listing-section">
+<div class="inbox-container">
+    <div class="thread-list">
+        <div class="list-header">INBOUND INQUIRIES</div>
         
-        <div class="listing-card">
-            <span class="category">Fine Art / Canvas</span>
-            <h3>Ancestral Grace Studio</h3>
-            <span class="ein-status">✓ EIN VERIFIED</span>
-            <p>Exclusive collection of original oil on canvas works documenting the Solomon Kin cultural lineage.</p>
-            <div class="listing-footer">
-                <a href="depository-archive.html">VIEW COLLECTION</a>
-                <span class="location">ATLANTA, GA</span>
+        <div class="thread-item active">
+            <span class="thread-date">2m ago</span>
+            <h4>Global Citizen Joe, LLC</h4>
+            <p>Inquiry regarding "Ancestral Grace #4" provenance...</p>
+        </div>
+
+        <div class="thread-item">
+            <span class="thread-date">1h ago</span>
+            <h4>IBINGOD Trade, Inc.</h4>
+            <p>Logistics verification for Western Seaboard shipment...</p>
+        </div>
+
+        <div class="thread-item">
+            <span class="thread-date">Mar 12</span>
+            <h4>Clean Blue Green Corp</h4>
+            <p>B2B Association proposal for Foundation Hub...</p>
+        </div>
+    </div>
+
+    <div class="message-view">
+        <div class="message-header">
+            <h2>Canvas Acquisition Inquiry</h2>
+            <div class="sender-info">
+                FROM: <strong>Global Citizen Joe, LLC</strong> (EIN Verified)<br>
+                REGISTRY ID: GCJ-990-INT
             </div>
         </div>
 
-        <div class="listing-card">
-            <span class="category">Trade / IM-EX</span>
-            <h3>IBINGOD Trade, Inc.</h3>
-            <span class="ein-status">✓ EIN VERIFIED</span>
-            <p>Primary logistics and international import/export management for the Vexilla AITS network.</p>
-            <div class="listing-footer">
-                <a href="global-reach.html">TRADE PORTAL</a>
-                <span class="location">GLOBAL</span>
+        <div class="message-body">
+            <p>Greetings Ancestral Grace Studio,</p>
+            <p>We are interested in acquiring the original oil work "Ancestral Grace #4" for our corporate headquarters. We have reviewed the provenance in the Master Depository and wish to initiate the Sovereign Handshake protocol.</p>
+            <p>Please confirm the current crating requirements and the designated Foundation recipient for the mandatory 10% tax allocation.</p>
+            
+            <div class="foundation-notice">
+                ⚠️ SECURITY NOTE: All trade agreements made within this portal are subject to Solomon Kin Records Association bylaws. The 10% Foundation contribution is automated upon final invoice settlement.
             </div>
         </div>
 
-        <div class="listing-card">
-            <span class="category">Tech / Software</span>
-            <h3>Vexilla Software Center</h3>
-            <span class="ein-status">✓ EIN VERIFIED</span>
-            <p>Autonomous intelligence tools and ScribeBoard development for sovereign business management.</p>
-            <div class="listing-footer">
-                <a href="ai-directory.html">ACCESS TOOLS</a>
-                <span class="location">REMOTE / VEXILLA</span>
-            </div>
+        <div class="reply-box">
+            <textarea rows="3" placeholder="Compose response to Global Citizen Joe, LLC..."></textarea>
+            <button class="send-btn">SEND RESPONSE</button>
         </div>
-
-        <div class="listing-card">
-            <span class="category">Foundation / Cause</span>
-            <h3>Clean Blue Green Corp</h3>
-            <span class="ein-status">✓ NON-PROFIT VERIFIED</span>
-            <p>Environmental advocacy and sustainable urban development funded by the 10% Foundation Tax.</p>
-            <div class="listing-footer">
-                <a href="foundations-hub.html">IMPACT REPORT</a>
-                <span class="location">NEW YORK, NY</span>
-            </div>
-        </div>
-
     </div>
 </div>
-
-<div class="foundation-ticker">
-    10% OF ALL MARKETPLACE PROCEEDS SUPPORT THE SOLOMON KIN RECORDS FOUNDATION NETWORK
-</div>
-
-<footer style="padding: 60px; text-align: center; color: #333; font-size: 0.7rem; border-top: 1px solid #111;">
-    KIN PAGES BY SOLOMON KIN RECORDS | ESTABLISHED c.1999 | MASTER LEDGER v2.6.0
-</footer>
 
 </body>
 </html>
