@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Master Depository | KinRegistry Sovereign Archive</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #0a0a0a; --parchment: #f4f1ea; --ink: #1a1a1a; }
+        body { background: var(--bg); color: #888; font-family: 'Garamond', serif; margin: 0; padding: 60px 20px; }
+        
+        .archive-container { max-width: 1100px; margin: 0 auto; }
+        
+        header { text-align: center; margin-bottom: 80px; }
+        .seal { width: 80px; height: 80px; border: 2px solid var(--gold); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: bold; font-size: 0.8rem; }
+        h1 { color: var(--gold); font-size: 2.5rem; letter-spacing: 4px; margin: 0; text-transform: uppercase; }
+        .serial-range { font-family: 'Courier New', monospace; font-size: 0.7rem; color: #444; margin-top: 10px; }
+
+        /* Search & Filter Section */
+        .archive-controls { background: #111; padding: 20px; border: 1px solid #222; margin-bottom: 40px; display: flex; gap: 20px; }
+        input { background: #000; border: 1px solid #333; color: var(--gold); padding: 10px; flex-grow: 1; font-family: inherit; }
+
+        /* Ledger Table */
+        .ledger { width: 100%; border-collapse: collapse; background: #0c0c0c; border: 1px solid #222; }
+        .ledger th { background: #151515; color: var(--gold); text-align: left; padding: 15px; font-size: 0.8rem; text-transform: uppercase; border-bottom: 2px solid var(--gold); }
+        .ledger td { padding: 20px 15px; border-bottom: 1px solid #222; font-size: 0.9rem; vertical-align: top; }
+        
+        .work-title { color: white; font-weight: bold; display: block; }
+        .artist-id { font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--gold); }
+        .status-tag { font-size: 0.7rem; padding: 2px 6px; border: 1px solid #444; text-transform: uppercase; }
+        .sold { border-color: #555; color: #555; }
+        .impact-link { color: #007bff; text-decoration: none; font-size: 0.75rem; }
+
+        .btn-view { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 5px 10px; font-size: 0.8rem; transition: 0.3s; }
+        .btn-view:hover { background: var(--gold); color: black; }
+    </style>
+</head>
+<body>
+
+<div class="archive-container">
+    <header>
+        <div class="seal">SKR<br>1999</div>
+        <h1>Master Depository</h1>
+        <div class="serial-range">PROVENANCE LEDGER: VOL. 001 - 2026_RECORDS</div>
+    </header>
+
+    <div class="archive-controls">
+        <input type="text" placeholder="Search by Work Title, Artist EIN, or Registry ID...">
+        <button style="background:var(--gold); border:none; padding:0 30px; cursor:pointer; font-weight:bold;">SEARCH ARCHIVE</button>
+    </div>
+
+    <table class="ledger">
+        <thead>
+            <tr>
+                <th>Registry ID</th>
+                <th>Work Details</th>
+                <th>Entity / EIN</th>
+                <th>Foundation Impact</th>
+                <th>Status</th>
+                <th>Record</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="artist-id">#CAN-00982</td>
+                <td>
+                    <span class="work-title">Ancestral Grace #4</span>
+                    <small>Oil on Canvas | 36" x 48"</small>
+                </td>
+                <td>
+                    <strong>Legacy Arts Group</strong><br>
+                    <span class="artist-id">EIN: 45-XXXXX67</span>
+                </td>
+                <td>
+                    <a href="foundations-hub.html" class="impact-link">10% to TTNG Foundation</a>
+                </td>
+                <td><span class="status-tag sold">Sold / Archived</span></td>
+                <td><a href="#" class="btn-view">VIEW TITLE</a></td>
+            </tr>
+            <tr>
+                <td class="artist-id">#CAN-01045</td>
+                <td>
+                    <span class="work-title">The Sovereign Horizon</span>
+                    <small>Giclée Print | 24" x 24"</small>
+                </td>
+                <td>
+                    <strong>Vanguard Studio</strong><br>
+                    <span class="artist-id">EIN: 12-XXXXX89</span>
+                </td>
+                <td>
+                    <a href="foundations-hub.html" class="impact-link">10% to AEAH Corp</a>
+                </td>
+                <td><span class="status-tag" style="border-color:var(--gold); color:var(--gold);">Available</span></td>
+                <td><a href="#" class="btn-view">VIEW TITLE</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer style="margin-top: 60px; text-align: center; border-top: 1px solid #222; padding-top: 40px;">
+        <p style="font-size:0.75rem; color:#444;">
+            This Depository is a permanent record of the Solomon Kin Records Media Group.<br>
+            All titles verified through Vexilla AITS Authentication Protocols.
+        </p>
+        <a href="index.html" style="color:var(--gold); text-decoration:none; font-size:0.8rem;">← Return to Master Scroll</a>
+    </footer>
+</div>
+
+</body>
+</html>
