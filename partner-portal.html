@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Partner Portal | Solomon Kin B2B Association</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #080808; --border: #222; }
+        body { background: var(--bg); color: #ccc; font-family: 'Inter', sans-serif; margin: 0; padding: 40px; }
+        
+        .container { max-width: 1100px; margin: 0 auto; }
+        header { border-bottom: 1px solid var(--border); padding-bottom: 30px; margin-bottom: 50px; display: flex; justify-content: space-between; align-items: flex-end; }
+        h1 { color: white; margin: 0; font-size: 1.8rem; letter-spacing: 1px; }
+        .tier-badge { background: rgba(214, 175, 55, 0.1); color: var(--gold); padding: 5px 15px; border: 1px solid var(--gold); font-size: 0.75rem; border-radius: 20px; }
+
+        /* B2B Dashboard Layout */
+        .partner-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        
+        .main-panel { background: #111; border: 1px solid var(--border); padding: 30px; }
+        .side-panel { display: flex; flex-direction: column; gap: 20px; }
+
+        .resource-card { background: #0c0c0c; border: 1px solid var(--border); padding: 20px; }
+        .resource-card h3 { color: var(--gold); margin-top: 0; font-size: 1rem; }
+        .resource-card p { font-size: 0.85rem; color: #777; }
+
+        /* Joint Venture Ledger */
+        .jv-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .jv-table th { text-align: left; font-size: 0.7rem; color: #555; text-transform: uppercase; padding-bottom: 10px; }
+        .jv-table td { padding: 12px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.9rem; }
+
+        .btn-action { display: block; background: #222; color: white; text-align: center; padding: 12px; text-decoration: none; font-size: 0.8rem; font-weight: bold; margin-top: 10px; border: 1px solid #333; }
+        .btn-action:hover { background: var(--gold); color: black; border-color: var(--gold); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <h1>Corporate Partner Portal</h1>
+            <p style="color:#555; margin-top:5px;">Solomon Kin Records B2B Network</p>
+        </div>
+        <div class="tier-badge">Sovereign Strategic Partner</div>
+    </header>
+
+    <div class="partner-layout">
+        <div class="main-panel">
+            <h2 style="color:white; font-size:1.2rem; margin-top:0;">Joint Venture Activity</h2>
+            <table class="jv-table">
+                <thead>
+                    <tr>
+                        <th>Affiliated Entity</th>
+                        <th>Project / Foundation</th>
+                        <th>Revenue Share</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Clean Blue Green Corp</strong></td>
+                        <td>Enviro-Verification</td>
+                        <td>15% Gross</td>
+                        <td style="color:var(--gold);">ACTIVE</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Global Citizen Joe, LLC</strong></td>
+                        <td>Humanitarian Logistics</td>
+                        <td>10% Gross</td>
+                        <td style="color:var(--gold);">ACTIVE</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top:40px; padding:20px; background:#0a0a0a; border-left:4px solid var(--gold);">
+                <h4 style="margin:0; color:white;">Vexilla AITS API Access</h4>
+                <p style="font-size:0.8rem; color:#666;">Use the following key to integrate your entity's CRM with the Master Scroll database.</p>
+                <code style="color:var(--gold); font-size:0.8rem;">SKR-PARTNER-77-VX-2026</code>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="resource-card">
+                <h3>Marketing Assets</h3>
+                <p>Download the official Solomon Kin Records Media Group branding kit for co-labeled campaigns.</p>
+                <a href="#" class="btn-action">DOWNLOAD KIT</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>Compliance & EIN</h3>
+                <p>Submit updated tax documents and business certificates to maintain your Sovereign status.</p>
+                <a href="#" class="btn-action">UPLOAD DOCS</a>
+            </div>
+
+            <div class="resource-card" style="border-color: #444;">
+                <h3 style="color:#fff;">Gatekeeper Support</h3>
+                <p>Direct line to the Corporate Strategy Foundation for contract renewals.</p>
+                <a href="support.html" class="btn-action" style="background:var(--gold); color:black;">REQUEST MEETING</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer style="margin-top: 80px; text-align: center; font-size: 0.7rem; color: #444; border-top: 1px solid #222; padding-top: 40px;">
+    SOLOMON KIN RECORDS B2B DIVISION | © 1999-2026 | ALL RIGHTS RESERVED
+</footer>
+
+</body>
+</html>
