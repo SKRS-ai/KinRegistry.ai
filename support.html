@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IT Support | Vexilla AITS ScribeBoard</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #030303; --terminal-green: #00ff41; }
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Courier New', Courier, monospace; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            padding: 50px 20px;
+        }
+
+        .support-terminal {
+            width: 100%;
+            max-width: 850px;
+            background: #000;
+            border: 1px solid #333;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.05);
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: #111;
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .terminal-title { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; }
+        .window-controls { display: flex; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+
+        .terminal-body { padding: 40px; }
+        .command-text { color: var(--terminal-green); margin-bottom: 30px; font-size: 0.9rem; }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .support-card {
+            border: 1px solid #222;
+            padding: 20px;
+            background: #050505;
+            transition: 0.3s;
+        }
+
+        .support-card:hover { border-color: var(--gold); }
+        .support-card h3 { color: var(--gold); margin-top: 0; font-size: 1rem; }
+        .support-card p { font-size: 0.8rem; color: #888; line-height: 1.4; }
+
+        .ticket-form { margin-top: 40px; border-top: 1px solid #222; padding-top: 30px; }
+        input, textarea, select {
+            width: 100%;
+            background: #000;
+            border: 1px solid #333;
+            color: var(--terminal-green);
+            padding: 12px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .btn-send {
+            background: var(--gold);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="support-terminal">
+    <div class="terminal-header">
+        <div class="terminal-title">VEXILLA AITS // SCRIBEBOARD_SUPPORT_v2.6</div>
+        <div class="window-controls">
+            <div class="dot"></div><div class="dot"></div><div class="dot" style="background:var(--gold)"></div>
+        </div>
+    </div>
+
+    <div class="terminal-body">
+        <div class="command-text">
+            > INITIALIZING SUPPORT PROTOCOLS...<br>
+            > CONNECTING TO ENTERPRISE IT SUPPORT FOUNDATION...<br>
+            > SYSTEM STATUS: ONLINE
+        </div>
+
+        <div class="support-grid">
+            <div class="support-card">
+                <h3>Account & EIN</h3>
+                <p>Trouble verifying your business? Our agents can manually review your EIN credentials for the Master Scroll.</p>
+            </div>
+            <div class="support-card">
+                <h3>Canvas Depository</h3>
+                <p>Issues with image uploads or marketplace pricing? Get help with the Art Wall Print & Paint holdings integration.</p>
+            </div>
+        </div>
+
+        <div class="ticket-form">
+            <h2 style="color:white; font-size:1.2rem; margin-bottom:20px;">Open Support Ticket</h2>
+            <form>
+                <div style="display:flex; gap:15px;">
+                    <input type="text" placeholder="Entity ID / Member Name">
+                    <select>
+                        <option>Technical Issue</option>
+                        <option>Billing / Tiers</option>
+                        <option>Foundation Inquiry</option>
+                        <option>IM/EX Logistics</option>
+                    </select>
+                </div>
+                <textarea rows="5" placeholder="Enter your inquiry or system error logs here..."></textarea>
+                <button type="submit" class="btn-send">Execute Transmission</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
