@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Launch Checklist | KinRegistry.ai Deployment</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #050505; --panel: #111; }
+        body { background: var(--bg); color: white; font-family: 'Courier New', Courier, monospace; padding: 40px; }
+        .checklist-container { max-width: 900px; margin: 0 auto; background: var(--panel); border: 1px solid #333; padding: 40px; }
+        
+        h1 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 10px; text-transform: uppercase; font-size: 1.4rem; }
+        .step { margin-bottom: 30px; border-left: 2px solid #333; padding-left: 20px; transition: 0.3s; }
+        .step:hover { border-left-color: var(--gold); }
+        
+        h3 { color: var(--gold); margin: 0 0 10px 0; font-size: 1rem; }
+        p { color: #888; font-size: 0.85rem; line-height: 1.5; }
+        
+        .check-box { display: flex; align-items: flex-start; gap: 10px; margin-top: 10px; }
+        input[type="checkbox"] { accent-color: var(--gold); width: 18px; height: 18px; margin-top: 2px; }
+        
+        .code-snippet { background: #000; padding: 10px; border: 1px solid #222; font-size: 0.75rem; color: #0f0; margin-top: 10px; }
+        
+        .status-bar { background: #222; height: 10px; width: 100%; border-radius: 5px; margin-top: 40px; overflow: hidden; }
+        .progress { background: var(--gold); height: 100%; width: 0%; transition: 0.5s; }
+    </style>
+</head>
+<body>
+
+<div class="checklist-container">
+    <h1>System Launch Protocol</h1>
+    <p style="color:var(--gold)">Target: KinRegistry.ai | Vexilla AITS Master Portal</p>
+
+    <div class="step">
+        <h3>1. Domain & DNS Configuration</h3>
+        <p>Point <strong>KinRegistry.ai</strong> to your hosting nameservers. Ensure SSL (HTTPS) is active via Cloudflare or Let's Encrypt to protect member EIN data.</p>
+        <div class="check-box">
+            <input type="checkbox"> <span>SSL Certificate Active (Green Lock)</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>2. File Depository Upload</h3>
+        <p>Upload the 7 core files to the root directory via SFTP or GitHub Actions. Ensure <code>index.html</code> is the primary entry point.</p>
+        <div class="code-snippet">
+            - index.html<br>- register.html<br>- login.html<br>- dashboard.html<br>- add-work.html<br>- admin.html<br>- terms.html
+        </div>
+        <div class="check-box">
+            <input type="checkbox"> <span>Files Verified in Root Directory</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>3. Database Integration</h3>
+        <p>Connect the registration form to a backend (PHP/Node.js/Firebase) to store the EIN numbers and Canvas Work metadata. Initialize the "Master Scroll" feed.</p>
+        <div class="check-box">
+            <input type="checkbox"> <span>Database Handshake Successful</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>4. Tier Payment Gateway</h3>
+        <p>Integrate Stripe or PayPal to handle the monthly membership dues for <strong>Artisan, Studio, Gallery, and Masterpiece</strong> tiers.</p>
+        <div class="check-box">
+            <input type="checkbox"> <span>Payment API Keys Restricted & Active</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>5. Foundation Tax Automation</h3>
+        <p>Ensure the logic is set to deduct 10% from every "Add to Cart" or "Direct Buy" transaction for the Solomon Kin Foundation efforts.</p>
+        <div class="check-box">
+            <input type="checkbox"> <span>10% Disbursement Script Verified</span>
+        </div>
+    </div>
+
+    <div class="status-bar"><div class="progress" id="pBar"></div></div>
+    <p style="text-align:center; font-size:0.7rem; color:#444; margin-top:10px;">
+        SOLOMON KIN RECORDS | ENTERPRISE IT SUPPORT FOUNDATION | 2026
+    </p>
+</div>
+
+<script>
+    // Simple script to track progress
+    const checks = document.querySelectorAll('input[type="checkbox"]');
+    const pBar = document.getElementById('pBar');
+    checks.forEach(c => {
+        c.addEventListener('change', () => {
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const total = checks.length;
+            pBar.style.width = (checked / total * 100) + '%';
+        });
+    });
+</script>
+
+</body>
+</html>
