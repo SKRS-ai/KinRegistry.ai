@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gatekeeper Admin | KinRegistry.ai</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #050505; --danger: #dc3545; --success: #28a745; }
+        body { background: var(--bg); color: white; font-family: 'Courier New', Courier, monospace; margin: 0; display: flex; }
+        
+        /* Admin Sidebar */
+        .admin-nav { width: 260px; background: #000; height: 100vh; border-right: 2px solid var(--gold); padding: 20px; position: fixed; }
+        .admin-nav h2 { color: var(--gold); font-size: 1.2rem; margin-bottom: 30px; text-align: center; }
+        .nav-link { display: block; padding: 12px; color: #888; text-decoration: none; border-bottom: 1px solid #222; }
+        .nav-link:hover { background: #111; color: var(--gold); }
+        .nav-link.alert { color: var(--gold); border-left: 3px solid var(--gold); }
+
+        /* Content Area */
+        main { margin-left: 260px; padding: 40px; width: 100%; }
+        .header { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 30px; }
+
+        /* Verification Queue */
+        .queue-card { background: #111; border: 1px solid #333; padding: 20px; margin-bottom: 30px; }
+        .queue-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .queue-table th { text-align: left; color: #555; font-size: 0.75rem; padding-bottom: 10px; }
+        .queue-table td { padding: 12px 5px; border-bottom: 1px solid #222; font-size: 0.85rem; }
+
+        .btn-verify { background: var(--success); color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }
+        .btn-deny { background: var(--danger); color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }
+
+        /* Revenue & Tier Stats */
+        .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .stat-box { background: #1a1a1a; padding: 15px; border-top: 2px solid var(--gold); }
+        .stat-box small { color: #666; display: block; margin-bottom: 5px; }
+        .stat-box span { font-size: 1.2rem; font-weight: bold; color: var(--gold); }
+    </style>
+</head>
+<body>
+
+<nav class="admin-nav">
+    <h2>KIN MASTER COMMAND</h2>
+    <a href="index.html" class="nav-link">Main Registry View</a>
+    <a href="#" class="nav-link alert">EIN Verification Queue (4)</a>
+    <a href="#" class="nav-link">Canvas Sales Ledger</a>
+    <a href="#" class="nav-link">Manage Tiers/Pricing</a>
+    <a href="#" class="nav-link">Foundation Disbursements</a>
+    <a href="#" class="nav-link">System Logs (Vexilla AITS)</a>
+</nav>
+
+<main>
+    <div class="header">
+        <h1>Sovereign Admin Portal</h1>
+        <div style="text-align: right">
+            <small>GATEKEEPER ID: SKR-99-001</small><br>
+            <span style="color:var(--gold)">Status: Fully Operational</span>
+        </div>
+    </div>
+
+    <div class="stat-row">
+        <div class="stat-box"><small>TOTAL TIER REVENUE</small><span>$18,450.00</span></div>
+        <div class="stat-box"><small>ACTIVE ARTISTS</small><span>412 Entities</span></div>
+        <div class="stat-box"><small>CANVAS SALES VOL.</small><span>$240,100.00</span></div>
+        <div class="stat-box"><small>FOUNDATION TAX (10%)</small><span>$24,010.00</span></div>
+    </div>
+
+    <div class="queue-card">
+        <h3 style="margin:0; color:var(--gold)">EIN Verification Queue</h3>
+        <table class="queue-table">
+            <thead>
+                <tr>
+                    <th>SUBMISSION DATE</th>
+                    <th>ENTITY NAME</th>
+                    <th>EIN NUMBER</th>
+                    <th>TIER SELECTED</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-03-14</td>
+                    <td><strong>Vanguard Canvas Works</strong></td>
+                    <td>12-3456789</td>
+                    <td>Tier 3: Gallery</td>
+                    <td>
+                        <button class="btn-verify">APPROVE</button>
+                        <button class="btn-deny">DENY</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2026-03-13</td>
+                    <td><strong>Makinzine Arts</strong></td>
+                    <td>98-7654321</td>
+                    <td>Tier 2: Studio</td>
+                    <td>
+                        <button class="btn-verify">APPROVE</button>
+                        <button class="btn-deny">DENY</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="queue-card">
+        <h3 style="margin:0;">Active Tier Distribution</h3>
+        <p style="font-size: 0.8rem; color: #555;">Monitoring the membership health of the Kin Pages.</p>
+        <div style="display: flex; gap: 20px; margin-top: 15px;">
+            <div style="flex:1; padding:10px; background:#222; border-left: 4px solid #555;"><strong>Artisan:</strong> 250 Users</div>
+            <div style="flex:1; padding:10px; background:#222; border-left: 4px solid var(--gold);"><strong>Studio:</strong> 110 Users</div>
+            <div style="flex:1; padding:10px; background:#222; border-left: 4px solid var(--gold);"><strong>Gallery:</strong> 45 Users</div>
+            <div style="flex:1; padding:10px; background:#222; border-left: 4px solid white;"><strong>Masterpiece:</strong> 7 Users</div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
