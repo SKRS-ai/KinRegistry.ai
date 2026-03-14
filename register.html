@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | KinRegistry.ai Verification</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .reg-container {
+            background: #151515;
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border: 1px solid #333;
+            border-top: 4px solid #d4af37; /* Solomon Kin Gold */
+        }
+
+        h2 { color: #d4af37; margin-bottom: 10px; }
+        p.subtitle { color: #888; font-size: 0.9rem; margin-bottom: 30px; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.85rem; }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tier-option {
+            border: 1px solid #333;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tier-option:hover { border-color: #d4af37; }
+        .tier-option input { width: auto; margin-bottom: 10px; }
+
+        .btn-submit {
+            background: #d4af37;
+            color: black;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .verification-note {
+            font-size: 0.75rem;
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="reg-container">
+    <h2>Kin Registry Onboarding</h2>
+    <p class="subtitle">Establish your business association with Solomon Kin Records.</p>
+
+    <form>
+        <div class="form-group">
+            <label>Company / Artist Name</label>
+            <input type="text" placeholder="e.g., Vanguard Canvas Works LLC" required>
+        </div>
+
+        <div class="form-group">
+            <label>Business EIN (Tax ID)</label>
+            <input type="text" placeholder="XX-XXXXXXX" required>
+            <div class="verification-note">
+                *Required for Marketplace Sellers. Each artist is encouraged to operate as a company.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Affiliation Branch</label>
+            <select>
+                <option>Solomon Kin Records Music Group</option>
+                <option>Canvas Yellow Pages (Art Only)</option>
+                <option>IBINGOD Trade IM/EX</option>
+                <option>Clean Blue Green Corp</option>
+                <option>Vexilla AITS Software</option>
+            </select>
+        </div>
+
+        <label>Select Your Membership Tier</label>
+        <div class="tier-grid">
+            <div class="tier-option">
+                <input type="radio" name="tier" value="1" checked>
+                <div><strong>Artisan</strong></div>
+                <div style="font-size: 0.8rem;">$15/mo</div>
+            </div>
+            <div class="tier-option">
+                <input type="radio" name="tier" value="2">
+                <div><strong>Studio</strong></div>
+                <div style="font-size: 0.8rem;">$45/mo</div>
+            </div>
+            <div class="tier-option">
+                <input type="radio" name="tier" value="3">
+                <div><strong>Gallery</strong></div>
+                <div style="font-size: 0.8rem;">$99/mo</div>
+            </div>
+            <div class="tier-option">
+                <input type="radio" name="tier" value="4">
+                <div><strong>Masterpiece</strong></div>
+                <div style="font-size: 0.8rem;">Elite Rate</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Business Bio / Artist Statement</label>
+            <textarea rows="4" placeholder="Describe your canvas works or company history..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Upload Profile Picture or Company Logo</label>
+            <input type="file" accept="image/*">
+        </div>
+
+        <div class="form-group">
+            <label>Primary External Link (Website)</label>
+            <input type="url" placeholder="https://yourwebsite.com">
+        </div>
+
+        <button type="submit" class="btn-submit">ACTIVATE KIN PAGES ACCOUNT</button>
+    </form>
+</div>
+
+</body>
+</html>
