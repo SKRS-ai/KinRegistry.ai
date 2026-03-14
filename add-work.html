@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post New Canvas Work | KinRegistry.ai</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #0a0a0a; --panel: #151515; }
+        body { background: var(--bg); color: white; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px; }
+        .form-card { background: var(--panel); border: 1px solid #333; width: 100%; max-width: 700px; padding: 30px; border-radius: 8px; }
+        h2 { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 10px; }
+        
+        .upload-zone { 
+            border: 2px dashed #444; padding: 40px; text-align: center; margin-bottom: 20px; cursor: pointer; color: #888;
+        }
+        .upload-zone:hover { border-color: var(--gold); color: white; }
+
+        .input-row { display: flex; gap: 20px; margin-bottom: 20px; }
+        .input-field { flex: 1; }
+        label { display: block; font-size: 0.8rem; margin-bottom: 5px; color: #aaa; text-transform: uppercase; }
+        
+        input, select, textarea { 
+            width: 100%; background: #222; border: 1px solid #444; color: white; padding: 12px; border-radius: 4px; box-sizing: border-box;
+        }
+        
+        .btn-post { 
+            background: var(--gold); color: black; border: none; padding: 15px; width: 100%; font-weight: bold; cursor: pointer; font-size: 1rem;
+        }
+        .btn-post:hover { background: #f1c40f; }
+        
+        .classified-note { font-size: 0.75rem; color: #888; margin-top: 15px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h2>Post to the Master Scroll</h2>
+    <p style="font-size: 0.9rem; color: #888;">Classified Listing for Canvas Paintings & Prints</p>
+
+    <form>
+        <div class="upload-zone">
+            <span>📷 Click to upload high-res image of Canvas Work</span>
+            <input type="file" style="display:none" id="fileInput">
+        </div>
+
+        <div class="input-row">
+            <div class="input-field">
+                <label>Work Title</label>
+                <input type="text" placeholder="e.g., Kinship Horizon #4">
+            </div>
+            <div class="input-field">
+                <label>Label / Type</label>
+                <select>
+                    <option>Original Canvas Painting</option>
+                    <option>Giclée Canvas Print</option>
+                    <option>Limited Edition Canvas</option>
+                    <option>Mixed Media on Canvas</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-field">
+                <label>Price (USD)</label>
+                <input type="number" placeholder="0.00">
+            </div>
+            <div class="input-field">
+                <label>Dimensions (H x W in Inches)</label>
+                <input type="text" placeholder="e.g., 24x36">
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label>Work Description & Medium</label>
+            <textarea rows="5" placeholder="Describe the inspiration, the paints used, and the story behind this work..."></textarea>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label>Buyer Contact Email/Phone</label>
+            <input type="text" placeholder="How should interested buyers reach you?">
+        </div>
+
+        <button type="submit" class="btn-post">PUBLISH TO MASTER SCROLL</button>
+
+        <p class="classified-note">
+            By publishing, you confirm this is a <strong>Canvas-based</strong> work. All listings are logged in the Solomon Kin Records Depository. 
+            A small percentage of the final sale will be calculated as a platform fee upon successful transaction.
+        </p>
+    </form>
+</div>
+
+</body>
+</html>
