@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Sync | KinRegistry Mobile Portal</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #000; --panel: #111; }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        
+        .mobile-shell { width: 100%; max-width: 400px; background: var(--panel); border: 2px solid #333; border-radius: 40px; padding: 30px; position: relative; box-shadow: 0 0 50px rgba(212, 175, 55, 0.1); }
+        
+        .notch { width: 150px; height: 25px; background: #333; position: absolute; top: 0; left: 50%; transform: translateX(-50%); border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
+
+        header { text-align: center; margin-top: 20px; border-bottom: 1px solid #222; padding-bottom: 20px; }
+        .app-icon { width: 60px; height: 60px; border: 2px solid var(--gold); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: bold; font-size: 1.2rem; border-radius: 12px; }
+        
+        h2 { color: white; font-size: 1.1rem; margin: 10px 0 5px; }
+        p { color: #666; font-size: 0.8rem; line-height: 1.4; }
+
+        .qr-section { background: #fff; padding: 20px; width: 180px; height: 180px; margin: 30px auto; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+        .qr-placeholder { color: #000; font-size: 0.7rem; text-align: center; font-family: monospace; }
+
+        .action-list { margin-top: 30px; }
+        .action-btn { display: flex; align-items: center; gap: 15px; background: #1a1a1a; padding: 15px; margin-bottom: 10px; border: 1px solid #333; text-decoration: none; color: #ccc; font-size: 0.9rem; border-radius: 10px; transition: 0.3s; }
+        .action-btn:hover { border-color: var(--gold); color: white; }
+        
+        .footer-nav { margin-top: 40px; text-align: center; font-size: 0.7rem; color: #444; }
+    </style>
+</head>
+<body>
+
+<div class="mobile-shell">
+    <div class="notch"></div>
+    
+    <header>
+        <div class="app-icon">KR</div>
+        <h2>KinRegistry Mobile</h2>
+        <p>Sync your Solomon Kin Identity</p>
+    </header>
+
+    <div class="qr-section">
+        <div class="qr-placeholder">
+            [ SECURE QR CODE ]<br>
+            ACTIVATE MOBILE NODE<br>
+            SKR-2026-X9
+        </div>
+    </div>
+
+    <div class="action-list">
+        <a href="#" class="action-btn">
+            <span>📲</span>
+            <div><strong>Download iOS / Android</strong><br><small>Vexilla AITS Verified</small></div>
+        </a>
+        <a href="dashboard.html" class="action-btn">
+            <span>📡</span>
+            <div><strong>Connect Gemini Live</strong><br><small>AI Voice Management</small></div>
+        </a>
+        <a href="global-reach.html" class="action-btn">
+            <span>📦</span>
+            <div><strong>Scan Shipping Label</strong><br><small>IBINGOD IM/EX Tracking</small></div>
+        </a>
+    </div>
+
+    <div class="footer-nav">
+        © 2026 Solomon Kin Records Media Group<br>
+        Sovereign Handshake Protocol v1.0
+    </div>
+</div>
+
+</body>
+</html>
