@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Network | Solomon Kin Records Sovereign Map</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #000; --active: #00ff41; --path: rgba(214, 175, 55, 0.2); }
+        body { 
+            background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; 
+            margin: 0; overflow: hidden; display: flex; flex-direction: column; height: 100vh;
+        }
+
+        /* Top HUD */
+        .hud-header {
+            padding: 20px 40px; background: rgba(10, 10, 10, 0.9);
+            border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;
+            z-index: 10;
+        }
+        .network-stats { display: flex; gap: 40px; }
+        .stat-node { text-align: center; }
+        .stat-node label { display: block; font-size: 0.6rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+        .stat-node span { font-size: 1.1rem; color: var(--gold); font-weight: bold; }
+
+        /* Full Screen Map Simulation */
+        .map-container {
+            flex-grow: 1; position: relative; background: radial-gradient(circle, #111 0%, #000 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        /* Simulated Data Nodes */
+        .node {
+            position: absolute; width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+            box-shadow: 0 0 15px var(--gold); animation: pulse 2s infinite;
+        }
+        .node.foundation { background: var(--active); box-shadow: 0 0 15px var(--active); }
+        
+        .connection-line {
+            position: absolute; height: 1px; background: var(--path); transform-origin: left center;
+        }
+
+        /* Sidebar Legend */
+        .legend {
+            position: absolute; bottom: 40px; left: 40px; background: rgba(0,0,0,0.8);
+            border: 1px solid #333; padding: 20px; font-size: 0.8rem;
+        }
+        .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(2); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Call to Action Overlay */
+        .overlay-cta {
+            position: absolute; top: 50%; right: 40px; transform: translateY(-50%);
+            width: 300px; background: rgba(10, 10, 10, 0.9); border: 1px solid var(--gold); padding: 30px;
+        }
+        .btn-join {
+            display: block; width: 100%; padding: 12px; background: var(--gold); color: #000;
+            text-align: center; font-weight: bold; text-decoration: none; margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="hud-header">
+    <div>
+        <h1 style="margin:0; font-size:1.2rem; color:var(--gold); letter-spacing:2px;">GLOBAL KINSHIP NETWORK</h1>
+        <small style="color:#444;">VEXILLA AITS GEOSPATIAL FEED // LIVE</small>
+    </div>
+    <div class="network-stats">
+        <div class="stat-node"><label>Active Entities</label><span>4,102</span></div>
+        <div class="stat-node"><label>Trade Corridors</label><span>89</span></div>
+        <div class="stat-node"><label>Foundation Sites</label><span>26</span></div>
+    </div>
+</header>
+
+<div class="map-container">
+    <div class="node" style="top: 35%; left: 25%;"></div> <div class="node foundation" style="top: 40%; left: 30%;"></div> <div class="node" style="top: 30%; left: 50%;"></div> <div class="node" style="top: 60%; left: 45%;"></div> <div class="node" style="top: 45%; left: 75%;"></div> <div class="legend">
+        <div class="legend-item"><div class="dot" style="background:var(--gold)"></div> Verified Kin Associate</div>
+        <div class="legend-item"><div class="dot" style="background:var(--active)"></div> Foundation Impact Zone</div>
+        <div class="legend-item"><div class="dot" style="background:var(--path); border: 1px solid #555;"></div> Active Trade Route (IBINGOD)</div>
+    </div>
+
+    <div class="overlay-cta">
+        <h2 style="color:var(--gold); margin-top:0;">Establish Your Node</h2>
+        <p style="font-size: 0.85rem; color:#888;">
+            By registering your business and providing your EIN, you officially become a verified coordinate in the Solomon Kin Records global infrastructure.
+        </p>
+        <p style="font-size: 0.85rem; color:#888;">
+            Connect your art, your trade, and your legacy to the world.
+        </p>
+        <a href="register.html" class="btn-join">REGISTER YOUR ENTITY</a>
+    </div>
+</div>
+
+<footer style="padding: 10px 40px; background: #000; font-size: 0.6rem; color: #333; display: flex; justify-content: space-between;">
+    <span>SECURE LINK: 128.0.0.1 // ENCRYPTED</span>
+    <span>© 1999-2026 SOLOMON KIN RECORDS MEDIA GROUP</span>
+</footer>
+
+</body>
+</html>
