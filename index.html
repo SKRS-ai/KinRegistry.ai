@@ -3,108 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Inbox | Kin Pages Correspondence</title>
+    <title>KIN PAGES | The Sovereign Yellow Pages Directory</title>
     <style>
-        :root { --gold: #d4af37; --bg: #050505; --panel: #111; --active: #1a1a1a; --border: #333; }
-        body { background: var(--bg); color: #fff; font-family: 'Helvetica Neue', sans-serif; margin: 0; padding-top: 80px; height: 100vh; overflow: hidden; }
-
-        /* OMNIPRESENT GATEKEEPER BAR */
-        .gatekeeper-bar {
-            position: fixed; top: 0; width: 100%; height: 70px; background: rgba(5, 5, 5, 0.95);
-            border-bottom: 2px solid var(--gold); display: flex; justify-content: space-between;
-            align-items: center; padding: 0 40px; box-sizing: border-box; z-index: 1000; backdrop-filter: blur(10px);
-        }
-        .brand-sect { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .brand-sect h1 { font-size: 1.2rem; color: #fff; margin: 0; letter-spacing: 2px; }
-
-        /* INBOX LAYOUT */
-        .inbox-container {
-            display: grid; grid-template-columns: 350px 1fr; height: calc(100vh - 70px);
-            max-width: 1400px; margin: 0 auto; border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-yellow: #ffdf00; /* Traditional Yellow Page Accent */
+            --kin-border: #222;
         }
 
-        /* Thread List */
-        .thread-list { background: var(--panel); border-right: 1px solid var(--border); overflow-y: auto; }
-        .list-header { padding: 20px; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--gold); letter-spacing: 1px; }
-        
-        .thread-item { padding: 20px; border-bottom: 1px solid #1a1a1a; cursor: pointer; transition: 0.2s; }
-        .thread-item:hover { background: #161616; }
-        .thread-item.active { background: var(--active); border-left: 4px solid var(--gold); }
-        .thread-item h4 { margin: 0 0 5px 0; font-size: 0.9rem; color: #fff; }
-        .thread-item p { margin: 0; font-size: 0.75rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .thread-date { float: right; font-size: 0.65rem; color: #444; }
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace; /* Ledger feel */
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-        /* Message Content */
-        .message-view { display: flex; flex-direction: column; background: var(--bg); }
-        .message-header { padding: 30px; border-bottom: 1px solid var(--border); }
-        .message-header h2 { margin: 0; font-size: 1.4rem; color: var(--gold); }
-        .sender-info { font-size: 0.8rem; color: #666; margin-top: 10px; }
+        /* LEFT SIDEBAR: GATEKEEPER & ACTIONS */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-        .message-body { flex-grow: 1; padding: 40px; line-height: 1.6; color: #bbb; overflow-y: auto; }
-        .foundation-notice { background: #0c0c0c; border: 1px solid #222; padding: 15px; font-size: 0.75rem; margin-top: 20px; color: #555; }
+        .sidebar h1 {
+            color: var(--kin-gold);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px;
+            margin: 0;
+            text-align: center;
+        }
 
-        .reply-box { padding: 20px; border-top: 1px solid var(--border); background: var(--panel); }
-        textarea { width: 100%; background: #000; border: 1px solid var(--border); color: #fff; padding: 15px; box-sizing: border-box; resize: none; }
-        .send-btn { background: var(--gold); color: #000; border: none; padding: 10px 25px; font-weight: bold; margin-top: 10px; cursor: pointer; float: right; }
+        .sidebar-nav { margin-top: 20px; flex-grow: 1; }
+        .sidebar-nav a {
+            display: block;
+            color: #888;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .sidebar-nav a:hover { color: var(--kin-gold); }
+
+        .gatekeeper-actions {
+            border-top: 2px solid var(--kin-gold);
+            padding-top: 20px;
+        }
+        .btn-gate {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+        .btn-login { border: 1px solid var(--kin-gold); color: var(--kin-gold); }
+        .btn-reg { background: var(--kin-gold); color: black; }
+
+        /* MAIN CONTENT: THE DIRECTORY */
+        .main-directory {
+            overflow-y: scroll;
+            padding: 40px;
+            background: linear-gradient(to bottom, #050505, #111);
+        }
+
+        .directory-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .directory-header h2 { font-size: 2.5rem; margin: 0; color: #fff; }
+        .alpha-scroller { color: var(--kin-gold); font-size: 0.9rem; letter-spacing: 3px; }
+
+        /* LEDGER CATEGORY SECTION */
+        .ledger-category {
+            margin-bottom: 50px;
+        }
+        .category-title {
+            background: var(--kin-gold);
+            color: black;
+            padding: 5px 15px;
+            display: inline-block;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .ledger-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2px; /* Traditional Yellow Page thin border */
+            background: var(--kin-border);
+            border: 1px solid var(--kin-border);
+        }
+
+        .ledger-entry {
+            background: #050505;
+            padding: 20px;
+            transition: 0.2s;
+        }
+        .ledger-entry:hover { background: #111; }
+        .ledger-entry h3 { 
+            margin: 0; 
+            font-size: 1.1rem; 
+            color: white; 
+            border-bottom: 1px dotted #444; 
+            padding-bottom: 5px;
+        }
+        .ledger-entry .ein-tag { font-size: 0.6rem; color: #00ff41; float: right; margin-top: 5px; }
+        .ledger-entry p { font-size: 0.75rem; color: #777; line-height: 1.4; margin: 10px 0; }
+        .ledger-entry .contact-line { font-size: 0.7rem; color: var(--kin-gold); }
+
+        /* SCROLLBAR STYLE */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: var(--kin-gold); }
     </style>
 </head>
 <body>
 
-<div class="gatekeeper-bar">
-    <a href="index.html" class="brand-sect">
-        <h1 style="color:var(--gold);">KIN PAGES</h1>
-    </a>
-    <div style="color:#fff; font-size:0.8rem;">ENTITY: <strong>ANCESTRAL GRACE STUDIO</strong></div>
-</div>
-
-<div class="inbox-container">
-    <div class="thread-list">
-        <div class="list-header">INBOUND INQUIRIES</div>
-        
-        <div class="thread-item active">
-            <span class="thread-date">2m ago</span>
-            <h4>Global Citizen Joe, LLC</h4>
-            <p>Inquiry regarding "Ancestral Grace #4" provenance...</p>
+    <aside class="sidebar">
+        <h1>KIN PAGES</h1>
+        <div class="sidebar-nav">
+            <a href="index.html">Master Ledger</a>
+            <a href="foundations-hub.html">Foundations</a>
+            <a href="press.html">Media Group</a>
+            <a href="global-reach.html">Logistics</a>
+            <a href="ai-directory.html">AI Toolkit</a>
         </div>
-
-        <div class="thread-item">
-            <span class="thread-date">1h ago</span>
-            <h4>IBINGOD Trade, Inc.</h4>
-            <p>Logistics verification for Western Seaboard shipment...</p>
+        <div class="gatekeeper-actions">
+            <a href="login.html" class="btn-gate btn-login">GATE LOGIN</a>
+            <a href="register.html" class="btn-gate btn-reg">REGISTER EIN</a>
         </div>
+        <p style="font-size:0.6rem; color:#444; margin-top:20px;">EST. 1999 // VEXILLA AITS SECURED</p>
+    </aside>
 
-        <div class="thread-item">
-            <span class="thread-date">Mar 12</span>
-            <h4>Clean Blue Green Corp</h4>
-            <p>B2B Association proposal for Foundation Hub...</p>
-        </div>
-    </div>
-
-    <div class="message-view">
-        <div class="message-header">
-            <h2>Canvas Acquisition Inquiry</h2>
-            <div class="sender-info">
-                FROM: <strong>Global Citizen Joe, LLC</strong> (EIN Verified)<br>
-                REGISTRY ID: GCJ-990-INT
+    <main class="main-directory">
+        <header class="directory-header">
+            <div>
+                <h2>The Sovereign Directory</h2>
+                <span style="color:var(--kin-gold); font-size:0.8rem;">VOL 26.04 // OFFICIAL BUSINESS ASSOCIATION RECORDS</span>
             </div>
-        </div>
-
-        <div class="message-body">
-            <p>Greetings Ancestral Grace Studio,</p>
-            <p>We are interested in acquiring the original oil work "Ancestral Grace #4" for our corporate headquarters. We have reviewed the provenance in the Master Depository and wish to initiate the Sovereign Handshake protocol.</p>
-            <p>Please confirm the current crating requirements and the designated Foundation recipient for the mandatory 10% tax allocation.</p>
-            
-            <div class="foundation-notice">
-                ⚠️ SECURITY NOTE: All trade agreements made within this portal are subject to Solomon Kin Records Association bylaws. The 10% Foundation contribution is automated upon final invoice settlement.
+            <div class="alpha-scroller">
+                A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
             </div>
-        </div>
+        </header>
 
-        <div class="reply-box">
-            <textarea rows="3" placeholder="Compose response to Global Citizen Joe, LLC..."></textarea>
-            <button class="send-btn">SEND RESPONSE</button>
-        </div>
-    </div>
-</div>
+        <section class="ledger-category">
+            <div class="category-title">Fine Art / Canvas Depositories</div>
+            <div class="ledger-grid">
+                <div class="ledger-entry">
+                    <span class="ein-tag">✓ VERIFIED</span>
+                    <h3>Ancestral Grace Studio</h3>
+                    <p>Exclusive oil on canvas collections documenting the Solomon Kin cultural lineage.</p>
+                    <div class="contact-line">ID: SKR-882-AG // ATLANTA, GA</div>
+                </div>
+                <div class="ledger-entry">
+                    <span class="ein-tag">✓ VERIFIED</span>
+                    <h3>Koinonia Canvas Co.</h3>
+                    <p>High-provenance giclée prints and mixed media works available for trade.</p>
+                    <div class="contact-line">ID: SKR-412-KO // CHICAGO, IL</div>
+                </div>
+                <div class="ledger-entry">
+                    <span class="ein-tag">✓ VERIFIED</span>
+                    <h3>Sovereign Strokes</h3>
+                    <p>Historical archive of Solomon Kin Records early mural and canvas commissions.</p>
+                    <div class="contact-line">ID: SKR-009-SS // LOS ANGELES, CA</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ledger-category">
+            <div class="category-title">Trade, Logistics & IM-EX</div>
+            <div class="ledger-grid">
+                <div class="ledger-entry">
+                    <span class="ein-tag">✓ VERIFIED</span>
+                    <h3>IBINGOD Trade, Inc.</h3>
+                    <p>International import/export management and secure art crating for Kin Associates.</p>
+                    <div class="contact-line">ID: IBI-990-TR // GLOBAL</div>
+                </div>
+                <div class="ledger-entry">
+                    <span class="ein-tag">✓ VERIFIED</span>
+                    <h3>Vexilla Logistics Hub</h3>
+                    <p>Primary distribution node for Solomon Kin Records Media Group hardware and prints.</p>
+                    <div class="contact-line">ID: VEX-114-LH // PORT OF NY</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 </html>
