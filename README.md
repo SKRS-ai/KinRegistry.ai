@@ -1,5 +1,67 @@
 # KinRegistry.ai
 
+# KinRegistry.ai | Solomon Kin Records Sovereign Ecosystem
+
+## 🏛 Project Vision
+KinRegistry.ai is a multi-dimensional digital infrastructure designed to facilitate verified business associations, fine-art (Canvas) commerce, and global logistics under the legacy of **Solomon Kin Records (c. 1999)**.
+
+The system operates on a **Sovereign Handshake Protocol**, requiring all marketplace participants to provide a valid **EIN** and contribute a **10% Foundation Tax** to community cause efforts.
+
+---
+
+## 📂 System File Map (Total: 17 Files)
+
+### 1. The Public Gateway
+* `index.html` - **The Master Scroll**: Primary marketplace and corporate directory.
+* `press.html` - **Media Group**: Official news and Foundation milestone broadcasts.
+* `global-network.html` - **Geospatial Map**: Visual footprint of global impact.
+* `terms.html` - **Legal Ledger**: The governing rules of the 10% tax and EIN mandate.
+
+### 2. Member & Business Operations
+* `register.html` - **Onboarding**: High-conversion EIN intake and Tier selection.
+* `login.html` - **The Gate**: Secure entry for Associates and Command.
+* `dashboard.html` - **Command Center**: Member sales stats and listing management.
+* `add-work.html` - **Depository Entry**: Specialized form for Canvas art submissions.
+* `partner-portal.html` - **B2B Hub**: Corporate affiliate and JV revenue management.
+
+### 3. Oversight & Command
+* `admin.html` - **Gatekeeper Panel**: Sovereign oversight for EIN approval and tax logs.
+* `depository-archive.html` - **Provenance Ledger**: Permanent historical record of all works.
+
+### 4. Technical & Logistics Support
+* `global-reach.html` - **IBINGOD Trade**: International IM/EX shipping integration.
+* `support.html` - **ScribeBoard**: Vexilla AITS technical support terminal.
+* `ai-directory.html` - **Intelligence**: AI automation toolkit for business members.
+* `mobile-sync.html` - **App Gateway**: QR-based verification and mobile sync.
+* `launch-checklist.html` - **Deployment**: Interactive guide for IT foundations.
+
+---
+
+## 🛠 Technical Implementation Notes
+
+### **Security Requirements**
+- **SSL/TLS:** Must be active. EIN and Tax ID data require HTTPS encryption.
+- **Verification:** The `admin.html` must be restricted to the `SKR-GATEKEEPER` user role.
+
+### **The "Sovereign Tax" Logic**
+The 10% Foundation Tax is calculated at the point of sale. Developers must ensure that transactions are split:
+* **90%** to the Artist/Entity.
+* **10%** to the **Solomon Kin Records Foundation Depository**.
+
+### **Directory Naming**
+Ensure all files remain in the root directory to maintain the internal linking structure established in the code.
+
+---
+
+## 📜 Business Association Clause
+Participation in the KinRegistry constitutes a formal association with the Solomon Kin Records Media Group. All entities are verified to ensure the integrity of the **Master Scroll**.
+
+**DEVELOPER STATUS:** STABLE
+**VERSION:** 2.6.0 (Vexilla AITS Optimized)
+**LEGACY START:** 1999
+**SYSTEM UPDATED:** 2026
+
+
 ## 🎨 FEATURE FOCUS: THE CANVAS CLASSIFIEDS
 KinRegistry.ai is primarily a marketplace for **Canvas-based Artworks**. 
 
