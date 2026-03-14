@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Service Directory | KinRegistry Business Intelligence</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #050505; --panel: #121212; --ai-glow: #00e5ff; }
+        body { background: var(--bg); color: #ddd; font-family: 'Inter', sans-serif; margin: 0; padding: 40px; }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { border-bottom: 1px solid #333; padding-bottom: 30px; margin-bottom: 50px; }
+        h1 { color: white; font-size: 2rem; margin: 0; letter-spacing: 1px; }
+        .subtitle { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* AI Service Grid */
+        .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .ai-card { 
+            background: var(--panel); border: 1px solid #222; padding: 30px; 
+            position: relative; transition: 0.4s; overflow: hidden;
+        }
+        .ai-card:hover { border-color: var(--ai-glow); transform: translateY(-5px); }
+        .ai-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ai-glow), transparent);
+        }
+
+        .category-tag { font-size: 0.7rem; color: var(--ai-glow); border: 1px solid var(--ai-glow); padding: 2px 8px; border-radius: 20px; }
+        .ai-card h3 { color: white; margin: 15px 0 10px; font-size: 1.3rem; }
+        .ai-card p { font-size: 0.9rem; color: #888; line-height: 1.6; }
+        
+        .feature-list { list-style: none; padding: 0; margin: 20px 0; font-size: 0.85rem; color: #bbb; }
+        .feature-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .feature-list li::before { content: "⚡"; color: var(--gold); }
+
+        .btn-deploy { 
+            display: block; text-align: center; background: #222; color: white; 
+            text-decoration: none; padding: 12px; font-size: 0.85rem; font-weight: bold; border: 1px solid #333;
+        }
+        .btn-deploy:hover { background: var(--ai-glow); color: black; border-color: var(--ai-glow); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="subtitle">Vexilla AITS Intelligence Division</div>
+        <h1>AI SERVICE REGISTRY</h1>
+        <p style="color:#666;">Autonomous Tools for the Modern Sovereign Associate</p>
+    </header>
+
+    <div class="ai-grid">
+        
+        <div class="ai-card">
+            <span class="category-tag">Content & Marketing</span>
+            <h3>ScribeGen Alpha</h3>
+            <p>Automated copywriting for Canvas Work descriptions and social media press releases using your brand's specific legacy voice.</p>
+            <ul class="feature-list">
+                <li>SEO-Optimized Metadata</li>
+                <li>Multi-Language Press Kits</li>
+                <li>10% Foundation Impact Reporting</li>
+            </ul>
+            <a href="#" class="btn-deploy">INTEGRATE TOOL</a>
+        </div>
+
+        <div class="ai-card">
+            <span class="category-tag">Operations</span>
+            <h3>IBINGOD Auto-Pilot</h3>
+            <p>Smart logistics agent that calculates real-time IM/EX duties, shipping routes, and crating costs for international trade.</p>
+            <ul class="feature-list">
+                <li>Real-time Customs Clearance</li>
+                <li>Automated Manifest Generation</li>
+                <li>Global Tracking Integration</li>
+            </ul>
+            <a href="#" class="btn-deploy">INTEGRATE TOOL</a>
+        </div>
+
+        <div class="ai-card">
+            <span class="category-tag">Customer Service</span>
+            <h3>Kin-Chat Agent</h3>
+            <p>A 24/7 conversational AI trained on the Solomon Kin Records history to answer buyer questions about provenance and the Foundation Hub.</p>
+            <ul class="feature-list">
+                <li>Instant Response Protocols</li>
+                <li>EIN Verification Guidance</li>
+                <li>Human Gatekeeper Escalate</li>
+            </ul>
+            <a href="#" class="btn-deploy">INTEGRATE TOOL</a>
+        </div>
+
+    </div>
+</div>
+
+<footer style="margin-top: 80px; text-align: center; border-top: 1px solid #222; padding: 40px; font-size: 0.75rem; color: #444;">
+    SOLOMON KIN RECORDS MEDIA GROUP | AI REGISTRY | © 2026
+</footer>
+
+</body>
+</html>
