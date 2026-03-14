@@ -3,93 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CastAiStars | The Digital Backlot</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>KinRegistry.ai | Solomon Kin Master Ledger</title>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #000; }
-        
-        /* Nebula Pulse Animation */
-        @keyframes nebula-pulse {
-            0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.4)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.8)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.4)); }
+        :root {
+            --gold: #d4af37;
+            --dark-bg: #0a0a0a;
+            --panel-bg: #1a1a1a;
+            --text-gray: #b0b0b0;
+            --accent-blue: #007bff;
         }
-        .nebula-star {
-            animation: nebula-pulse 4s ease-in-out infinite;
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #00e5ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Top Navigation */
+        header {
+            background: #000;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold);
         }
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .logo-area h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+
+        .auth-buttons button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .auth-buttons .register-btn {
+            background: var(--gold);
+            color: black;
+        }
+
+        /* Main Layout */
+        main {
+            display: grid;
+            grid-template-columns: 280px 1fr 300px;
+            gap: 10px;
+            padding: 10px;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar & Directory Panels */
+        .directory-panel {
+            background: var(--panel-bg);
+            padding: 15px;
+            overflow-y: auto;
+            border: 1px solid #333;
+        }
+
+        .directory-panel h3 {
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .entity-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .entity-link:hover {
+            color: var(--gold);
+        }
+
+        /* The Master Scroll (Canvas Marketplace) */
+        .master-scroll {
+            background: #111;
+            padding: 20px;
+            overflow-y: auto;
+            border: 1px solid #222;
+        }
+
+        .scroll-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .art-card {
+            background: #222;
+            border: 1px solid #444;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .art-card:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
+        }
+
+        .art-img {
+            width: 100%;
+            height: 200px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #555;
+        }
+
+        .art-info h4 { margin: 10px 0 5px; color: var(--gold); }
+        .art-info p { font-size: 0.8rem; color: var(--text-gray); margin: 0; }
+        .price-tag { display: block; margin-top: 10px; font-weight: bold; color: white; }
+
+        /* Tiers Section */
+        .tiers-banner {
+            background: linear-gradient(90deg, #1a1a1a, #000);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px dashed var(--gold);
+            text-align: center;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            font-size: 0.7rem;
+            background: #333;
+            border-radius: 4px;
         }
     </style>
 </head>
-<body class="text-white overflow-x-hidden">
+<body>
 
-    <nav class="fixed w-full z-50 glass-panel">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-cyan-500 rounded flex items-center justify-center nebula-star">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="black"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+<header>
+    <div class="logo-area">
+        <h1>SOLOMON KIN RECORDS | <span style="color:white">KIN PAGES</span></h1>
+    </div>
+    <div class="auth-buttons">
+        <button onclick="location.href='#login'">MEMBER LOGIN</button>
+        <button class="register-btn" onclick="location.href='#register'">REGISTER (EIN REQUIRED)</button>
+    </div>
+</header>
+
+<main>
+    <aside class="directory-panel">
+        <h3>Command Pillars</h3>
+        <a href="#" class="entity-link">IBINGOD TRADE, INC.</a>
+        <a href="#" class="entity-link">CLEAN BLUE GREEN CORP S</a>
+        <a href="#" class="entity-link">SOLOMON KIN STUDIOS</a>
+        <a href="#" class="entity-link">VEXILLA AITS MASTER PORTAL</a>
+        <a href="#" class="entity-link">AEAH.ORG NON-PROFIT</a>
+        <a href="#" class="entity-link">TBBLUSA | BUREAU IDENTITY</a>
+        
+        <h3 style="margin-top:20px;">Foundations</h3>
+        <a href="#" class="entity-link">Christmas Tree Farm Foundation</a>
+        <a href="#" class="entity-link">Think Team Not Gang</a>
+        <a href="#" class="entity-link">Koinonia Grace Foundation</a>
+    </aside>
+
+    <section class="master-scroll">
+        <div class="scroll-header">
+            <h2>THE MASTER CANVAS SCROLL</h2>
+            <p>Yellow Pages for Canvas Works & Fine Art Classifieds</p>
+        </div>
+
+        <div class="tiers-banner">
+            <strong>UPGRADE YOUR LISTING:</strong>
+            <span class="tier-badge">TIER 1: ARTISAN ($15/mo)</span>
+            <span class="tier-badge">TIER 2: STUDIO ($45/mo)</span>
+            <span class="tier-badge">TIER 3: GALLERY ($99/mo)</span>
+            <span class="tier-badge">TIER 4: MASTERPIECE (ELITE)</span>
+        </div>
+
+        <div class="canvas-grid">
+            <div class="art-card">
+                <div class="art-img">[ IMAGE OF CANVAS WORK ]</div>
+                <div class="art-info">
+                    <h4>Vexilla Dawn</h4>
+                    <p>Artist: Solomon Kin Studios</p>
+                    <p>Type: Original Oil on Canvas</p>
+                    <p>Dimensions: 24" x 36"</p>
+                    <span class="price-tag">$1,200.00</span>
+                    <button style="width:100%; margin-top:10px; background:var(--gold); border:none; padding:5px;">CONTACT SELLER</button>
                 </div>
-                <span class="text-2xl font-black tracking-tighter uppercase">Cast<span class="text-cyan-400">AI</span>Stars</span>
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
-                <a href="#" class="hover:text-cyan-400 transition">The Backlot</a>
-                <a href="#" class="hover:text-cyan-400 transition">For Directors</a>
-                <a href="#" class="hover:text-cyan-400 transition">For Creators</a>
+
+            <div class="art-card">
+                <div class="art-img">[ IMAGE OF CANVAS WORK ]</div>
+                <div class="art-info">
+                    <h4>Global Citizen Morning</h4>
+                    <p>Artist: GCJ Arts</p>
+                    <p>Type: Giclée Canvas Print</p>
+                    <p>Dimensions: 18" x 24"</p>
+                    <span class="price-tag">$250.00</span>
+                    <button style="width:100%; margin-top:10px; background:var(--gold); border:none; padding:5px;">CONTACT SELLER</button>
+                </div>
             </div>
-            <button class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-cyan-400 transition">Beta Access</button>
-        </div>
-    </nav>
-
-    <section class="relative h-screen flex items-center justify-center pt-20">
-        <div class="absolute inset-0 z-0 opacity-30">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"></div>
-        </div>
-
-        <div class="relative z-10 text-center max-w-4xl px-6">
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-none">
-                THE FUTURE OF FAME IS <span class="text-gradient">SYNTHETIC.</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-400 mb-10 font-light max-w-2xl mx-auto">
-                Welcome to the Headquarters. Cast verified virtual stars for your next production. Powered by <span class="text-white font-bold">Solomon Kin Records</span>.
-            </p>
             
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <button class="bg-cyan-500 text-black px-10 py-4 rounded-lg font-black text-lg uppercase tracking-widest hover:bg-cyan-400 shadow-[0_0_20px_rgba(0,229,255,0.4)] transition">Enter the Office</button>
-                <button class="border border-gray-700 hover:border-white px-10 py-4 rounded-lg font-black text-lg uppercase tracking-widest transition">Register a Star</button>
             </div>
-        </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-24 border-t border-gray-900">
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="glass-panel p-8 rounded-2xl">
-                <h3 class="text-cyan-400 font-bold mb-4 uppercase tracking-widest">Verified Continuity</h3>
-                <p class="text-gray-400">Our stars maintain visual consistency across every scene. No "uncanny valley," just professional assets.</p>
-            </div>
-            <div class="glass-panel p-8 rounded-2xl">
-                <h3 class="text-cyan-400 font-bold mb-4 uppercase tracking-widest">The Digital Soul</h3>
-                <p class="text-gray-400">Every talent registry includes a unique, consistent Voice ID curated by Solomon Kin Records.</p>
-            </div>
-            <div class="glass-panel p-8 rounded-2xl">
-                <h3 class="text-cyan-400 font-bold mb-4 uppercase tracking-widest">Smart Licensing</h3>
-                <p class="text-gray-400">Automated casting contracts that protect creators and empower directors in one click.</p>
-            </div>
+    <aside class="directory-panel">
+        <h3>Artist Registry Office</h3>
+        <p style="font-size: 0.8rem; color: var(--text-gray);">
+            Each artist is encouraged to operate as a company. Provide your <strong>AEIN Number</strong> during registration to unlock the Marketplace.
+        </p>
+        <hr style="border: 0.5px solid #333;">
+        <h3>Marketplace Stats</h3>
+        <p style="font-size: 0.85rem;">Active Canvas Works: 1,240</p>
+        <p style="font-size: 0.85rem;">Verified Artists: 450</p>
+        <p style="font-size: 0.85rem;">Total Trade Volume: $12.5M</p>
+        
+        <div style="margin-top:30px; padding:10px; border:1px solid var(--gold);">
+            <h4 style="margin:0; font-size:0.8rem;">PROMOTIONAL ALERT</h4>
+            <p style="font-size:0.75rem;">Get your artwork out there on the Kin Pages. Classified spots available for new Canvas Prints.</p>
         </div>
-    </section>
+    </aside>
+</main>
 
-    <footer class="py-12 border-t border-gray-900 text-center text-gray-600">
-        <p class="text-xs uppercase tracking-[0.5em]">&copy; 2026 Solomon Kin Records LLC. All Rights Reserved.</p>
-    </footer>
+<footer style="background:black; text-align:center; padding:10px; font-size:0.7rem; color:#555; border-top:1px solid #222;">
+    &copy; 1999 - 2026 Solomon Kin Records Media Group | Vexilla AITS | KinRegistry.ai
+</footer>
 
 </body>
 </html>
