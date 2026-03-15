@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribeBoard | Kin Pages Secure Terminal</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR (Omnipresent) */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        .nav-link {
+            display: block; color: #888; text-decoration: none; padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a; font-size: 0.8rem;
+        }
+
+        /* CHAT INTERFACE */
+        .scribe-container {
+            display: grid;
+            grid-template-rows: 70px 1fr 100px;
+            background: var(--kin-black);
+        }
+
+        .scribe-header {
+            border-bottom: 1px solid var(--kin-border);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-tag { font-size: 0.7rem; color: #00ff41; letter-spacing: 1px; }
+
+        .chat-window {
+            overflow-y: scroll;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 15px;
+            border: 1px solid var(--kin-border);
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        .message.sent {
+            align-self: flex-end;
+            background: #0c0c0c;
+            border-right: 3px solid var(--kin-gold);
+        }
+
+        .message.received {
+            align-self: flex-start;
+            background: #111;
+            border-left: 3px solid #666;
+        }
+
+        .msg-meta {
+            display: block;
+            font-size: 0.6rem;
+            color: #444;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* INPUT AREA */
+        .scribe-input-area {
+            border-top: 1px solid var(--kin-border);
+            padding: 20px 40px;
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 20px;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            background: #000;
+            border: 1px solid #222;
+            color: var(--kin-gold);
+            padding: 15px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .btn-send {
+            background: var(--kin-gold);
+            color: #000;
+            border: none;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h1>KIN PAGES</h1>
+        <nav style="flex-grow:1;">
+            <a href="dashboard.html" class="nav-link">DASHBOARD</a>
+            <a href="index.html" class="nav-link">DIRECTORY</a>
+            <a href="settings.html" class="nav-link">SETTINGS</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">TERMINAL ACTIVE // AUTH-882</div>
+    </aside>
+
+    <main class="scribe-container">
+        <header class="scribe-header">
+            <div>
+                <span style="color:var(--kin-gold);">TO:</span> <strong>IBINGOD TRADE, INC.</strong>
+                <span class="status-tag" style="margin-left:15px;">● ENCRYPTED</span>
+            </div>
+            <div style="font-size:0.7rem; color:#444;">ASSOCIATION: LOGISTICS HUB</div>
+        </header>
+
+        <div class="chat-window">
+            <div class="message received">
+                <span class="msg-meta">IBINGOD TRADE // 09:14 AM</span>
+                The shipment of the "Ancestral Grace #4" canvas has cleared the Vexilla logistics node. We are awaiting the tax verification receipt before final dispatch.
+            </div>
+
+            <div class="message sent">
+                <span class="msg-meta">YOU // 10:02 AM</span>
+                Verification receipt has been generated. The 10% Foundation contribution was successfully allocated to TTNG. Please proceed with crating.
+            </div>
+
+            <div class="message received">
+                <span class="msg-meta">IBINGOD TRADE // 10:05 AM</span>
+                Confirmed. Handshake protocol complete. We will update the Master Ledger with the tracking ID shortly.
+            </div>
+        </div>
+
+        <form class="scribe-input-area">
+            <input type="text" placeholder="Type sovereign correspondence...">
+            <button type="submit" class="btn-send">TRANSMIT</button>
+        </form>
+    </main>
+
+</body>
+</html>
