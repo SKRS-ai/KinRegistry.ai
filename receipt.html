@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIN PAGES | Foundation Impact Receipt</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* PERSISTENT SIDEBAR */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        .sidebar-nav { flex-grow: 1; }
+        .sidebar-nav a {
+            display: block; color: #888; text-decoration: none;
+            padding: 12px 0; border-bottom: 1px solid #1a1a1a;
+            font-size: 0.8rem; text-transform: uppercase;
+        }
+
+        /* RECEIPT CANVAS */
+        .main-receipt {
+            overflow-y: scroll;
+            padding: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .receipt-paper {
+            background: #111;
+            border: 1px solid var(--kin-border);
+            width: 100%;
+            max-width: 700px;
+            padding: 50px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .receipt-paper::before {
+            content: "OFFICIAL RECORD";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.6rem;
+            color: var(--kin-gold);
+            border: 1px solid var(--kin-gold);
+            padding: 2px 5px;
+        }
+
+        .receipt-header {
+            text-align: center;
+            border-bottom: 1px solid var(--kin-gold);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .sk-seal-watermark {
+            font-size: 3rem;
+            color: rgba(212, 175, 55, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .label { color: #666; text-transform: uppercase; }
+        .value { color: #fff; font-weight: bold; }
+
+        .impact-breakdown {
+            background: #000;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px dashed var(--kin-gold);
+        }
+
+        .total-box {
+            text-align: right;
+            border-top: 2px solid var(--kin-gold);
+            padding-top: 20px;
+        }
+
+        .btn-print {
+            background: var(--kin-gold);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">Member Dashboard</a>
+            <a href="ledger.html">Tax Ledger</a>
+            <a href="foundations-hub.html">Foundation Hub</a>
+        </nav>
+        <p style="font-size:0.6rem; color:#444;">ID: AUTH-8821-SK</p>
+    </aside>
+
+    <main class="main-receipt">
+        <div class="receipt-paper">
+            <div class="sk-seal-watermark">SOLOMON KIN RECORDS</div>
+            
+            <header class="receipt-header">
+                <h2 style="color:var(--kin-gold); margin:0;">IMPACT RECEIPT</h2>
+                <p style="font-size:0.7rem; color:#555;">SOLOMON KIN RECORDS FOUNDATION NETWORK</p>
+            </header>
+
+            <div class="data-row">
+                <span class="label">Transaction ID:</span>
+                <span class="value">#SK-TX-9902188</span>
+            </div>
+            <div class="data-row">
+                <span class="label">Associate:</span>
+                <span class="value">ANCESTRAL GRACE STUDIO</span>
+            </div>
+            <div class="data-row">
+                <span class="label">Entity EIN:</span>
+                <span class="value">45-XXXXX67</span>
+            </div>
+            <div class="data-row">
+                <span class="label">Date:</span>
+                <span class="value">MARCH 15, 2026</span>
+            </div>
+
+            <div class="impact-breakdown">
+                <div class="data-row">
+                    <span class="label">Gross Trade Value:</span>
+                    <span class="value">$12,500.00</span>
+                </div>
+                <div class="data-row" style="color:var(--kin-gold);">
+                    <span class="label">Foundation Tax (10%):</span>
+                    <span class="value">$1,250.00</span>
+                </div>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Designated Cause:</span>
+                <span class="value">Think Team Not Gang (TTNG)</span>
+            </div>
+
+            <div class="total-box">
+                <span style="font-size:0.7rem; color:#444;">TOTAL FOUNDATION CONTRIBUTION</span><br>
+                <span style="font-size:2rem; color:var(--kin-gold);">$1,250.00</span>
+            </div>
+
+            <p style="font-size:0.65rem; color:#444; margin-top:40px; line-height:1.4;">
+                This document serves as an official receipt of association. The funds listed above have been allocated to the Solomon Kin Records Foundation Ledger for community empowerment and cultural preservation.
+            </p>
+
+            <button class="btn-print" onclick="window.print()">PRINT FOR RECORDS</button>
+        </div>
+    </main>
+
+</body>
+</html>
