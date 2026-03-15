@@ -2,100 +2,159 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Foundation Hub | Solomon Kin Collective Impact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Hub | Kin Pages Social Impact</title>
     <style>
-        :root { --gold: #d4af37; --bg: #050505; --panel: #111; }
-        body { background: var(--bg); color: #ccc; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 40px; }
-        
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #222; padding-bottom: 40px; }
-        h1 { color: var(--gold); font-size: 2.5rem; letter-spacing: 3px; margin: 10px 0; }
-        .tagline { color: #666; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 5px; }
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-border: #333;
+        }
 
-        /* Impact Dashboard */
-        .impact-summary { 
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; 
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
         }
-        .impact-card { background: var(--panel); padding: 20px; border: 1px solid #333; text-align: center; }
-        .impact-card h3 { font-size: 0.7rem; color: #888; margin: 0; text-transform: uppercase; }
-        .impact-card .value { display: block; font-size: 1.8rem; color: var(--gold); font-weight: bold; margin-top: 10px; }
 
-        /* Foundations Grid */
-        .foundation-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; 
+        /* SIDEBAR (Omnipresent) */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
         }
-        .f-card { 
-            background: #0a0a0a; border: 1px solid #222; padding: 25px; transition: 0.3s;
-            position: relative; overflow: hidden;
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
         }
-        .f-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .f-card h4 { color: white; margin: 0 0 10px 0; font-size: 1.1rem; }
-        .f-card p { font-size: 0.85rem; line-height: 1.5; color: #888; }
-        .f-tag { font-size: 0.65rem; background: #222; padding: 3px 8px; color: var(--gold); border-radius: 3px; }
-        
-        /* Connection Line */
-        .connection { font-size: 0.7rem; color: #444; margin-top: 15px; border-top: 1px solid #222; padding-top: 10px; }
+
+        .nav-link {
+            display: block; color: #888; text-decoration: none; padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a; font-size: 0.8rem;
+        }
+
+        /* HUB CONTENT */
+        .hub-main { overflow-y: scroll; padding: 40px; }
+
+        .hub-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 40px;
+        }
+
+        /* PILLAR CARDS */
+        .pillar-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px;
+        }
+
+        .pillar-card {
+            background: #0c0c0c; border: 1px solid var(--kin-border); padding: 30px;
+            position: relative; transition: 0.3s;
+        }
+
+        .pillar-card:hover { border-color: var(--kin-gold); }
+        .pillar-card h2 { color: var(--kin-gold); margin-top: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .pillar-card p { font-size: 0.85rem; line-height: 1.6; color: #888; }
+
+        .allocation-stat {
+            margin-top: 20px; padding-top: 20px; border-top: 1px dashed #333;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .impact-btn {
+            display: inline-block; background: transparent; border: 1px solid var(--kin-gold);
+            color: var(--kin-gold); padding: 10px 20px; text-decoration: none;
+            font-size: 0.7rem; font-weight: bold; margin-top: 20px;
+        }
+
+        /* ALLOCATION LEDGER */
+        .ledger-title { color: var(--kin-gold); font-size: 0.8rem; margin-bottom: 15px; text-transform: uppercase; }
+        .ledger-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        .ledger-table th { text-align: left; padding: 10px; border-bottom: 1px solid var(--kin-gold); color: #555; }
+        .ledger-table td { padding: 15px 10px; border-bottom: 1px solid #111; }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="tagline">Solomon Kin Records Community Efforts</div>
-        <h1>THE FOUNDATION HUB</h1>
-        <p>A Sovereign Ledger of Cause, Community, and Collective Progress</p>
-    </header>
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="index.html" class="nav-link">DIRECTORY</a>
+            <a href="foundation-feed.html" class="nav-link">LIVE FEED</a>
+            <a href="receipt.html" class="nav-link">MY RECEIPTS</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">FOUNDATION LEDGER v4.0</div>
+    </aside>
 
-    <div class="impact-summary">
-        <div class="impact-card"><h3>Total Contributed</h3><span class="value">$1,240,500</span></div>
-        <div class="impact-card"><h3>Programs Funded</h3><span class="value">24</span></div>
-        <div class="impact-card"><h3>Communities Reached</h3><span class="value">112</span></div>
-        <div class="impact-card"><h3>Active Volunteers</h3><span class="value">3,500+</span></div>
-    </div>
+    <main class="hub-main">
+        <header class="hub-header">
+            <h2 style="margin:0; font-size: 2.2rem;">Foundation Pillars</h2>
+            <span style="color:#444; font-size: 0.8rem;">THE 10% MANDATE IN ACTION</span>
+        </header>
 
-    <div class="foundation-grid">
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <h2>Think Team Not Gang</h2>
+                <p>Focused on neutralizing street-level conflict through economic repositioning. TTNG provides trade education, legal entity support, and EIN registration assistance to at-risk youth, transforming "crews" into "companies."</p>
+                <div class="allocation-stat">
+                    <span style="font-size: 0.7rem; color: #555;">CURRENT ALLOCATION:</span>
+                    <span style="color: #fff; font-weight: bold;">$452,000.00</span>
+                </div>
+                <a href="#" class="impact-btn">VIEW CASE STUDIES</a>
+            </div>
+
+            <div class="pillar-card">
+                <h2>Koinonia Grace</h2>
+                <p>The cultural heart of the Solomon Kin Records network. This foundation preserves the provenance of canvas works, funds original mural projects, and ensures the spiritual and communal health of our verified associates.</p>
+                <div class="allocation-stat">
+                    <span style="font-size: 0.7rem; color: #555;">CURRENT ALLOCATION:</span>
+                    <span style="color: #fff; font-weight: bold;">$318,500.00</span>
+                </div>
+                <a href="#" class="impact-btn">VIEW GALLERY IMPACT</a>
+            </div>
+        </div>
+
+        <div class="ledger-title">Recent Allocation Ledger</div>
         
-        <div class="f-card">
-            <span class="f-tag">ENVIRONMENT</span>
-            <h4>Clean Blue Green Corp</h4>
-            <p>Directly managing governmental and primary industrial verification portals for environmental sustainability.</p>
-            <div class="connection">Partner: Global Citizen Joe, LLC</div>
-        </div>
-
-        <div class="f-card">
-            <span class="f-tag">YOUTH & IDENTITY</span>
-            <h4>Think Team Not Gang</h4>
-            <p>Advocating for identity project records and youth transit solutions to discourage gang affiliation through community grace.</p>
-            <div class="connection">Partner: Thin Black & Brown Lines, NPC</div>
-        </div>
-
-        <div class="f-card">
-            <span class="f-tag">ADVOCACY</span>
-            <h4>AEAH Corporation</h4>
-            <p>Against Electronic Abuse and Harassment. Providing technology-driven support for victims of digital exploitation.</p>
-            <div class="connection">Partner: Solomon Kin Software Center</div>
-        </div>
-
-        <div class="f-card">
-            <span class="f-tag">HOLIDAY / EVENTS</span>
-            <h4>Christmas Tree Farm Foundation</h4>
-            <p>Leveraging seasonal commerce to fund year-round community cause efforts and local event sponsorship.</p>
-            <div class="connection">Partner: Xmas Made, Inc.</div>
-        </div>
-
-        <div class="f-card">
-            <span class="f-tag">TECHNOLOGY</span>
-            <h4>Project KinOS Foundation</h4>
-            <p>Developing open-source, sovereign operating systems to empower individual data privacy and digital identity.</p>
-            <div class="connection">Partner: Vexilla AITS, Inc.</div>
-        </div>
-
-        </div>
-</div>
-
-<footer style="margin-top: 80px; padding: 40px; border-top: 1px solid #222; text-align: center; font-size: 0.7rem; color: #444;">
-    SOLOMON KIN RECORDS FOUNDATION RECORDS | c1999-2026 | VERIFIED BY VEXILLA
-</footer>
+        <table class="ledger-table">
+            <thead>
+                <tr>
+                    <th>DATE</th>
+                    <th>INITIATIVE</th>
+                    <th>PILLAR</th>
+                    <th>DISBURSEMENT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-03-10</td>
+                    <td>Atlanta Trade Education Hub</td>
+                    <td>TTNG</td>
+                    <td style="color:var(--kin-gold);">$25,000.00</td>
+                </tr>
+                <tr>
+                    <td>2026-03-08</td>
+                    <td>Canvas Restoration Project #14</td>
+                    <td>KOINONIA</td>
+                    <td style="color:var(--kin-gold);">$12,400.00</td>
+                </tr>
+                <tr>
+                    <td>2026-03-05</td>
+                    <td>Youth EIN Registration Workshop</td>
+                    <td>TTNG</td>
+                    <td style="color:var(--kin-gold);">$8,500.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
 </body>
 </html>
