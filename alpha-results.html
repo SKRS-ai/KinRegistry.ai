@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIN PAGES | Alphabetical Index</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-border: #222;
+        }
+
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* PERSISTENT SIDEBAR (Stays loyal to the Kin Pages structure) */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .btn-gate {
+            display: block; width: 100%; padding: 15px; text-align: center;
+            text-decoration: none; font-weight: bold; font-size: 0.8rem; margin-top: 10px;
+        }
+        .btn-login { border: 1px solid var(--kin-gold); color: var(--kin-gold); }
+        .btn-reg { background: var(--kin-gold); color: black; }
+
+        /* MAIN CONTENT */
+        .main-directory { overflow-y: scroll; padding: 40px; }
+
+        .alpha-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .current-letter { font-size: 4rem; color: var(--kin-gold); font-weight: bold; line-height: 1; }
+        
+        /* THE LEDGER LIST */
+        .ledger-table { width: 100%; border-collapse: collapse; }
+        .ledger-table th { 
+            text-align: left; color: var(--kin-gold); font-size: 0.7rem; 
+            padding: 10px; border-bottom: 1px solid var(--kin-gold);
+        }
+        .ledger-row { border-bottom: 1px dotted #333; transition: 0.2s; }
+        .ledger-row:hover { background: #111; }
+        .ledger-row td { padding: 15px 10px; vertical-align: top; }
+
+        .entity-name { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
+        .entity-name:hover { color: var(--kin-gold); }
+        .ein-badge { color: #00ff41; font-size: 0.6rem; margin-left: 10px; border: 1px solid #00ff41; padding: 1px 4px; }
+        .sub-data { font-size: 0.75rem; color: #666; display: block; margin-top: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <div style="flex-grow:1; margin-top:30px;">
+            <p style="color:var(--kin-gold); font-size:0.7rem;">FILTERS ACTIVE:</p>
+            <p style="font-size:0.8rem; color:#fff;">ALPHABETICAL: "A"</p>
+        </div>
+        <div class="gatekeeper-actions">
+            <a href="login.html" class="btn-gate btn-login">GATE LOGIN</a>
+            <a href="register.html" class="btn-gate btn-reg">REGISTER EIN</a>
+        </div>
+    </aside>
+
+    <main class="main-directory">
+        <header class="alpha-header">
+            <div class="current-letter">A</div>
+            <div style="text-align:right;">
+                <span style="color:#444;">SEARCHING MASTER LEDGER...</span><br>
+                <a href="index.html" style="color:var(--kin-gold); text-decoration:none; font-size:0.8rem;">← RETURN TO CATEGORIES</a>
+            </div>
+        </header>
+
+        <table class="ledger-table">
+            <thead>
+                <tr>
+                    <th>ENTITY NAME / REGISTRY ID</th>
+                    <th>SECTOR</th>
+                    <th>REGION</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="ledger-row">
+                    <td>
+                        <a href="profile.html" class="entity-name">ANCESTRAL GRACE STUDIO</a><span class="ein-badge">✓ EIN</span>
+                        <span class="sub-data">ID: SKR-882-AG</span>
+                    </td>
+                    <td style="font-size:0.8rem;">FINE ART / CANVAS</td>
+                    <td style="font-size:0.8rem;">ATLANTA, GA</td>
+                    <td style="color:#00ff41; font-size:0.8rem;">ACTIVE</td>
+                </tr>
+                <tr class="ledger-row">
+                    <td>
+                        <a href="profile.html" class="entity-name">AEAH CORPORATION</a><span class="ein-badge">✓ EIN</span>
+                        <span class="sub-data">ID: AEA-112-TX</span>
+                    </td>
+                    <td style="font-size:0.8rem;">FOUNDATION / TECH</td>
+                    <td style="font-size:0.8rem;">REMOTE</td>
+                    <td style="color:#00ff41; font-size:0.8rem;">ACTIVE</td>
+                </tr>
+                <tr class="ledger-row">
+                    <td>
+                        <a href="profile.html" class="entity-name">APEX LOGISTICS GROUP</a><span class="ein-badge">✓ EIN</span>
+                        <span class="sub-data">ID: APX-449-LO</span>
+                    </td>
+                    <td style="font-size:0.8rem;">TRADE / SHIPPING</td>
+                    <td style="font-size:0.8rem;">NEW JERSEY</td>
+                    <td style="color:#00ff41; font-size:0.8rem;">ACTIVE</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+</html>
