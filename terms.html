@@ -2,69 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Terms of Association | KinRegistry.ai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Association | Kin Pages Legal Ledger</title>
     <style>
-        :root { --gold: #d4af37; --bg: #0a0a0a; --text: #cccccc; }
-        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; line-height: 1.6; padding: 60px 20px; }
-        .document { max-width: 800px; margin: 0 auto; background: #111; padding: 50px; border: 1px solid #333; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        
-        header { text-align: center; border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 40px; }
-        h1 { color: var(--gold); margin: 0; font-size: 1.8rem; letter-spacing: 2px; }
-        h2 { color: var(--gold); font-size: 1.1rem; text-transform: uppercase; margin-top: 30px; border-left: 3px solid var(--gold); padding-left: 10px; }
-        
-        .clause { margin-bottom: 20px; text-align: justify; }
-        .highlight { color: white; font-weight: bold; }
-        
-        .footer-note { margin-top: 50px; font-size: 0.8rem; text-align: center; border-top: 1px solid #222; padding-top: 20px; font-style: italic; }
-        .btn-back { display: inline-block; margin-top: 20px; color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 5px 15px; }
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+        }
+
+        body {
+            background-color: var(--kin-black);
+            color: #aaa;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR (Omnipresent) */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        .nav-link {
+            display: block; color: #555; text-decoration: none; padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a; font-size: 0.8rem;
+        }
+        .nav-link:hover { color: var(--kin-gold); }
+
+        /* LEGAL CONTENT */
+        .legal-scroll {
+            overflow-y: scroll;
+            padding: 80px 100px;
+            line-height: 1.6;
+        }
+
+        .scroll-header {
+            text-align: center;
+            border-bottom: 1px double var(--kin-gold);
+            padding-bottom: 40px;
+            margin-bottom: 50px;
+        }
+
+        h2 { color: #fff; text-transform: uppercase; letter-spacing: 4px; font-size: 1.8rem; }
+        h3 { color: var(--kin-gold); text-transform: uppercase; font-size: 1rem; margin-top: 40px; border-left: 3px solid var(--kin-gold); padding-left: 15px; }
+
+        .clause { margin-bottom: 30px; font-size: 0.9rem; text-align: justify; }
+        .clause b { color: #fff; }
+
+        .signature-area {
+            margin-top: 100px;
+            padding: 40px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .seal {
+            width: 80px; height: 80px; border: 2px solid var(--kin-gold);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 20px; color: var(--kin-gold);
+            font-weight: bold; font-size: 0.7rem;
+        }
     </style>
 </head>
 <body>
 
-<div class="document">
-    <header>
-        <p style="margin:0; font-size:0.8rem; letter-spacing:4px;">OFFICIAL RECORD</p>
-        <h1>TERMS OF KINSHIP ASSOCIATION</h1>
-        <p style="margin:0; font-size:0.7rem;">Established c.1999 | Updated 2026</p>
-    </header>
+    <aside class="sidebar">
+        <h1>KIN PAGES</h1>
+        <nav style="flex-grow:1;">
+            <a href="index.html" class="nav-link">← RETURN TO DIRECTORY</a>
+            <a href="register.html" class="nav-link">REGISTER ENTITY</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">LEGAL REVISION: 2026.03</div>
+    </aside>
 
-    <div class="clause">
-        This document governs the association between the Registrant (hereafter "The Associate") and <span class="highlight">Solomon Kin Records Media Group, Inc.</span> (hereafter "The Gatekeeper") via the KinRegistry.ai platform.
-    </div>
+    <main class="legal-scroll">
+        <div class="scroll-header">
+            <div class="seal">SKR<br>SEAL</div>
+            <h2>Sovereign Mandate</h2>
+            <p style="color:var(--kin-gold); font-size:0.8rem;">ESTABLISHED c.1999 | SOLOMON KIN RECORDS MEDIA GROUP</p>
+        </div>
 
-    <h2>1. Business Entity Verification (EIN)</h2>
-    <div class="clause">
-        All Associates seeking to utilize the Canvas Marketplace or list corporate affiliations must provide a valid <span class="highlight">Employer Identification Number (EIN)</span>. This platform is a professional ledger; as such, Associates are required to operate as a legal business entity. Use of personal SSNs for marketplace transactions is strictly prohibited to ensure institutional clarity.
-    </div>
+        <div class="clause">
+            <h3>I. The Sovereign Association</h3>
+            By registering with the <b>Kin Pages</b>, the Entity acknowledges a formal association with the Solomon Kin Records Media Group. This association is predicated on professional integrity, cultural preservation, and the verification of legal business status.
+        </div>
 
-    <h2>2. The Foundation Contribution (10% Tax)</h2>
-    <div class="clause">
-        In alignment with our organizational community efforts, a <span class="highlight">10% Foundation Tax</span> is applied to all successful sales generated through the Master Scroll. These funds are directly disbursed to the Solomon Kin Records Foundations, including but not limited to: <em>The Christmas Tree Farm Foundation, Think Team Not Gang,</em> and <em>Koinonia Grace.</em>
-    </div>
+        <div class="clause">
+            <h3>II. The 10% Foundation Mandate</h3>
+            A primary condition of association is the <b>Mandatory 10% Foundation Tax</b>. Ten percent of all gross trade value generated through Kin Pages listings must be allocated to the Solomon Kin Records Foundation Ledger. These funds support designated cause efforts including <i>Think Team Not Gang</i> and <i>Koinonia Grace</i>.
+        </div>
 
-    <h2>3. The Yellow Pages for Canvas Works</h2>
-    <div class="clause">
-        The Art Depository is exclusively for <span class="highlight">Canvas-based works</span> (Originals, Giclée Prints, and Mixed Media). The Gatekeeper reserves the right to remove any listing that does not meet the "Canvas Standard" or fails to provide accurate "Labeling" (Original vs. Print).
-    </div>
+        
 
-    <h2>4. Membership Tiers & Dues</h2>
-    <div class="clause">
-        Membership is granted based on the selected Tier (Artisan, Studio, Gallery, Masterpiece). Dues are non-refundable and cover the maintenance of the <span class="highlight">Vexilla AITS Master Portal</span> and the promotion of the Associate's profile within the global directory.
-    </div>
+        <div class="clause">
+            <h3>III. EIN Verification</h3>
+            The "Gatekeeper" reserves the right to deny or revoke any listing that fails to provide a valid, verifiable <b>Employer Identification Number (EIN)</b>. Misrepresentation of corporate status results in immediate expulsion from the Master Ledger and the forfeiture of Sovereign Tiers.
+        </div>
 
-    <h2>5. Sovereign Identity</h2>
-    <div class="clause">
-        Associates retain full ownership of their Intellectual Property. However, by listing on the Master Scroll, you grant the Gatekeeper a license to display said works for promotional and directory purposes within the Solomon Kin ecosystem.
-    </div>
+        <div class="clause">
+            <h3>IV. The Sovereign Handshake</h3>
+            All trade negotiations initiated within the Kin Pages portal are governed by the <b>Sovereign Handshake Protocol</b>. This requires mutual transparency between verified entities and adherence to the provenance records stored in the Master Depository.
+        </div>
 
-    <div class="footer-note">
-        This agreement is bound by the laws of the Sovereign Ledger and the Vexilla Vanguard Collective. Failure to adhere to EIN verification protocols will result in immediate suspension of the Associate's Depository.
-    </div>
-
-    <center>
-        <a href="register.html" class="btn-back">I ACCEPT - RETURN TO REGISTRATION</a>
-    </center>
-</div>
+        <div class="signature-area">
+            <p style="font-size:0.75rem;">BY CLICKING "REGISTER," YOU BIND YOUR ENTITY TO THE TERMS OF THE MASTER LEDGER.</p>
+            <div style="margin-top:20px; font-family: 'Brush Script MT', cursive; font-size: 1.5rem; color: var(--kin-gold);">
+                Solomon Kin Records
+            </div>
+            <p style="font-size:0.6rem; color:#444;">OFFICE OF THE GATEKEEPER</p>
+        </div>
+    </main>
 
 </body>
 </html>
