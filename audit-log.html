@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Audit | Kin Pages System Integrity</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-warn: #ffcc00;
+        }
+
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR (Omnipresent) */
+        .sidebar {
+            background: #0a0a0a;
+            border-right: 2px solid var(--kin-gold);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        /* AUDIT FEED */
+        .audit-main { overflow-y: scroll; padding: 40px; }
+        
+        .audit-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .audit-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+        }
+
+        .audit-table th {
+            text-align: left;
+            padding: 12px;
+            background: #1a1a1a;
+            color: var(--kin-gold);
+            border-bottom: 1px solid var(--kin-gold);
+            text-transform: uppercase;
+        }
+
+        .audit-table td {
+            padding: 12px;
+            border-bottom: 1px solid #222;
+            color: #ccc;
+        }
+
+        .status-badge {
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 0.65rem;
+            font-weight: bold;
+        }
+
+        .status-ok { background: #004400; color: #00ff41; }
+        .status-check { background: #444400; color: var(--kin-warn); }
+        .status-critical { background: #440000; color: #ff4444; }
+
+        .code-snippet { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="gatekeeper.html" style="display:block; color:#888; text-decoration:none; padding:10px 0; border-bottom:1px solid #1a1a1a; font-size:0.8rem;">ADMIN COMMAND</a>
+            <a href="sitemap.html" style="display:block; color:#888; text-decoration:none; padding:10px 0; border-bottom:1px solid #1a1a1a; font-size:0.8rem;">SYSTEM MAP</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">VEXILLA-SEC // LOG-882</div>
+    </aside>
+
+    <main class="audit-main">
+        <header class="audit-header">
+            <div>
+                <h2 style="margin:0;">Internal Audit Log</h2>
+                <span style="color:#444; font-size:0.75rem;">VEXILLA AITS CRYPTOGRAPHIC TRUTH ENGINE</span>
+            </div>
+            <div style="text-align:right; color:#00ff41; font-size:0.7rem;">
+                UPTIME: 99.999%
+            </div>
+        </header>
+
+        
+
+        <table class="audit-table">
+            <thead>
+                <tr>
+                    <th>TIMESTAMP (UTC)</th>
+                    <th>EVENT CATEGORY</th>
+                    <th>ENTITY / NODE</th>
+                    <th>STATUS</th>
+                    <th>VEXILLA_AUTH_HASH</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-03-15 21:12:04</td>
+                    <td>EIN_VERIFICATION</td>
+                    <td>Ancestral Grace (ATL-01)</td>
+                    <td><span class="status-badge status-ok">PASS</span></td>
+                    <td class="code-snippet">0x882f...a12c</td>
+                </tr>
+                <tr>
+                    <td>2026-03-15 20:45:22</td>
+                    <td>TAX_ALLOCATION</td>
+                    <td>IBINGOD (GTH-01)</td>
+                    <td><span class="status-badge status-ok">SYNCED</span></td>
+                    <td class="code-snippet">0x442a...b991</td>
+                </tr>
+                <tr>
+                    <td>2026-03-15 19:20:01</td>
+                    <td>GATEKEEPER_LOGIN</td>
+                    <td>Admin-Root (NYC-04)</td>
+                    <td><span class="status-badge status-check">RE-AUTH</span></td>
+                    <td class="code-snippet">0x110e...e872</td>
+                </tr>
+                <tr>
+                    <td>2026-03-15 18:58:10</td>
+                    <td>ASSET_TRANSFER</td>
+                    <td>SK-ART-001 (IN-TRANSIT)</td>
+                    <td><span class="status-badge status-ok">PENDING</span></td>
+                    <td class="code-snippet">0x773d...c004</td>
+                </tr>
+                <tr>
+                    <td>2026-03-15 17:30:45</td>
+                    <td>ACCESS_DENIED</td>
+                    <td>Unauthorized_IP (Unkn)</td>
+                    <td><span class="status-badge status-critical">BLOCKED</span></td>
+                    <td class="code-snippet">0x992b...f555</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 50px; font-size: 0.6rem; color: #333; text-align: center;">
+            // END OF LOG FILE // ALL EVENTS SEALED UNDER SOLOMON KIN RECORDS BYLAW //
+        </div>
+    </main>
+
+</body>
+</html>
