@@ -2,213 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Assembly | Kin Pages Registration</title>
     <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #111;
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; }
+        body { 
+            background-color: var(--kin-black); color: #eee; 
+            font-family: 'Courier New', monospace; margin: 0; 
+            display: flex; align-items: center; justify-content: center; min-height: 100vh;
         }
-
-        body {
-            background-color: var(--kin-black); color: #eee;
-            font-family: 'Courier New', monospace; margin: 0; padding: 40px;
-            display: flex; justify-content: center;
+        .reg-card {
+            width: 100%; max-width: 450px; padding: 40px;
+            background: var(--kin-grey); border: 1px solid var(--kin-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 20px;
         }
-
-        .reg-container {
-            max-width: 900px; width: 100%; background: var(--kin-grey);
-            border: 1px solid var(--kin-gold); padding: 50px;
+        h1 { color: var(--kin-gold); text-align: center; letter-spacing: 5px; font-size: 1.2rem; margin-bottom: 10px; }
+        p.tagline { text-align: center; font-size: 0.6rem; color: #555; margin-bottom: 30px; text-transform: uppercase; }
+        
+        label { display: block; font-size: 0.65rem; color: #666; margin-bottom: 5px; text-transform: uppercase; }
+        input, select { 
+            width: 100%; padding: 12px; margin-bottom: 20px; 
+            background: #000; border: 1px solid #333; color: #fff; 
+            font-family: inherit; box-sizing: border-box; 
         }
-
-        h1 { color: var(--kin-gold); text-align: center; letter-spacing: 5px; margin-bottom: 40px; }
-
-        /* TABS FOR ROLE SELECTION */
-        .role-selector {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;
+        .btn-reg { 
+            width: 100%; padding: 15px; background: var(--kin-gold); 
+            color: #000; border: none; font-weight: bold; cursor: pointer; 
+            text-transform: uppercase; letter-spacing: 2px;
         }
-
-        .role-btn {
-            padding: 20px; border: 1px solid #333; cursor: pointer; text-align: center;
-            transition: 0.3s; background: #000;
-        }
-
-        .role-btn.active { border-color: var(--kin-gold); color: var(--kin-gold); background: #0a0a0a; }
-
-        /* FORM STYLING */
-        .form-section { display: none; }
-        .form-section.active { display: block; }
-
-        .input-group { margin-bottom: 20px; }
-        label { display: block; font-size: 0.7rem; color: #666; margin-bottom: 8px; text-transform: uppercase; }
-        input, select, textarea {
-            width: 100%; background: #000; border: 1px solid #333; color: #fff;
-            padding: 12px; font-family: inherit; box-sizing: border-box;
-        }
-
-        .social-login {
-            display: flex; gap: 10px; margin-top: 30px; justify-content: center; border-top: 1px solid #222; padding-top: 30px;
-        }
-
-        .btn-social {
-            padding: 10px 15px; border: 1px solid #333; font-size: 0.65rem; cursor: pointer; color: #888;
-        }
-
-        .btn-submit {
-            width: 100%; background: var(--kin-gold); color: #000; border: none;
-            padding: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px;
-        }
-
-        .info-tag { font-size: 0.65rem; color: var(--kin-gold); margin-top: 5px; }
+        .footer-link { text-align: center; margin-top: 20px; font-size: 0.7rem; }
+        .footer-link a { color: var(--kin-gold); text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <div class="reg-container">
-        <h1>ASSEMBLY REGISTRATION</h1>
-
-        <div class="role-selector">
-            <div class="role-btn active" onclick="toggleForm('user')">REGULAR MEMBER<br><span style="font-size:0.6rem;">(Favorites & Newsletters)</span></div>
-            <div class="role-btn" onclick="toggleForm('merchant')">ARTIST / MERCHANT<br><span style="font-size:0.6rem;">(Sell Art & Classifieds)</span></div>
-        </div>
-
-        <div id="form-user" class="form-section active">
-            <div class="input-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="Required for updates">
-            </div>
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password">
-            </div>
-            <p style="font-size: 0.7rem; color: #555;">By joining, you can save favorite businesses and receive the Vexilla AITS newsletter.</p>
-            <button class="btn-submit">CREATE MEMBER ACCOUNT</button>
-        </div>
-
-        <div id="form-merchant" class="form-section">
-            <div class="input-group">
-                <label>Full Legal Name / Trade Alias</label>
-                <input type="text" placeholder="Required for Vexilla Ledger">
-            </div>
-            <div class="input-group">
-                <label>EIN Number</label>
-                <input type="text" placeholder="XX-XXXXXXX (Required for Artists/Merchants)">
-                <div class="info-tag">Required to sell Canvas Art and list Sovereign Businesses.</div>
-            </div>
-            <div class="input-group">
-                <label>Contact Email (Optional for Profile)</label>
-                <input type="email">
-            </div>
-            <div class="input-group">
-                <label>Entity Identity</label>
-                <select>
-                    <option>Select Cultural Hub...</option>
-                    <option>African-American</option>
-                    <option>Hispanic/Latino</option>
-                    <option>Asian-Pacific</option>
-                    <option>Indigenous</option>
-                    <option>Other / Multicultural</option>
-                </select>
-            </div>
-            <button class="btn-submit">REGISTER SOVEREIGN ENTITY</button>
-        </div>
-
+    <div class="reg-card">
+        <h1>JOIN ASSEMBLY</h1>
+        <p class="tagline">Tri-State Legacy Continuation</p>
         
+        <label>Email Address</label>
+        <input type="email" id="reg-email" placeholder="sovereign@example.com" required>
+        
+        <label>Security Key (Password)</label>
+        <input type="password" id="reg-pass" placeholder="Min. 6 Characters" required>
 
-        <div class="social-login">
-            <span style="align-self:center; margin-right:10px; font-size:0.6rem;">OR SIGN IN WITH:</span>
-            <div class="btn-social">GOOGLE</div>
-            <div class="btn-social">X (TWITTER)</div>
-            <div class="btn-social">MICROSOFT</div>
+        <label>Business Category</label>
+        <select id="reg-tier">
+            <option value="basic">Basic Tier (Text-Only - FREE)</option>
+            <option value="paid">Pro Merchant (Photo/Video - $29/mo)</option>
+        </select>
+        
+        <button class="btn-reg" onclick="executeRegistration()">CREATE ACCOUNT</button>
+
+        <div class="footer-link">
+            Already a member? <a href="login.html">Login to Vault</a>
         </div>
     </div>
 
-    <script>
-    // 1. FORM TOGGLE LOGIC
-    function toggleForm(role) {
-        document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
-        document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-        
-        document.getElementById('form-' + role).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    // 2. EMAIL/PASSWORD SUBMISSION (The "Enter" Fix)
-    const userForm = document.querySelector('#form-user');
-    const userSubmitBtn = userForm.querySelector('.btn-submit');
-
-    userSubmitBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevents page reload
-        
-        const email = userForm.querySelector('input[type="email"]').value;
-        const password = userForm.querySelector('input[type="password"]').value;
-
-        if (email && password) {
-            // Visual feedback: simulating a secure Vexilla handshake
-            userSubmitBtn.innerText = "AUTHENTICATING...";
-            
-            // Set a dummy session in local storage for the browser to remember you
-            localStorage.setItem('kin_pages_session', 'active');
-            localStorage.setItem('user_email', email);
-
-            setTimeout(() => {
-                window.location.href = 'profile.html'; // Redirect to Member Dashboard
-            }, 1000);
-        } else {
-            alert("Please enter a valid email and password to join the Assembly.");
-        }
-    });
-
-    // 3. SOCIAL LOGIN REDIRECTS (The "Quick Access" Fix)
-    document.querySelectorAll('.btn-social').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const platform = this.innerText;
-            console.log(`Redirecting to ${platform} OAuth...`);
-            
-            // Visual feedback
-            this.innerText = "CONNECTING...";
-            
-            // Simulate session creation
-            localStorage.setItem('kin_pages_session', 'active');
-
-            setTimeout(() => {
-                window.location.href = 'profile.html';
-            }, 1200);
-        });
-    });
-
-    // 4. MERCHANT/ARTIST REGISTRATION (The EIN Path)
-    const merchantSubmitBtn = document.querySelector('#form-merchant .btn-submit');
-    merchantSubmitBtn.addEventListener('click', function() {
-        const ein = document.querySelector('input[placeholder*="XX-XXXXXXX"]').value;
-        
-        if(ein.length >= 9) {
-            this.innerText = "VERIFYING EIN...";
-            localStorage.setItem('kin_pages_session', 'active');
-            localStorage.setItem('member_tier', 'merchant');
-            
-            setTimeout(() => {
-                window.location.href = 'profile.html';
-            }, 1500);
-        } else {
-            alert("A valid EIN is required for Sovereign Merchant status.");
-        }
-    });
-</script>
-function registerMember() {
-    const email = document.getElementById('reg-email').value;
-    const pass = document.getElementById('reg-pass').value;
     
-    const newUser = {
-        email: email,
-        password: pass,
-        tier: 'basic' // Everyone starts at basic/free
-    };
 
-    // Save to local storage ledger
-    localStorage.setItem('kin_user_' + email, JSON.stringify(newUser));
-    alert("Welcome to the Assembly. You may now Log In.");
-    window.location.href = 'login.html';
-}
+    <script>
+        function executeRegistration() {
+            const email = document.getElementById('reg-email').value;
+            const pass = document.getElementById('reg-pass').value;
+            const tier = document.getElementById('reg-tier').value;
+            const btn = document.querySelector('.btn-reg');
+
+            // 1. Validation
+            if (!email.includes('@') || pass.length < 6) {
+                alert("ERROR: Please provide a valid email and a password of at least 6 characters.");
+                return;
+            }
+
+            btn.innerText = "WRITING TO LEDGER...";
+            btn.disabled = true;
+
+            // 2. The Data Structure
+            const userData = {
+                email: email,
+                password: pass,
+                tier: tier, // Saves chosen tier
+                timestamp: new Date().toISOString()
+            };
+
+            // 3. Save to LocalStorage (The Ledger)
+            // We use a unique key for every user based on their email
+            localStorage.setItem('kin_user_' + email, JSON.stringify(userData));
+
+            // 4. Redirect to Login
+            setTimeout(() => {
+                alert("SUCCESS: Your credentials have been secured. Please Log In.");
+                window.location.href = 'login.html';
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
