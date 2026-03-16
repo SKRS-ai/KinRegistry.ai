@@ -7,147 +7,105 @@
     <style>
         :root {
             --kin-gold: #d4af37;
-            --kin-black: #0a0a0a;
-            --kin-grey: #1a1a1a;
+            --kin-black: #050505;
+            --kin-grey: #111;
             --text-main: #e0e0e0;
-            --text-dim: #888;
-            --border: #333;
+            --text-dim: #777;
+            --border: #222;
         }
-        body { background-color: var(--kin-black); color: var(--text-main); font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; line-height: 1.6; }
-        header { padding: 60px 20px; text-align: center; background: linear-gradient(to bottom, #111, var(--kin-black)); border-bottom: 2px solid var(--kin-gold); }
-        h1 { color: var(--kin-gold); font-size: 2rem; letter-spacing: 8px; text-transform: uppercase; margin: 0; }
-        .registry-subtitle { color: var(--text-dim); font-size: 0.7rem; letter-spacing: 4px; margin-top: 10px; }
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .section-divider { color: var(--kin-gold); font-size: 1rem; letter-spacing: 3px; margin: 50px 0 20px; text-transform: uppercase; border-left: 4px solid var(--kin-gold); padding-left: 15px; background: rgba(212, 175, 55, 0.05); padding: 10px 15px; }
-        .ledger-table { width: 100%; border-collapse: collapse; background: var(--kin-grey); border: 1px solid var(--border); margin-bottom: 30px; }
-        .ledger-table th { background: #000; color: var(--kin-gold); text-align: left; padding: 15px; font-size: 0.8rem; text-transform: uppercase; border-bottom: 1px solid var(--kin-gold); }
-        .ledger-table td { padding: 15px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 0.85rem; }
-        .company-name { color: #fff; font-weight: bold; display: block; font-size: 1rem; margin-bottom: 4px; }
-        .industry-tag { font-size: 0.6rem; color: var(--kin-gold); text-transform: uppercase; border: 1px solid var(--kin-gold); padding: 2px 6px; border-radius: 2px; }
-        .description { color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
-        .btn-portal { display: inline-block; padding: 6px 12px; border: 1px solid var(--kin-gold); color: var(--kin-gold); text-decoration: none; font-size: 0.65rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; margin-top: 5px; }
-        .btn-portal:hover { background: var(--kin-gold); color: #000; }
-        footer { text-align: center; padding: 40px; color: #444; font-size: 0.6rem; letter-spacing: 2px; border-top: 1px solid var(--border); }
+        body { background-color: var(--kin-black); color: var(--text-main); font-family: 'Courier New', monospace; margin: 0; line-height: 1.5; }
+        
+        /* EXCLUSIVE CORPORATE LOGIN BAR */
+        .corporate-access-bar { background: #000; border-bottom: 1px solid #333; padding: 10px 40px; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+        .corp-label { color: var(--kin-gold); font-size: 0.6rem; letter-spacing: 2px; font-weight: bold; }
+        .corp-input { background: #000; border: 1px solid #444; color: var(--kin-gold); padding: 5px 10px; font-size: 0.7rem; font-family: inherit; width: 150px; }
+        .btn-corp { background: var(--kin-gold); color: #000; border: none; padding: 5px 15px; font-size: 0.6rem; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+
+        header { padding: 80px 20px; text-align: center; background: #000; border-bottom: 2px solid var(--kin-gold); }
+        h1 { color: var(--kin-gold); font-size: 2.2rem; letter-spacing: 12px; text-transform: uppercase; margin: 0; }
+        .registry-subtitle { color: #444; font-size: 0.65rem; letter-spacing: 5px; margin-top: 15px; }
+
+        .container { max-width: 1300px; margin: 40px auto; padding: 0 40px; }
+        
+        .section-header { color: var(--kin-gold); font-size: 0.9rem; letter-spacing: 4px; margin: 60px 0 20px; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+        .ledger-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .ledger-table th { color: #555; text-align: left; padding: 15px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--kin-gold); }
+        .ledger-table td { padding: 18px 15px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        
+        .company-name { color: #fff; font-weight: bold; font-size: 0.95rem; display: block; }
+        .industry-tag { font-size: 0.55rem; color: var(--kin-gold); border: 1px solid var(--kin-gold); padding: 2px 5px; margin-top: 5px; display: inline-block; }
+        .description { color: var(--text-dim); font-size: 0.75rem; max-width: 450px; }
+        
+        .btn-portal { display: inline-block; border: 1px solid #444; color: #888; padding: 8px 15px; text-decoration: none; font-size: 0.6rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .btn-portal:hover { border-color: var(--kin-gold); color: var(--kin-gold); background: rgba(212, 175, 55, 0.05); }
+
+        footer { text-align: center; padding: 100px 40px 40px; color: #333; font-size: 0.55rem; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
+    <div class="corporate-access-bar">
+        <span class="corp-label">COMPANY-EXCLUSIVE EMPLOYEE LOGIN [SECURE PORTAL]</span>
+        <input type="text" class="corp-input" placeholder="EMPLOYEE ID">
+        <input type="password" class="corp-input" placeholder="PASSKEY">
+        <button class="btn-corp">ACCESS LEDGER</button>
+    </div>
+
     <header>
-        <h1>MASTER CORPORATE REGISTRY</h1>
-        <div class="registry-subtitle">SOLOMON KIN RECORDS LLC // GLOBAL OPERATIONS LEDGER</div>
+        <h1>KIN MASTER REGISTRY</h1>
+        <div class="registry-subtitle">THE ULTIMATE SOVEREIGN DIRECTORY // VEXILLA AITS CERTIFIED</div>
     </header>
 
     <div class="container">
 
-        <div class="section-divider">Records, Trading, & Music Group</div>
+        <div class="section-header">Records, Trading, & Music Group</div>
         <table class="ledger-table">
-            <thead><tr><th>Entity</th><th>Industry & Description</th><th>Access</th></tr></thead>
+            <thead><tr><th width="30%">Entity</th><th width="50%">Description</th><th>Command</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><span class="company-name">IBINGOD TRADE, INC. IM/EX</span><span class="industry-tag">EST. 1999</span></td>
-                    <td class="description">International Trade Records Company. Global insights and import/export command.</td>
-                    <td><a href="https://vexilla1090801-bot-ds.github.io/IBINGODTRADE-IM-EX-VEX-MAIN-BUYLEGALID/" class="btn-portal">PORTAL</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">SOLOMON KIN, LLC</span><span class="industry-tag">EST. 2018</span></td>
-                    <td class="description">Gatekeeper Records[cite: 49, 50]. Primary command for the Sovereign Village OS.</td>
-                    <td><a href="http://solomonkinrecords.com" class="btn-portal">COMMAND</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">BLUEPRINT ALPHA IP, INC.</span><span class="industry-tag">EST. 2001</span></td>
-                    <td class="description">Intellectual Property holdings and management.</td>
-                    <td><span class="btn-portal">ARCHIVE</span></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">3DAYZ AHEAD RDA DISRUPTION</span><span class="industry-tag">MUSIC BAND</span></td>
-                    <td class="description">Official M3-H21 Portal. RDA Disruption music experience[cite: 60, 110].</td>
-                    <td><a href="https://skrs-ai.github.io/3dayz-ahead-RDA-Disruption-EPK/" class="btn-portal">STREAM</a></td>
-                </tr>
+                <tr><td><span class="company-name">IBINGOD TRADE, INC. IM/EX</span><span class="industry-tag">EST. 1999</span></td><td class="description">International Trade Records; global insights and import/export command.</td><td><a href="https://vexilla1090801-bot-ds.github.io/IBINGODTRADE-IM-EX-VEX-MAIN-BUYLEGALID/" class="btn-portal">MARKETPLACE</a></td></tr>
+                <tr><td><span class="company-name">SOLOMON KIN RECORDS MUSIC GROUP</span></td><td class="description">Parent media group encompassing music production and label services.</td><td><a href="#" class="btn-portal">PORTAL</a></td></tr>
+                <tr><td><span class="company-name">SOLOMON KIN, LLC</span><span class="industry-tag">EST. 2018</span></td><td class="description">Gatekeeper Records and primary administrative entity.</td><td><a href="#" class="btn-portal">ADMIN</a></td></tr>
+                <tr><td><span class="company-name">3DAYZ AHEAD RDA DISRUPTION</span></td><td class="description">Official music band and M3-H21 portal disruption.</td><td><a href="https://skrs-ai.github.io/3dayz-ahead-RDA-Disruption-EPK/" class="btn-portal">EPK</a></td></tr>
+                <tr><td><span class="company-name">BLUEPRINT ALPHA IP, INC.</span><span class="industry-tag">EST. 2001</span></td><td class="description">Intellectual Property management and holding records.</td><td><span class="btn-portal">ARCHIVE</span></td></tr>
             </tbody>
         </table>
 
-        <div class="section-divider">Software & Technology (Vexilla AITS)</div>
+        <div class="section-header">Software & Technology (Vexilla AITS)</div>
         <table class="ledger-table">
-            <thead><tr><th>Entity</th><th>System Description</th><th>Access</th></tr></thead>
+            <thead><tr><th width="30%">Entity</th><th width="50%">Description</th><th>Command</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><span class="company-name">VEXILLA AITS, INC.</span><span class="industry-tag">ENTERPRISE OO</span></td>
-                    <td class="description">Autonomous Command & Digital Repository[cite: 53, 54, 105]. Home of the Vexilla Enterprise engine.</td>
-                    <td><a href="https://skrs-ai.github.io/SKRMG-Command-Center/" class="btn-portal">RUN SYSTEM</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">MAKINZINE, INC.</span><span class="industry-tag">MOBILE OO</span></td>
-                    <td class="description">KinOS Interface and Makinzine Pro mobile environment[cite: 55, 65, 90].</td>
-                    <td><a href="https://skrs-ai.github.io/KinOSA-USA_VEX/" class="btn-portal">BOOT</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">VEXILLA VANGUARD COLLECTIVE</span><span class="industry-tag">IT SUPPORT</span></td>
-                    <td class="description">Enterprise IT support foundation[cite: 88]. Integrated with Vexilla AITS.</td>
-                    <td><a href="https://nehemiahbrown007.github.io/Vexilla--Vanguard--Collective-os-www.VexillaAITS.COM/" class="btn-portal">HUB</a></td>
-                </tr>
+                <tr><td><span class="company-name">VEXILLA AITS, INC.</span><span class="industry-tag">ENTERPRISE OO</span></td><td class="description">Autonomous Command & Digital Repository software enterprise.</td><td><a href="https://skrs-ai.github.io/SKRMG-Command-Center/" class="btn-portal">RUN VEXILLA</a></td></tr>
+                <tr><td><span class="company-name">MAKINZINE, INC.</span><span class="industry-tag">MOBILE OO</span></td><td class="description">Device Mobile interface and KinOS hardware integration.</td><td><a href="https://skrs-ai.github.io/KinOSA-USA_VEX/" class="btn-portal">BOOT</a></td></tr>
+                <tr><td><span class="company-name">VEXILLA VANGUARD COLLECTIVE</span></td><td class="description">Enterprise IT support foundation for organizational systems.</td><td><a href="https://nehemiahbrown007.github.io/Vexilla--Vanguard--Collective-os-www.VexillaAITS.COM/" class="btn-portal">SUPPORT</a></td></tr>
+                <tr><td><span class="company-name">PROMPT MASK, INC.</span></td><td class="description">Software creator specializing in AI-driven interface tools.</td><td><span class="btn-portal">SYSTEM</span></td></tr>
             </tbody>
         </table>
 
-        <div class="section-divider">Media & Educational Production</div>
+        <div class="section-header">Non-Profit Corporations & Foundations</div>
         <table class="ledger-table">
-            <thead><tr><th>Entity</th><th>Broadcasting & Production</th><th>Access</th></tr></thead>
+            <thead><tr><th width="30%">Entity</th><th width="50%">Description</th><th>Command</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><span class="company-name">THE FILTH FACTOR</span><span class="industry-tag">YOUTUBE</span></td>
-                    <td class="description">Associated Media Group. Primary broadcasting channel[cite: 61].</td>
-                    <td><span class="btn-portal">WATCH</span></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">DOCKINSTATION TV NETWORK X</span><span class="industry-tag">STATION</span></td>
-                    <td class="description">Solomon Kin Records Media Group broadcasting[cite: 63, 113].</td>
-                    <td><span class="btn-portal">BROADCAST</span></td>
-                </tr>
+                <tr><td><span class="company-name">TBBLUSA FOUNDATION</span><span class="industry-tag">EST. 2020</span></td><td class="description">Thin Black and Brown Lines USA; National Identity Bureau records.</td><td><a href="http://tbblusa.org" class="btn-portal">IDENT-BUREAU</a></td></tr>
+                <tr><td><span class="company-name">AEAH CORPORATION, NPC</span><span class="industry-tag">EST. 2023</span></td><td class="description">Against Electronic Abuse and Harassment safeguarding human tech.</td><td><a href="https://brneo059.wixsite.com/against-electronic-a" class="btn-portal">ADVOCACY</a></td></tr>
+                <tr><td><span class="company-name">THE GREAT SEAL FOUNDATION</span></td><td class="description">Monument and preservation of Great Seal Identity records.</td><td><span class="btn-portal">MONUMENT</span></td></tr>
             </tbody>
         </table>
 
-        <div class="section-divider">Non-Profit & Foundation Associations</div>
+        <div class="section-header">Adult Entertainment (Obsidian Directorate)</div>
         <table class="ledger-table">
-            <thead><tr><th>Entity</th><th>Mission & Advocacy</th><th>Access</th></tr></thead>
+            <thead><tr><th width="30%">Entity</th><th width="50%">Description</th><th>Command</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><span class="company-name">TBBLUSA FOUNDATION</span><span class="industry-tag">EST. 2020</span></td>
-                    <td class="description">Thin Black and Brown Lines USA. The Great Seal Identity and National Identity Bureau[cite: 75, 76, 77].</td>
-                    <td><a href="http://tbblusa.org" class="btn-portal">RECORDS</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">AEAH CORPORATION, NPC</span><span class="industry-tag">EST. 2023</span></td>
-                    <td class="description">Against Electronic Abuse and Harassment. Safeguarding the human experience[cite: 71, 72, 73].</td>
-                    <td><a href="https://brneo059.wixsite.com/against-electronic-a" class="btn-portal">BASE COMMAND</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">KOINONIA GRACE FOUNDATION</span><span class="industry-tag">MISSION</span></td>
-                    <td class="description">Organizational community cause effort associated with TBBLUSA[cite: 80, 88].</td>
-                    <td><span class="btn-portal">IMPACT</span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="section-divider">Adult Entertainment (Obsidian Directorate)</div>
-        <table class="ledger-table">
-            <thead><tr><th>Entity</th><th>Media & Casting</th><th>Access</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td><span class="company-name">FILTHY SEDUCTION PRODUCTIONS</span><span class="industry-tag">EST. 2024</span></td>
-                    <td class="description">Consumer performer entertainment works records[cite: 82].</td>
-                    <td><a href="https://Filthyseductionproductions.com" class="btn-portal">OBSIDIAN</a></td>
-                </tr>
-                <tr>
-                    <td><span class="company-name">FLAMMABLE FILTH ADULT NETWORK</span><span class="industry-tag">NETWORK</span></td>
-                    <td class="description">Safe-data entry and media portal[cite: 82]. 18+ Identity verification required.</td>
-                    <td><a href="https://vexilla1090801-bot-ds.github.io/Flammablefilth.com_Safedata-Entry-VEX/#portal" class="btn-portal">FF PORTAL</a></td>
-                </tr>
+                <tr><td><span class="company-name">FILTHY SEDUCTION PRODUCTIONS</span><span class="industry-tag">EST. 2024</span></td><td class="description">High-fidelity media production and performer entertainment records.</td><td><a href="https://Filthyseductionproductions.com" class="btn-portal">OBSIDIAN</a></td></tr>
+                <tr><td><span class="company-name">FLAMMABLE FILTH ADULT NETWORK</span></td><td class="description">Safedata entry and secure 18+ adult network distribution.</td><td><a href="https://vexilla1090801-bot-ds.github.io/Flammablefilth.com_Safedata-Entry-VEX/" class="btn-portal">FF-NETWORK</a></td></tr>
             </tbody>
         </table>
 
     </div>
 
+    
     <footer>
-        GATEKEEPER RECORDS &copy; 2017-2026 | SOLOMON KIN RECORDS LLC | BALA CYNWYD HUB
+        &copy; 1999-2026 SOLOMON KIN RECORDS LLC | ALL SYSTEM DATA VEXILLA VERIFIED | BALA CYNWYD HUB
     </footer>
 
 </body>
