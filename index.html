@@ -192,6 +192,70 @@
             VERIFIED SOVEREIGN NETWORK // © 2026
         </div>
     </footer>
+<script>
+    // 1. SEARCH ENGINE CONNECTIVITY
+    const searchBtn = document.querySelector('.master-search button');
+    const searchInput = document.querySelector('.master-search input');
+    const cultureSelect = document.querySelectorAll('.master-search select')[0];
+    const identitySelect = document.querySelectorAll('.master-search select')[1];
 
+    function executeSearch() {
+        const query = searchInput.value.trim();
+        const culture = cultureSelect.value;
+        const identity = identitySelect.value;
+
+        // Visual feedback for the "Sovereign" experience
+        searchBtn.innerText = "VERIFYING LEDGER...";
+        searchBtn.style.opacity = "0.7";
+
+        // Construct the Search URL
+        // This sends the data to classifieds.html which will act as our results engine
+        const params = new URLSearchParams({
+            q: query,
+            hub: culture,
+            id: identity
+        });
+
+        setTimeout(() => {
+            window.location.href = `classifieds.html?${params.toString()}`;
+        }, 800);
+    }
+
+    // Trigger on Click
+    searchBtn.addEventListener('click', executeSearch);
+
+    // Trigger on "Enter" Key
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') executeSearch();
+    });
+
+    // 2. USER AUTHENTICATION & ERROR CHECKING
+    // This mock logic checks if a user is "logged in" 
+    // In a real deployment, this would check a Token or Firebase Auth
+    function checkUserSession() {
+        const isLoggedIn = localStorage.getItem('kin_pages_session'); // Placeholder for real auth
+        const navLinks = document.querySelector('.nav-links');
+
+        if (isLoggedIn) {
+            // Update UI for logged in state
+            document.querySelector('a[href="login.html"]').style.display = 'none';
+            document.querySelector('a[href="registration.html"]').innerText = 'DASHBOARD';
+            document.querySelector('a[href="registration.html"]').href = 'profile.html';
+        }
+    }
+
+    // 3. ERROR HANDLING FOR DATABASE TIMEOUTS
+    window.onerror = function(message, source, lineno, colno, error) {
+        console.error("Kin Pages System Error:", message);
+        // Alert the user gently without breaking the Sovereign aesthetic
+        const errorBar = document.createElement('div');
+        errorBar.style = "position:fixed; top:0; width:100%; background:red; color:white; text-align:center; font-size:10px; z-index:9999;";
+        errorBar.innerText = "SYSTEM ERROR: VEXILLA AITS CONNECTION INTERRUPTED. RETRYING...";
+        document.body.appendChild(errorBar);
+        setTimeout(() => errorBar.remove(), 3000);
+    };
+
+    document.addEventListener('DOMContentLoaded', checkUserSession);
+</script>
 </body>
 </html>
