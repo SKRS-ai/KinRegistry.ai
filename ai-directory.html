@@ -2,96 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AI Service Directory | KinRegistry Business Intelligence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Directory | Vexilla Technical Suite</title>
     <style>
-        :root { --gold: #d4af37; --bg: #050505; --panel: #121212; --ai-glow: #00e5ff; }
-        body { background: var(--bg); color: #ddd; font-family: 'Inter', sans-serif; margin: 0; padding: 40px; }
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-glow: #00f0ff; /* Technical Cyan for AI nodes */
+            --kin-border: #222;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0; display: grid; grid-template-columns: 280px 1fr;
+            height: 100vh; overflow: hidden;
+        }
+
+        /* SIDEBAR (Omnipresent) */
+        .sidebar {
+            background: #0a0a0a; border-right: 2px solid var(--kin-gold);
+            padding: 30px; display: flex; flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        .nav-link {
+            display: block; color: #888; text-decoration: none; padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a; font-size: 0.8rem;
+        }
+
+        /* AI LEDGER CONTENT */
+        .ai-main { overflow-y: scroll; padding: 40px; }
         
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { border-bottom: 1px solid #333; padding-bottom: 30px; margin-bottom: 50px; }
-        h1 { color: white; font-size: 2rem; margin: 0; letter-spacing: 1px; }
-        .subtitle { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; }
-
-        /* AI Service Grid */
-        .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .ai-card { 
-            background: var(--panel); border: 1px solid #222; padding: 30px; 
-            position: relative; transition: 0.4s; overflow: hidden;
-        }
-        .ai-card:hover { border-color: var(--ai-glow); transform: translateY(-5px); }
-        .ai-card::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--ai-glow), transparent);
+        .ai-header {
+            border-bottom: 4px double var(--kin-glow);
+            padding-bottom: 20px; margin-bottom: 40px;
+            display: flex; justify-content: space-between; align-items: flex-end;
         }
 
-        .category-tag { font-size: 0.7rem; color: var(--ai-glow); border: 1px solid var(--ai-glow); padding: 2px 8px; border-radius: 20px; }
-        .ai-card h3 { color: white; margin: 15px 0 10px; font-size: 1.3rem; }
-        .ai-card p { font-size: 0.9rem; color: #888; line-height: 1.6; }
+        .tool-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: #0c0c0c; border: 1px solid var(--kin-border);
+            padding: 25px; position: relative; transition: 0.3s;
+        }
+
+        .tool-card:hover { border-color: var(--kin-glow); box-shadow: 0 0 15px rgba(0, 240, 255, 0.1); }
         
-        .feature-list { list-style: none; padding: 0; margin: 20px 0; font-size: 0.85rem; color: #bbb; }
-        .feature-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-        .feature-list li::before { content: "⚡"; color: var(--gold); }
+        .tool-card h3 { margin: 0; color: #fff; font-size: 1.1rem; letter-spacing: 1px; }
+        .tool-card .version { color: var(--kin-glow); font-size: 0.6rem; display: block; margin-bottom: 15px; }
+        .tool-card p { font-size: 0.75rem; color: #777; line-height: 1.5; margin-bottom: 20px; }
 
-        .btn-deploy { 
-            display: block; text-align: center; background: #222; color: white; 
-            text-decoration: none; padding: 12px; font-size: 0.85rem; font-weight: bold; border: 1px solid #333;
+        .access-btn {
+            display: block; width: 100%; text-align: center; border: 1px solid var(--kin-glow);
+            color: var(--kin-glow); padding: 10px; text-decoration: none; font-size: 0.7rem; font-weight: bold;
         }
-        .btn-deploy:hover { background: var(--ai-glow); color: black; border-color: var(--ai-glow); }
+
+        .access-btn:hover { background: var(--kin-glow); color: #000; }
+
+        .system-specs {
+            margin-top: 50px; background: #050505; border: 1px dashed #333; padding: 20px;
+            font-size: 0.7rem; color: #444;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="subtitle">Vexilla AITS Intelligence Division</div>
-        <h1>AI SERVICE REGISTRY</h1>
-        <p style="color:#666;">Autonomous Tools for the Modern Sovereign Associate</p>
-    </header>
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="index.html" class="nav-link">DIRECTORY</a>
+            <a href="archive.html" class="nav-link">DEPOSITORY ARCHIVE</a>
+            <a href="dashboard.html" class="nav-link">MEMBER DASH</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">VEXILLA CORE // v.AITS-9.0</div>
+    </aside>
 
-    <div class="ai-grid">
+    <main class="ai-main">
+        <header class="ai-header">
+            <div>
+                <h2 style="margin:0; font-size: 2rem; color: var(--kin-glow);">Vexilla AI Suite</h2>
+                <span style="color:#444; font-size: 0.8rem;">PROPRIETARY TECHNICAL RESOURCES FOR ASSOCIATES</span>
+            </div>
+            <div style="text-align:right;">
+                <span style="color:var(--kin-glow); font-size:0.7rem;">● ALL NODES OPERATIONAL</span>
+            </div>
+        </header>
+
+        <div class="tool-grid">
+            <div class="tool-card">
+                <h3>Scribe-Automator</h3>
+                <span class="version">VERSION 4.2 // LEDGER SYNC</span>
+                <p>Automates the generation of Sovereign Handshake protocols and synchronizes 10% tax allocations directly to the Foundation Ledger.</p>
+                <a href="#" class="access-btn">LAUNCH TERMINAL</a>
+            </div>
+
+            <div class="tool-card">
+                <h3>Provenance AI</h3>
+                <span class="version">VERSION 9.0 // VISION ENGINE</span>
+                <p>Utilizes computer vision to verify the authenticity of Solomon Kin canvas works by analyzing brushstroke density and gold-leaf application.</p>
+                <a href="#" class="access-btn">SCAN ASSET</a>
+            </div>
+
+            <div class="tool-card">
+                <h3>Koinonia K-Scale</h3>
+                <span class="version">VERSION 1.1 // ECONOMIC IMPACT</span>
+                <p>Calculates the social return on investment (SROI) for your entity's foundation contributions, visualizing your impact on TTNG initiatives.</p>
+                <a href="#" class="access-btn">ANALYZE IMPACT</a>
+            </div>
+
+            <div class="tool-card">
+                <h3>Vexilla Global Sync</h3>
+                <span class="version">VERSION 3.5 // LOGISTICS AI</span>
+                <p>AI-driven logistics engine that optimizes shipping routes for canvas works through verified Kin Pages maritime and land nodes.</p>
+                <a href="#" class="access-btn">MANAGE LOGISTICS</a>
+            </div>
+        </div>
+
         
-        <div class="ai-card">
-            <span class="category-tag">Content & Marketing</span>
-            <h3>ScribeGen Alpha</h3>
-            <p>Automated copywriting for Canvas Work descriptions and social media press releases using your brand's specific legacy voice.</p>
-            <ul class="feature-list">
-                <li>SEO-Optimized Metadata</li>
-                <li>Multi-Language Press Kits</li>
-                <li>10% Foundation Impact Reporting</li>
-            </ul>
-            <a href="#" class="btn-deploy">INTEGRATE TOOL</a>
+
+        <div class="system-specs">
+            // SYSTEM LOGS: MARCH 15, 2026<br>
+            // ENCRYPTION: 4096-BIT RSA SYNCED<br>
+            // NODE LATENCY: 14ms (CHICAGO HUB)<br>
+            // WARNING: UNAUTHORIZED ACCESS TO AITS TERMINALS WILL RESULT IN IMMEDIATE EIN REVOCATION.
         </div>
-
-        <div class="ai-card">
-            <span class="category-tag">Operations</span>
-            <h3>IBINGOD Auto-Pilot</h3>
-            <p>Smart logistics agent that calculates real-time IM/EX duties, shipping routes, and crating costs for international trade.</p>
-            <ul class="feature-list">
-                <li>Real-time Customs Clearance</li>
-                <li>Automated Manifest Generation</li>
-                <li>Global Tracking Integration</li>
-            </ul>
-            <a href="#" class="btn-deploy">INTEGRATE TOOL</a>
-        </div>
-
-        <div class="ai-card">
-            <span class="category-tag">Customer Service</span>
-            <h3>Kin-Chat Agent</h3>
-            <p>A 24/7 conversational AI trained on the Solomon Kin Records history to answer buyer questions about provenance and the Foundation Hub.</p>
-            <ul class="feature-list">
-                <li>Instant Response Protocols</li>
-                <li>EIN Verification Guidance</li>
-                <li>Human Gatekeeper Escalate</li>
-            </ul>
-            <a href="#" class="btn-deploy">INTEGRATE TOOL</a>
-        </div>
-
-    </div>
-</div>
-
-<footer style="margin-top: 80px; text-align: center; border-top: 1px solid #222; padding: 40px; font-size: 0.75rem; color: #444;">
-    SOLOMON KIN RECORDS MEDIA GROUP | AI REGISTRY | © 2026
-</footer>
+    </main>
 
 </body>
 </html>
