@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vexilla System Status | Kin Pages Infrastructure</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #0c0c0c;
+            --kin-ok: #00ff41;
+            --kin-warn: #ffcc00;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            padding: 30px 50px; border-bottom: 1px solid var(--kin-gold);
+            display: flex; justify-content: space-between; align-items: center;
+            background: #000;
+        }
+
+        .status-pulse {
+            display: inline-block; width: 10px; height: 10px;
+            background: var(--kin-ok); border-radius: 50%;
+            margin-right: 10px; box-shadow: 0 0 10px var(--kin-ok);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; }
+        }
+
+        /* DASHBOARD GRID */
+        .status-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; padding: 40px; overflow-y: scroll;
+        }
+
+        .node-card {
+            background: var(--kin-grey); border: 1px solid #222; padding: 25px;
+            position: relative;
+        }
+
+        .node-name { font-size: 0.9rem; color: var(--kin-gold); letter-spacing: 2px; margin-bottom: 15px; }
+        .stat-row { display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 8px; }
+        .stat-label { color: #555; text-transform: uppercase; }
+        .stat-value { color: #ccc; }
+
+        /* UPTIME BARS */
+        .uptime-container {
+            display: flex; gap: 2px; margin-top: 15px; height: 20px;
+        }
+        .uptime-bit { flex-grow: 1; background: var(--kin-ok); opacity: 0.6; }
+        .uptime-bit.down { background: #ff4444; }
+
+        .terminal-output {
+            grid-column: 1 / -1; background: #000; border: 1px solid #1a1a1a;
+            padding: 20px; font-size: 0.65rem; color: #00ff41; height: 150px;
+            overflow-y: hidden; position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1 style="margin:0; font-size:1.2rem; letter-spacing:3px;">VEXILLA STATUS MONITOR</h1>
+            <span style="font-size:0.6rem; color:#444;">AITS CORE v9.8.2 // MASTER LEDGER SYNC: ACTIVE</span>
+        </div>
+        <div style="text-align:right;">
+            <span class="status-pulse"></span>
+            <span style="font-size:0.8rem; color:var(--kin-ok);">SYSTEMS OPERATIONAL</span>
+        </div>
+    </header>
+
+    <main class="status-grid">
+        <div class="node-card">
+            <div class="node-name">ATL-01 [ATLANTA HUB]</div>
+            <div class="stat-row"><span class="stat-label">Uptime</span><span class="stat-value">99.998%</span></div>
+            <div class="stat-row"><span class="stat-label">Latency</span><span class="stat-value">12ms</span></div>
+            <div class="stat-row"><span class="stat-label">Active Handshakes</span><span class="stat-value">142</span></div>
+            <div class="uptime-container">
+                <div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div>
+                <div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit down"></div><div class="uptime-bit"></div><div class="uptime-bit"></div>
+            </div>
+        </div>
+
+        <div class="node-card">
+            <div class="node-name">NYC-04 [NEW YORK HUB]</div>
+            <div class="stat-row"><span class="stat-label">Uptime</span><span class="stat-value">100.00%</span></div>
+            <div class="stat-row"><span class="stat-label">Latency</span><span class="stat-value">8ms</span></div>
+            <div class="stat-row"><span class="stat-label">Active Handshakes</span><span class="stat-value">289</span></div>
+            <div class="uptime-container">
+                <div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div>
+                <div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div><div class="uptime-bit"></div>
+            </div>
+        </div>
+
+        <div class="node-card">
+            <div class="node-name">EIN_VERIFY_CORE</div>
+            <div class="stat-row"><span class="stat-label">Current Queue</span><span class="stat-value">14 Entities</span></div>
+            <div class="stat-row"><span class="stat-label">Validation Rate</span><span class="stat-value">0.8s / Entry</span></div>
+            <div class="stat-row"><span class="stat-label">Integrity Level</span><span class="stat-value">MAXIMUM</span></div>
+            <div style="margin-top:15px; font-size:0.6rem; color:var(--kin-warn);">STATUS: PROCESSING MULTICULTURAL ASSEMBLY BATCH</div>
+        </div>
+
+        
+
+        <div class="terminal-output">
+            <div>[2026-03-16 00:27:01] INFO: Block #882941 validated by Gatekeeper.</div>
+            <div>[2026-03-16 00:27:15] INFO: New Sovereign-Tier associate "K-Grace Textiles" synchronized.</div>
+            <div>[2026-03-16 00:27:32] WARN: Minor latency spike in Maritime Logistics node (SEA-02). Optimizing...</div>
+            <div>[2026-03-16 00:27:39] INFO: 10% Foundation Mandate calculated for Transaction #4402.</div>
+            <div style="color:var(--kin-gold);">[SYSTEM]: ALL KIN PAGES CORE MODULES SECURE.</div>
+        </div>
+    </main>
+
+    <footer style="background:#000; padding:20px; text-align:center; font-size:0.6rem; color:#222; border-top:1px solid #111;">
+        VEXILLA CRYPTOGRAPHIC HEARTBEAT // MONITORED BY SOLOMON KIN RECORDS MEDIA GROUP
+    </footer>
+
+</body>
+</html>
