@@ -1,47 +1,90 @@
-<script>
-    // THE CREDENTIAL GUARD
-    function handleLogin() {
-        const email = document.getElementById('login-email').value;
-        const pass = document.getElementById('login-pass').value;
-        const btn = document.querySelector('.btn-login-main');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Login | Kin Pages</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --kin-text: #a0a0a0; }
+        body { 
+            background-color: var(--kin-black); color: #eee; 
+            font-family: 'Courier New', monospace; margin: 0; 
+            display: flex; align-items: center; justify-content: center; height: 100vh;
+        }
+        .login-card {
+            width: 100%; max-width: 400px; padding: 40px;
+            background: var(--kin-grey); border: 1px solid var(--kin-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: var(--kin-gold); text-align: center; letter-spacing: 5px; font-size: 1.2rem; margin-bottom: 30px; }
+        input { 
+            width: 100%; padding: 15px; margin-bottom: 20px; 
+            background: #000; border: 1px solid #333; color: #fff; 
+            font-family: inherit; box-sizing: border-box; 
+        }
+        .btn-enter { 
+            width: 100%; padding: 15px; background: var(--kin-gold); 
+            color: #000; border: none; font-weight: bold; cursor: pointer; 
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .social-box { 
+            margin-top: 30px; border-top: 1px solid #222; padding-top: 20px; 
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+        }
+        .s-btn { 
+            background: #000; border: 1px solid #333; color: #666; 
+            font-size: 0.6rem; padding: 10px 5px; cursor: pointer; text-align: center;
+        }
+        .s-btn:hover { color: var(--kin-gold); border-color: var(--kin-gold); }
+    </style>
+</head>
+<body>
 
-        // 1. Basic Validation
-        if (!email.includes('@') || pass.length < 6) {
-            alert("SECURITY ALERT: Invalid Credential Format.");
-            return;
+    <div class="login-card">
+        <h1>MEMBER ACCESS</h1>
+        
+        <input type="email" id="email" placeholder="Email / Sovereign ID">
+        <input type="password" id="pass" placeholder="Security Key">
+        
+        <button class="btn-enter" onclick="authAttempt()">ENTER VAULT</button>
+
+        <div class="social-box">
+            <div class="s-btn" onclick="socialAuth('Google')">GOOGLE</div>
+            <div class="s-btn" onclick="socialAuth('X')">X</div>
+            <div class="s-btn" onclick="socialAuth('MS')">MICROSOFT</div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        function authAttempt() {
+            const e = document.getElementById('email').value;
+            const p = document.getElementById('pass').value;
+
+            if(e && p) {
+                // Check local ledger for the user we registered earlier
+                const storedUser = JSON.parse(localStorage.getItem('kin_user_' + e));
+                
+                if(storedUser && storedUser.password === p) {
+                    localStorage.setItem('kin_session_active', 'true');
+                    localStorage.setItem('current_user_tier', storedUser.tier);
+                    window.location.href = 'profile.html';
+                } else {
+                    alert("ACCESS DENIED: Credentials not recognized in the Assembly Ledger.");
+                }
+            } else {
+                alert("Please provide credentials.");
+            }
         }
 
-        btn.innerText = "VALIDATING VEXILLA KEY...";
-
-        // 2. Database Check (Simulated for GitHub Pages)
-        // In a live environment, this calls your Firebase/Supabase Auth
-        const mockDatabaseUser = JSON.parse(localStorage.getItem('kin_user_' + email));
-
-        setTimeout(() => {
-            if (mockDatabaseUser && mockDatabaseUser.password === pass) {
-                // SUCCESS: Set Secure Session
-                localStorage.setItem('kin_session_active', 'true');
-                localStorage.setItem('current_user_tier', mockDatabaseUser.tier); // 'basic' or 'paid'
-                window.location.href = 'profile.html';
-            } else {
-                btn.innerText = "ACCESS DENIED";
-                alert("ERROR: Credentials not found in the Assembly Ledger. Please Register.");
-                btn.innerText = "ENTER VAULT";
-            }
-        }, 1200);
-    }
-
-    // 3. SOCIAL CREDENTIAL HANDSHAKE (Google, X, Microsoft)
-    function socialRedirect(platform) {
-        console.log(`Contacting ${platform} Auth Servers...`);
-        
-        // This simulates the OAuth callback
-        // When actually connecting to Google/X, you will replace this with their API keys
-        alert(`Redirecting to ${platform} Secure Sign-In...`);
-        
-        // Mocking a successful social login as a 'basic' user
-        localStorage.setItem('kin_session_active', 'true');
-        localStorage.setItem('current_user_tier', 'basic'); 
-        window.location.href = 'profile.html';
-    }
-</script>
+        function socialAuth(platform) {
+            alert("Connecting to " + platform + " Secure Gateway...");
+            // Simulate successful social login
+            localStorage.setItem('kin_session_active', 'true');
+            localStorage.setItem('current_user_tier', 'basic');
+            window.location.href = 'profile.html';
+        }
+    </script>
+</body>
+</html>
