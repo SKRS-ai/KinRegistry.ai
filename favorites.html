@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Favorites | Kin Pages Sovereign Vault</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #121212;
+            --kin-border: #222;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+        }
+
+        nav {
+            background: #000; border-bottom: 2px solid var(--kin-gold);
+            padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .nav-links a { color: var(--kin-gold); text-decoration: none; margin-left: 20px; font-size: 0.75rem; }
+
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+
+        .header-box { border-left: 4px solid var(--kin-gold); padding-left: 20px; margin-bottom: 40px; }
+        h1 { font-size: 2rem; letter-spacing: 5px; margin: 0; color: var(--kin-gold); }
+        p.subtitle { font-size: 0.8rem; color: #555; margin-top: 10px; }
+
+        /* FAVORITES GRID */
+        .favorites-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+        .fav-card {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 25px; display: flex; justify-content: space-between; align-items: center;
+            transition: 0.3s;
+        }
+
+        .fav-card:hover { border-color: var(--kin-gold); }
+
+        .fav-info h3 { margin: 0; font-size: 1.1rem; color: #fff; }
+        .fav-info p { margin: 5px 0 0 0; font-size: 0.7rem; color: #666; }
+        .fav-category { color: var(--kin-gold); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .actions { display: flex; gap: 15px; }
+
+        .btn-view { background: var(--kin-gold); color: #000; text-decoration: none; padding: 8px 15px; font-size: 0.7rem; font-weight: bold; }
+        .btn-remove { background: transparent; border: 1px solid #444; color: #444; padding: 8px 15px; font-size: 0.7rem; cursor: pointer; }
+        .btn-remove:hover { color: red; border-color: red; }
+
+        .empty-state { text-align: center; padding: 100px 0; color: #333; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div style="color: var(--kin-gold); font-weight: bold; letter-spacing: 5px;">KIN PAGES</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="profile.html">DASHBOARD</a>
+            <a href="classifieds.html">CLASSIFIEDS</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-box">
+            <h1>MY FAVORITES</h1>
+            <p class="subtitle">Curated Businesses & Art from the Sovereign Network</p>
+        </div>
+
+        <div id="favorites-list" class="favorites-grid">
+            <div class="fav-card">
+                <div class="fav-info">
+                    <span class="fav-category">African American / Tri-State Legacy</span>
+                    <h3>Legacy Accounting Services</h3>
+                    <p>Verified Minority Business | Node: PHL-02</p>
+                </div>
+                <div class="actions">
+                    <a href="classifieds.html" class="btn-view">VIEW AD</a>
+                    <button class="btn-remove">REMOVE</button>
+                </div>
+            </div>
+
+            <div class="fav-card">
+                <div class="fav-info">
+                    <span class="fav-category">Canvas Art</span>
+                    <h3>"Sovereign Spirit #1"</h3>
+                    <p>By Solomon Kin Collective | Vault Secured</p>
+                </div>
+                <div class="actions">
+                    <a href="vault.html" class="btn-view">VIEW PIECE</a>
+                    <button class="btn-remove">REMOVE</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="empty-msg" class="empty-state" style="display:none;">
+            <p>Your vault is currently empty.</p>
+            <a href="classifieds.html" style="color: var(--kin-gold); font-size: 0.8rem;">Browse the Directory</a>
+        </div>
+    </div>
+
+    
+
+    <script>
+        // SIMPLE LOGIC TO HANDLE REMOVAL
+        document.querySelectorAll('.btn-remove').forEach(button => {
+            button.addEventListener('click', function() {
+                if(confirm("Remove this listing from your favorites?")) {
+                    this.closest('.fav-card').remove();
+                    checkEmpty();
+                }
+            });
+        });
+
+        function checkEmpty() {
+            const list = document.getElementById('favorites-list');
+            if (list.children.length === 0) {
+                document.getElementById('empty-msg').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
