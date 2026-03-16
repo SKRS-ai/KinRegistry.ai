@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Art Shop | Kin Pages Gallery</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #121212;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+        }
+
+        /* GALLERY HEADER */
+        header {
+            padding: 80px 40px; text-align: center;
+            border-bottom: 1px solid var(--kin-gold);
+            background: linear-gradient(to bottom, #111, #050505);
+        }
+
+        header h1 { font-size: 3rem; letter-spacing: 12px; margin: 0; color: var(--kin-gold); }
+        .vault-status { font-size: 0.7rem; color: #555; margin-top: 10px; text-transform: uppercase; }
+
+        /* ART GRID */
+        .gallery-container {
+            max-width: 1300px; margin: 60px auto; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;
+        }
+
+        .art-card {
+            background: var(--kin-grey); border: 1px solid #222;
+            padding: 20px; transition: 0.4s; position: relative;
+        }
+
+        .art-card:hover { border-color: var(--kin-gold); transform: translateY(-5px); }
+
+        .art-frame {
+            width: 100%; aspect-ratio: 4/5; background: #000;
+            border: 10px solid #1a1a1a; margin-bottom: 20px;
+            overflow: hidden; display: flex; align-items: center; justify-content: center;
+        }
+
+        .art-placeholder { color: #222; font-size: 0.8rem; letter-spacing: 2px; }
+
+        .art-info h3 { color: var(--kin-gold); font-size: 1.2rem; margin: 0; }
+        .art-info p { font-size: 0.75rem; color: #888; margin: 10px 0; line-height: 1.6; }
+
+        .price-tag { font-size: 1.1rem; color: #fff; font-weight: bold; margin-bottom: 20px; display: block; }
+        
+        .btn-purchase {
+            width: 100%; background: var(--kin-gold); color: #000; border: none;
+            padding: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase;
+        }
+
+        .btn-favorite-art {
+            position: absolute; top: 30px; right: 30px; background: rgba(0,0,0,0.7);
+            color: var(--kin-gold); border: 1px solid var(--kin-gold); padding: 5px 10px;
+            font-size: 0.6rem; cursor: pointer;
+        }
+
+        /* PROVENANCE TAG */
+        .provenance {
+            font-size: 0.6rem; color: #444; border-top: 1px solid #222;
+            padding-top: 10px; margin-top: 10px; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <nav style="padding: 20px 40px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="color: var(--kin-gold); text-decoration: none; font-weight: bold; letter-spacing: 3px;">KIN PAGES</a>
+        <div style="font-size: 0.7rem;">
+            <a href="profile.html" style="color: #888; text-decoration: none; margin-left: 20px;">DASHBOARD</a>
+            <a href="favorites.html" style="color: #888; text-decoration: none; margin-left: 20px;">MY VAULT</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>CANVAS VAULT</h1>
+        <div class="vault-status">Verified Sovereign Art Collection // Tri-State Legacy Archive</div>
+    </header>
+
+    <main class="gallery-container">
+        
+        <div class="art-card">
+            <button class="btn-favorite-art" onclick="addToFavorites('Ancestral Grace #1')">★ SAVE</button>
+            <div class="art-frame">
+                <div class="art-placeholder">[ IMAGE: ANCESTRAL GRACE #1 ]</div>
+            </div>
+            <div class="art-info">
+                <h3>Ancestral Grace #1</h3>
+                <p>A deep exploration of multicultural heritage. Limited edition canvas, archival ink. Includes a digital certificate of provenance.</p>
+                <span class="price-tag">$1,200.00</span>
+                <button class="btn-purchase" onclick="initiatePurchase('Ancestral Grace #1')">ACQUIRE PIECE</button>
+                <div class="provenance">Verified by Solomon Kin Records // Ledger ID: SK-001</div>
+            </div>
+        </div>
+
+        <div class="art-card">
+            <button class="btn-favorite-art" onclick="addToFavorites('Urban Sovereignty')">★ SAVE</button>
+            <div class="art-frame">
+                <div class="art-placeholder">[ IMAGE: URBAN SOVEREIGNTY ]</div>
+            </div>
+            <div class="art-info">
+                <h3>Urban Sovereignty</h3>
+                <p>Representing the transition from the Tri-State Minority Yellow Pages into the digital Kin Pages era. Bold textures and gold leaf accents.</p>
+                <span class="price-tag">$850.00</span>
+                <button class="btn-purchase" onclick="initiatePurchase('Urban Sovereignty')">ACQUIRE PIECE</button>
+                <div class="provenance">Verified by Solomon Kin Records // Ledger ID: SK-002</div>
+            </div>
+        </div>
+
+    </main>
+
+    
+
+    <script>
+        function addToFavorites(artName) {
+            alert(artName + " has been added to your Sovereign Vault Favorites.");
+            // Logic to update localstorage would go here
+        }
+
+        function initiatePurchase(artName) {
+            const checkSession = localStorage.getItem('kin_pages_session');
+            if (!checkSession) {
+                alert("Please Login to the Assembly to complete this acquisition.");
+                window.location.href = 'login.html';
+            } else {
+                // Redirect to the checkout page we built earlier
+                window.location.href = 'checkout.html?item=' + encodeURIComponent(artName);
+            }
+        }
+    </script>
+
+</body>
+</html>
