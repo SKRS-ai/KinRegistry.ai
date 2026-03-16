@@ -1,59 +1,201 @@
-<style>
-    /* ... (previous styles) ... */
-    footer {
-        background: #000;
-        border-top: 2px solid var(--kin-gold);
-        padding: 60px 40px;
-        color: #fff !important; /* Forces White Text */
-    }
-    .footer-grid {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
-    }
-    .footer-col h4 { color: var(--kin-gold); font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; }
-    .footer-col a { color: #fff; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.7rem; opacity: 0.8; }
-    .footer-col a:hover { opacity: 1; color: var(--kin-gold); }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kin Pages | Digital Continuation of Tri-State Minority Yellow Pages</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #121212;
+            --kin-text-dim: #a0a0a0; /* Lighter grey for visibility on dark backgrounds */
+            --glass: rgba(255, 255, 255, 0.03);
+        }
 
-<footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h4>Sovereign Entry</h4>
-            <a href="gateway.html">System Gateway</a>
-            <a href="gatekeeper.html">The Gatekeeper</a>
-            <a href="login.html">Member Login</a>
-            <a href="registration.html">Join Assembly</a>
-            <a href="profile.html">Sovereign Dashboard</a>
+        body {
+            background-color: var(--kin-black);
+            color: #eee;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION & AUTH */
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--kin-gold);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo { color: var(--kin-gold); font-weight: bold; letter-spacing: 5px; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--kin-text-dim); text-decoration: none; font-size: 0.7rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--kin-gold); }
+
+        /* HERO SECTION */
+        header {
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        }
+
+        h1 { font-size: 4rem; letter-spacing: 15px; margin: 0; color: var(--kin-gold); text-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        .legacy-tag { font-size: 0.7rem; color: #555; letter-spacing: 2px; margin-top: 10px; }
+
+        /* COMPREHENSIVE SEARCH ENGINE */
+        .master-search {
+            max-width: 1100px;
+            margin: -40px auto 40px;
+            background: var(--kin-grey);
+            border: 1px solid var(--kin-gold);
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr auto;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        input, select { background: #000; border: 1px solid #333; color: #fff; padding: 12px; font-family: inherit; font-size: 0.8rem; }
+        .btn-enter { background: var(--kin-gold); color: #000; border: none; padding: 0 25px; font-weight: bold; cursor: pointer; }
+
+        /* FOOTER: ENHANCED VISIBILITY */
+        footer {
+            border-top: 1px solid #222;
+            padding: 80px 40px;
+            background: #080808;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-col h4 { 
+            color: var(--kin-gold); 
+            font-size: 0.75rem; 
+            margin-bottom: 25px; 
+            letter-spacing: 2px; 
+        }
+
+        .footer-col a { 
+            color: var(--kin-text-dim); /* Optimized lighter text */
+            text-decoration: none; 
+            display: block; 
+            margin-bottom: 12px; 
+            font-size: 0.7rem; 
+            transition: 0.2s;
+        }
+
+        .footer-col a:hover { color: #fff; }
+
+        .hq-info {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #1a1a1a;
+            color: #444;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">KIN PAGES</a>
+        <div class="nav-links">
+            <a href="logo-kin.html">LOGO KIN</a>
+            <a href="canvas-art.html">CANVAS VAULT</a>
+            <a href="classifieds.html">CLASSIFIEDS</a>
+            <a href="registration.html">JOIN ASSEMBLY</a>
+            <a href="login.html">LOGIN</a>
         </div>
-        <div class="footer-col">
-            <h4>Trade & Art</h4>
-            <a href="logo-kin.html">LOGO KIN (New)</a>
-            <a href="classifieds.html">Classified Square</a>
-            <a href="canvas-art.html">Canvas Vault</a>
-            <a href="checkout.html">Acquisition/Ledger</a>
-            <a href="manifest-generator.html">Shipping Manifest</a>
+    </nav>
+
+    <header>
+        <h1>KIN PAGES</h1>
+        <div class="legacy-tag">Digital Continuation of Tri-State Minority Yellow Pages</div>
+    </header>
+
+    <section class="master-search">
+        <input type="text" placeholder="Search Listings, Art, or Logos...">
+        
+        <select>
+            <option>Cultural Hubs</option>
+            <option>African American (Legacy)</option>
+            <option>Hispanic / Latino</option>
+            <option>Asian Pacific</option>
+            <option>Indigenous Trade</option>
+        </select>
+
+        <select>
+            <option>Identity / Pronouns</option>
+            <option>Woman-Owned (She/Her)</option>
+            <option>Man-Owned (He/Him)</option>
+            <option>Non-Binary (They/Them)</option>
+            <option>Veteran Owned</option>
+        </select>
+
+        <button class="btn-enter" onclick="location.href='classifieds.html'">ENTER</button>
+    </section>
+
+    
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Sovereign Entry</h4>
+                <a href="gateway.html">System Gateway</a>
+                <a href="gatekeeper.html">The Gatekeeper</a>
+                <a href="login.html">Member Login</a>
+                <a href="registration.html">Join Assembly</a>
+                <a href="profile.html">Sovereign Dashboard</a>
+            </div>
+            <div class="footer-col">
+                <h4>Trade & Art</h4>
+                <a href="logo-kin.html">LOGO KIN Directory</a>
+                <a href="classifieds.html">Classified Square</a>
+                <a href="canvas-art.html">Canvas Vault</a>
+                <a href="checkout.html">Acquisition Ledger</a>
+                <a href="manifest-generator.html">Shipping Manifest</a>
+            </div>
+            <div class="footer-col">
+                <h4>Community & Legacy</h4>
+                <a href="about-us.html">Our Story (Tri-State)</a>
+                <a href="favorites.html">My Private Vault</a>
+                <a href="commune.html">Private Forum</a>
+                <a href="ttng-fellowship.html">Youth Fellowship</a>
+                <a href="impact-2026.html">Mandate Report</a>
+            </div>
+            <div class="footer-col">
+                <h4>System Tools</h4>
+                <a href="system-status.html">Vexilla Heartbeat</a>
+                <a href="sys-admin.html">Admin Terminal</a>
+                <a href="library.html">Resource Library</a>
+                <a href="global-network.html">Network Map</a>
+                <a href="transition-protocol.html">Launch Logic</a>
+            </div>
         </div>
-        <div class="footer-col">
-            <h4>Community & Legacy</h4>
-            <a href="about-us.html">Our Story (Tri-State)</a>
-            <a href="favorites.html">My Private Vault</a>
-            <a href="commune.html">Private Forum</a>
-            <a href="ttng-fellowship.html">Youth Fellowship</a>
-            <a href="impact-2026.html">Mandate Report</a>
+
+        <div class="hq-info">
+            PO BOX 2371, BALA CYNWYD, PA 19004-9998 // ESTABLISHED 1999 // YOUR LINK TO MINORITY BUSINESS
         </div>
-        <div class="footer-col">
-            <h4>System Tools</h4>
-            <a href="system-status.html">Vexilla Heartbeat</a>
-            <a href="sys-admin.html">Admin Terminal</a>
-            <a href="library.html">Resource Library</a>
-            <a href="global-network.html">Network Map</a>
-            <a href="transition-protocol.html">Launch Logic</a>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 60px; font-size: 0.6rem; letter-spacing: 5px; opacity: 0.5;">
-        PO BOX 2371, BALA CYNWYD, PA 19004-9998 // THE DIGITAL CONTINUATION OF TRI-STATE MINORITY YELLOW PAGES
-    </div>
-</footer>
+    </footer>
+
+</body>
+</html>
