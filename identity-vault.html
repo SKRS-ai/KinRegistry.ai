@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Identity Vault | Sovereign Registry</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        
+        header { padding: 40px; text-align: center; border-bottom: 1px solid var(--kin-gold); background: #000; }
+        .vault-status { font-size: 0.6rem; color: #00ff00; letter-spacing: 2px; margin-bottom: 10px; }
+
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 350px; gap: 40px; }
+
+        /* IDENTITY CARDS */
+        .vault-card { background: var(--kin-grey); border: 1px solid #222; padding: 30px; position: relative; overflow: hidden; }
+        .vault-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--kin-gold); }
+        
+        h2 { color: var(--kin-gold); font-size: 1rem; letter-spacing: 3px; margin-top: 0; text-transform: uppercase; }
+        .data-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.75rem; }
+        .label { color: #555; text-transform: uppercase; }
+        .value { color: #fff; font-weight: bold; }
+
+        /* THE BADGE */
+        .badge-container { text-align: center; background: #000; border: 1px solid var(--kin-gold); padding: 30px; }
+        .verified-badge { width: 120px; height: 120px; margin: 0 auto 20px; border: 2px double var(--kin-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--kin-gold); font-weight: bold; font-size: 0.8rem; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+
+        .btn-action { display: block; width: 100%; padding: 15px; background: transparent; border: 1px solid var(--kin-gold); color: var(--kin-gold); font-weight: bold; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; margin-top: 20px; transition: 0.3s; }
+        .btn-action:hover { background: var(--kin-gold); color: #000; }
+
+        /* ENCRYPTION LOG */
+        .log-box { background: #080808; border: 1px solid #222; padding: 15px; font-size: 0.6rem; color: #444; height: 150px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="vault-status">● ENCRYPTION ACTIVE: VEXILLA AITS LEVEL 9</div>
+        <h1 style="color: var(--kin-gold); font-size: 1.5rem; letter-spacing: 10px; margin: 0;">IDENTITY VAULT</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="main-vault">
+            <div class="vault-card">
+                <h2>GREAT SEAL RECORD: #SKR-9908-101</h2>
+                <div class="data-row"><span class="label">Legal Name</span><span class="value">[REDDACTED]</span></div>
+                <div class="data-row"><span class="label">Screen Handle</span><span class="value">@Sovereign_Admin</span></div>
+                <div class="data-row"><span class="label">Verification Status</span><span class="value" style="color:var(--kin-gold)">CERTIFIED BY TBBLUSA</span></div>
+                <div class="data-row"><span class="label">Associated Entity</span><span class="value">Solomon Kin Records LLC</span></div>
+                <div class="data-row"><span class="label">Master Passkey</span><span class="value">•••• •••• •••• 8801</span></div>
+                
+                <h2 style="margin-top: 40px;">SOVEREIGN ACCESS LOGS</h2>
+                <div class="log-box">
+                    [2026-03-16 05:42] - Vexilla AITS Handshake: SUCCESS<br>
+                    [2026-03-16 05:42] - IP 192.168.1.1 Verified: Bala Cynwyd Hub<br>
+                    [2026-03-15 22:10] - Registry Sync Complete: IBINGOD Trade logs updated<br>
+                    [2026-03-14 18:05] - Identity Audit: No discrepancies found<br>
+                    [SYSTEM READY] - Awaiting User Command...
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-vault">
+            <div class="badge-container">
+                <div class="verified-badge">VEXILLA<br>VERIFIED<br>2026</div>
+                <div style="font-size: 0.6rem; color: #888; letter-spacing: 1px;">ENTITY TRUST SCORE: 99.8%</div>
+                <button class="btn-action">DOWNLOAD SEAL PDF</button>
+                <button class="btn-action" style="border-color:#444; color:#666;">RESET PASSKEY</button>
+            </div>
+
+            <div style="margin-top: 30px; background: var(--kin-grey); padding: 20px; border: 1px solid #222;">
+                <div class="label" style="margin-bottom: 10px;">Security Level</div>
+                <div style="height: 10px; background: #000; border-radius: 5px; overflow: hidden;">
+                    <div style="width: 85%; height: 100%; background: var(--kin-gold);"></div>
+                </div>
+                <div style="font-size: 0.55rem; margin-top: 8px; color: #555;">Sovereign Protocol: ACTIVE</div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <footer style="text-align: center; padding: 40px; color: #333; font-size: 0.55rem; letter-spacing: 3px;">
+        GREAT SEAL OF THE BLACK AND BROWN PEOPLE FOUNDATION &copy; 2026
+    </footer>
+
+</body>
+</html>
