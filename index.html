@@ -3,196 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE KIN PAGES | Sovereign Multicultural Directory</title>
+    <title>Kin Pages | The Digital Continuation of Tri-State Minority Yellow Pages</title>
     <style>
         :root {
             --kin-gold: #d4af37;
             --kin-black: #050505;
             --kin-grey: #121212;
             --glass: rgba(255, 255, 255, 0.03);
-            --transition: 0.3s ease;
         }
 
         body {
-            background-color: var(--kin-black);
-            color: #eee;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            overflow-x: hidden;
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
         }
 
-        /* NAVIGATION & AUTHENTICATION */
+        /* NAVIGATION */
         nav {
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid var(--kin-gold);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background: #000; border-bottom: 2px solid var(--kin-gold);
+            padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .nav-logo {
-            color: var(--kin-gold);
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-decoration: none;
-        }
+        .nav-links a { color: var(--kin-gold); text-decoration: none; margin-left: 20px; font-size: 0.75rem; font-weight: bold; }
 
-        .auth-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-auth {
-            padding: 8px 18px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            border: 1px solid var(--kin-gold);
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-login { background: transparent; color: var(--kin-gold); }
-        .btn-login:hover { background: var(--kin-gold); color: #000; }
-
-        .btn-join { background: var(--kin-gold); color: #000; }
-        .btn-join:hover { background: transparent; color: var(--kin-gold); }
-
-        /* HERO SECTION */
+        /* HERO & BRANDING */
         header {
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            padding: 80px 20px; text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
         }
 
-        h1 { font-size: 3.5rem; letter-spacing: 15px; margin: 0; color: var(--kin-gold); }
+        h1 { font-size: 4.5rem; letter-spacing: 20px; margin: 0; color: var(--kin-gold); }
+        .legacy-tag { font-size: 0.7rem; color: #555; letter-spacing: 2px; margin-top: 10px; text-transform: uppercase; }
 
-        /* ENHANCED SEARCH & DUAL ENTRANCE */
-        .portal-grid {
-            max-width: 1100px;
-            margin: -60px auto 40px;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 20px;
-            padding: 0 20px;
+        /* SEARCH & COMPREHENSIVE FILTERS */
+        .master-search {
+            max-width: 1200px; margin: -40px auto 40px; background: var(--kin-grey);
+            border: 1px solid var(--kin-gold); padding: 30px; display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr auto; gap: 15px;
         }
 
-        .search-engine, .artist-entrance {
-            background: var(--kin-grey);
-            border: 1px solid var(--kin-gold);
-            padding: 25px;
-            backdrop-filter: blur(10px);
-        }
-
-        .artist-entrance {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .artist-entrance h2 { font-size: 1rem; color: var(--kin-gold); margin-bottom: 10px; }
-        .artist-entrance p { font-size: 0.7rem; color: #666; margin-bottom: 15px; }
-
-        .search-engine input, .search-engine select {
-            width: 100%;
-            background: #000;
-            border: 1px solid #333;
-            color: #fff;
-            padding: 12px;
-            margin-bottom: 10px;
-            font-family: inherit;
-        }
-
-        .btn-prime {
-            width: 100%;
-            background: var(--kin-gold);
-            color: #000;
-            border: none;
-            padding: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
+        input, select { background: #000; border: 1px solid #333; color: #fff; padding: 15px; font-family: inherit; font-size: 0.8rem; }
 
         /* CATEGORY SECTION */
-        .grid-container {
-            max-width: 1200px;
-            margin: 40px auto 80px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
+        .section-title { text-align: center; color: var(--kin-gold); letter-spacing: 5px; margin: 60px 0 30px; font-size: 1.2rem; }
+        
+        .directory-grid {
+            max-width: 1200px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 0 20px;
         }
 
-        .cat-card {
-            background: var(--glass);
-            border: 1px solid #222;
-            padding: 30px;
-            transition: var(--transition);
-            text-decoration: none;
-            color: inherit;
+        .cat-card { border: 1px solid #222; padding: 25px; transition: 0.3s; text-decoration: none; color: inherit; background: var(--glass); }
+        .cat-card:hover { border-color: var(--kin-gold); background: #000; }
+        .cat-card h3 { color: var(--kin-gold); margin: 0 0 10px 0; font-size: 0.9rem; }
+        .cat-card p { font-size: 0.65rem; color: #666; line-height: 1.6; }
+
+        /* ABOUT / LEGACY FOOTER */
+        .legacy-footer {
+            background: #0a0a0a; border-top: 1px solid var(--kin-gold);
+            padding: 60px 40px; margin-top: 100px;
         }
 
-        .cat-card:hover { border-color: var(--kin-gold); background: rgba(212, 175, 55, 0.05); }
-        .cat-card h3 { color: var(--kin-gold); font-size: 1rem; margin-bottom: 10px; }
-        .cat-card p { font-size: 0.7rem; color: #777; line-height: 1.5; }
+        .legacy-content { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+        .about-text h2 { color: var(--kin-gold); font-size: 1rem; }
+        .about-text p { font-size: 0.8rem; line-height: 1.8; color: #888; text-align: justify; }
 
-        footer { border-top: 1px solid #222; padding: 40px; text-align: center; font-size: 0.65rem; color: #444; }
+        .contact-box { font-size: 0.75rem; color: #fff; line-height: 2; }
+        .contact-box b { color: var(--kin-gold); }
+
+        /* QUICK LINKS LISTINGS AT BOTTOM */
+        .listing-links {
+            padding: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid #111;
+        }
+        .listing-links a { font-size: 0.65rem; color: #444; text-decoration: none; }
+        .listing-links a:hover { color: var(--kin-gold); }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-logo">THE KIN PAGES</a>
-        <div class="auth-buttons">
-            <a href="login.html" class="btn-auth btn-login">Login</a>
-            <a href="registration.html" class="btn-auth btn-join">Join Assembly</a>
+        <div style="color: var(--kin-gold); font-weight: bold; letter-spacing: 5px;">KIN PAGES</div>
+        <div class="nav-links">
+            <a href="registration.html">JOIN ASSEMBLY</a>
+            <a href="login.html">LOGIN</a>
+            <a href="classifieds.html">CLASSIFIEDS</a>
+            <a href="vault.html">CANVAS VAULT</a>
+            <a href="favorites.html">MY FAVORITES</a>
         </div>
     </nav>
 
     <header>
-        <h1>SOLOMON KIN</h1>
-        <p style="letter-spacing: 5px; color: #444; font-size: 0.8rem;">MULTICULTURAL ASSEMBLY & TRADE DIRECTORY</p>
+        <h1>KIN PAGES</h1>
+        <div class="legacy-tag">The Digital Continuation of Tri-State Minority Yellow Pages</div>
     </header>
 
-    <section class="portal-grid">
-        <div class="search-engine">
-            <input type="text" placeholder="Search Classifieds or Canvas Art...">
-            <div style="display:flex; gap:10px;">
-                <select><option>All Cultures</option><option>African-American</option><option>Hispanic/Latino</option></select>
-                <select><option>All Identities</option><option>Women-Owned</option><option>Veteran-Owned</option></select>
-            </div>
-            <button class="btn-prime">SEARCH DATABASE</button>
-        </div>
+    <section class="master-search">
+        <input type="text" placeholder="Search Listings, Art, or Services...">
+        
+        <select>
+            <option>All Cultural Hubs</option>
+            <optgroup label="Regional / Ethnic">
+                <option>African American (Legacy Tri-State)</option>
+                <option>Hispanic / Latino</option>
+                <option>Asian American / Pacific Islander</option>
+                <option>Native American / Indigenous</option>
+                <option>Middle Eastern / North African</option>
+                <option>Caribbean / West Indian</option>
+                <option>European / Mediterranean</option>
+                <option>Sub-Saharan African</option>
+                <option>South Asian / Desi</option>
+            </optgroup>
+        </select>
 
-        <div class="artist-entrance">
-            <h2>ARTIST & MERCHANT PORTAL</h2>
-            <p>List your Canvas Art or set up a free text-based Classified Ad today.</p>
-            <a href="registration.html" class="btn-prime" style="text-decoration:none;">POST LISTING</a>
-        </div>
+        <select>
+            <option>Identity / Pronouns</option>
+            <optgroup label="Gender & Identity">
+                <option>Woman-Owned</option>
+                <option>Man-Owned</option>
+                <option>Non-Binary / Genderqueer</option>
+                <option>Transgender Owned</option>
+                <option>Two-Spirit Owned</option>
+                <option>Agender / Neutral</option>
+            </optgroup>
+            <optgroup label="Pronouns">
+                <option>He / Him</option>
+                <option>She / Her</option>
+                <option>They / Them</option>
+                <option>Ze / Zir</option>
+                <option>Per / Per</option>
+            </optgroup>
+        </select>
+
+        <button style="background: var(--kin-gold); border:none; padding: 0 30px; font-weight:bold; cursor:pointer;">ENTER</button>
     </section>
 
-    <main class="grid-container">
-        <a href="canvas-art.html" class="cat-card"><h3>CANVAS ART SHOP</h3><p>Purchase original works. Free text-ad included with account creation.</p></a>
-        <a href="classifieds.html" class="cat-card"><h3>CLASSIFIED LISTINGS</h3><p>Browse text-based ads by category. Free for all verified members.</p></a>
-        <a href="directory.html" class="cat-card"><h3>BUSINESS DIRECTORY</h3><p>Every profile and listing tied together in one multicultural search.</p></a>
-        <a href="favorites.html" class="cat-card"><h3>MY FAVORITES</h3><p>Save listings and art to your profile for quick and easy access.</p></a>
+    <div class="section-title">SOVEREIGN DIRECTORY</div>
+
+    <main class="directory-grid">
+        <a href="classifieds.html" class="cat-card"><h3>AFRICAN AMERICAN</h3><p>Incorporating the complete archive of the Tri-State Minority Yellow Pages.</p></a>
+        <a href="classifieds.html" class="cat-card"><h3>HISPANIC / LATINO</h3><p>Businesses, services, and artisans from the Spanish-speaking diaspora.</p></a>
+        <a href="classifieds.html" class="cat-card"><h3>ASIAN PACIFIC</h3><p>Trade nodes and technology services from across the Pacific corridor.</p></a>
+        <a href="classifieds.html" class="cat-card"><h3>INDIGENOUS TRADE</h3><p>Sovereign tribal businesses and traditional artisan services.</p></a>
     </main>
 
-    <footer>
-        <p>SIGN IN WITH: GOOGLE | X | MICROSOFT | EMAIL</p>
-        <p>© 2026 SOLOMON KIN RECORDS MEDIA GROUP // MANDATE: THINK TEAM NOT GANG</p>
+    
+
+    <footer class="legacy-footer">
+        <div class="legacy-content">
+            <div class="about-text">
+                <h2>OUR MANDATE</h2>
+                <p>
+                    Kin Pages is the digital continuation of the African American directory of minority businesses and services formerly known as the <b>Tri-State Minority Yellow Pages</b>. As your link to minority businesses, we serve as a sovereign hub where trade, art, and identity intersect. By utilizing the Vexilla AITS ledger, we ensure that the legacy of multicultural entrepreneurship is preserved and amplified for the next generation. Think Team Not Gang.
+                </p>
+            </div>
+            <div class="contact-box">
+                <b>KIN PAGES HEADQUARTERS</b><br>
+                PO Box 2371<br>
+                Bala Cynwyd, PA 19004-9998<br>
+                <br>
+                <b>STATUS:</b> Level 5 Secured<br>
+                <b>DIVIDEND:</b> 10% Foundation Mandate
+            </div>
+        </div>
+
+        <div class="listing-links">
+            <a href="#">ACCOUNTING SERVICES</a>
+            <a href="#">ARCHITECTURAL FIRMS</a>
+            <a href="#">BEAUTY & WELLNESS</a>
+            <a href="#">CATERING & FOOD</a>
+            <a href="#">DIGITAL MARKETING</a>
+            <a href="#">ELECTRICAL CONTRACTORS</a>
+            <a href="#">FASHION DESIGN</a>
+            <a href="#">GRAPHIC DESIGN</a>
+            <a href="#">HEALTHCARE PROVIDERS</a>
+            <a href="#">IT CONSULTING</a>
+            <a href="#">LEGAL SERVICES</a>
+            <a href="#">LOGISTICS & TRUCKING</a>
+            <a href="#">MORTGAGE BROKERS</a>
+            <a href="#">NON-PROFIT ORGS</a>
+            <a href="#">PLUMBING SERVICES</a>
+            <a href="#">REAL ESTATE</a>
+            <a href="#">SECURITY SYSTEMS</a>
+            <a href="#">TRANSPORTATION</a>
+            <a href="#">VETERINARY CARE</a>
+            <a href="#">WEB DEVELOPMENT</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; font-size: 0.5rem; color: #222; letter-spacing: 5px;">
+            VERIFIED SOVEREIGN NETWORK // © 2026
+        </div>
     </footer>
 
 </body>
