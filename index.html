@@ -3,210 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIN PAGES | The Sovereign Yellow Pages Directory</title>
+    <title>THE KIN PAGES | Sovereign Multicultural Directory</title>
     <style>
         :root {
             --kin-gold: #d4af37;
             --kin-black: #050505;
-            --kin-yellow: #ffdf00; /* Traditional Yellow Page Accent */
-            --kin-border: #222;
+            --kin-grey: #121212;
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
         body {
             background-color: var(--kin-black);
             color: #eee;
-            font-family: 'Courier New', Courier, monospace; /* Ledger feel */
+            font-family: 'Courier New', monospace;
             margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* VEXILLA LIVE HEARTBEAT HEADER */
+        .system-bar {
+            background: #000;
+            border-bottom: 1px solid var(--kin-gold);
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--kin-gold);
+        }
+
+        /* HERO SECTION */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+            border-bottom: 1px solid #222;
+        }
+
+        h1 {
+            font-size: 4rem;
+            letter-spacing: 20px;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .mandate-tag {
+            background: var(--kin-gold);
+            color: #000;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* SEARCH & FILTER ENGINE */
+        .search-container {
+            max-width: 1000px;
+            margin: -50px auto 0;
+            background: var(--kin-grey);
+            border: 1px solid var(--kin-gold);
+            padding: 30px;
+            backdrop-filter: blur(10px);
             display: grid;
-            grid-template-columns: 280px 1fr;
-            height: 100vh;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 15px;
+        }
+
+        input, select {
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 15px;
+            font-family: inherit;
+        }
+
+        .btn-search {
+            background: var(--kin-gold);
+            color: #000;
+            border: none;
+            padding: 0 30px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* MULTICULTURAL CATEGORY GRID */
+        .grid-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .cat-card {
+            background: var(--glass);
+            border: 1px solid #222;
+            padding: 40px 30px;
+            transition: 0.4s;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
             overflow: hidden;
         }
 
-        /* LEFT SIDEBAR: GATEKEEPER & ACTIONS */
-        .sidebar {
-            background: #0a0a0a;
-            border-right: 2px solid var(--kin-gold);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .cat-card:hover {
+            border-color: var(--kin-gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
         }
 
-        .sidebar h1 {
+        .cat-card h3 {
             color: var(--kin-gold);
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--kin-gold);
-            padding-bottom: 10px;
-            margin: 0;
-            text-align: center;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
         }
 
-        .sidebar-nav { margin-top: 20px; flex-grow: 1; }
-        .sidebar-nav a {
-            display: block;
+        .cat-card p {
+            font-size: 0.75rem;
+            line-height: 1.6;
             color: #888;
-            text-decoration: none;
-            padding: 12px 0;
-            border-bottom: 1px solid #1a1a1a;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-        .sidebar-nav a:hover { color: var(--kin-gold); }
-
-        .gatekeeper-actions {
-            border-top: 2px solid var(--kin-gold);
-            padding-top: 20px;
-        }
-        .btn-gate {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 0.8rem;
-        }
-        .btn-login { border: 1px solid var(--kin-gold); color: var(--kin-gold); }
-        .btn-reg { background: var(--kin-gold); color: black; }
-
-        /* MAIN CONTENT: THE DIRECTORY */
-        .main-directory {
-            overflow-y: scroll;
-            padding: 40px;
-            background: linear-gradient(to bottom, #050505, #111);
         }
 
-        .directory-header {
-            border-bottom: 4px double var(--kin-gold);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        .directory-header h2 { font-size: 2.5rem; margin: 0; color: #fff; }
-        .alpha-scroller { color: var(--kin-gold); font-size: 0.9rem; letter-spacing: 3px; }
-
-        /* LEDGER CATEGORY SECTION */
-        .ledger-category {
-            margin-bottom: 50px;
-        }
-        .category-title {
-            background: var(--kin-gold);
-            color: black;
-            padding: 5px 15px;
-            display: inline-block;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 1rem;
-            margin-bottom: 20px;
+        .tier-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.5rem;
+            border: 1px solid #444;
+            padding: 2px 5px;
+            color: #444;
         }
 
-        .ledger-grid {
+        /* FOOTER MODULES */
+        footer {
+            border-top: 1px solid #222;
+            padding: 60px 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2px; /* Traditional Yellow Page thin border */
-            background: var(--kin-border);
-            border: 1px solid var(--kin-border);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            font-size: 0.7rem;
         }
 
-        .ledger-entry {
-            background: #050505;
-            padding: 20px;
-            transition: 0.2s;
-        }
-        .ledger-entry:hover { background: #111; }
-        .ledger-entry h3 { 
-            margin: 0; 
-            font-size: 1.1rem; 
-            color: white; 
-            border-bottom: 1px dotted #444; 
-            padding-bottom: 5px;
-        }
-        .ledger-entry .ein-tag { font-size: 0.6rem; color: #00ff41; float: right; margin-top: 5px; }
-        .ledger-entry p { font-size: 0.75rem; color: #777; line-height: 1.4; margin: 10px 0; }
-        .ledger-entry .contact-line { font-size: 0.7rem; color: var(--kin-gold); }
+        .footer-col h4 { color: var(--kin-gold); margin-bottom: 20px; }
+        .footer-col a { color: #666; text-decoration: none; display: block; margin-bottom: 10px; }
+        .footer-col a:hover { color: #fff; }
 
-        /* SCROLLBAR STYLE */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: var(--kin-gold); }
     </style>
 </head>
 <body>
 
-    <aside class="sidebar">
-        <h1>KIN PAGES</h1>
-        <div class="sidebar-nav">
-            <a href="index.html">Master Ledger</a>
-            <a href="foundations-hub.html">Foundations</a>
-            <a href="press.html">Media Group</a>
-            <a href="global-reach.html">Logistics</a>
-            <a href="ai-directory.html">AI Toolkit</a>
-        </div>
-        <div class="gatekeeper-actions">
-            <a href="login.html" class="btn-gate btn-login">GATE LOGIN</a>
-            <a href="register.html" class="btn-gate btn-reg">REGISTER EIN</a>
-        </div>
-        <p style="font-size:0.6rem; color:#444; margin-top:20px;">EST. 1999 // VEXILLA AITS SECURED</p>
-    </aside>
+    <div class="system-bar">
+        <span>VEXILLA AITS LIVE: ACTIVE</span>
+        <span>GLOBAL NODES: 12 ONLINE</span>
+        <span>FOUNDATION DIVIDEND: $24,840.00</span>
+    </div>
 
-    <main class="main-directory">
-        <header class="directory-header">
-            <div>
-                <h2>The Sovereign Directory</h2>
-                <span style="color:var(--kin-gold); font-size:0.8rem;">VOL 26.04 // OFFICIAL BUSINESS ASSOCIATION RECORDS</span>
-            </div>
-            <div class="alpha-scroller">
-                A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-            </div>
-        </header>
+    <header>
+        <h1>THE KIN PAGES</h1>
+        <p style="letter-spacing: 8px; color: #555;">SOLOMON KIN RECORDS MEDIA GROUP</p>
+        <div class="mandate-tag">10% Foundation Mandate Active</div>
+    </header>
 
-        <section class="ledger-category">
-            <div class="category-title">Fine Art / Canvas Depositories</div>
-            <div class="ledger-grid">
-                <div class="ledger-entry">
-                    <span class="ein-tag">✓ VERIFIED</span>
-                    <h3>Ancestral Grace Studio</h3>
-                    <p>Exclusive oil on canvas collections documenting the Solomon Kin cultural lineage.</p>
-                    <div class="contact-line">ID: SKR-882-AG // ATLANTA, GA</div>
-                </div>
-                <div class="ledger-entry">
-                    <span class="ein-tag">✓ VERIFIED</span>
-                    <h3>Koinonia Canvas Co.</h3>
-                    <p>High-provenance giclée prints and mixed media works available for trade.</p>
-                    <div class="contact-line">ID: SKR-412-KO // CHICAGO, IL</div>
-                </div>
-                <div class="ledger-entry">
-                    <span class="ein-tag">✓ VERIFIED</span>
-                    <h3>Sovereign Strokes</h3>
-                    <p>Historical archive of Solomon Kin Records early mural and canvas commissions.</p>
-                    <div class="contact-line">ID: SKR-009-SS // LOS ANGELES, CA</div>
-                </div>
-            </div>
-        </section>
+    <section class="search-container">
+        <input type="text" placeholder="Find Verified Trade or Art...">
+        
+        <select>
+            <option>All Cultural Hubs</option>
+            <option>African-American Collective</option>
+            <option>Hispanic/Latino Trade</option>
+            <option>Asian-Pacific Founders</option>
+            <option>Indigenous/Native Trade</option>
+        </select>
 
-        <section class="ledger-category">
-            <div class="category-title">Trade, Logistics & IM-EX</div>
-            <div class="ledger-grid">
-                <div class="ledger-entry">
-                    <span class="ein-tag">✓ VERIFIED</span>
-                    <h3>IBINGOD Trade, Inc.</h3>
-                    <p>International import/export management and secure art crating for Kin Associates.</p>
-                    <div class="contact-line">ID: IBI-990-TR // GLOBAL</div>
-                </div>
-                <div class="ledger-entry">
-                    <span class="ein-tag">✓ VERIFIED</span>
-                    <h3>Vexilla Logistics Hub</h3>
-                    <p>Primary distribution node for Solomon Kin Records Media Group hardware and prints.</p>
-                    <div class="contact-line">ID: VEX-114-LH // PORT OF NY</div>
-                </div>
-            </div>
-        </section>
+        <select>
+            <option>All Identities</option>
+            <option>Women-Owned</option>
+            <option>LGBTQ+ Owned</option>
+            <option>Non-Binary Entities</option>
+            <option>Veteran Owned</option>
+        </select>
+
+        <button class="btn-search">ENTER</button>
+    </section>
+
+    <main class="grid-container">
+        
+        <a href="cultural-directory.html" class="cat-card">
+            <span class="tier-badge">SOVEREIGN</span>
+            <h3>TRADE & LOGISTICS</h3>
+            <p>Export, Maritime, and Freight services managed by the Assembly. EIN Verified.</p>
+        </a>
+
+        <a href="vault.html" class="cat-card">
+            <span class="tier-badge">PRIME</span>
+            <h3>FINE ART & CANVAS</h3>
+            <p>The Solomon Kin archival collection. Provenance secured by Vexilla AITS.</p>
+        </a>
+
+        <a href="cultural-directory.html" class="cat-card">
+            <h3>TECH & A.I.</h3>
+            <p>Sovereign development nodes focusing on ethical A.I. and identity protection.</p>
+        </a>
+
+        <a href="commune.html" class="cat-card">
+            <h3>THE COMMUNE</h3>
+            <p>Direct B2B networking for multicultural founders. Build your team.</p>
+        </a>
+
+        <a href="ttng-fellowship.html" class="cat-card">
+            <span class="tier-badge">FOUNDATION</span>
+            <h3>FELLOWSHIP</h3>
+            <p>Training the next generation of associates. Think Team Not Gang.</p>
+        </a>
+
+        <a href="library.html" class="cat-card">
+            <h3>RESOURCE LIB</h3>
+            <p>Sovereign legal templates, cultural archives, and trade bylaws.</p>
+        </a>
 
     </main>
+
+    <footer>
+        <div class="footer-col">
+            <h4>THE CORE</h4>
+            <a href="gateway.html">Gateway Portal</a>
+            <a href="gatekeeper.html">The Gatekeeper</a>
+            <a href="system-status.html">System Health</a>
+        </div>
+        <div class="footer-col">
+            <h4>THE LEDGER</h4>
+            <a href="archive.html">Historical Records</a>
+            <a href="impact-2026.html">Impact Report</a>
+            <a href="manifest-generator.html">Manifest Tools</a>
+        </div>
+        <div class="footer-col">
+            <h4>MEMBERSHIP</h4>
+            <a href="advance-services.html">Sovereign Tiers</a>
+            <a href="member-id.html">ID Credentials</a>
+            <a href="checkout.html">Ledger Payment</a>
+        </div>
+        <div class="footer-col">
+            <h4>MEDIA</h4>
+            <a href="press-release.html">News Wire</a>
+            <a href="event-flyer.html">Events & Flyers</a>
+            <a href="sys-admin.html">Admin Manual</a>
+        </div>
+    </footer>
+
+    <div style="text-align: center; padding: 40px; color: #222; font-size: 0.5rem; letter-spacing: 10px;">
+        ESTABLISHED 1999 // THE LEGACY IS ACTIVE
+    </div>
 
 </body>
 </html>
