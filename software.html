@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Enterprise | Vexilla AITS Command</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --terminal-green: #00ff41; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; padding-bottom: 80px; }
+        
+        header { padding: 60px 40px; background: #080808; border-bottom: 1px solid var(--kin-gold); text-align: center; }
+        .tech-title { color: var(--kin-gold); font-size: 1.8rem; letter-spacing: 10px; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+
+        /* TECH GRID */
+        .software-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .tech-card { 
+            background: var(--kin-grey); border: 1px solid #222; padding: 30px; 
+            transition: 0.3s; position: relative; overflow: hidden;
+        }
+        .tech-card:hover { border-color: var(--kin-gold); transform: translateY(-5px); }
+        
+        .sys-label { font-size: 0.5rem; color: #555; text-transform: uppercase; letter-spacing: 2px; }
+        .app-name { color: var(--kin-gold); font-size: 1.1rem; margin: 10px 0; display: block; letter-spacing: 2px; }
+        .app-desc { font-size: 0.75rem; color: #888; line-height: 1.6; margin-bottom: 20px; }
+
+        /* BUTTONS */
+        .btn-exe { 
+            display: inline-block; padding: 12px 24px; border: 1px solid var(--kin-gold); 
+            color: var(--kin-gold); text-decoration: none; font-size: 0.7rem; font-weight: bold;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .btn-exe:hover { background: var(--kin-gold); color: #000; }
+
+        /* MATRIX CODE BACKGROUND EFFECT FOR CARDS */
+        .tech-card::after {
+            content: "010101"; position: absolute; bottom: -10px; right: 10px; 
+            font-size: 2rem; color: #151515; font-weight: bold; z-index: 0;
+        }
+        .content-relative { position: relative; z-index: 1; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="tech-title">VEXILLA SOFTWARE CENTER</div>
+        <p style="font-size: 0.6rem; color: #444; letter-spacing: 3px; margin-top: 10px;">SOLOMON KIN SOFTWARE CENTER, INC. // AUTONOMOUS ENTERPRISE</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="software-grid">
+            
+            <div class="tech-card">
+                <div class="content-relative">
+                    <span class="sys-label">Core Operating System</span>
+                    <span class="app-name">VEXILLA AITS, INC.</span>
+                    <p class="app-desc">The primary autonomous command and digital repository. Central engine for all enterprise-level data trust and security applications.</p>
+                    <a href="https://skrs-ai.github.io/SKRMG-Command-Center/" class="btn-exe">RUN COMMAND CENTER</a>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <div class="content-relative">
+                    <span class="sys-label">Enterprise Home OO</span>
+                    <span class="app-name">AUTOPILOT UI</span>
+                    <p class="app-desc">High-level interface for autonomous task management and system navigation. Streamlining sovereign workflow.</p>
+                    <a href="https://skrs-ai.github.io/Vexilla-AutoPilot-UI/" class="btn-exe">INITIALIZE UI</a>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <div class="content-relative">
+                    <span class="sys-label">Software Creator OO</span>
+                    <span class="app-name">PROMPT MASK, INC.</span>
+                    <p class="app-desc">Advanced LLM interface masking and prompt engineering suite for secure AI interaction.</p>
+                    <a href="https://skrs-ai.github.io/Vexilla-Prompt-MasK" class="btn-exe">LOAD MASK</a>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <div class="content-relative">
+                    <span class="sys-label">Device Mobile OO</span>
+                    <span class="app-name">KinOS / MAKINZINE</span>
+                    <p class="app-desc">The mobile-first operating system designed for the Makinzine device family. Connectivity for the Sovereign village.</p>
+                    <a href="https://skrs-ai.github.io/KinOSA-USA_VEX/" class="btn-exe">BOOT MOBILE OS</a>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <div style="margin-top: 60px; border-top: 1px solid #222; padding-top: 40px; text-align: center;">
+            <span class="sys-label">Infrastructure Support provided by:</span>
+            <p style="font-size: 0.7rem; color: var(--kin-gold);">VEXILLA VANGUARD COLLECTIVE // THE ENTERPRISE IT SUPPORT FOUNDATION</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
