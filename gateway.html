@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATEWAY | Solomon Kin Records</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+        }
+
+        body, html {
+            height: 100%; margin: 0;
+            background-color: var(--kin-black);
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* BACKGROUND ELEMENTS */
+        .ambient-glow {
+            position: absolute; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 70%);
+            z-index: 1;
+        }
+
+        /* CENTRAL BOX */
+        .gateway-box {
+            position: relative; z-index: 10;
+            text-align: center; border: 1px solid #222;
+            padding: 60px 40px; width: 400px;
+            background: rgba(10, 10, 10, 0.9);
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+        }
+
+        .seal-logo {
+            font-size: 2.5rem; color: var(--kin-gold);
+            font-weight: bold; letter-spacing: 5px; margin-bottom: 20px;
+        }
+
+        .line { width: 40px; height: 2px; background: var(--kin-gold); margin: 20px auto; }
+
+        .status-feed {
+            font-size: 0.65rem; color: #444; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 40px;
+        }
+
+        /* ACCESS BUTTON */
+        .enter-btn {
+            display: inline-block; padding: 15px 40px;
+            border: 1px solid var(--kin-gold); color: var(--kin-gold);
+            text-decoration: none; font-size: 0.8rem; font-weight: bold;
+            letter-spacing: 3px; transition: 0.4s; position: relative;
+        }
+
+        .enter-btn:hover {
+            background: var(--kin-gold); color: #000;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* DECORATIVE FOOTER */
+        .gate-footer {
+            position: absolute; bottom: 30px; width: 100%;
+            text-align: center; z-index: 10; font-size: 0.6rem;
+            color: #222; letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <main class="gateway-box">
+        <div class="seal-logo">SKR</div>
+        <div class="line"></div>
+        <h1 style="color:#fff; font-size: 1rem; letter-spacing: 3px; margin:0;">KIN PAGES</h1>
+        <p style="color:#666; font-size: 0.7rem; margin-top: 10px;">MASTER DIRECTORY & TRADE LEDGER</p>
+        
+        <div class="line" style="width: 100px; opacity: 0.2;"></div>
+
+        <div class="status-feed" id="status">
+            SYSTEMS: ONLINE<br>
+            AITS: ACTIVE<br>
+            LEGAL: 2026 MANDATE READY
+        </div>
+
+        <a href="index.html" class="enter-btn">ENTER THE LEDGER</a>
+    </main>
+
+    <div class="gate-footer">
+        SOLOMON KIN RECORDS MEDIA GROUP © 1999-2026 // ALL RIGHTS RESERVED
+    </div>
+
+</body>
+</html>
