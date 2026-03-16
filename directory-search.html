@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search | Kin Pages Global Directory</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; }
+        
+        .search-header { padding: 60px; text-align: center; background: #080808; border-bottom: 1px solid var(--kin-gold); }
+        h1 { color: var(--kin-gold); letter-spacing: 5px; font-size: 1.5rem; }
+
+        .search-container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        
+        /* SEARCH BAR */
+        .search-box { position: relative; width: 100%; margin-bottom: 50px; }
+        #main-search { width: 100%; padding: 20px; background: #000; border: 1px solid var(--kin-gold); color: #fff; font-size: 1.2rem; font-family: inherit; box-sizing: border-box; }
+        
+        /* RESULTS STYLING */
+        .result-item { background: var(--kin-grey); border: 1px solid #222; padding: 20px; margin-bottom: 15px; display: none; }
+        .result-item.visible { display: block; border-left: 4px solid var(--kin-gold); }
+        .res-cat { font-size: 0.5rem; color: #555; text-transform: uppercase; letter-spacing: 2px; }
+        .res-title { color: var(--kin-gold); font-size: 1rem; margin: 5px 0; display: block; }
+        .res-desc { font-size: 0.7rem; color: #888; }
+        .res-link { font-size: 0.6rem; color: #444; text-decoration: none; margin-top: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <header class="search-header">
+        <h1>KIN PAGES SEARCH</h1>
+        <p style="font-size: 0.6rem; color: #444; letter-spacing: 2px;">THE SOVEREIGN YELLOW PAGES DIRECTORY</p>
+    </header>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="main-search" placeholder="Search by Company, Industry, or Foundation..." onkeyup="filterDirectory()">
+        </div>
+
+        <div id="results-ledger">
+            <div class="result-item" data-tags="trading ibingod import export music records">
+                <span class="res-cat">RECORDS AND TRADING</span>
+                <span class="res-title">IBINGOD TRADE, INC. IM/EX</span>
+                <p class="res-desc">Global insights and international trading command center (est. 1999).</p>
+                <a href="#" class="res-link">ibingodtrade.com</a>
+            </div>
+
+            <div class="result-item" data-tags="software tech vexilla aits command enterprise">
+                <span class="res-cat">SOFTWARE ENTERPRISE</span>
+                <span class="res-title">VEXILLA AITS, INC.</span>
+                <p class="res-desc">Autonomous Command & Digital Repository. Enterprise software solutions.</p>
+                <a href="#" class="res-link">vexillaaits.com</a>
+            </div>
+
+            <div class="result-item" data-tags="nonprofit tbblusa identity foundation brown black">
+                <span class="res-cat">NON-PROFIT FOUNDATION</span>
+                <span class="res-title">THIN BLACK & BROWN LINES USA</span>
+                <p class="res-desc">National identity bureau and community advocacy foundation.</p>
+                <a href="#" class="res-link">tbblusa.org</a>
+            </div>
+
+            <div class="result-item" data-tags="adult filthy seduction network production media">
+                <span class="res-cat">OBSIDIAN DIRECTORATE</span>
+                <span class="res-title">FILTHY SEDUCTION PRODUCTIONS</span>
+                <p class="res-desc">High-fidelity adult media distribution and production (est. 2024).</p>
+                <a href="#" class="res-link">filthyseductionproductions.com</a>
+            </div>
+            
+            </div>
+    </div>
+
+    
+
+    <script>
+        function filterDirectory() {
+            let input = document.getElementById('main-search').value.toLowerCase();
+            let items = document.getElementsByClassName('result-item');
+            
+            for (let i = 0; i < items.length; i++) {
+                let tags = items[i].getAttribute('data-tags');
+                if (input.length > 0 && tags.includes(input)) {
+                    items[i].classList.add('visible');
+                } else {
+                    items[i].classList.remove('visible');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
