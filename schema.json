@@ -1,0 +1,52 @@
+{
+  "ecosystem": "Kin Pages Sovereign Directory",
+  "version": "2026.03.15",
+  "author": "Solomon Kin Records Media Group",
+  "core_logic": {
+    "association_tax": 0.10,
+    "verification_requirement": "IRS-EIN",
+    "access_protocol": "Vexilla AITS"
+  },
+  "database_tables": [
+    {
+      "table": "Entities",
+      "fields": {
+        "entity_id": "UUID (SKR-XXXX)",
+        "legal_name": "String",
+        "ein_hash": "Encrypted String",
+        "verification_status": "Enum (Pending, Verified, Flagged)",
+        "sovereign_tier": "Enum (Bronze, Silver, Gold, Platinum)",
+        "sector": "String (e.g., Fine Art, Logistics, Tech)",
+        "foundation_designation": "String (TTNG or Koinonia)"
+      }
+    },
+    {
+      "table": "Ledger_Transactions",
+      "fields": {
+        "transaction_id": "UUID (SK-TX-XXXX)",
+        "origin_entity_id": "UUID",
+        "gross_value": "Decimal",
+        "foundation_tax": "Decimal (Gross * 0.10)",
+        "timestamp": "ISO-8601",
+        "receipt_url": "String (Unique receipt.html hash)"
+      }
+    },
+    {
+      "table": "Provenance_Archive",
+      "fields": {
+        "asset_id": "UUID (SK-ART-XXXX)",
+        "title": "String",
+        "medium": "String",
+        "current_node": "String (e.g., ATL-01, NYC-04)",
+        "status": "Enum (In-Vault, In-Transit, On-Display)",
+        "last_verified": "Timestamp"
+      }
+    }
+  ],
+  "api_endpoints": {
+    "onboarding": "POST /v1/register (Requires EIN)",
+    "verification": "GET /v1/gatekeeper/pending",
+    "impact_stream": "GET /v1/foundations/live-feed",
+    "secure_comms": "POST /v1/scribeboard/transmit"
+  }
+}
