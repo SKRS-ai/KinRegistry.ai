@@ -1,261 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kin Pages | The Digital Continuation of Tri-State Minority Yellow Pages</title>
-    <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #121212;
-            --glass: rgba(255, 255, 255, 0.03);
-        }
-
-        body {
-            background-color: var(--kin-black); color: #eee;
-            font-family: 'Courier New', monospace; margin: 0;
-        }
-
-        /* NAVIGATION */
-        nav {
-            background: #000; border-bottom: 2px solid var(--kin-gold);
-            padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 1000;
-        }
-
-        .nav-links a { color: var(--kin-gold); text-decoration: none; margin-left: 20px; font-size: 0.75rem; font-weight: bold; }
-
-        /* HERO & BRANDING */
-        header {
-            padding: 80px 20px; text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-        }
-
-        h1 { font-size: 4.5rem; letter-spacing: 20px; margin: 0; color: var(--kin-gold); }
-        .legacy-tag { font-size: 0.7rem; color: #555; letter-spacing: 2px; margin-top: 10px; text-transform: uppercase; }
-
-        /* SEARCH & COMPREHENSIVE FILTERS */
-        .master-search {
-            max-width: 1200px; margin: -40px auto 40px; background: var(--kin-grey);
-            border: 1px solid var(--kin-gold); padding: 30px; display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr auto; gap: 15px;
-        }
-
-        input, select { background: #000; border: 1px solid #333; color: #fff; padding: 15px; font-family: inherit; font-size: 0.8rem; }
-
-        /* CATEGORY SECTION */
-        .section-title { text-align: center; color: var(--kin-gold); letter-spacing: 5px; margin: 60px 0 30px; font-size: 1.2rem; }
-        
-        .directory-grid {
-            max-width: 1200px; margin: 0 auto; display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 0 20px;
-        }
-
-        .cat-card { border: 1px solid #222; padding: 25px; transition: 0.3s; text-decoration: none; color: inherit; background: var(--glass); }
-        .cat-card:hover { border-color: var(--kin-gold); background: #000; }
-        .cat-card h3 { color: var(--kin-gold); margin: 0 0 10px 0; font-size: 0.9rem; }
-        .cat-card p { font-size: 0.65rem; color: #666; line-height: 1.6; }
-
-        /* ABOUT / LEGACY FOOTER */
-        .legacy-footer {
-            background: #0a0a0a; border-top: 1px solid var(--kin-gold);
-            padding: 60px 40px; margin-top: 100px;
-        }
-
-        .legacy-content { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
-        .about-text h2 { color: var(--kin-gold); font-size: 1rem; }
-        .about-text p { font-size: 0.8rem; line-height: 1.8; color: #888; text-align: justify; }
-
-        .contact-box { font-size: 0.75rem; color: #fff; line-height: 2; }
-        .contact-box b { color: var(--kin-gold); }
-
-        /* QUICK LINKS LISTINGS AT BOTTOM */
-        .listing-links {
-            padding: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid #111;
-        }
-        .listing-links a { font-size: 0.65rem; color: #444; text-decoration: none; }
-        .listing-links a:hover { color: var(--kin-gold); }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div style="color: var(--kin-gold); font-weight: bold; letter-spacing: 5px;">KIN PAGES</div>
-        <div class="nav-links">
-            <a href="registration.html">JOIN ASSEMBLY</a>
-            <a href="login.html">LOGIN</a>
-            <a href="classifieds.html">CLASSIFIEDS</a>
-            <a href="vault.html">CANVAS VAULT</a>
-            <a href="favorites.html">MY FAVORITES</a>
-        </div>
-    </nav>
-
-    <header>
-        <h1>KIN PAGES</h1>
-        <div class="legacy-tag">The Digital Continuation of Tri-State Minority Yellow Pages</div>
-    </header>
-
-    <section class="master-search">
-        <input type="text" placeholder="Search Listings, Art, or Services...">
-        
-        <select>
-            <option>All Cultural Hubs</option>
-            <optgroup label="Regional / Ethnic">
-                <option>African American (Legacy Tri-State)</option>
-                <option>Hispanic / Latino</option>
-                <option>Asian American / Pacific Islander</option>
-                <option>Native American / Indigenous</option>
-                <option>Middle Eastern / North African</option>
-                <option>Caribbean / West Indian</option>
-                <option>European / Mediterranean</option>
-                <option>Sub-Saharan African</option>
-                <option>South Asian / Desi</option>
-            </optgroup>
-        </select>
-
-        <select>
-            <option>Identity / Pronouns</option>
-            <optgroup label="Gender & Identity">
-                <option>Woman-Owned</option>
-                <option>Man-Owned</option>
-                <option>Non-Binary / Genderqueer</option>
-                <option>Transgender Owned</option>
-                <option>Two-Spirit Owned</option>
-                <option>Agender / Neutral</option>
-            </optgroup>
-            <optgroup label="Pronouns">
-                <option>He / Him</option>
-                <option>She / Her</option>
-                <option>They / Them</option>
-                <option>Ze / Zir</option>
-                <option>Per / Per</option>
-            </optgroup>
-        </select>
-
-        <button style="background: var(--kin-gold); border:none; padding: 0 30px; font-weight:bold; cursor:pointer;">ENTER</button>
-    </section>
-
-    <div class="section-title">SOVEREIGN DIRECTORY</div>
-
-    <main class="directory-grid">
-        <a href="classifieds.html" class="cat-card"><h3>AFRICAN AMERICAN</h3><p>Incorporating the complete archive of the Tri-State Minority Yellow Pages.</p></a>
-        <a href="classifieds.html" class="cat-card"><h3>HISPANIC / LATINO</h3><p>Businesses, services, and artisans from the Spanish-speaking diaspora.</p></a>
-        <a href="classifieds.html" class="cat-card"><h3>ASIAN PACIFIC</h3><p>Trade nodes and technology services from across the Pacific corridor.</p></a>
-        <a href="classifieds.html" class="cat-card"><h3>INDIGENOUS TRADE</h3><p>Sovereign tribal businesses and traditional artisan services.</p></a>
-    </main>
-
-    
-
-    <footer class="legacy-footer">
-        <div class="legacy-content">
-            <div class="about-text">
-                <h2>OUR MANDATE</h2>
-                <p>
-                    Kin Pages is the digital continuation of the African American directory of minority businesses and services formerly known as the <b>Tri-State Minority Yellow Pages</b>. As your link to minority businesses, we serve as a sovereign hub where trade, art, and identity intersect. By utilizing the Vexilla AITS ledger, we ensure that the legacy of multicultural entrepreneurship is preserved and amplified for the next generation. Think Team Not Gang.
-                </p>
-            </div>
-            <div class="contact-box">
-                <b>KIN PAGES HEADQUARTERS</b><br>
-                PO Box 2371<br>
-                Bala Cynwyd, PA 19004-9998<br>
-                <br>
-                <b>STATUS:</b> Level 5 Secured<br>
-                <b>DIVIDEND:</b> 10% Foundation Mandate
-            </div>
-        </div>
-
-        <div class="listing-links">
-            <a href="#">ACCOUNTING SERVICES</a>
-            <a href="#">ARCHITECTURAL FIRMS</a>
-            <a href="#">BEAUTY & WELLNESS</a>
-            <a href="#">CATERING & FOOD</a>
-            <a href="#">DIGITAL MARKETING</a>
-            <a href="#">ELECTRICAL CONTRACTORS</a>
-            <a href="#">FASHION DESIGN</a>
-            <a href="#">GRAPHIC DESIGN</a>
-            <a href="#">HEALTHCARE PROVIDERS</a>
-            <a href="#">IT CONSULTING</a>
-            <a href="#">LEGAL SERVICES</a>
-            <a href="#">LOGISTICS & TRUCKING</a>
-            <a href="#">MORTGAGE BROKERS</a>
-            <a href="#">NON-PROFIT ORGS</a>
-            <a href="#">PLUMBING SERVICES</a>
-            <a href="#">REAL ESTATE</a>
-            <a href="#">SECURITY SYSTEMS</a>
-            <a href="#">TRANSPORTATION</a>
-            <a href="#">VETERINARY CARE</a>
-            <a href="#">WEB DEVELOPMENT</a>
-        </div>
-
-        <div style="text-align: center; margin-top: 40px; font-size: 0.5rem; color: #222; letter-spacing: 5px;">
-            VERIFIED SOVEREIGN NETWORK // © 2026
-        </div>
-    </footer>
-<script>
-    // 1. SEARCH ENGINE CONNECTIVITY
-    const searchBtn = document.querySelector('.master-search button');
-    const searchInput = document.querySelector('.master-search input');
-    const cultureSelect = document.querySelectorAll('.master-search select')[0];
-    const identitySelect = document.querySelectorAll('.master-search select')[1];
-
-    function executeSearch() {
-        const query = searchInput.value.trim();
-        const culture = cultureSelect.value;
-        const identity = identitySelect.value;
-
-        // Visual feedback for the "Sovereign" experience
-        searchBtn.innerText = "VERIFYING LEDGER...";
-        searchBtn.style.opacity = "0.7";
-
-        // Construct the Search URL
-        // This sends the data to classifieds.html which will act as our results engine
-        const params = new URLSearchParams({
-            q: query,
-            hub: culture,
-            id: identity
-        });
-
-        setTimeout(() => {
-            window.location.href = `classifieds.html?${params.toString()}`;
-        }, 800);
+<style>
+    /* ... (previous styles) ... */
+    footer {
+        background: #000;
+        border-top: 2px solid var(--kin-gold);
+        padding: 60px 40px;
+        color: #fff !important; /* Forces White Text */
     }
-
-    // Trigger on Click
-    searchBtn.addEventListener('click', executeSearch);
-
-    // Trigger on "Enter" Key
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') executeSearch();
-    });
-
-    // 2. USER AUTHENTICATION & ERROR CHECKING
-    // This mock logic checks if a user is "logged in" 
-    // In a real deployment, this would check a Token or Firebase Auth
-    function checkUserSession() {
-        const isLoggedIn = localStorage.getItem('kin_pages_session'); // Placeholder for real auth
-        const navLinks = document.querySelector('.nav-links');
-
-        if (isLoggedIn) {
-            // Update UI for logged in state
-            document.querySelector('a[href="login.html"]').style.display = 'none';
-            document.querySelector('a[href="registration.html"]').innerText = 'DASHBOARD';
-            document.querySelector('a[href="registration.html"]').href = 'profile.html';
-        }
+    .footer-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
     }
+    .footer-col h4 { color: var(--kin-gold); font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; }
+    .footer-col a { color: #fff; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.7rem; opacity: 0.8; }
+    .footer-col a:hover { opacity: 1; color: var(--kin-gold); }
+</style>
 
-    // 3. ERROR HANDLING FOR DATABASE TIMEOUTS
-    window.onerror = function(message, source, lineno, colno, error) {
-        console.error("Kin Pages System Error:", message);
-        // Alert the user gently without breaking the Sovereign aesthetic
-        const errorBar = document.createElement('div');
-        errorBar.style = "position:fixed; top:0; width:100%; background:red; color:white; text-align:center; font-size:10px; z-index:9999;";
-        errorBar.innerText = "SYSTEM ERROR: VEXILLA AITS CONNECTION INTERRUPTED. RETRYING...";
-        document.body.appendChild(errorBar);
-        setTimeout(() => errorBar.remove(), 3000);
-    };
-
-    document.addEventListener('DOMContentLoaded', checkUserSession);
-</script>
-</body>
-</html>
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Sovereign Entry</h4>
+            <a href="gateway.html">System Gateway</a>
+            <a href="gatekeeper.html">The Gatekeeper</a>
+            <a href="login.html">Member Login</a>
+            <a href="registration.html">Join Assembly</a>
+            <a href="profile.html">Sovereign Dashboard</a>
+        </div>
+        <div class="footer-col">
+            <h4>Trade & Art</h4>
+            <a href="logo-kin.html">LOGO KIN (New)</a>
+            <a href="classifieds.html">Classified Square</a>
+            <a href="canvas-art.html">Canvas Vault</a>
+            <a href="checkout.html">Acquisition/Ledger</a>
+            <a href="manifest-generator.html">Shipping Manifest</a>
+        </div>
+        <div class="footer-col">
+            <h4>Community & Legacy</h4>
+            <a href="about-us.html">Our Story (Tri-State)</a>
+            <a href="favorites.html">My Private Vault</a>
+            <a href="commune.html">Private Forum</a>
+            <a href="ttng-fellowship.html">Youth Fellowship</a>
+            <a href="impact-2026.html">Mandate Report</a>
+        </div>
+        <div class="footer-col">
+            <h4>System Tools</h4>
+            <a href="system-status.html">Vexilla Heartbeat</a>
+            <a href="sys-admin.html">Admin Terminal</a>
+            <a href="library.html">Resource Library</a>
+            <a href="global-network.html">Network Map</a>
+            <a href="transition-protocol.html">Launch Logic</a>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 60px; font-size: 0.6rem; letter-spacing: 5px; opacity: 0.5;">
+        PO BOX 2371, BALA CYNWYD, PA 19004-9998 // THE DIGITAL CONTINUATION OF TRI-STATE MINORITY YELLOW PAGES
+    </div>
+</footer>
