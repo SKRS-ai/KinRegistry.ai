@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manifest Generator | Vexilla Logistics Tool</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0; padding: 40px;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            .no-print { display: none; }
+            body { background: white; color: black; padding: 0; }
+            .manifest-page { border: 2px solid black; padding: 20px; width: 100%; box-shadow: none; }
+            .seal { filter: grayscale(1); }
+        }
+
+        .generator-ui {
+            max-width: 900px; margin: 0 auto;
+            display: grid; grid-template-columns: 350px 1fr; gap: 40px;
+        }
+
+        /* INPUT PANEL */
+        .input-panel {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 25px; height: fit-content;
+        }
+
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-size: 0.6rem; color: var(--kin-gold); text-transform: uppercase; margin-bottom: 5px; }
+        input, select {
+            width: 100%; background: #000; border: 1px solid #444; color: #fff;
+            padding: 10px; box-sizing: border-box; font-family: inherit; font-size: 0.8rem;
+        }
+
+        .btn-generate {
+            width: 100%; background: var(--kin-gold); color: #000; border: none;
+            padding: 15px; font-weight: bold; cursor: pointer; margin-top: 10px;
+        }
+
+        /* PREVIEW PANEL */
+        .manifest-preview {
+            background: #fff; color: #000; padding: 40px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5); position: relative;
+        }
+
+        .manifest-header { border-bottom: 3px solid #000; padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; }
+        .seal { width: 80px; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.6rem; text-align: center; }
+
+        .manifest-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.75rem; }
+        .manifest-table th { border: 1px solid #000; background: #eee; padding: 8px; text-align: left; }
+        .manifest-table td { border: 1px solid #000; padding: 8px; }
+
+        .barcode { height: 40px; background: #000; width: 100%; margin-top: 30px; }
+        .legal-footer { font-size: 0.5rem; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 10px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+    <div class="generator-ui">
+        
+        <aside class="input-panel no-print">
+            <h2 style="color:var(--kin-gold); font-size:0.9rem; margin-bottom:20px;">MANIFEST BUILDER</h2>
+            
+            <div class="input-group">
+                <label>Handshake ID</label>
+                <input type="text" value="SK-HS-882-01" readonly>
+            </div>
+
+            <div class="input-group">
+                <label>Origin Node</label>
+                <select>
+                    <option>ATL-01 (Atlanta)</option>
+                    <option>NYC-04 (New York)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Cargo Description</label>
+                <input type="text" placeholder="e.g. Ancestral Grace #4 Canvas">
+            </div>
+
+            <div class="input-group">
+                <label>Destination Entity</label>
+                <input type="text" placeholder="Recipient Name/EIN">
+            </div>
+
+            <button class="btn-generate" onclick="window.print()">PRINT OFFICIAL MANIFEST</button>
+            <p style="font-size:0.55rem; color:#444; margin-top:20px;">
+                * GENERATING THIS DOCUMENT LOGS THE SHIPMENT IN THE VEXILLA MASTER LEDGER.
+            </p>
+        </aside>
+
+        <main class="manifest-preview">
+            <div class="manifest-header">
+                <div>
+                    <h1 style="margin:0; font-size:1.5rem;">SOVEREIGN SHIPMENT MANIFEST</h1>
+                    <span style="font-size:0.7rem;">SOLOMON KIN RECORDS MEDIA GROUP // LOGISTICS DIV.</span>
+                </div>
+                <div class="seal">VEXILLA<br>SECURED</div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.7rem;">
+                <div>
+                    <strong>CONSIGNOR:</strong><br>
+                    K-Grace Textiles (ATL-01)<br>
+                    EIN: 12-3456789<br>
+                    Status: Sovereign Associate
+                </div>
+                <div>
+                    <strong>CONSIGNEE:</strong><br>
+                    Luna Tech Labs (NYC-04)<br>
+                    EIN: 98-7654321<br>
+                    Status: Associate Member
+                </div>
+            </div>
+
+            <table class="manifest-table">
+                <thead>
+                    <tr>
+                        <th>ITEM ID</th>
+                        <th>DESCRIPTION</th>
+                        <th>QTY</th>
+                        <th>WEIGHT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SKR-PRV-882-004</td>
+                        <td>"Ancestral Grace #4" (Canvas Art)</td>
+                        <td>01</td>
+                        <td>14.5 lbs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="font-size: 0.7rem;">
+                <strong>FOUNDATION MANDATE:</strong> 10% Social Dividend allocated to <u>Koinonia Grace</u>.<br>
+                <strong>PROVENANCE:</strong> Verified by Vexilla AITS v9.8.
+            </div>
+
+            <div class="barcode"></div>
+            <div style="text-align:center; font-size:0.6rem; margin-top:5px;">* (00) 12345678 901234567 8 *</div>
+
+            <div class="legal-footer">
+                THIS CARGO IS PROTECTED BY THE SOVEREIGN ASSOCIATION MANDATE. ANY UNAUTHORIZED INTERFERENCE OR DISRUPTION OF THIS TRADE NODE WILL BE LOGGED IN THE MASTER AUDIT LOG. CONTENTS VALUED BY THE SOVEREIGN FLOOR PRICE.
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
