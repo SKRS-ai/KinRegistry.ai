@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Detail | Kin Pages Classifieds</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #222;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            line-height: 1.6;
+        }
+
+        /* HEADER AREA */
+        .ad-hero {
+            border-bottom: 1px solid var(--kin-gold);
+            padding: 60px 40px; background: linear-gradient(to right, #000, #111);
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+
+        .biz-title h1 { font-size: 2.5rem; margin: 0; color: #fff; text-transform: uppercase; }
+        .biz-meta { color: var(--kin-gold); font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* CONTENT LAYOUT */
+        .ad-container {
+            max-width: 1200px; margin: 0 auto; padding: 40px;
+            display: grid; grid-template-columns: 2fr 1fr; gap: 50px;
+        }
+
+        /* MEDIA SECTION */
+        .video-player {
+            width: 100%; aspect-ratio: 16/9; background: #000;
+            border: 1px solid var(--kin-border); display: flex;
+            align-items: center; justify-content: center; position: relative;
+        }
+        .video-player::after { content: "▶"; font-size: 3rem; color: var(--kin-gold); opacity: 0.5; }
+
+        .photo-gallery {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;
+        }
+        .gallery-img { aspect-ratio: 1/1; background: #1a1a1a; border: 1px solid #222; }
+
+        /* INFO SECTION */
+        .sidebar-info {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 30px; height: fit-content;
+        }
+
+        .info-label { font-size: 0.6rem; color: #555; text-transform: uppercase; margin-top: 20px; }
+        .info-value { font-size: 0.9rem; color: #ccc; border-bottom: 1px solid #222; padding-bottom: 5px; }
+
+        .btn-contact {
+            display: block; width: 100%; padding: 15px; margin-top: 30px;
+            background: var(--kin-gold); color: #000; text-align: center;
+            text-decoration: none; font-weight: bold; font-size: 0.8rem;
+        }
+
+        .badge-verified {
+            display: inline-block; padding: 5px 10px; border: 1px solid var(--kin-gold);
+            color: var(--kin-gold); font-size: 0.6rem; margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="ad-hero">
+        <div class="biz-title">
+            <span class="biz-meta">ESTABLISHED // 12 YEARS</span>
+            <h1>K-Grace Textiles</h1>
+            <div class="badge-verified">EIN VERIFIED ASSOCIATE</div>
+        </div>
+        <div style="text-align: right;">
+            <a href="cultural-directory.html" style="color:#555; text-decoration:none; font-size:0.7rem;">← BACK TO ASSEMBLY</a>
+        </div>
+    </header>
+
+    <main class="ad-container">
+        <section>
+            <div class="video-player">
+                <span style="position:absolute; bottom:10px; left:10px; font-size:0.6rem; color:#444;">VIDEO BRIEF: "THE THREAD OF SOVEREIGNTY"</span>
+            </div>
+
+            <h2 style="color:var(--kin-gold); margin-top:40px; font-size:1rem;">THE LEGACY STATEMENT</h2>
+            <p>Founded on the principle of communal grace, K-Grace Textiles has been a cornerstone of the regional manufacturing sector for over a decade. We specialize in bespoke garments that carry the cultural weight of our ancestors while utilizing modern logistics. As a Women-Owned enterprise, we focus on empowering the next generation of textile artists through the TTNG mandate.</p>
+
+            <div class="photo-gallery">
+                <div class="gallery-img"></div>
+                <div class="gallery-img"></div>
+            </div>
+        </section>
+
+        <aside class="sidebar-info">
+            <h3 style="margin:0; font-size:0.8rem; color:var(--kin-gold);">ENTITY SPECS</h3>
+            
+            <div class="info-label">Culture / Heritage</div>
+            <div class="info-value">African-American / Black</div>
+
+            <div class="info-label">Gender / Pronouns</div>
+            <div class="info-value">Women-Owned (She/Her)</div>
+
+            <div class="info-label">Primary Sector</div>
+            <div class="info-value">Manufacturing & Textiles</div>
+
+            <div class="info-label">Foundation Allocation</div>
+            <div class="info-value">10% to Koinonia Grace</div>
+
+            <div class="info-label">Location Node</div>
+            <div class="info-value">ATL-01 (Main Hub)</div>
+
+            <a href="scribeboard.html" class="btn-contact">INITIATE HANDSHAKE</a>
+            <p style="font-size:0.55rem; color:#444; margin-top:15px; text-align:center;">
+                Secure communications monitored by Vexilla AITS.
+            </p>
+        </aside>
+    </main>
+
+    <footer style="text-align:center; padding:60px; color:#222; font-size:0.6rem; letter-spacing:5px;">
+        SOLOMON KIN RECORDS MEDIA GROUP // CLASSIFIED AD ID: SK-AD-882-01
+    </footer>
+
+</body>
+</html>
