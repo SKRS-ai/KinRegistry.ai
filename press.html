@@ -2,104 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Press & Media | Solomon Kin Records Media Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Center | Solomon Kin Records Media Group</title>
     <style>
-        :root { --gold: #d4af37; --bg: #050505; --card: #111; }
-        body { background: var(--bg); color: #ddd; font-family: 'Georgia', serif; margin: 0; }
-        
-        /* News Header */
-        header { 
-            background: #000; padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--gold);
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #1a1a1a;
+            --kin-border: #333;
         }
-        .media-label { color: var(--gold); letter-spacing: 5px; font-size: 0.8rem; font-family: sans-serif; }
-        h1 { font-size: 3rem; margin: 10px 0; color: white; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; }
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0; display: grid; grid-template-columns: 280px 1fr;
+            height: 100vh; overflow: hidden;
+        }
 
-        /* Featured Article */
-        .featured-news { border-bottom: 1px solid #333; padding-bottom: 40px; margin-bottom: 40px; }
-        .featured-news img { width: 100%; height: 400px; background: #222; object-fit: cover; border: 1px solid #333; }
-        .featured-news h2 { font-size: 2.2rem; color: var(--gold); margin: 20px 0 10px; }
-        .meta { font-family: sans-serif; font-size: 0.75rem; color: #666; text-transform: uppercase; margin-bottom: 15px; }
+        /* SIDEBAR */
+        .sidebar {
+            background: #0a0a0a; border-right: 2px solid var(--kin-gold);
+            padding: 30px; display: flex; flex-direction: column;
+        }
 
-        /* News Grid */
-        .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .news-item { background: var(--card); border: 1px solid #222; padding: 20px; transition: 0.3s; }
-        .news-item:hover { border-color: var(--gold); }
-        .news-item h3 { margin-top: 0; color: white; font-size: 1.2rem; }
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
 
-        /* Sidebar: Foundation Milestones */
-        .milestone-sidebar { background: #0a0a0a; border: 1px solid #333; padding: 20px; height: fit-content; }
-        .sidebar-title { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; font-size: 0.9rem; font-family: sans-serif; }
-        .milestone { margin-bottom: 20px; border-left: 2px solid var(--gold); padding-left: 15px; }
-        .milestone small { font-family: sans-serif; color: #555; }
-        .milestone p { font-size: 0.85rem; margin: 5px 0; }
+        .nav-link {
+            display: block; color: #888; text-decoration: none; padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a; font-size: 0.8rem;
+        }
 
-        .btn-read { display: inline-block; margin-top: 10px; color: var(--gold); text-decoration: none; font-family: sans-serif; font-size: 0.8rem; border-bottom: 1px solid var(--gold); }
+        /* PRESS FEED */
+        .press-main { overflow-y: scroll; padding: 40px; }
+        
+        .press-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 50px;
+        }
+
+        .headline-card {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            margin-bottom: 30px; display: flex; transition: 0.3s;
+        }
+
+        .headline-card:hover { border-color: var(--kin-gold); }
+
+        .date-box {
+            background: var(--kin-gold); color: #000; width: 80px;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; font-weight: bold; font-size: 0.8rem;
+        }
+
+        .content-box { padding: 25px; flex: 1; }
+        .content-box h3 { margin: 0 0 10px 0; font-size: 1.4rem; color: #fff; text-transform: uppercase; }
+        .content-box p { font-size: 0.85rem; color: #aaa; line-height: 1.6; margin-bottom: 15px; }
+
+        .tag-row { display: flex; gap: 10px; }
+        .tag { font-size: 0.6rem; border: 1px solid #444; padding: 3px 8px; color: var(--kin-gold); }
+
+        .archive-sidebar {
+            padding: 20px; background: #0c0c0c; border-left: 1px solid var(--kin-border);
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="media-label">SOLOMON KIN RECORDS MEDIA GROUP</div>
-    <h1>THE KIN LEDGER</h1>
-    <p style="font-style: italic; color: #666;">Documenting the Evolution of Art, Industry, and Identity</p>
-</header>
-
-<div class="container">
-    <section>
-        <div class="featured-news">
-            <div class="meta">Breaking | March 2026 | Foundation Impact</div>
-            <img src="#" alt="Canvas Collection Launch">
-            <h2>The "Sovereign Village" Collection Surpasses $1M in Global Sales</h2>
-            <p>In a historic milestone for the KinRegistry Depository, the latest series of canvas works from our verified artist collective has reached 7-figure trade volume, directly funding our local youth transit programs...</p>
-            <a href="#" class="btn-read">READ FULL ARTICLE</a>
-        </div>
-
-        <div class="news-grid">
-            <div class="news-item">
-                <div class="meta">Industry</div>
-                <h3>IBINGOD Trade Expands Shipping Routes to Asia-Pacific</h3>
-                <p>New logistics agreements ensure 48-hour delivery for canvas works shipped from the Western Depository.</p>
-                <a href="#" class="btn-read">DETAILS</a>
-            </div>
-            <div class="news-item">
-                <div class="meta">Technology</div>
-                <h3>KinOS Update: Version 2.6 Alpha Released</h3>
-                <p>The Vexilla Software Center announces new biometric integration for ScribeBoard users.</p>
-                <a href="#" class="btn-read">DETAILS</a>
-            </div>
-        </div>
-    </section>
-
-    <aside class="milestone-sidebar">
-        <div class="sidebar-title">FOUNDATION MILESTONES</div>
-        
-        <div class="milestone">
-            <small>MARCH 2026</small>
-            <p><strong>Think Team Not Gang:</strong> 50 New Scholarships Awarded via 10% Foundation Tax.</p>
-        </div>
-
-        <div class="milestone">
-            <small>FEB 2026</small>
-            <p><strong>Clean Blue Green Corp:</strong> Successfully verified 100th government environmental permit.</p>
-        </div>
-
-        <div class="milestone">
-            <small>JAN 2026</small>
-            <p><strong>AEAH.ORG:</strong> Launch of the Electronic Abuse Response Hotline.</p>
-        </div>
-
-        <div style="margin-top:40px; text-align:center;">
-            <p style="font-size: 0.7rem; color: #444;">WANT TO SHARE YOUR STORY?</p>
-            <a href="login.html" style="color:var(--gold); font-size:0.8rem; text-decoration:none;">MEMBER LOGIN</a>
-        </div>
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="index.html" class="nav-link">DIRECTORY</a>
+            <a href="foundations-hub.html" class="nav-link">FOUNDATIONS</a>
+            <a href="sitemap.html" class="nav-link">MASTER INDEX</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">MEDIA GROUP // RELEASE 2026.1</div>
     </aside>
-</div>
 
-<footer style="padding: 40px; text-align: center; font-size: 0.7rem; color: #333; background: #000;">
-    &copy; 1999 - 2026 Solomon Kin Records Media Group | Press Division
-</footer>
+    <main class="press-main">
+        <header class="press-header">
+            <h2 style="margin:0; font-size: 2.2rem;">Press & Communications</h2>
+            <span style="color:#444; font-size: 0.8rem;">SOLOMON KIN RECORDS MEDIA GROUP OFFICIAL FEED</span>
+        </header>
+
+        <div class="headline-card">
+            <div class="date-box">MAR<span>15</span></div>
+            <div class="content-box">
+                <div class="tag-row"><span class="tag">GLOBAL TRADE</span><span class="tag">VERIFIED</span></div>
+                <h3>Master Ledger Expansion: 500 New EINs Verified</h3>
+                <p>The Gatekeeper has officially cleared the Q1 backlog. The Kin Pages directory now hosts over 1,400 verified entities across 22 regional nodes, marking a 30% increase in trade capacity.</p>
+                <a href="#" style="color:var(--kin-gold); font-size:0.7rem; text-decoration:none;">READ FULL BRIEFING →</a>
+            </div>
+        </div>
+
+        <div class="headline-card">
+            <div class="date-box">MAR<span>08</span></div>
+            <div class="content-box">
+                <div class="tag-row"><span class="tag">FOUNDATION</span><span class="tag">TTNG</span></div>
+                <h3>TTNG Hub Launches in Port of NY Node</h3>
+                <p>In partnership with IBINGOD Trade, Inc., a new trade education hub has opened. Funding provided exclusively via the 10% Foundation Mandate from logistics associates.</p>
+                <a href="#" style="color:var(--kin-gold); font-size:0.7rem; text-decoration:none;">READ FULL BRIEFING →</a>
+            </div>
+        </div>
+
+        
+
+        <div class="headline-card">
+            <div class="date-box">FEB<span>22</span></div>
+            <div class="content-box">
+                <div class="tag-row"><span class="tag">CULTURAL</span><span class="tag">PROVENANCE</span></div>
+                <h3>Ancestral Grace #4 Enters Permanent Archive</h3>
+                <p>The centerpiece of the Solomon Kin 1999 collection has been moved to the high-security Depository Archive. Vexilla AITS has confirmed provenance with 99.9% accuracy.</p>
+                <a href="#" style="color:var(--kin-gold); font-size:0.7rem; text-decoration:none;">READ FULL BRIEFING →</a>
+            </div>
+        </div>
+
+    </main>
 
 </body>
 </html>
