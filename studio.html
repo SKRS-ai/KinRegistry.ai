@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solomon Kin Studios | Creative Command</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #121212; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; }
+        
+        header { padding: 60px; text-align: left; border-bottom: 1px solid var(--kin-gold); background: #000; }
+        .studio-title { color: var(--kin-gold); font-size: 1.8rem; letter-spacing: 5px; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 20px; }
+        
+        /* VIDEO/AUDIO PLAYER SECTION */
+        .stage { 
+            width: 100%; height: 500px; background: #080808; border: 1px solid #333; 
+            margin-bottom: 40px; display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .stage-overlay { position: absolute; top: 20px; left: 20px; font-size: 0.6rem; color: var(--kin-gold); letter-spacing: 2px; }
+
+        /* PRODUCTION GRID */
+        .production-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .prod-card { background: var(--kin-grey); border: 1px solid #222; padding: 20px; position: relative; }
+        .prod-type { font-size: 0.5rem; color: #555; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .prod-name { color: var(--kin-gold); font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; display: block; }
+        
+        .wave-animation { height: 30px; display: flex; align-items: flex-end; gap: 3px; margin-top: 20px; }
+        .bar { width: 3px; background: var(--kin-gold); animation: pulse 1s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { height: 5px; } 50% { height: 25px; } }
+
+        .btn-launch { 
+            display: inline-block; padding: 10px 15px; border: 1px solid var(--kin-gold); 
+            color: var(--kin-gold); text-decoration: none; font-size: 0.6rem; margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="studio-title">SOLOMON KIN STUDIOS, INC.</div>
+        <p style="font-size: 0.6rem; color: #444; letter-spacing: 2px;">VEXILLA AITS AUDIO & VIDEO PRODUCTION // EST. 2017</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="stage">
+            <div class="stage-overlay">LIVE_STREAM: SKRMG_PORTAL_ACTIVE</div>
+            <div style="text-align: center;">
+                <div style="color: #222; font-size: 3rem;">[VIDEO_FEED]</div>
+                <p style="color: #444; font-size: 0.7rem;">AWAITING MASTER SIGNAL FROM DOCKINSTATION TV</p>
+            </div>
+        </div>
+
+        
+
+        <div class="production-grid">
+            <div class="prod-card">
+                <span class="prod-type">Audio Production</span>
+                <span class="prod-name">SELFSIGN LABEL AUDIO</span>
+                <p style="font-size: 0.65rem; color: #888;">High-fidelity master recording and distribution for SKR artists.</p>
+                <div class="wave-animation">
+                    <div class="bar" style="animation-delay: 0.1s"></div>
+                    <div class="bar" style="animation-delay: 0.3s"></div>
+                    <div class="bar" style="animation-delay: 0.2s"></div>
+                    <div class="bar" style="animation-delay: 0.4s"></div>
+                </div>
+                <a href="#" class="btn-launch">OPEN STUDIO</a>
+            </div>
+
+            <div class="prod-card">
+                <span class="prod-type">Visual Arts</span>
+                <span class="prod-name">REALM PICTURE STUDIO</span>
+                <p style="font-size: 0.65rem; color: #888;">Cinematic film, marketing, and digital magazine device production.</p>
+                <a href="#" class="btn-launch">ENTER REALM</a>
+            </div>
+
+            <div class="prod-card">
+                <span class="prod-type">Network Broadcast</span>
+                <span class="prod-name">DOCKINSTATION TV STATION</span>
+                <p style="font-size: 0.65rem; color: #888;">Global network X broadcasting for all SKRMG media assets.</p>
+                <a href="#" class="btn-launch">TUNE IN</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
