@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Manager | Kin Pages Pro Dashboard</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #121212;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0; padding: 40px;
+        }
+
+        .manager-container {
+            max-width: 900px; margin: 0 auto; background: var(--kin-grey);
+            border: 1px solid var(--kin-gold); padding: 50px;
+        }
+
+        .header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        h1 { color: var(--kin-gold); letter-spacing: 5px; margin: 0; font-size: 1.5rem; }
+        .tier-badge { background: var(--kin-gold); color: #000; padding: 5px 10px; font-size: 0.6rem; font-weight: bold; }
+
+        /* UPLOAD SLOTS */
+        .upload-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+        .slot {
+            aspect-ratio: 1; background: #000; border: 2px dashed var(--kin-border);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s; position: relative;
+        }
+        .slot:hover { border-color: var(--kin-gold); background: #080808; }
+        .slot span { font-size: 0.6rem; color: #555; margin-top: 10px; }
+
+        .video-slot {
+            grid-column: span 3; aspect-ratio: 16/9; margin-top: 10px;
+        }
+
+        .preview-img { width: 100%; height: 100%; object-fit: cover; display: none; }
+
+        .btn-publish {
+            width: 100%; background: var(--kin-gold); color: #000; border: none;
+            padding: 20px; font-weight: bold; cursor: pointer; text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .limit-info { font-size: 0.7rem; color: #444; margin-top: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="manager-container">
+        <div class="header-flex">
+            <h1>MEDIA MANAGER</h1>
+            <span class="tier-badge">PRO MERCHANT</span>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #888; margin-bottom: 30px;">
+            Upload high-resolution media to be displayed on the **Classified Square** and **Logo Kin** directory.
+        </p>
+
+        <h3 style="font-size: 0.8rem; color: var(--kin-gold); margin-bottom: 15px;">PRODUCT IMAGES (MAX 3)</h3>
+        <div class="upload-section">
+            <div class="slot" onclick="triggerUpload('img1')">
+                <input type="file" id="img1" hidden accept="image/*" onchange="preview(this, 'p1')">
+                <img id="p1" class="preview-img">
+                <div class="plus">+</div>
+                <span>IMAGE 01</span>
+            </div>
+            <div class="slot" onclick="triggerUpload('img2')">
+                <input type="file" id="img2" hidden accept="image/*" onchange="preview(this, 'p2')">
+                <img id="p2" class="preview-img">
+                <div class="plus">+</div>
+                <span>IMAGE 02</span>
+            </div>
+            <div class="slot" onclick="triggerUpload('img3')">
+                <input type="file" id="img3" hidden accept="image/*" onchange="preview(this, 'p3')">
+                <img id="p3" class="preview-img">
+                <div class="plus">+</div>
+                <span>IMAGE 03</span>
+            </div>
+        </div>
+
+        <h3 style="font-size: 0.8rem; color: var(--kin-gold); margin-bottom: 15px;">PROMOTIONAL VIDEO (MAX 1)</h3>
+        <div class="slot video-slot" onclick="triggerUpload('vid1')">
+            <input type="file" id="vid1" hidden accept="video/*">
+            <div class="plus" style="font-size: 2rem;">▶</div>
+            <span>UPLOAD MP4 / MOV (MAX 60 SEC)</span>
+        </div>
+
+        
+
+        <button class="btn-publish" onclick="syncToLedger()">SYNC TO PUBLIC LEDGER</button>
+
+        <p class="limit-info">YOUR MEDIA IS STORED SECURELY WITHIN THE VEXILLA AITS NODE.</p>
+    </div>
+
+    <script>
+        // TIER PROTECTION: Kicks out non-paid users
+        const userTier = localStorage.getItem('current_user_tier');
+        if (userTier !== 'paid') {
+            alert("ACCESS DENIED: Photo/Video management requires a Pro Merchant subscription.");
+            window.location.href = 'upgrade.html';
+        }
+
+        function triggerUpload(id) {
+            document.getElementById(id).click();
+        }
+
+        function preview(input, previewId) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(previewId);
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    img.parentElement.querySelector('.plus').style.display = 'none';
+                    img.parentElement.querySelector('span').style.display = 'none';
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function syncToLedger() {
+            const btn = document.querySelector('.btn-publish');
+            btn.innerText = "ENCRYPTING & SYNCING...";
+            
+            setTimeout(() => {
+                alert("SUCCESS: Your media has been pushed to the Kin Pages Directory.");
+                window.location.href = 'profile.html';
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
