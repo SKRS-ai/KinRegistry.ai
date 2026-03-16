@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Foundations | KIN Pages Philadelphia</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --text: #ccc; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+
+        /* HIGH-AUTHORITY HEADER */
+        header { background: #000; border-bottom: 3px solid var(--kin-gold); padding: 30px 40px; text-align: center; }
+        .kin-logo { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.8rem; letter-spacing: 6px; text-transform: uppercase; }
+        .sub-header { font-size: 0.7rem; color: #666; letter-spacing: 4px; margin-top: 10px; }
+
+        /* PAGE TITLE SECTION */
+        .title-section { padding: 60px 20px; text-align: center; background: radial-gradient(circle, #111 0%, #000 100%); border-bottom: 1px solid #222; }
+        .title-section h1 { color: #fff; font-size: 2rem; letter-spacing: 2px; margin: 0; }
+        .title-section p { color: var(--kin-gold); font-size: 0.8rem; max-width: 700px; margin: 20px auto; line-height: 1.6; }
+
+        /* FOUNDATION GRID */
+        .foundation-container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .foundation-card { 
+            display: grid; 
+            grid-template-columns: 250px 1fr; 
+            background: #0a0a0a; 
+            border: 1px solid #1a1a1a; 
+            margin-bottom: 40px; 
+            transition: 0.4s; 
+            overflow: hidden;
+        }
+        .foundation-card:hover { border-color: var(--kin-gold); transform: translateX(10px); }
+        
+        .logo-box { 
+            background: #111; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            border-right: 1px solid #222;
+            padding: 20px;
+        }
+        .foundation-logo-placeholder { 
+            width: 120px; 
+            height: 120px; 
+            border: 1px solid var(--kin-gold); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: var(--kin-gold);
+            font-size: 0.6rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .info-box { padding: 40px; }
+        .info-box h2 { color: var(--kin-gold); font-size: 1.2rem; margin: 0 0 15px; letter-spacing: 2px; }
+        .info-box p { font-size: 0.8rem; color: #888; line-height: 1.6; margin-bottom: 25px; }
+        
+        .btn-visit { 
+            display: inline-block; 
+            padding: 10px 25px; 
+            border: 1px solid var(--kin-gold); 
+            color: var(--kin-gold); 
+            text-decoration: none; 
+            font-size: 0.7rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+        }
+        .btn-visit:hover { background: var(--kin-gold); color: #000; }
+
+        /* FOOTER */
+        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 40px; text-align: center; }
+        .footer-links a { color: #444; text-decoration: none; font-size: 0.6rem; margin: 0 15px; text-transform: uppercase; }
+        .footer-links a:hover { color: #fff; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="kin-logo">KIN PAGES</a>
+        <div class="sub-header">THE SOVEREIGN VILLAGE NETWORK</div>
+    </header>
+
+    <section class="title-section">
+        <h1>KEY NON-PROFIT ORGANIZATIONS</h1>
+        <div style="color: #444; font-size: 0.6rem; margin-top: 5px;">PHILADELPHIA, UNITED STATES OF AMERICA</div>
+        <p>Showcasing the foundations and organizations that serve as the bedrock of our community. These entities represent the highest standard of advocacy, economic empowerment, and cultural preservation.</p>
+    </section>
+
+    <div class="foundation-container">
+
+        <div class="foundation-card">
+            <div class="logo-box">
+                <div class="foundation-logo-placeholder">TBBLUSA<br>LOGO</div>
+                <div style="font-size: 0.5rem; color: #444;">EST. LEGACY</div>
+            </div>
+            <div class="info-box">
+                <h2>TBBLUSA NATIONAL</h2>
+                <p>The primary advocacy body for minority business interests and community development. TBBLUSA works to bridge the gap between local commerce and national opportunity, ensuring that minority-owned enterprises have a seat at the table of global trade.</p>
+                <a href="http://tbblusa.org" class="btn-visit">ACCESS FOUNDATION SITE</a>
+            </div>
+        </div>
+
+        <div class="foundation-card">
+            <div class="logo-box">
+                <div class="foundation-logo-placeholder">EK<br>LOGO</div>
+                <div style="font-size: 0.5rem; color: #444;">VIOLENCE INTERRUPTION</div>
+            </div>
+            <div class="info-box">
+                <h2>ENDANGERED KIND</h2>
+                <p>Founded by John Solomon, this Philadelphia-based organization focuses on violence interruption and community healing. Through a network of credible messengers, they work directly with at-risk youth to dismantle the cycles of conflict and build a future of peace.</p>
+                <a href="https://thephiladelphiacitizen.org/citizen-of-the-week-john-solomon-of-endangered-kind/" class="btn-visit">VIEW IMPACT REPORT</a>
+            </div>
+        </div>
+
+        <div class="foundation-card">
+            <div class="logo-box">
+                <div class="foundation-logo-placeholder">TEC<br>LOGO</div>
+                <div style="font-size: 0.5rem; color: #444;">ECONOMIC EQUITY</div>
+            </div>
+            <div class="info-box">
+                <h2>THE ENTERPRISE CENTER</h2>
+                <p>A powerhouse for minority entrepreneurship in West Philadelphia. The Enterprise Center provides access to capital, capacity building, and business education, helping small-to-medium businesses scale and revitalize their neighborhoods.</p>
+                <a href="https://theenterprisecenter.com" class="btn-visit">BUSINESS PORTAL</a>
+            </div>
+        </div>
+
+        <div class="foundation-card">
+            <div class="logo-box">
+                <div class="foundation-logo-placeholder">PHILA<br>FOUNDATION</div>
+                <div style="font-size: 0.5rem; color: #444;">COMMUNITY STEWARD</div>
+            </div>
+            <div class="info-box">
+                <h2>THE PHILADELPHIA FOUNDATION</h2>
+                <p>For over a century, this foundation has managed the philanthropic legacies of Philadelphia's citizens. They strengthen the region’s social fabric by funding arts, culture, and economic mobility initiatives that benefit all Philadelphians.</p>
+                <a href="https://www.philafound.org" class="btn-visit">PHILANTHROPY HUB</a>
+            </div>
+        </div>
+
+        <div class="foundation-card">
+            <div class="logo-box">
+                <div class="foundation-logo-placeholder">NAAAP<br>LOGO</div>
+                <div style="font-size: 0.5rem; color: #444;">PROFESSIONAL EXCELLENCE</div>
+            </div>
+            <div class="info-box">
+                <h2>NAAAP PHILADELPHIA</h2>
+                <p>The National Association of Asian American Professionals (NAAAP) Philadelphia chapter empowers leaders through professional development and cross-cultural engagement. They play a critical role in the city's diverse leadership ecosystem.</p>
+                <a href="https://naaapphila.org" class="btn-visit">LEADERSHIP NETWORK</a>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">KIN PAGES HOME</a>
+            <a href="master-sitemap.html">SITE MAP</a>
+            <a href="editors-message.html">EDITOR'S MESSAGE</a>
+            <a href="contact-support.html">VANGUARD SUPPORT</a>
+        </div>
+        <div style="margin-top: 20px; font-size: 0.5rem; color: #222; letter-spacing: 2px;">
+            SOLOMON KIN RECORDS LLC | FOUNDATIONS DIVISION | PHILADELPHIA, PA
+        </div>
+    </footer>
+
+</body>
+</html>
