@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Relay | Vexilla Master Command</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; padding: 40px; }
+        .relay-card { background: var(--kin-grey); border: 1px solid var(--kin-gold); padding: 30px; max-width: 800px; margin: 0 auto; }
+        h1 { color: var(--kin-gold); font-size: 1.2rem; letter-spacing: 5px; }
+        .setting-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #222; }
+        .label { color: #888; font-size: 0.8rem; }
+        .status { color: var(--kin-gold); font-weight: bold; font-size: 0.8rem; }
+        input[type="text"] { background: #000; border: 1px solid #333; color: var(--kin-gold); padding: 5px; width: 250px; }
+    </style>
+</head>
+<body>
+    <div class="relay-card">
+        <h1>VEXILLA EMAIL RELAY</h1>
+        <p style="font-size: 0.6rem; color: #555;">MASTER ROUTING: ALL SITE DATA -> ADMIN</p>
+        
+        <div class="setting-row">
+            <span class="label">Primary Master Admin:</span>
+            <input type="text" value="nehemiah.brown@solomonkinrecords.com">
+        </div>
+        <div class="setting-row">
+            <span class="label">Corporate Alert Status:</span>
+            <span class="status">ACTIVE</span>
+        </div>
+        <div class="setting-row">
+            <span class="label">Registration Alerts:</span>
+            <span class="status">RELAYING TO MASTER</span>
+        </div>
+        <div class="setting-row">
+            <span class="label">Encrypted Backup Frequency:</span>
+            <span class="status">DAILY [04:00 EST]</span>
+        </div>
+        
+        <button style="margin-top:20px; background: var(--kin-gold); padding: 10px; cursor: pointer;">TEST RELAY SIGNAL</button>
+    </div>
+</body>
+</html>
