@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Vote | Kin Pages Governance</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0; display: grid; grid-template-columns: 280px 1fr;
+            height: 100vh; overflow: hidden;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            background: #0a0a0a; border-right: 2px solid var(--kin-gold);
+            padding: 30px; display: flex; flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        /* VOTING INTERFACE */
+        .vote-main { overflow-y: scroll; padding: 40px; }
+        
+        .vote-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 40px;
+        }
+
+        .tier-indicator {
+            background: #1a1a1a; padding: 15px; border-left: 3px solid var(--kin-gold);
+            margin-bottom: 30px; font-size: 0.8rem; display: flex; justify-content: space-between;
+        }
+
+        .proposal-card {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 30px; margin-bottom: 30px; position: relative;
+        }
+
+        .proposal-card h3 { color: var(--kin-gold); margin-top: 0; text-transform: uppercase; }
+        .proposal-meta { font-size: 0.7rem; color: #555; margin-bottom: 15px; display: block; }
+        
+        .vote-options { display: flex; gap: 20px; margin-top: 20px; }
+        
+        .vote-btn {
+            background: transparent; border: 1px solid var(--kin-gold);
+            color: var(--kin-gold); padding: 10px 20px; cursor: pointer;
+            font-family: inherit; font-weight: bold; font-size: 0.7rem;
+        }
+        .vote-btn:hover { background: var(--kin-gold); color: #000; }
+
+        .progress-container {
+            height: 4px; background: #222; margin-top: 25px; position: relative;
+        }
+        .progress-bar { height: 100%; background: var(--kin-gold); }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="dashboard.html" style="display:block; color:#888; text-decoration:none; padding:10px 0; border-bottom:1px solid #1a1a1a; font-size:0.8rem;">DASHBOARD</a>
+            <a href="foundations-hub.html" style="display:block; color:#888; text-decoration:none; padding:10px 0; border-bottom:1px solid #1a1a1a; font-size:0.8rem;">FOUNDATION HUB</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">VOTING POWER: GOLD TIER (x3)</div>
+    </aside>
+
+    <main class="vote-main">
+        <header class="vote-header">
+            <h2 style="margin:0;">Governance Terminal</h2>
+            <span style="color:#444; font-size: 0.8rem;">ACTIVE PROPOSALS FOR FOUNDATION DISBURSEMENT</span>
+        </header>
+
+        <div class="tier-indicator">
+            <span>CURRENT BALLOT STATUS: <strong>ACTIVE</strong></span>
+            <span>YOUR WEIGHT: <strong>3 SHARES</strong></span>
+        </div>
+
+        <div class="proposal-card">
+            <span class="proposal-meta">ID: PROP-TTNG-09 // CATEGORY: EDUCATION</span>
+            <h3>Atlanta Node: Youth Trade Fellowship</h3>
+            <p style="font-size:0.85rem; color:#aaa; line-height:1.6;">
+                Funding for a 12-month mentorship program teaching 50 regional candidates the fundamentals of EIN registration, tax compliance, and sovereign trade. 
+            </p>
+            <div class="vote-options">
+                <button class="vote-btn">SUPPORT PROPOSAL</button>
+                <button class="vote-btn" style="border-color:#555; color:#555;">REJECT</button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 72%;"></div>
+            </div>
+            <span style="font-size:0.6rem; color:#444; margin-top:5px; display:block;">72% CONSENSUS REACHED</span>
+        </div>
+
+        <div class="proposal-card">
+            <span class="proposal-meta">ID: PROP-KOIN-04 // CATEGORY: PRESERVATION</span>
+            <h3>Global Archive: 4K Provenance Digitization</h3>
+            <p style="font-size:0.85rem; color:#aaa; line-height:1.6;">
+                Allocation of Koinonia Grace funds to upgrade the Vexilla AITS scanning nodes for ultra-high-resolution documentation of the 1999 Canvas Collection.
+            </p>
+            <div class="vote-options">
+                <button class="vote-btn">SUPPORT PROPOSAL</button>
+                <button class="vote-btn" style="border-color:#555; color:#555;">REJECT</button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 45%;"></div>
+            </div>
+            <span style="font-size:0.6rem; color:#444; margin-top:5px; display:block;">45% CONSENSUS REACHED</span>
+        </div>
+
+        <div style="text-align:center; padding:40px; color:#333; font-size:0.7rem;">
+            // ALL VOTES ARE IMMUTABLY RECORDED IN THE MASTER LEDGER //
+        </div>
+    </main>
+
+</body>
+</html>
