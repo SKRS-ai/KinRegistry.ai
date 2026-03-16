@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Logistics | Solomon Kin Records LLC</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        
+        header { padding: 50px; text-align: center; border-bottom: 2px solid var(--kin-gold); background: #000; }
+        .op-status { font-size: 0.6rem; color: #00ff00; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+
+        /* LOGISTICS LEDGER */
+        .logistics-card { background: var(--kin-grey); border: 1px solid #222; padding: 30px; margin-bottom: 30px; }
+        h2 { color: var(--kin-gold); font-size: 1rem; letter-spacing: 4px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
+        
+        .manifest-row { display: grid; grid-template-columns: 1fr 2fr 1fr; padding: 15px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.75rem; align-items: center; }
+        .manifest-row:last-child { border: none; }
+        .entity-tag { color: var(--kin-gold); font-weight: bold; }
+        .status-pill { font-size: 0.6rem; padding: 3px 8px; border: 1px solid #444; text-align: center; border-radius: 10px; }
+
+        /* TRACKING & INTERFACE */
+        .sidebar-panel { background: #000; border: 1px solid var(--kin-gold); padding: 25px; height: fit-content; }
+        .tracking-input { width: 100%; background: #0a0a0a; border: 1px solid #333; color: var(--kin-gold); padding: 12px; margin-bottom: 15px; font-family: inherit; box-sizing: border-box; }
+        .btn-command { width: 100%; padding: 15px; background: var(--kin-gold); color: #000; border: none; font-weight: bold; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; }
+
+        .cargo-visual { border: 1px solid #222; padding: 15px; margin-top: 20px; font-size: 0.6rem; color: #555; background: #080808; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="op-status">● GLOBAL TRADE NETWORK: ONLINE</div>
+        <h1 style="color: var(--kin-gold); font-size: 1.6rem; letter-spacing: 8px; margin: 0;">GLOBAL LOGISTICS COMMAND</h1>
+    </header>
+
+    
+
+    <div class="container">
+        
+        <div class="main-logistics">
+            <div class="logistics-card">
+                <h2>ACTIVE TRADE MANIFESTS</h2>
+                
+                <div class="manifest-row">
+                    <span class="entity-tag">IBINGOD TRADE</span>
+                    <span>IM/EX RECORDS: GLOBAL INSIGHTS V.109</span>
+                    <span class="status-pill">IN TRANSIT</span>
+                </div>
+
+                <div class="manifest-row">
+                    <span class="entity-tag">GLOBAL CITIZEN JOE</span>
+                    <span>CONSUMER GOODS & SUPPORT RECORDS</span>
+                    <span class="status-pill">FULFILLMENT</span>
+                </div>
+
+                <div class="manifest-row">
+                    <span class="entity-tag">CLEAN BLUE GREEN</span>
+                    <span>ENVIRONMENTAL RECLAMATION LOGISTICS</span>
+                    <span class="status-pill" style="color:#00ff00; border-color:#00ff00;">CLEARED</span>
+                </div>
+
+                <div class="manifest-row">
+                    <span class="entity-tag">EVERWARD TOURS</span>
+                    <span>ELITE LOGISTICS & TRAVEL RECORDS</span>
+                    <span class="status-pill">PENDING</span>
+                </div>
+            </div>
+
+            <div class="logistics-card">
+                <h2>REGIONAL HUB STATUS</h2>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex:1; border: 1px solid #333; padding: 15px; text-align: center;">
+                        <div style="font-size: 0.6rem; color: #555;">BALA CYNWYD HUB</div>
+                        <div style="color: #fff; font-size: 1rem; margin-top: 5px;">ACTIVE</div>
+                    </div>
+                    <div style="flex:1; border: 1px solid #333; padding: 15px; text-align: center;">
+                        <div style="font-size: 0.6rem; color: #555;">INTERNATIONAL EX</div>
+                        <div style="color: #fff; font-size: 1rem; margin-top: 5px;">VERIFIED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-panel">
+            <h2 style="font-size: 0.8rem; border: none; margin-bottom: 20px;">SYSTEM TRACKING</h2>
+            <label style="font-size: 0.6rem; color: #666; display: block; margin-bottom: 5px;">ENTER SHIPMENT ID</label>
+            <input type="text" class="tracking-input" placeholder="TRK-SKR-XXXX-XXXX">
+            <button class="btn-command">EXECUTE SEARCH</button>
+
+            <div class="cargo-visual">
+                <div style="border-bottom: 1px solid #1a1a1a; padding-bottom: 5px; margin-bottom: 5px; color: var(--kin-gold);">LATEST ACTIVITY</div>
+                > Handshake: IBINGOD Trade Node 01<br>
+                > Record Sync: GCJ Beverage fulfillment<br>
+                > Status: Port Clearance Verified<br>
+                > System: Vexilla AITS Integrated
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #333; font-size: 0.55rem; letter-spacing: 3px;">
+        IBINGOD TRADE, INC. | EST. 1999 | GLOBAL LOGISTICS DIVISION
+    </footer>
+
+</body>
+</html>
