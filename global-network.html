@@ -2,104 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Network | Solomon Kin Records Sovereign Map</title>
+    <title>Global Network | Solomon Kin Records</title>
     <style>
-        :root { --gold: #d4af37; --bg: #000; --active: #00ff41; --path: rgba(214, 175, 55, 0.2); }
-        body { 
-            background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; 
-            margin: 0; overflow: hidden; display: flex; flex-direction: column; height: 100vh;
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-glow: rgba(212, 175, 55, 0.3);
         }
 
-        /* Top HUD */
-        .hud-header {
-            padding: 20px 40px; background: rgba(10, 10, 10, 0.9);
-            border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;
-            z-index: 10;
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            height: 100vh; display: flex; flex-direction: column; overflow: hidden;
         }
-        .network-stats { display: flex; gap: 40px; }
-        .stat-node { text-align: center; }
-        .stat-node label { display: block; font-size: 0.6rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
-        .stat-node span { font-size: 1.1rem; color: var(--gold); font-weight: bold; }
 
-        /* Full Screen Map Simulation */
+        /* HEADER INFO */
+        header {
+            padding: 30px; border-bottom: 1px solid var(--kin-gold);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 10; background: rgba(0,0,0,0.8);
+        }
+
+        .live-stats { display: flex; gap: 40px; }
+        .stat-item { text-align: right; }
+        .stat-label { font-size: 0.6rem; color: #555; text-transform: uppercase; }
+        .stat-value { font-size: 1rem; color: var(--kin-gold); font-weight: bold; }
+
+        /* THE MAP CANVAS */
         .map-container {
             flex-grow: 1; position: relative; background: radial-gradient(circle, #111 0%, #000 100%);
             display: flex; align-items: center; justify-content: center;
         }
-        
-        /* Simulated Data Nodes */
-        .node {
-            position: absolute; width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
-            box-shadow: 0 0 15px var(--gold); animation: pulse 2s infinite;
-        }
-        .node.foundation { background: var(--active); box-shadow: 0 0 15px var(--active); }
-        
-        .connection-line {
-            position: absolute; height: 1px; background: var(--path); transform-origin: left center;
+
+        .node-pulse {
+            position: absolute; width: 12px; height: 12px;
+            background: var(--kin-gold); border-radius: 50%;
+            box-shadow: 0 0 15px var(--kin-gold);
+            cursor: pointer;
         }
 
-        /* Sidebar Legend */
-        .legend {
-            position: absolute; bottom: 40px; left: 40px; background: rgba(0,0,0,0.8);
-            border: 1px solid #333; padding: 20px; font-size: 0.8rem;
+        .node-pulse::after {
+            content: ""; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border: 1px solid var(--kin-gold); border-radius: 50%;
+            animation: ripple 2s infinite;
         }
-        .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; }
 
-        @keyframes pulse {
+        @keyframes ripple {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(2); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
         }
 
-        /* Call to Action Overlay */
-        .overlay-cta {
-            position: absolute; top: 50%; right: 40px; transform: translateY(-50%);
-            width: 300px; background: rgba(10, 10, 10, 0.9); border: 1px solid var(--gold); padding: 30px;
+        .node-label {
+            position: absolute; transform: translateY(20px);
+            font-size: 0.6rem; color: #fff; white-space: nowrap;
+            background: rgba(0,0,0,0.7); padding: 2px 5px;
         }
-        .btn-join {
-            display: block; width: 100%; padding: 12px; background: var(--gold); color: #000;
-            text-align: center; font-weight: bold; text-decoration: none; margin-top: 20px;
+
+        /* TRADE LINES */
+        .trade-line {
+            position: absolute; height: 1px; background: linear-gradient(to right, transparent, var(--kin-gold), transparent);
+            opacity: 0.2; transform-origin: left center;
         }
     </style>
 </head>
 <body>
 
-<header class="hud-header">
-    <div>
-        <h1 style="margin:0; font-size:1.2rem; color:var(--gold); letter-spacing:2px;">GLOBAL KINSHIP NETWORK</h1>
-        <small style="color:#444;">VEXILLA AITS GEOSPATIAL FEED // LIVE</small>
-    </div>
-    <div class="network-stats">
-        <div class="stat-node"><label>Active Entities</label><span>4,102</span></div>
-        <div class="stat-node"><label>Trade Corridors</label><span>89</span></div>
-        <div class="stat-node"><label>Foundation Sites</label><span>26</span></div>
-    </div>
-</header>
+    <header>
+        <div>
+            <h1 style="margin:0; font-size:1.4rem; letter-spacing:5px;">GLOBAL ASSEMBLY NETWORK</h1>
+            <span style="font-size:0.65rem; color:#444;">VEXILLA AITS // REAL-TIME HANDSHAKE TRACKING</span>
+        </div>
+        <div class="live-stats">
+            <div class="stat-item">
+                <div class="stat-label">Active Nodes</div>
+                <div class="stat-value">12 Global</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Trade Volume (24h)</div>
+                <div class="stat-value">$248,400</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Mandate Dividend</div>
+                <div class="stat-value">$24,840</div>
+            </div>
+        </div>
+    </header>
 
-<div class="map-container">
-    <div class="node" style="top: 35%; left: 25%;"></div> <div class="node foundation" style="top: 40%; left: 30%;"></div> <div class="node" style="top: 30%; left: 50%;"></div> <div class="node" style="top: 60%; left: 45%;"></div> <div class="node" style="top: 45%; left: 75%;"></div> <div class="legend">
-        <div class="legend-item"><div class="dot" style="background:var(--gold)"></div> Verified Kin Associate</div>
-        <div class="legend-item"><div class="dot" style="background:var(--active)"></div> Foundation Impact Zone</div>
-        <div class="legend-item"><div class="dot" style="background:var(--path); border: 1px solid #555;"></div> Active Trade Route (IBINGOD)</div>
-    </div>
+    <main class="map-container">
+        
 
-    <div class="overlay-cta">
-        <h2 style="color:var(--gold); margin-top:0;">Establish Your Node</h2>
-        <p style="font-size: 0.85rem; color:#888;">
-            By registering your business and providing your EIN, you officially become a verified coordinate in the Solomon Kin Records global infrastructure.
-        </p>
-        <p style="font-size: 0.85rem; color:#888;">
-            Connect your art, your trade, and your legacy to the world.
-        </p>
-        <a href="register.html" class="btn-join">REGISTER YOUR ENTITY</a>
-    </div>
-</div>
+        <div class="node-pulse" style="top: 35%; left: 25%;">
+            <span class="node-label">NYC-04 [ACTIVE]</span>
+        </div>
+        <div class="node-pulse" style="top: 45%; left: 22%;">
+            <span class="node-label">ATL-01 [ACTIVE]</span>
+        </div>
+        <div class="node-pulse" style="top: 30%; left: 48%;">
+            <span class="node-label">LDN-02 [ACTIVE]</span>
+        </div>
+        <div class="node-pulse" style="top: 60%; left: 80%;">
+            <span class="node-label">SYD-01 [ACTIVE]</span>
+        </div>
 
-<footer style="padding: 10px 40px; background: #000; font-size: 0.6rem; color: #333; display: flex; justify-content: space-between;">
-    <span>SECURE LINK: 128.0.0.1 // ENCRYPTED</span>
-    <span>© 1999-2026 SOLOMON KIN RECORDS MEDIA GROUP</span>
-</footer>
+        <div style="position:absolute; bottom:40px; left:40px; max-width: 300px; font-size: 0.65rem; color: #444; line-height: 1.6;">
+            <b>NETWORK INTELLIGENCE:</b><br>
+            Current density in the <b>Atlantic Corridor</b> suggests a 14% increase in multicultural textile trade. <b>TTNG Fellowships</b> are being prioritized in the <b>SEA-02</b> node to meet demand for technical scribes.
+        </div>
+    </main>
+
+    <footer style="padding:20px; text-align:center; font-size:0.55rem; color:#222; border-top:1px solid #111; background:#000;">
+        VEXILLA GLOBAL LOGISTICS INTERFACE // SECURED BY THE GATEKEEPER // © 2026 SOLOMON KIN RECORDS
+    </footer>
 
 </body>
 </html>
