@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Assembly | Kin Pages Directory</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            display: grid; grid-template-rows: auto 1fr; height: 100vh;
+        }
+
+        /* COMPACT FILTER BAR */
+        .filter-bar {
+            background: #000; border-bottom: 1px solid var(--kin-gold);
+            padding: 20px 40px; display: flex; gap: 30px; align-items: center;
+        }
+
+        .filter-group { display: flex; align-items: center; gap: 10px; }
+        .filter-group label { font-size: 0.6rem; color: var(--kin-gold); text-transform: uppercase; letter-spacing: 1px; }
+        
+        select {
+            background: #111; border: 1px solid #333; color: #fff;
+            padding: 5px 10px; font-family: inherit; font-size: 0.75rem;
+        }
+
+        /* GRID CONTENT */
+        .directory-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px; padding: 40px; overflow-y: scroll;
+        }
+
+        .biz-card {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 20px; transition: 0.3s; position: relative;
+        }
+
+        .biz-card:hover { border-color: var(--kin-gold); }
+
+        .biz-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .biz-name { font-size: 1.1rem; color: #fff; margin: 0; text-transform: uppercase; }
+        .biz-years { font-size: 0.6rem; color: var(--kin-gold); }
+
+        .biz-tags { display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
+        .tag { font-size: 0.55rem; background: #222; padding: 3px 8px; border-radius: 2px; color: #888; }
+        .tag.culture { color: var(--kin-gold); border: 1px solid var(--kin-gold); }
+
+        .biz-desc { font-size: 0.75rem; color: #aaa; line-height: 1.5; margin-bottom: 20px; }
+
+        .btn-view {
+            display: block; text-align: center; border: 1px solid #444;
+            color: #fff; padding: 8px; text-decoration: none; font-size: 0.7rem;
+        }
+        .btn-view:hover { border-color: var(--kin-gold); color: var(--kin-gold); }
+
+        /* SOVEREIGN BADGE */
+        .sovereign-ribbon {
+            position: absolute; top: 0; right: 0; background: var(--kin-gold);
+            color: #000; font-size: 0.5rem; padding: 2px 8px; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="filter-bar">
+        <div class="filter-group">
+            <label>Culture:</label>
+            <select>
+                <option>Any Culture</option>
+                <option>African-American / Black</option>
+                <option>Hispanic / Latino</option>
+                <option>Asian-Pacific</option>
+                <option>Indigenous / Native</option>
+                <option>Middle Eastern</option>
+                <option>European / White</option>
+                <option>South Asian</option>
+                <option>Multicultural / Mixed</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Identity:</label>
+            <select>
+                <option>Any Gender/Identity</option>
+                <option>Women-Owned (She/Her)</option>
+                <option>Men-Owned (He/Him)</option>
+                <option>Non-Binary / Genderqueer</option>
+                <option>Trans-Owned</option>
+                <option>LGBTQ+ Owned</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Sector:</label>
+            <select>
+                <option>All Sectors</option>
+                <option>Technology</option>
+                <option>Legal / Professional</option>
+                <option>Culinary Arts</option>
+                <option>Construction / Trade</option>
+                <option>Health & Wellness</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="directory-grid">
+        
+        <div class="biz-card">
+            <div class="sovereign-ribbon">SOVEREIGN AD</div>
+            <div class="biz-header">
+                <h3 class="biz-name">K-Grace Textiles</h3>
+                <span class="biz-years">EST. 12 YRS</span>
+            </div>
+            <div class="biz-tags">
+                <span class="tag culture">African-American</span>
+                <span class="tag">Women-Owned</span>
+                <span class="tag">Manufacturing</span>
+            </div>
+            <p class="biz-desc">Bespoke textile production specializing in communal legacy garments. 10% of all trade supports Koinonia Grace initiatives.</p>
+            <a href="profile.html" class="btn-view">VIEW CLASSIFIED AD</a>
+        </div>
+
+        <div class="biz-card">
+            <div class="biz-header">
+                <h3 class="biz-name">Luna Tech Labs</h3>
+                <span class="biz-years">EST. 4 YRS</span>
+            </div>
+            <div class="biz-tags">
+                <span class="tag culture">Hispanic / Latino</span>
+                <span class="tag">Non-Binary</span>
+                <span class="tag">A.I. Research</span>
+            </div>
+            <p class="biz-desc">Decentralized A.I. solutions for small business sovereignty. Proudly operating under the Vexilla AITS protocol.</p>
+            <a href="profile.html" class="btn-view">VIEW CLASSIFIED AD</a>
+        </div>
+
+        <div class="biz-card">
+            <div class="biz-header">
+                <h3 class="biz-name">Heritage Law Group</h3>
+                <span class="biz-years">EST. 20 YRS</span>
+            </div>
+            <div class="biz-tags">
+                <span class="tag culture">European / White</span>
+                <span class="tag">Men-Owned</span>
+                <span class="tag">Legal Defense</span>
+            </div>
+            <p class="biz-desc">Navigating the complexities of EIN registration and sovereign trade law for members of the Solomon Kin network.</p>
+            <a href="profile.html" class="btn-view">VIEW CLASSIFIED AD</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
