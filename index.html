@@ -10,6 +10,7 @@
             --kin-black: #050505;
             --kin-grey: #121212;
             --glass: rgba(255, 255, 255, 0.03);
+            --transition: 0.3s ease;
         }
 
         body {
@@ -20,276 +21,179 @@
             overflow-x: hidden;
         }
 
-        /* VEXILLA LIVE HEARTBEAT HEADER */
-        .system-bar {
-            background: #000;
+        /* NAVIGATION & AUTHENTICATION */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
             border-bottom: 1px solid var(--kin-gold);
-            padding: 10px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            color: var(--kin-gold);
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
+        .nav-logo {
+            color: var(--kin-gold);
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-decoration: none;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-auth {
+            padding: 8px 18px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid var(--kin-gold);
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-login { background: transparent; color: var(--kin-gold); }
+        .btn-login:hover { background: var(--kin-gold); color: #000; }
+
+        .btn-join { background: var(--kin-gold); color: #000; }
+        .btn-join:hover { background: transparent; color: var(--kin-gold); }
 
         /* HERO SECTION */
         header {
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-            border-bottom: 1px solid #222;
         }
 
-        h1 {
-            font-size: 4rem;
-            letter-spacing: 20px;
-            margin: 0;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        h1 { font-size: 3.5rem; letter-spacing: 15px; margin: 0; color: var(--kin-gold); }
+
+        /* ENHANCED SEARCH & DUAL ENTRANCE */
+        .portal-grid {
+            max-width: 1100px;
+            margin: -60px auto 40px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+            padding: 0 20px;
         }
 
-        .mandate-tag {
-            background: var(--kin-gold);
-            color: #000;
-            padding: 5px 15px;
-            font-weight: bold;
-            font-size: 0.7rem;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        /* SEARCH & FILTER ENGINE */
-        .search-container {
-            max-width: 1000px;
-            margin: -50px auto 0;
+        .search-engine, .artist-entrance {
             background: var(--kin-grey);
             border: 1px solid var(--kin-gold);
-            padding: 30px;
+            padding: 25px;
             backdrop-filter: blur(10px);
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr auto;
-            gap: 15px;
         }
 
-        input, select {
+        .artist-entrance {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .artist-entrance h2 { font-size: 1rem; color: var(--kin-gold); margin-bottom: 10px; }
+        .artist-entrance p { font-size: 0.7rem; color: #666; margin-bottom: 15px; }
+
+        .search-engine input, .search-engine select {
+            width: 100%;
             background: #000;
             border: 1px solid #333;
             color: #fff;
-            padding: 15px;
+            padding: 12px;
+            margin-bottom: 10px;
             font-family: inherit;
         }
 
-        .btn-search {
+        .btn-prime {
+            width: 100%;
             background: var(--kin-gold);
             color: #000;
             border: none;
-            padding: 0 30px;
+            padding: 12px;
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
         }
 
-        /* MULTICULTURAL CATEGORY GRID */
+        /* CATEGORY SECTION */
         .grid-container {
             max-width: 1200px;
-            margin: 80px auto;
+            margin: 40px auto 80px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 20px;
             padding: 0 20px;
         }
 
         .cat-card {
             background: var(--glass);
             border: 1px solid #222;
-            padding: 40px 30px;
-            transition: 0.4s;
+            padding: 30px;
+            transition: var(--transition);
             text-decoration: none;
             color: inherit;
-            position: relative;
-            overflow: hidden;
         }
 
-        .cat-card:hover {
-            border-color: var(--kin-gold);
-            background: rgba(212, 175, 55, 0.05);
-            transform: translateY(-5px);
-        }
+        .cat-card:hover { border-color: var(--kin-gold); background: rgba(212, 175, 55, 0.05); }
+        .cat-card h3 { color: var(--kin-gold); font-size: 1rem; margin-bottom: 10px; }
+        .cat-card p { font-size: 0.7rem; color: #777; line-height: 1.5; }
 
-        .cat-card h3 {
-            color: var(--kin-gold);
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-        }
-
-        .cat-card p {
-            font-size: 0.75rem;
-            line-height: 1.6;
-            color: #888;
-        }
-
-        .tier-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 0.5rem;
-            border: 1px solid #444;
-            padding: 2px 5px;
-            color: #444;
-        }
-
-        /* FOOTER MODULES */
-        footer {
-            border-top: 1px solid #222;
-            padding: 60px 40px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            font-size: 0.7rem;
-        }
-
-        .footer-col h4 { color: var(--kin-gold); margin-bottom: 20px; }
-        .footer-col a { color: #666; text-decoration: none; display: block; margin-bottom: 10px; }
-        .footer-col a:hover { color: #fff; }
-
+        footer { border-top: 1px solid #222; padding: 40px; text-align: center; font-size: 0.65rem; color: #444; }
     </style>
 </head>
 <body>
 
-    <div class="system-bar">
-        <span>VEXILLA AITS LIVE: ACTIVE</span>
-        <span>GLOBAL NODES: 12 ONLINE</span>
-        <span>FOUNDATION DIVIDEND: $24,840.00</span>
-    </div>
+    <nav>
+        <a href="index.html" class="nav-logo">THE KIN PAGES</a>
+        <div class="auth-buttons">
+            <a href="login.html" class="btn-auth btn-login">Login</a>
+            <a href="registration.html" class="btn-auth btn-join">Join Assembly</a>
+        </div>
+    </nav>
 
     <header>
-        <h1>THE KIN PAGES</h1>
-        <p style="letter-spacing: 8px; color: #555;">SOLOMON KIN RECORDS MEDIA GROUP</p>
-        <div class="mandate-tag">10% Foundation Mandate Active</div>
+        <h1>SOLOMON KIN</h1>
+        <p style="letter-spacing: 5px; color: #444; font-size: 0.8rem;">MULTICULTURAL ASSEMBLY & TRADE DIRECTORY</p>
     </header>
 
-    <section class="search-container">
-        <input type="text" placeholder="Find Verified Trade or Art...">
-        
-        <select>
-            <option>All Cultural Hubs</option>
-            <option>African-American Collective</option>
-            <option>Hispanic/Latino Trade</option>
-            <option>Asian-Pacific Founders</option>
-            <option>Indigenous/Native Trade</option>
-        </select>
+    <section class="portal-grid">
+        <div class="search-engine">
+            <input type="text" placeholder="Search Classifieds or Canvas Art...">
+            <div style="display:flex; gap:10px;">
+                <select><option>All Cultures</option><option>African-American</option><option>Hispanic/Latino</option></select>
+                <select><option>All Identities</option><option>Women-Owned</option><option>Veteran-Owned</option></select>
+            </div>
+            <button class="btn-prime">SEARCH DATABASE</button>
+        </div>
 
-        <select>
-            <option>All Identities</option>
-            <option>Women-Owned</option>
-            <option>LGBTQ+ Owned</option>
-            <option>Non-Binary Entities</option>
-            <option>Veteran Owned</option>
-        </select>
-
-        <button class="btn-search">ENTER</button>
+        <div class="artist-entrance">
+            <h2>ARTIST & MERCHANT PORTAL</h2>
+            <p>List your Canvas Art or set up a free text-based Classified Ad today.</p>
+            <a href="registration.html" class="btn-prime" style="text-decoration:none;">POST LISTING</a>
+        </div>
     </section>
 
     <main class="grid-container">
-        
-        <a href="cultural-directory.html" class="cat-card">
-            <span class="tier-badge">SOVEREIGN</span>
-            <h3>TRADE & LOGISTICS</h3>
-            <p>Export, Maritime, and Freight services managed by the Assembly. EIN Verified.</p>
-        </a>
-
-        <a href="vault.html" class="cat-card">
-            <span class="tier-badge">PRIME</span>
-            <h3>FINE ART & CANVAS</h3>
-            <p>The Solomon Kin archival collection. Provenance secured by Vexilla AITS.</p>
-        </a>
-
-        <a href="cultural-directory.html" class="cat-card">
-            <h3>TECH & A.I.</h3>
-            <p>Sovereign development nodes focusing on ethical A.I. and identity protection.</p>
-        </a>
-
-        <a href="commune.html" class="cat-card">
-            <h3>THE COMMUNE</h3>
-            <p>Direct B2B networking for multicultural founders. Build your team.</p>
-        </a>
-
-        <a href="ttng-fellowship.html" class="cat-card">
-            <span class="tier-badge">FOUNDATION</span>
-            <h3>FELLOWSHIP</h3>
-            <p>Training the next generation of associates. Think Team Not Gang.</p>
-        </a>
-
-        <a href="library.html" class="cat-card">
-            <h3>RESOURCE LIB</h3>
-            <p>Sovereign legal templates, cultural archives, and trade bylaws.</p>
-        </a>
-
+        <a href="canvas-art.html" class="cat-card"><h3>CANVAS ART SHOP</h3><p>Purchase original works. Free text-ad included with account creation.</p></a>
+        <a href="classifieds.html" class="cat-card"><h3>CLASSIFIED LISTINGS</h3><p>Browse text-based ads by category. Free for all verified members.</p></a>
+        <a href="directory.html" class="cat-card"><h3>BUSINESS DIRECTORY</h3><p>Every profile and listing tied together in one multicultural search.</p></a>
+        <a href="favorites.html" class="cat-card"><h3>MY FAVORITES</h3><p>Save listings and art to your profile for quick and easy access.</p></a>
     </main>
 
     <footer>
-        <div class="footer-col">
-            <h4>THE CORE</h4>
-            <a href="gateway.html">Gateway Portal</a>
-            <a href="gatekeeper.html">The Gatekeeper</a>
-            <a href="system-status.html">System Health</a>
-        </div>
-        <div class="footer-col">
-            <h4>THE LEDGER</h4>
-            <a href="archive.html">Historical Records</a>
-            <a href="impact-2026.html">Impact Report</a>
-            <a href="manifest-generator.html">Manifest Tools</a>
-        </div>
-        <div class="footer-col">
-            <h4>MEMBERSHIP</h4>
-            <a href="advance-services.html">Sovereign Tiers</a>
-            <a href="member-id.html">ID Credentials</a>
-            <a href="checkout.html">Ledger Payment</a>
-        </div>
-        <div class="footer-col">
-            <h4>MEDIA</h4>
-            <a href="press-release.html">News Wire</a>
-            <a href="event-flyer.html">Events & Flyers</a>
-            <a href="sys-admin.html">Admin Manual</a>
-        </div>
+        <p>SIGN IN WITH: GOOGLE | X | MICROSOFT | EMAIL</p>
+        <p>© 2026 SOLOMON KIN RECORDS MEDIA GROUP // MANDATE: THINK TEAM NOT GANG</p>
     </footer>
 
-    <div style="text-align: center; padding: 40px; color: #222; font-size: 0.5rem; letter-spacing: 10px;">
-        ESTABLISHED 1999 // THE LEGACY IS ACTIVE
-    </div>
-<script>
-    document.querySelector('.btn-search').addEventListener('click', function() {
-        // 1. Grab the values from your inputs
-        const searchQuery = document.querySelector('input[type="text"]').value.toLowerCase();
-        const cultureFilter = document.querySelectorAll('select')[0].value;
-        const genderFilter = document.querySelectorAll('select')[1].value;
-
-        console.log(`Searching for: ${searchQuery} | Culture: ${cultureFilter} | Identity: ${genderFilter}`);
-
-        // 2. Logic to redirect to the results page with parameters
-        // This sends the data to your 'cultural-directory.html' so it knows what to show.
-        const targetUrl = `cultural-directory.html?query=${encodeURIComponent(searchQuery)}&culture=${encodeURIComponent(cultureFilter)}&identity=${encodeURIComponent(genderFilter)}`;
-        
-        // 3. Visual feedback: Change button text to show "Processing"
-        this.innerHTML = "VERIFYING...";
-        this.style.background = "#fff";
-
-        // 4. Execution
-        setTimeout(() => {
-            window.location.href = targetUrl;
-        }, 800); 
-    });
-
-    // Bonus: Allow pressing "Enter" on the keyboard to trigger the search
-    document.querySelector('input[type="text"]').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            document.querySelector('.btn-search').click();
-        }
-    });
-</script>
 </body>
 </html>
