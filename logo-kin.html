@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logo Kin | The Visual Assembly</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+        }
+
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; }
+
+        header { padding: 60px; text-align: center; border-bottom: 1px solid var(--kin-gold); }
+        h1 { color: var(--kin-gold); letter-spacing: 15px; margin: 0; }
+
+        /* VIEW SWITCHER */
+        .view-controls {
+            display: flex; justify-content: center; gap: 10px; padding: 20px;
+            background: #0a0a0a; position: sticky; top: 0; z-index: 100;
+        }
+        .view-btn {
+            background: transparent; border: 1px solid #333; color: #666;
+            padding: 8px 15px; cursor: pointer; font-size: 0.7rem; font-weight: bold;
+        }
+        .view-btn.active { border-color: var(--kin-gold); color: var(--kin-gold); }
+
+        /* DIRECTORY LAYOUTS */
+        #logo-engine { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+
+        /* VIEW 1: GRID */
+        .grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 30px; }
+        .grid-item { border: 1px solid #222; padding: 20px; text-align: center; background: var(--kin-grey); transition: 0.3s; }
+        .grid-item:hover { border-color: var(--kin-gold); }
+        .logo-box { width: 100%; aspect-ratio: 1; background: #000; display: flex; align-items: center; justify-content: center; border: 1px solid #1a1a1a; margin-bottom: 15px; }
+        .logo-box img { max-width: 80%; max-height: 80%; opacity: 0.8; }
+        .biz-name { font-size: 0.75rem; color: var(--kin-gold); font-weight: bold; }
+
+        /* VIEW 2: TEXT ONLY */
+        .text-view { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+        .text-item { padding: 10px; border-bottom: 1px solid #222; font-size: 0.8rem; }
+
+        /* VIEW 3: SOLO MODE */
+        .solo-view { max-width: 500px; margin: 0 auto; text-align: center; }
+        .solo-item { border: 2px solid var(--kin-gold); padding: 40px; background: #0a0a0a; }
+        .solo-logo { width: 250px; height: 250px; margin: 0 auto 30px; background: #000; display: flex; align-items: center; justify-content: center; }
+        .solo-nav { display: flex; justify-content: space-between; margin-top: 20px; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LOGO KIN</h1>
+        <p style="font-size: 0.6rem; color: #555; letter-spacing: 3px;">THE VISUAL IDENTITY OF MULTICULTURAL SOVEREIGNTY</p>
+    </header>
+
+    <div class="view-controls">
+        <button class="view-btn active" onclick="switchView('grid')">GRID VIEW</button>
+        <button class="view-btn" onclick="switchView('text')">TEXT ONLY</button>
+        <button class="view-btn" onclick="switchView('solo')">SOLO MODE</button>
+    </div>
+
+    
+
+    <main id="logo-engine">
+        <div id="view-grid" class="grid-view">
+            <div class="grid-item"><div class="logo-box"><span>LOGO 1</span></div><div class="biz-name">Legacy Accounting</div></div>
+            <div class="grid-item"><div class="logo-box"><span>LOGO 2</span></div><div class="biz-name">Luna Tech Partners</div></div>
+            <div class="grid-item"><div class="logo-box"><span>LOGO 3</span></div><div class="biz-name">Kin Canvas Collective</div></div>
+            <div class="grid-item"><div class="logo-box"><span>LOGO 4</span></div><div class="biz-name">Tri-State Logistics</div></div>
+        </div>
+
+        <div id="view-text" class="text-view hidden">
+            <div class="text-item">Kin Canvas Collective</div>
+            <div class="text-item">Legacy Accounting</div>
+            <div class="text-item">Luna Tech Partners</div>
+            <div class="text-item">Tri-State Logistics</div>
+        </div>
+
+        <div id="view-solo" class="solo-view hidden">
+            <div class="solo-item">
+                <div class="solo-logo">LOGO 1</div>
+                <h2 id="solo-title" style="color: var(--kin-gold);">Legacy Accounting</h2>
+                <div class="solo-nav">
+                    <button class="view-btn" onclick="prevSolo()">PREVIOUS</button>
+                    <button class="view-btn" onclick="nextSolo()">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function switchView(viewType) {
+            // Update Buttons
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // Toggle Sections
+            document.getElementById('view-grid').classList.add('hidden');
+            document.getElementById('view-text').classList.add('hidden');
+            document.getElementById('view-solo').classList.add('hidden');
+
+            document.getElementById('view-' + viewType).classList.remove('hidden');
+        }
+
+        // Logic for Solo Navigation can be expanded here with an array of business names
+        let soloIndex = 0;
+        const bizList = ["Legacy Accounting", "Luna Tech Partners", "Kin Canvas Collective", "Tri-State Logistics"];
+        
+        function nextSolo() {
+            soloIndex = (soloIndex + 1) % bizList.length;
+            document.getElementById('solo-title').innerText = bizList[soloIndex];
+        }
+
+        function prevSolo() {
+            soloIndex = (soloIndex - 1 + bizList.length) % bizList.length;
+            document.getElementById('solo-title').innerText = bizList[soloIndex];
+        }
+    </script>
+
+</body>
+</html>
