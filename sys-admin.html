@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Manual | Vexilla AITS Operations</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-code: #00ff41;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #ccc;
+            font-family: 'Courier New', monospace; margin: 0; display: flex;
+        }
+
+        .sidebar {
+            width: 280px; background: #000; border-right: 1px solid var(--kin-gold);
+            height: 100vh; padding: 25px; box-sizing: border-box;
+        }
+
+        .main-manual { flex-grow: 1; padding: 60px; overflow-y: scroll; }
+
+        .cmd-box {
+            background: #000; border: 1px solid #333; padding: 20px;
+            color: var(--kin-code); font-size: 0.85rem; margin: 20px 0;
+            border-left: 4px solid var(--kin-gold);
+        }
+
+        h2 { color: var(--kin-gold); border-bottom: 1px solid #222; padding-bottom: 10px; margin-top: 40px; }
+        
+        .protocol-list { list-style: none; padding: 0; }
+        .protocol-list li { margin-bottom: 15px; padding-left: 20px; position: relative; }
+        .protocol-list li::before { content: ">"; position: absolute; left: 0; color: var(--kin-gold); }
+
+        .warning-label {
+            background: #ff0000; color: #fff; padding: 5px 10px;
+            font-weight: bold; font-size: 0.7rem; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h3 style="color:var(--kin-gold); font-size:0.8rem;">VEXILLA CORE OPS</h3>
+        <nav style="font-size:0.7rem; line-height:2.5;">
+            <a href="#maintenance" style="color:#888; text-decoration:none;">01. MAINTENANCE</a><br>
+            <a href="#security" style="color:#888; text-decoration:none;">02. SECURITY OVERRIDE</a><br>
+            <a href="#onboarding" style="color:#888; text-decoration:none;">03. ENTITY ONBOARDING</a><br>
+            <a href="#financial" style="color:#888; text-decoration:none;">04. MANDATE RECONCILIATION</a>
+        </nav>
+    </aside>
+
+    <main class="main-manual">
+        <header style="border-bottom: 3px double var(--kin-gold); padding-bottom: 20px; margin-bottom: 40px;">
+            <h1 style="margin:0; font-size:1.8rem;">SYSTEM ADMINISTRATOR'S MANUAL</h1>
+            <p style="font-size:0.7rem; color:#555;">CLASSIFICATION: LEVEL-5 SOVEREIGN ACCESS ONLY</p>
+        </header>
+
+        <section id="maintenance">
+            <h2>01. DATABASE MAINTENANCE SCHEDULE</h2>
+            <p>To ensure the **Vexilla Master Ledger** remains uncorrupted, the following command must be executed every 24 hours at 03:00 UTC:</p>
+            <div class="cmd-box">
+                $ vexilla-ledger --sync-all --validate-hashes --prune-expired-ads
+            </div>
+            <ul class="protocol-list">
+                <li>Verify all <b>Sovereign Tier</b> ads are prioritized in the cache.</li>
+                <li>Clear temporary EIN session logs to maintain user anonymity.</li>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>02. SECURITY OVERRIDE PROTOCOLS</h2>
+            <p><span class="warning-label">Red Alert</span> In the event of a brute-force attempt on the <b>Gatekeeper Terminal</b>, initiate a "Node Lockdown":</p>
+            <div class="cmd-box">
+                $ gatekeeper --lockdown --ip-blacklist --notify-office-of-sk
+            </div>
+            <p>This will reroute all traffic to a "Honey Pot" version of the <b>Gateway</b> while preserving the <b>Vault</b> data.</p>
+        </section>
+
+        <section id="financial">
+            <h2>03. MANDATE RECONCILIATION</h2>
+            <p>Every Friday, the 10% Foundation Mandate must be audited against the **Checkout** logs.</p>
+            <ul class="protocol-list">
+                <li>Check <b>foundation-feed.html</b> for real-time update accuracy.</li>
+                <li>Cross-reference <b>checkout.html</b> receipts with <b>impact-2026.html</b> metrics.</li>
+            </ul>
+        </section>
+
+        <div style="margin-top: 100px; padding: 40px; border: 1px solid #111; text-align: center;">
+            <p style="font-size: 0.6rem; color: #333;">
+                PROPERTY OF SOLOMON KIN RECORDS MEDIA GROUP<br>
+                BY REMAINING ON THIS PAGE, YOU ACKNOWLEDGE YOUR OATH TO THE ASSEMBLY.
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>
