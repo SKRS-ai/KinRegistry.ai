@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Checkout | Vexilla Ledger Processing</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            display: flex; align-items: center; justify-content: center; height: 100vh;
+        }
+
+        .checkout-box {
+            width: 500px; background: var(--kin-grey); border: 1px solid #333;
+            padding: 40px; position: relative;
+        }
+
+        .checkout-header {
+            border-bottom: 1px solid var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 30px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .summary-line {
+            display: flex; justify-content: space-between; margin-bottom: 15px;
+            font-size: 0.8rem; letter-spacing: 1px;
+        }
+
+        .total-line {
+            border-top: 1px solid #333; padding-top: 20px; margin-top: 20px;
+            display: flex; justify-content: space-between;
+            color: var(--kin-gold); font-weight: bold; font-size: 1.2rem;
+        }
+
+        .payment-form { margin-top: 30px; }
+        .input-field {
+            background: #000; border: 1px solid #333; color: #fff;
+            padding: 12px; width: 100%; box-sizing: border-box; margin-bottom: 15px;
+            font-family: inherit; font-size: 0.8rem;
+        }
+
+        .btn-pay {
+            width: 100%; background: var(--kin-gold); color: #000;
+            border: none; padding: 18px; font-weight: bold; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        .lock-notice {
+            font-size: 0.55rem; color: #555; text-align: center; margin-top: 20px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-box">
+        <div class="checkout-header">
+            <span style="font-size:0.7rem; color:var(--kin-gold);">VEXILLA LEDGER v2.6</span>
+            <span style="font-size:0.9rem; font-weight:bold;">ORDER SUMMARY</span>
+        </div>
+
+        <div class="summary-line">
+            <span>Tier: Sovereign (Legacy Lock)</span>
+            <span>$799.00/mo</span>
+        </div>
+        <div class="summary-line">
+            <span>Duration: 10 Years (Advance)</span>
+            <span>$95,880.00</span>
+        </div>
+        <div class="summary-line" style="color: #00ff41;">
+            <span>Pre-Payment Discount (40%)</span>
+            <span>-$38,380.00</span>
+        </div>
+
+        <div class="total-line">
+            <span>TOTAL DUE</span>
+            <span>$57,500.00</span>
+        </div>
+
+        <form class="payment-form">
+            <label style="font-size:0.6rem; color:#444;">CREDENTIALS (EIN-LINKED)</label>
+            <input type="text" class="input-field" placeholder="CARDHOLDER OR ENTITY NAME">
+            <input type="text" class="input-field" placeholder="CARD NUMBER / WALLET ADDRESS">
+            <div style="display:flex; gap:10px;">
+                <input type="text" class="input-field" placeholder="MM/YY">
+                <input type="text" class="input-field" placeholder="CVV">
+            </div>
+            
+            <button type="button" class="btn-pay">Authorize Payment</button>
+        </form>
+
+        <div class="lock-notice">
+            SECURE TRANSACTION // NO REFUNDS ON SOVEREIGN TIERS // 
+            FUNDS ALLOCATED TO THE SOLOMON KIN RECORDS FOUNDATION MANDATE
+        </div>
+    </div>
+
+</body>
+</html>
