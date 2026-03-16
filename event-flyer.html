@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Designer | Kin Pages Presence</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #020202;
+            --kin-grey: #111;
+        }
+
+        body {
+            background-color: #000; color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            display: flex; flex-direction: column; align-items: center; padding: 40px;
+        }
+
+        /* TOOLBAR */
+        .flyer-toolbar {
+            background: var(--kin-grey); border: 1px solid var(--kin-gold);
+            padding: 20px; margin-bottom: 40px; width: 500px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+        }
+
+        .flyer-toolbar h3 { grid-column: 1 / -1; margin: 0 0 10px 0; font-size: 0.8rem; color: var(--kin-gold); }
+        
+        input, select {
+            background: #000; border: 1px solid #333; color: #fff;
+            padding: 10px; font-family: inherit; font-size: 0.75rem;
+        }
+
+        /* THE FLYER CANVAS */
+        .flyer-canvas {
+            width: 8.5in; height: 11in; background: var(--kin-black);
+            border: 5px double var(--kin-gold); position: relative;
+            padding: 60px; box-sizing: border-box; text-align: center;
+            box-shadow: 0 0 100px rgba(0,0,0,1);
+        }
+
+        .flyer-header { border-bottom: 1px solid var(--kin-gold); padding-bottom: 20px; }
+        .flyer-header h1 { font-size: 3rem; margin: 0; letter-spacing: 12px; color: var(--kin-gold); }
+        .flyer-header p { font-size: 0.9rem; letter-spacing: 5px; color: #fff; margin-top: 10px; }
+
+        .main-visual {
+            margin: 40px 0; height: 400px; border: 1px solid #222;
+            background: linear-gradient(45deg, #050505, #111);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; color: #333;
+        }
+
+        .event-details { margin-top: 40px; }
+        .detail-row { font-size: 1.5rem; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .detail-sub { font-size: 0.7rem; color: var(--kin-gold); letter-spacing: 3px; }
+
+        .flyer-footer {
+            position: absolute; bottom: 60px; left: 0; right: 0;
+            padding: 0 60px; display: flex; justify-content: space-between; align-items: flex-end;
+        }
+
+        .mandate-stamp {
+            border: 1px solid var(--kin-gold); color: var(--kin-gold);
+            padding: 10px; font-size: 0.6rem; width: 120px; text-align: left;
+        }
+
+        @media print {
+            .flyer-toolbar, h1 { display: none; }
+            body { background: white; padding: 0; }
+            .flyer-canvas { box-shadow: none; border: 5px double black; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flyer-toolbar">
+        <h3>EVENT BROADCAST CONFIG</h3>
+        <input type="text" placeholder="EVENT TITLE (E.G. THE ASSEMBLY)">
+        <input type="text" placeholder="LOCATION NODE (E.G. ATL-01)">
+        <input type="text" placeholder="DATE / TIME">
+        <select>
+            <option>GALLERY OPENING</option>
+            <option>TTNG TOWN HALL</option>
+            <option>TRADE MIXER</option>
+        </select>
+        <button onclick="window.print()" style="grid-column: 1 / -1; background: var(--kin-gold); padding: 15px; font-weight: bold; border: none; cursor: pointer;">PRINT PROMOTION</button>
+    </div>
+
+    <div class="flyer-canvas">
+        <header class="flyer-header">
+            <h1>ASSEMBLY</h1>
+            <p>SOLOMON KIN RECORDS PRESENTS</p>
+        </header>
+
+        <div class="main-visual">
+            [ IMAGE DATA: KIN CANVAS SELECTION ]
+        </div>
+
+        <div class="event-details">
+            <div class="detail-sub">LOCATION NODE</div>
+            <div class="detail-row">ATLANTA // ATL-01 HUB</div>
+            
+            <div style="display: flex; justify-content: center; gap: 50px; margin-top: 30px;">
+                <div>
+                    <div class="detail-sub">DATE</div>
+                    <div class="detail-row" style="font-size: 1.2rem;">MARCH 25, 2026</div>
+                </div>
+                <div>
+                    <div class="detail-sub">TIME</div>
+                    <div class="detail-row" style="font-size: 1.2rem;">19:00 HRS</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="flyer-footer">
+            <div class="mandate-stamp">
+                <b>10% MANDATE</b><br>
+                PROCEEDS FUND<br>
+                TTNG INITIATIVES
+            </div>
+            <div style="text-align: right; font-size: 0.5rem; color: #444; letter-spacing: 3px;">
+                KIN PAGES SECURE ACCESS ONLY<br>
+                VERIFY EIN AT GATEWAY
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
