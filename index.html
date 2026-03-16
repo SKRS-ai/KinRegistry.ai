@@ -261,6 +261,35 @@
     <div style="text-align: center; padding: 40px; color: #222; font-size: 0.5rem; letter-spacing: 10px;">
         ESTABLISHED 1999 // THE LEGACY IS ACTIVE
     </div>
+<script>
+    document.querySelector('.btn-search').addEventListener('click', function() {
+        // 1. Grab the values from your inputs
+        const searchQuery = document.querySelector('input[type="text"]').value.toLowerCase();
+        const cultureFilter = document.querySelectorAll('select')[0].value;
+        const genderFilter = document.querySelectorAll('select')[1].value;
 
+        console.log(`Searching for: ${searchQuery} | Culture: ${cultureFilter} | Identity: ${genderFilter}`);
+
+        // 2. Logic to redirect to the results page with parameters
+        // This sends the data to your 'cultural-directory.html' so it knows what to show.
+        const targetUrl = `cultural-directory.html?query=${encodeURIComponent(searchQuery)}&culture=${encodeURIComponent(cultureFilter)}&identity=${encodeURIComponent(genderFilter)}`;
+        
+        // 3. Visual feedback: Change button text to show "Processing"
+        this.innerHTML = "VERIFYING...";
+        this.style.background = "#fff";
+
+        // 4. Execution
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 800); 
+    });
+
+    // Bonus: Allow pressing "Enter" on the keyboard to trigger the search
+    document.querySelector('input[type="text"]').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            document.querySelector('.btn-search').click();
+        }
+    });
+</script>
 </body>
 </html>
