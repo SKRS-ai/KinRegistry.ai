@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media & Broadcast | Solomon Kin Records LLC</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        
+        header { padding: 50px; text-align: center; border-bottom: 2px solid var(--kin-gold); background: #000; }
+        .air-status { font-size: 0.65rem; color: #ff3b3b; letter-spacing: 4px; font-weight: bold; margin-bottom: 10px; }
+
+        .container { max-width: 1300px; margin: 40px auto; padding: 0 40px; }
+
+        /* BROADCAST GRID */
+        .broadcast-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px; }
+        .station-card { background: var(--kin-grey); border: 1px solid #222; padding: 0; position: relative; overflow: hidden; transition: 0.3s; }
+        .station-card:hover { border-color: var(--kin-gold); transform: scale(1.02); }
+        
+        .video-placeholder { width: 100%; height: 200px; background: #000; border-bottom: 1px solid var(--kin-gold); display: flex; align-items: center; justify-content: center; position: relative; }
+        .video-placeholder::after { content: 'LIVE STREAM FEED'; color: #333; font-size: 0.7rem; }
+
+        .station-content { padding: 25px; }
+        .station-name { color: #fff; font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; }
+        .station-tag { color: var(--kin-gold); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        
+        .program-list { font-size: 0.75rem; color: #777; list-style: none; padding: 0; border-top: 1px solid #222; margin-top: 15px; padding-top: 15px; }
+        .program-list li { margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .time-tag { color: var(--kin-gold); }
+
+        .btn-watch { display: inline-block; width: 100%; padding: 12px; background: #000; border: 1px solid var(--kin-gold); color: var(--kin-gold); text-align: center; text-decoration: none; font-size: 0.7rem; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-watch:hover { background: var(--kin-gold); color: #000; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="air-status">● ON AIR // GLOBAL FEED ACTIVE</div>
+        <h1 style="color: var(--kin-gold); font-size: 1.8rem; letter-spacing: 12px; margin: 0;">MEDIA & BROADCASTING</h1>
+        <p style="font-size: 0.6rem; color: #444; letter-spacing: 4px; margin-top: 10px;">SOLOMON KIN RECORDS MEDIA GROUP, INC. // SYNDICATED NETWORK</p>
+    </header>
+
+    
+
+    <div class="container">
+        
+        <div class="broadcast-grid">
+            
+            <div class="station-card">
+                <div class="video-placeholder"></div>
+                <div class="station-content">
+                    <span class="station-tag">YouTube Association</span>
+                    <div class="station-name">THE FILTH FACTOR</div>
+                    <p style="font-size: 0.75rem; color: #666;">Primary media outlet for cultural insights and high-fidelity commentary.</p>
+                    <ul class="program-list">
+                        <li><span>Latest Episode: Global Trends</span> <span class="time-tag">NOW</span></li>
+                        <li><span>Archive Access: V.109</span> <span class="time-tag">VOD</span></li>
+                    </ul>
+                    <a href="#" class="btn-watch">ENTER CHANNEL</a>
+                </div>
+            </div>
+
+            <div class="station-card">
+                <div class="video-placeholder"></div>
+                <div class="station-content">
+                    <span class="station-tag">Network X / Television</span>
+                    <div class="station-name">DOCKINSTATION TV</div>
+                    <p style="font-size: 0.75rem; color: #666;">24/7 corporate broadcast network specializing in tech and music.</p>
+                    <ul class="program-list">
+                        <li><span>Vexilla AITS Dev Log</span> <span class="time-tag">14:00</span></li>
+                        <li><span>Sovereign Village News</span> <span class="time-tag">18:00</span></li>
+                    </ul>
+                    <a href="#" class="btn-watch">TUNE IN LIVE</a>
+                </div>
+            </div>
+
+            <div class="station-card">
+                <div class="video-placeholder"></div>
+                <div class="station-content">
+                    <span class="station-tag">Syndicated News</span>
+                    <div class="station-name">LETHAL LEDGER</div>
+                    <p style="font-size: 0.75rem; color: #666;">Investigative reporting and real-time records analysis.</p>
+                    <ul class="program-list">
+                        <li><span>Market Disruption Report</span> <span class="time-tag">DAILY</span></li>
+                        <li><span>International Trade Wire</span> <span class="time-tag">24H</span></li>
+                    </ul>
+                    <a href="#" class="btn-watch">VIEW LEDGER</a>
+                </div>
+            </div>
+
+            <div class="station-card">
+                <div class="video-placeholder"></div>
+                <div class="station-content">
+                    <span class="station-tag">Film & Audio Production</span>
+                    <div class="station-name">SOLOMON KIN STUDIOS</div>
+                    <p style="font-size: 0.75rem; color: #666;">High-definition film, video production, and label audio services.</p>
+                    <ul class="program-list">
+                        <li><span>3Dayz Ahead RDA Session</span> <span class="time-tag">STUDIO</span></li>
+                        <li><span>Video Film Music Inc.</span> <span class="time-tag">EDIT</span></li>
+                    </ul>
+                    <a href="#" class="btn-watch">STUDIO ACCESS</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 80px 40px; color: #333; font-size: 0.6rem; letter-spacing: 4px; border-top: 1px solid #222;">
+        SOLOMON KIN RECORDS MEDIA GROUP &copy; 2026 | ALL BROADCAST RIGHTS RESERVED
+    </footer>
+
+</body>
+</html>
