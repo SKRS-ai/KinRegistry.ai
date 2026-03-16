@@ -3,168 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Foundations | KIN Pages Philadelphia</title>
+    <title>Sovereign Foundations | KIN Pages Global Registry</title>
     <style>
-        :root { --kin-gold: #d4af37; --kin-black: #050505; --text: #ccc; }
-        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; line-height: 1.6; }
 
-        /* HIGH-AUTHORITY HEADER */
+        /* HEADER */
         header { background: #000; border-bottom: 3px solid var(--kin-gold); padding: 30px 40px; text-align: center; }
-        .kin-logo { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.8rem; letter-spacing: 6px; text-transform: uppercase; }
-        .sub-header { font-size: 0.7rem; color: #666; letter-spacing: 4px; margin-top: 10px; }
+        .kin-logo { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.8rem; letter-spacing: 6px; text-transform: uppercase; border: 1px solid var(--kin-gold); padding: 5px 20px; }
 
-        /* PAGE TITLE SECTION */
-        .title-section { padding: 60px 20px; text-align: center; background: radial-gradient(circle, #111 0%, #000 100%); border-bottom: 1px solid #222; }
-        .title-section h1 { color: #fff; font-size: 2rem; letter-spacing: 2px; margin: 0; }
-        .title-section p { color: var(--kin-gold); font-size: 0.8rem; max-width: 700px; margin: 20px auto; line-height: 1.6; }
+        /* TITLE SECTION */
+        .hero-banner { padding: 60px 20px; text-align: center; background: linear-gradient(to bottom, #111, #000); border-bottom: 1px solid #222; }
+        .hero-banner h1 { color: #fff; font-size: 2.2rem; letter-spacing: 3px; margin: 0; text-transform: uppercase; }
+        .hero-banner p { color: var(--kin-gold); font-size: 0.75rem; letter-spacing: 2px; margin-top: 15px; }
 
-        /* FOUNDATION GRID */
-        .foundation-container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        .foundation-card { 
-            display: grid; 
-            grid-template-columns: 250px 1fr; 
+        /* REGISTRY SECTIONING */
+        .registry-wrapper { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .sector-title { color: var(--kin-gold); font-size: 1.1rem; border-bottom: 1px solid var(--kin-gold); padding-bottom: 10px; margin-bottom: 40px; letter-spacing: 5px; text-transform: uppercase; }
+
+        /* FOUNDATION CARD DESIGN */
+        .foundation-entry { 
+            display: flex; 
             background: #0a0a0a; 
             border: 1px solid #1a1a1a; 
-            margin-bottom: 40px; 
-            transition: 0.4s; 
-            overflow: hidden;
+            margin-bottom: 30px; 
+            transition: 0.3s ease;
         }
-        .foundation-card:hover { border-color: var(--kin-gold); transform: translateX(10px); }
-        
-        .logo-box { 
-            background: #111; 
+        .foundation-entry:hover { border-color: var(--kin-gold); background: #0d0d0d; }
+
+        .logo-column { 
+            width: 220px; 
+            min-width: 220px; 
+            background: #000; 
             display: flex; 
-            flex-direction: column;
             align-items: center; 
             justify-content: center; 
             border-right: 1px solid #222;
             padding: 20px;
         }
-        .foundation-logo-placeholder { 
-            width: 120px; 
-            height: 120px; 
-            border: 1px solid var(--kin-gold); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: var(--kin-gold);
-            font-size: 0.6rem;
-            text-align: center;
-            margin-bottom: 15px;
-        }
+        .logo-column img { width: 150px; height: 150px; object-fit: contain; }
 
-        .info-box { padding: 40px; }
-        .info-box h2 { color: var(--kin-gold); font-size: 1.2rem; margin: 0 0 15px; letter-spacing: 2px; }
-        .info-box p { font-size: 0.8rem; color: #888; line-height: 1.6; margin-bottom: 25px; }
+        .content-column { padding: 40px; flex-grow: 1; }
+        .content-column h2 { color: #fff; font-size: 1.3rem; margin: 0 0 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .content-column .domain-tag { color: var(--kin-gold); font-size: 0.65rem; margin-bottom: 20px; display: block; letter-spacing: 2px; }
+        .content-column p { color: #888; font-size: 0.85rem; margin-bottom: 25px; max-width: 800px; }
         
-        .btn-visit { 
+        .btn-link { 
             display: inline-block; 
-            padding: 10px 25px; 
-            border: 1px solid var(--kin-gold); 
             color: var(--kin-gold); 
             text-decoration: none; 
             font-size: 0.7rem; 
             font-weight: bold; 
+            border: 1px solid var(--kin-gold); 
+            padding: 10px 25px; 
             text-transform: uppercase; 
             transition: 0.3s;
         }
-        .btn-visit:hover { background: var(--kin-gold); color: #000; }
+        .btn-link:hover { background: var(--kin-gold); color: #000; }
 
-        /* FOOTER */
-        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 40px; text-align: center; }
-        .footer-links a { color: #444; text-decoration: none; font-size: 0.6rem; margin: 0 15px; text-transform: uppercase; }
-        .footer-links a:hover { color: #fff; }
+        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 40px; text-align: center; font-size: 0.6rem; color: #444; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="kin-logo">KIN PAGES</a>
-        <div class="sub-header">THE SOVEREIGN VILLAGE NETWORK</div>
     </header>
 
-    <section class="title-section">
-        <h1>KEY NON-PROFIT ORGANIZATIONS</h1>
-        <div style="color: #444; font-size: 0.6rem; margin-top: 5px;">PHILADELPHIA, UNITED STATES OF AMERICA</div>
-        <p>Showcasing the foundations and organizations that serve as the bedrock of our community. These entities represent the highest standard of advocacy, economic empowerment, and cultural preservation.</p>
+    <section class="hero-banner">
+        <h1>SOVEREIGN FOUNDATIONS & NON-PROFITS</h1>
+        <p>PHILADELPHIA • MINNESOTA • GLOBAL COMMAND</p>
     </section>
 
-    <div class="foundation-container">
+    <div class="registry-wrapper">
 
-        <div class="foundation-card">
-            <div class="logo-box">
-                <div class="foundation-logo-placeholder">TBBLUSA<br>LOGO</div>
-                <div style="font-size: 0.5rem; color: #444;">EST. LEGACY</div>
-            </div>
-            <div class="info-box">
-                <h2>TBBLUSA NATIONAL</h2>
-                <p>The primary advocacy body for minority business interests and community development. TBBLUSA works to bridge the gap between local commerce and national opportunity, ensuring that minority-owned enterprises have a seat at the table of global trade.</p>
-                <a href="http://tbblusa.org" class="btn-visit">ACCESS FOUNDATION SITE</a>
+        <div class="sector-title">Main Command Entities</div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="TBBLUSA"></div>
+            <div class="content-column">
+                <h2>THIN BLACK AND BROWN LINE USA, NPC.</h2>
+                <span class="domain-tag">TBBLUSA.ORG</span>
+                <p>The premier advocacy network for minority protection and business logistics. Bridging the gap between sovereign identity and national infrastructure through the Thin Black and Brown Line.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/ThinBlackandBrownLineUSA-TBBLUSA.ORG/" class="btn-link">GO TO MAIN COMMAND</a>
             </div>
         </div>
 
-        <div class="foundation-card">
-            <div class="logo-box">
-                <div class="foundation-logo-placeholder">EK<br>LOGO</div>
-                <div style="font-size: 0.5rem; color: #444;">VIOLENCE INTERRUPTION</div>
-            </div>
-            <div class="info-box">
-                <h2>ENDANGERED KIND</h2>
-                <p>Founded by John Solomon, this Philadelphia-based organization focuses on violence interruption and community healing. Through a network of credible messengers, they work directly with at-risk youth to dismantle the cycles of conflict and build a future of peace.</p>
-                <a href="https://thephiladelphiacitizen.org/citizen-of-the-week-john-solomon-of-endangered-kind/" class="btn-visit">VIEW IMPACT REPORT</a>
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="Great Seal"></div>
+            <div class="content-column">
+                <h2>GREAT SEAL OF THE BLACK AND BROWN PEOPLE FOUNDATION MONUMENT</h2>
+                <span class="domain-tag">SOVEREIGN MONUMENT</span>
+                <p>Establishing the permanent legacy and historical recognition of Black and Brown people in the United States. A monument foundation dedicated to the Great Seal and identity preservation.</p>
+                <a href="https://skrs-ai.github.io/The-Great-Seal-of-the-BLACK---BROWN_PEOPLE-of-the-UNITED_STATES-of-AMERICA_MMXX/index.html" class="btn-link">VIEW MONUMENT</a>
             </div>
         </div>
 
-        <div class="foundation-card">
-            <div class="logo-box">
-                <div class="foundation-logo-placeholder">TEC<br>LOGO</div>
-                <div style="font-size: 0.5rem; color: #444;">ECONOMIC EQUITY</div>
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="SexyHeros"></div>
+            <div class="content-column">
+                <h2>SEXYHEROS FOUNDATION</h2>
+                <span class="domain-tag">SEXYHEROS.ORG</span>
+                <p>The aesthetic and humanitarian branch of the AEAH network. Focused on empowerment through identity and visual sovereignty.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/WWW.AEAH.ORG-SEXYHEROS.ORG/#sexy-portal" class="btn-link">ACCESS SEXY PORTAL</a>
             </div>
-            <div class="info-box">
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="Identity Registry"></div>
+            <div class="content-column">
+                <h2>BLACK & BROWN BUREAU OF NATIONAL IDENTITY REGISTRY, INC.</h2>
+                <span class="domain-tag">TGSOBAUSA.ORG</span>
+                <p>The official bureau for the registration and validation of Black and Brown national identity. Secure management of sovereign records and lineage data.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/TheGreatSeal_of-Black-and-Brown-People-WWW.TGSOBAUSA.ORG/index.html" class="btn-link">IDENTITY REGISTRY</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="AEAH"></div>
+            <div class="content-column">
+                <h2>AGAINST ELECTRONIC ABUSE AND HARASSMENT, NPC.</h2>
+                <span class="domain-tag">AEAH.ORG</span>
+                <p>Protecting the digital and physical sanctity of the community. Advocacy against electronic targeting, harassment, and unauthorized biological-digital interference.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/MEDDUSA_HEAD-WWW.AEAH.ORG/" class="btn-link">ACCESS AEAH NETWORK</a>
+            </div>
+        </div>
+
+        <div class="sector-title">Regional Bedrock Foundations</div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="Endangered Kind"></div>
+            <div class="content-column">
+                <h2>ENDANGERED KIND (PHILLY)</h2>
+                <span class="domain-tag">VIOLENCE INTERRUPTION</span>
+                <p>Philadelphia-based violence interruption and youth empowerment. Focused on peace-building and community healing through credible messengers.</p>
+                <a href="#" class="btn-link">LOCAL IMPACT</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="Enterprise Center"></div>
+            <div class="content-column">
                 <h2>THE ENTERPRISE CENTER</h2>
-                <p>A powerhouse for minority entrepreneurship in West Philadelphia. The Enterprise Center provides access to capital, capacity building, and business education, helping small-to-medium businesses scale and revitalize their neighborhoods.</p>
-                <a href="https://theenterprisecenter.com" class="btn-visit">BUSINESS PORTAL</a>
+                <span class="domain-tag">ECONOMIC EQUITY</span>
+                <p>Championing minority entrepreneurship and neighborhood revitalization through access to capital and business education.</p>
+                <a href="#" class="btn-link">BUSINESS PORTAL</a>
             </div>
         </div>
 
-        <div class="foundation-card">
-            <div class="logo-box">
-                <div class="foundation-logo-placeholder">PHILA<br>FOUNDATION</div>
-                <div style="font-size: 0.5rem; color: #444;">COMMUNITY STEWARD</div>
-            </div>
-            <div class="info-box">
-                <h2>THE PHILADELPHIA FOUNDATION</h2>
-                <p>For over a century, this foundation has managed the philanthropic legacies of Philadelphia's citizens. They strengthen the region’s social fabric by funding arts, culture, and economic mobility initiatives that benefit all Philadelphians.</p>
-                <a href="https://www.philafound.org" class="btn-visit">PHILANTHROPY HUB</a>
-            </div>
-        </div>
-
-        <div class="foundation-card">
-            <div class="logo-box">
-                <div class="foundation-logo-placeholder">NAAAP<br>LOGO</div>
-                <div style="font-size: 0.5rem; color: #444;">PROFESSIONAL EXCELLENCE</div>
-            </div>
-            <div class="info-box">
-                <h2>NAAAP PHILADELPHIA</h2>
-                <p>The National Association of Asian American Professionals (NAAAP) Philadelphia chapter empowers leaders through professional development and cross-cultural engagement. They play a critical role in the city's diverse leadership ecosystem.</p>
-                <a href="https://naaapphila.org" class="btn-visit">LEADERSHIP NETWORK</a>
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="Logo1.png" alt="Minnesota Foundation"></div>
+            <div class="content-column">
+                <h2>MINNESOTA INCLUSIVE PARTNERSHIP</h2>
+                <span class="domain-tag">COMMUNITY SUPPORT</span>
+                <p>Providing essential resources and advocacy for minority-owned services across the Minnesota region, fostering growth and local sustainability.</p>
+                <a href="#" class="btn-link">VIEW CHAPTER</a>
             </div>
         </div>
 
     </div>
 
-    
-
     <footer>
-        <div class="footer-links">
-            <a href="index.html">KIN PAGES HOME</a>
-            <a href="master-sitemap.html">SITE MAP</a>
-            <a href="editors-message.html">EDITOR'S MESSAGE</a>
-            <a href="contact-support.html">VANGUARD SUPPORT</a>
-        </div>
-        <div style="margin-top: 20px; font-size: 0.5rem; color: #222; letter-spacing: 2px;">
-            SOLOMON KIN RECORDS LLC | FOUNDATIONS DIVISION | PHILADELPHIA, PA
-        </div>
+        SOLOMON KIN RECORDS LLC | SOVEREIGN FOUNDATIONS DIVISION | PHILADELPHIA • MINNESOTA • GLOBAL COMMAND
     </footer>
 
 </body>
