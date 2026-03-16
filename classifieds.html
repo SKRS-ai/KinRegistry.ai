@@ -125,4 +125,18 @@
     </footer>
 
 </body>
+    <script>
+    // READ THE URL PARAMETERS
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('q');
+    const selectedHub = urlParams.get('hub');
+
+    if (searchQuery || selectedHub) {
+        console.log("Filtering listings for:", searchQuery, selectedHub);
+        // Logic to hide ads that don't match would go here
+        // For now, we display a "Results for..." header
+        const header = document.querySelector('.page-header');
+        header.innerHTML += `<div style="color:#d4af37; font-size:12px; margin-top:10px;">RESULTS FOR: ${searchQuery || 'All'} in ${selectedHub || 'All Hubs'}</div>`;
+    }
+</script>
 </html>
