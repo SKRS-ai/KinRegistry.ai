@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Services | Kin Pages Growth Tiers</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-panel: #0c0c0c;
+            --kin-border: #222;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0; padding: 40px;
+        }
+
+        .services-header {
+            text-align: center; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 30px; margin-bottom: 50px;
+        }
+
+        .tier-container {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+
+        .tier-card {
+            background: var(--kin-panel); border: 1px solid var(--kin-border);
+            padding: 30px; position: relative; display: flex; flex-direction: column;
+        }
+
+        .tier-card.featured { border-color: var(--kin-gold); transform: scale(1.05); z-index: 2; }
+        
+        .tier-title { color: var(--kin-gold); font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 10px; }
+        .tier-price { font-size: 2rem; margin-bottom: 20px; }
+        .tier-price span { font-size: 0.7rem; color: #555; }
+
+        .feature-list { list-style: none; padding: 0; margin: 0 0 30px 0; font-size: 0.75rem; color: #aaa; flex-grow: 1; }
+        .feature-list li { margin-bottom: 12px; padding-left: 20px; position: relative; }
+        .feature-list li::before { content: "▪"; position: absolute; left: 0; color: var(--kin-gold); }
+
+        /* PRE-PAYMENT SELECTOR */
+        .term-selector {
+            background: #1a1a1a; border: none; color: #fff;
+            padding: 12px; width: 100%; margin-bottom: 20px; font-family: inherit;
+        }
+
+        .btn-activate {
+            background: var(--kin-gold); color: #000; border: none;
+            padding: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase;
+        }
+
+        .benefit-tag {
+            position: absolute; top: -10px; right: 20px;
+            background: var(--kin-gold); color: #000; font-size: 0.6rem; padding: 3px 8px; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="services-header">
+        <h1 style="margin:0; letter-spacing: 5px;">ADVANCED SERVICES</h1>
+        <p style="color:#555; font-size: 0.7rem; text-transform: uppercase; margin-top: 10px;">Strategic Visibility & Cultural Traction</p>
+    </header>
+
+    <div class="tier-container">
+        <div class="tier-card">
+            <h2 class="tier-title">Foundational</h2>
+            <div class="tier-price">$99 <span>/month</span></div>
+            <ul class="feature-list">
+                <li>Standard Classified Directory Listing</li>
+                <li>Search by Culture/Gender Category</li>
+                <li>5 High-Res Images of Business</li>
+                <li>Basic Dashboard Access</li>
+            </ul>
+            <select class="term-selector">
+                <option>1 Month: $99</option>
+                <option>6 Months (Advance): $535 [SAVE 10%]</option>
+                <option>1 Year (Advance): $950 [SAVE 20%]</option>
+            </select>
+            <button class="btn-activate">Select Tier</button>
+        </div>
+
+        <div class="tier-card featured">
+            <div class="benefit-tag">PRIORITY TRACTION</div>
+            <h2 class="tier-title">Associate</h2>
+            <div class="tier-price">$249 <span>/month</span></div>
+            <ul class="feature-list">
+                <li>All Foundational Benefits</li>
+                <li><b>Video Upload (60 Seconds)</b></li>
+                <li>Priority Search Placement</li>
+                <li>Verified Associate Badge</li>
+                <li>ScribeBoard Advanced Comms</li>
+            </ul>
+            <select class="term-selector">
+                <option>1 Month: $249</option>
+                <option>1 Year (Advance): $2,390 [SAVE 20%]</option>
+                <option>2 Years (Advance): $4,180 [SAVE 30%]</option>
+            </select>
+            <button class="btn-activate">Select Tier</button>
+        </div>
+
+        <div class="tier-card">
+            <h2 class="tier-title">Sovereign</h2>
+            <div class="tier-price">$799 <span>/month</span></div>
+            <ul class="feature-list">
+                <li>All Associate Benefits</li>
+                <li><b>Main Page Exhibition Ad</b> (Beside Art)</li>
+                <li>Multicultural Spotlight (Press Release)</li>
+                <li>Full 10-Year Lock-In Option</li>
+                <li>Direct Access to Investor Portal</li>
+            </ul>
+            <select class="term-selector">
+                <option>1 Year: $7,670</option>
+                <option>5 Years (Legacy): $33,500 [SAVE 30%]</option>
+                <option>10 Years (Sovereign): $57,500 [SAVE 40%]</option>
+            </select>
+            <button class="btn-activate">Select Tier</button>
+        </div>
+    </div>
+
+    <p style="text-align:center; color:#333; font-size: 0.65rem; margin-top: 60px;">
+        * ALL PAYMENTS ARE PROCESSED VIA THE VEXILLA AITS LEDGER. <br>
+        PRE-PAYMENT OPTIONS GUARANTEE FIXED RATES AGAINST FUTURE INFLATION.
+    </p>
+
+</body>
+</html>
