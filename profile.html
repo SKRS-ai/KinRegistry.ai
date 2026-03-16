@@ -1,167 +1,126 @@
 <!DOCTYPE html>
-<script>
-    // SECURITY GATEKEEPER: Kicks out non-members
-    const session = localStorage.getItem('kin_session_active');
-    if (!session) {
-        window.location.href = 'login.html'; // Redirect to login if no session exists
-    }
-
-    // TIER ENFORCEMENT: Photo/Video Logic
-    const userTier = localStorage.getItem('current_user_tier') || 'basic';
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        const uploadSection = document.getElementById('media-upload-zone');
-        const tierBadge = document.getElementById('tier-status');
-
-        if (userTier === 'basic') {
-            tierBadge.innerText = "BASIC TIER (TEXT ONLY)";
-            // Disable Media Uploads
-            uploadSection.innerHTML = `
-                <div style="background: #1a1a1a; padding: 20px; border: 1px dashed #333; color: #555; font-size: 0.7rem;">
-                    ⚠️ PHOTO & VIDEO UPLOAD DISABLED <br>
-                    <a href="upgrade.html" style="color:var(--kin-gold); text-decoration:none;">Upgrade to Paid Tier</a> to unlock visual listings.
-                </div>
-            `;
-        } else {
-            tierBadge.innerText = "PRO MERCHANT TIER";
-            // Allow Uploads (Display your upload buttons here)
-        }
-    });
-</script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Member Dashboard | Kin Pages Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard | Kin Pages</title>
     <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #121212;
-            --kin-border: #222;
-        }
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #121212; --kin-text: #a0a0a0; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; padding: 0; }
+        
+        nav { border-bottom: 1px solid var(--kin-gold); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logout-btn { color: #666; text-decoration: none; font-size: 0.7rem; border: 1px solid #333; padding: 5px 10px; }
 
-        body {
-            background-color: var(--kin-black); color: #eee;
-            font-family: 'Courier New', monospace; margin: 0; display: flex;
-        }
-
-        /* SIDEBAR NAVIGATION */
-        .side-nav {
-            width: 250px; background: #000; height: 100vh;
-            border-right: 1px solid var(--kin-gold); padding: 40px 20px;
-            position: fixed;
-        }
-
-        .side-nav h2 { font-size: 0.8rem; color: var(--kin-gold); letter-spacing: 3px; margin-bottom: 40px; }
-        .nav-link { color: #888; text-decoration: none; display: block; margin-bottom: 20px; font-size: 0.75rem; transition: 0.3s; }
-        .nav-link:hover, .nav-link.active { color: var(--kin-gold); }
-
-        /* MAIN CONTENT area */
-        .content-area { margin-left: 250px; padding: 60px; width: 100%; }
-
-        .profile-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--kin-border); padding-bottom: 20px; margin-bottom: 40px; }
-        .user-meta h1 { margin: 0; font-size: 1.5rem; letter-spacing: 2px; }
-        .status-badge { font-size: 0.6rem; background: var(--kin-gold); color: #000; padding: 2px 8px; font-weight: bold; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        
+        .profile-header { display: flex; align-items: flex-end; gap: 20px; margin-bottom: 40px; }
+        .avatar-box { width: 80px; height: 80px; background: #222; border: 1px solid var(--kin-gold); display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .user-info h1 { margin: 0; font-size: 1.5rem; color: var(--kin-gold); letter-spacing: 3px; }
+        .tier-tag { font-size: 0.6rem; text-transform: uppercase; background: #333; padding: 2px 8px; border-radius: 3px; }
 
         /* DASHBOARD GRID */
-        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .dashboard-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        .card { background: var(--kin-grey); border: 1px solid #222; padding: 25px; margin-bottom: 30px; }
+        h3 { font-size: 0.8rem; color: var(--kin-gold); margin-top: 0; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 20px; }
 
-        .dash-card { background: var(--kin-grey); border: 1px solid var(--kin-border); padding: 30px; }
-        .dash-card h3 { font-size: 0.9rem; color: var(--kin-gold); margin-top: 0; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        /* FORM ELEMENTS */
+        label { display: block; font-size: 0.6rem; color: #555; margin-bottom: 5px; }
+        input, textarea { width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px; font-family: inherit; margin-bottom: 15px; box-sizing: border-box; }
 
-        /* CLASSIFIED AD EDITOR (FOR MERCHANTS/ARTISTS) */
-        .ad-builder input, .ad-builder textarea {
-            width: 100%; background: #000; border: 1px solid #333; color: #fff;
-            padding: 10px; margin-bottom: 15px; font-family: inherit; font-size: 0.8rem;
-        }
-
-        .img-upload-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
-        .img-slot { aspect-ratio: 1; background: #000; border: 1px dashed #444; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; color: #444; }
-
-        /* FAVORITES LIST */
-        .fav-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.75rem; }
-        .fav-item a { color: var(--kin-gold); text-decoration: none; }
-
-        .btn-save { background: var(--kin-gold); color: #000; border: none; padding: 12px 20px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; }
+        /* PRO SECTION STYLING */
+        .pro-locked { background: #080808; border: 1px dashed #333; padding: 40px; text-align: center; }
+        .btn-upgrade-now { background: var(--kin-gold); color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 15px; font-size: 0.7rem; }
+        
+        .btn-save { width: 100%; background: transparent; border: 1px solid var(--kin-gold); color: var(--kin-gold); padding: 15px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <nav class="side-nav">
-        <h2>KIN DASHBOARD</h2>
-        <a href="#" class="nav-link active">MY PROFILE</a>
-        <a href="#" class="nav-link">FAVORITES</a>
-        <a href="#" class="nav-link">MY CLASSIFIED AD</a>
-        <a href="#" class="nav-link">ARTIST SALES</a>
-        <a href="index.html" class="nav-link" style="margin-top: 50px; color: #444;">← BACK TO SITE</a>
+    <nav>
+        <div style="color: var(--kin-gold); letter-spacing: 3px; font-weight: bold;">KIN PAGES</div>
+        <a href="#" onclick="logout()" class="logout-btn">TERMINATE SESSION</a>
     </nav>
 
-    <main class="content-area">
+    <div class="container">
         <div class="profile-header">
-            <div class="user-meta">
-                <span class="status-badge">ARTIST / MERCHANT</span>
-                <h1>SOLOMON KIN</h1>
-                <p style="font-size: 0.7rem; color: #555; margin: 5px 0;">EIN: XX-XXXX999 | NODE: ATL-01</p>
+            <div class="avatar-box">👤</div>
+            <div class="user-info">
+                <h1 id="display-email">Member ID</h1>
+                <span id="tier-badge" class="tier-tag">Syncing...</span>
             </div>
-            <div class="btn-save">Save Changes</div>
         </div>
 
         <div class="dashboard-grid">
-            
-            <div class="dash-card ad-builder">
-                <h3>MANAGE MY CLASSIFIED AD</h3>
-                <p style="font-size: 0.6rem; color: #666; margin-bottom: 15px;">* FREE TEXT AD ACTIVE. UPGRADE TO ADD IMAGES.</p>
-                
-                <label style="font-size: 0.6rem; display:block; margin-bottom: 5px;">BUSINESS NAME</label>
-                <input type="text" value="Kin Canvas Collective">
+            <div class="main-content">
+                <div class="card">
+                    <h3>BUSINESS IDENTITY (Text-Only)</h3>
+                    <label>Business Name</label>
+                    <input type="text" placeholder="e.g. Legacy Accounting Services">
+                    
+                    <label>Contact Email</label>
+                    <input type="email" placeholder="public-contact@domain.com">
 
-                <label style="font-size: 0.6rem; display:block; margin-bottom: 5px;">DESCRIPTION (TEXT-ONLY FOR FREE TIER)</label>
-                <textarea rows="4">Premium canvas art based on multicultural heritage. Located in the Atlanta Art Node.</textarea>
-
-                <label style="font-size: 0.6rem; display:block; margin-bottom: 5px;">UPLOAD MEDIA (MAX 3 IMAGES)</label>
-                <div class="img-upload-grid">
-                    <div class="img-slot">+ UPLOAD</div>
-                    <div class="img-slot">+ UPLOAD</div>
-                    <div class="img-slot">+ UPLOAD</div>
+                    <label>Business Description</label>
+                    <textarea rows="4" placeholder="Briefly describe your services..."></textarea>
+                    
+                    <button class="btn-save" onclick="alert('Profile Updated')">SAVE DIRECTORY INFO</button>
                 </div>
 
-                <div style="display: flex; gap: 20px;">
-                    <label style="font-size:0.6rem;"><input type="checkbox" checked> Show Phone Number</label>
-                    <label style="font-size:0.6rem;"><input type="checkbox" checked> Show Email Address</label>
+                <div id="media-section" class="card">
+                    <h3>PRO MEDIA (Photo/Video)</h3>
+                    <div id="media-content">
+                        </div>
                 </div>
             </div>
 
-            <div class="dash-card">
-                <h3>SAVED FAVORITES</h3>
-                <div class="fav-item">
-                    <span>K-Grace Textiles (Merchant)</span>
-                    <a href="#">VIEW LISTING</a>
+            <div class="sidebar">
+                <div class="card">
+                    <h3>VAULT STATS</h3>
+                    <p style="font-size: 0.7rem; color: #666;">Directory Views: 0</p>
+                    <p style="font-size: 0.7rem; color: #666;">Foundation Contributions: $0.00</p>
                 </div>
-                <div class="fav-item">
-                    <span>"Ancestral Grace #4" (Canvas Art)</span>
-                    <a href="#">VIEW PIECE</a>
-                </div>
-                <div class="fav-item">
-                    <span>Luna Tech Labs (Merchant)</span>
-                    <a href="#">VIEW LISTING</a>
-                </div>
-                <p style="font-size: 0.6rem; color: #444; margin-top: 20px;">You are currently following 12 multicultural businesses.</p>
+                <a href="logo-kin.html" class="btn-upgrade-now" style="width:100%; text-align:center; box-sizing:border-box;">VIEW LOGO KIN</a>
             </div>
-
-            <div class="dash-card">
-                <h3>NEWSLETTER & ALERTS</h3>
-                <label style="font-size:0.75rem; display:block; margin-bottom:10px;">
-                    <input type="checkbox" checked> Receive Vexilla AITS Market Updates
-                </label>
-                <label style="font-size:0.75rem; display:block; margin-bottom:10px;">
-                    <input type="checkbox" checked> New Art Alert (Sovereign Tier)
-                </label>
-            </div>
-
-            
-
         </div>
-    </main>
+    </div>
 
+    
+
+    <script>
+        // 1. SECURITY CHECK: Is the user logged in?
+        const session = localStorage.getItem('kin_session_active');
+        if (!session) {
+            window.location.href = 'login.html';
+        }
+
+        // 2. DATA LOAD: Who is this user?
+        const userTier = localStorage.getItem('current_user_tier') || 'basic';
+        document.getElementById('tier-badge').innerText = userTier + " TIER";
+        
+        // 3. TIER ENFORCEMENT
+        const mediaBox = document.getElementById('media-content');
+        if (userTier === 'paid' || userTier === 'pro') {
+            // SHOW THE UPLOADER FOR PAID USERS
+            mediaBox.innerHTML = `
+                <div style="border: 1px solid #333; padding: 15px; text-align: center; cursor: pointer;" onclick="location.href='media-manager.html'">
+                    <p style="font-size: 0.7rem;">+ MANAGE PHOTOS & VIDEOS</p>
+                    <p style="font-size: 0.5rem; color: #555;">(3 Images + 1 Video Allowed)</p>
+                </div>
+            `;
+        } else {
+            // SHOW THE LOCK FOR BASIC USERS
+            mediaBox.innerHTML = `
+                <div class="pro-locked">
+                    <p style="font-size: 0.7rem; color: #555;">PHOTO & VIDEO UPLOADS ARE LOCKED</p>
+                    <a href="upgrade.html" class="btn-upgrade-now">UPGRADE TO PRO</a>
+                </div>
+            `;
+        }
+
+        function logout() {
+            localStorage.removeItem('kin_session_active');
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
