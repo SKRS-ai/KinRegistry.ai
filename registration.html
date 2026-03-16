@@ -195,6 +195,20 @@
         }
     });
 </script>
+function registerMember() {
+    const email = document.getElementById('reg-email').value;
+    const pass = document.getElementById('reg-pass').value;
+    
+    const newUser = {
+        email: email,
+        password: pass,
+        tier: 'basic' // Everyone starts at basic/free
+    };
 
+    // Save to local storage ledger
+    localStorage.setItem('kin_user_' + email, JSON.stringify(newUser));
+    alert("Welcome to the Assembly. You may now Log In.");
+    window.location.href = 'login.html';
+}
 </body>
 </html>
