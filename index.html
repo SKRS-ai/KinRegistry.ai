@@ -66,6 +66,19 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        <div class="news-ticker-container" style="background: #080808; border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 10px 0; overflow: hidden; white-space: nowrap;">
+    <div class="ticker-content" style="display: inline-block; animation: ticker 30s linear infinite; color: var(--kin-gold); font-size: 0.65rem; letter-spacing: 2px;">
+        [LETHAL LEDGER WIRE] ● GLOBAL TRADE UPDATE: SHIPPINGS DELAYS IN NORTH ATLANTIC ● TECH: VEXILLA AITS V.110 DEPLOYMENT SUCCESSFUL ● MUSIC: 3DAYZ AHEAD RDA DISRUPTION TOPPING CHARTS ● MARKET: GOLD TRADING UP 1.2%...
+    </div>
+</div>
+
+<style>
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+</style>
+
         input, select { background: #000; border: 1px solid #333; color: #fff; padding: 12px; font-family: inherit; font-size: 0.8rem; }
         .btn-enter { background: var(--kin-gold); color: #000; border: none; padding: 0 25px; font-weight: bold; cursor: pointer; }
 
