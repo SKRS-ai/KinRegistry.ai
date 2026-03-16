@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Master Editor | Vexilla AITS</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; padding: 40px; }
+        .editor-box { background: #111; border: 1px solid #333; padding: 20px; margin-bottom: 20px; }
+        label { display: block; font-size: 0.6rem; color: var(--kin-gold); margin-bottom: 5px; }
+        input, textarea { width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 10px; margin-bottom: 15px; font-family: inherit; }
+    </style>
+</head>
+<body>
+    <h1>SITE-WIDE CONTENT EDITOR</h1>
+    <p style="font-size: 0.6rem; color: #555;">MODIFYING: RECORDS, TRADING, & MUSIC GROUP DIRECTORY</p>
+
+    <div class="editor-box">
+        <label>SELECT COMPANY TO EDIT</label>
+        <select style="width:100%; background:#000; color:#fff; padding:10px;">
+            <option>IBINGOD TRADE, INC.</option>
+            <option>SOLOMON KIN RECORDS, INC.</option>
+            <option>TBBLUSA</option>
+            <option>CLEAN BLUE GREEN CORP S</option>
+        </select>
+        
+        <label style="margin-top:20px;">UPDATE DESCRIPTION</label>
+        <textarea rows="4">International Trade Records Company... Import/Export Command.</textarea>
+        
+        <label>UPDATE MASTER LINK</label>
+        <input type="text" value="https://ibingodtrade.com">
+        
+        <button style="background: var(--kin-gold); border:none; padding:15px; width:100%; cursor:pointer; font-weight:bold;">PUSH UPDATES TO ASSEMBLY</button>
+    </div>
+
+    
+</body>
+</html>
