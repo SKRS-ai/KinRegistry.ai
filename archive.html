@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Depository | Kin Pages Provenance Archive</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-panel: #0c0c0c;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0; display: grid; grid-template-columns: 280px 1fr;
+            height: 100vh; overflow: hidden;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            background: #0a0a0a; border-right: 2px solid var(--kin-gold);
+            padding: 30px; display: flex; flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        .nav-link {
+            display: block; color: #888; text-decoration: none; padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a; font-size: 0.8rem;
+        }
+
+        /* ARCHIVE GRID */
+        .archive-main { overflow-y: scroll; padding: 40px; }
+        
+        .archive-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 40px;
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+
+        .depository-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: var(--kin-panel); border: 1px solid var(--kin-border);
+            padding: 0; position: relative; overflow: hidden;
+        }
+
+        .work-image {
+            width: 100%; height: 250px; background: #1a1a1a;
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 1px solid var(--kin-border);
+        }
+
+        .work-details { padding: 20px; }
+        .work-details h3 { margin: 0; color: #fff; font-size: 1.1rem; }
+        .work-details span { color: var(--kin-gold); font-size: 0.7rem; display: block; margin: 5px 0 15px; }
+        
+        .provenance-tag {
+            font-size: 0.65rem; color: #555; border: 1px solid #333;
+            padding: 5px; display: block; margin-top: 10px;
+        }
+
+        .vault-status {
+            position: absolute; top: 10px; right: 10px;
+            background: rgba(0,0,0,0.8); color: #00ff41;
+            font-size: 0.6rem; padding: 3px 8px; border: 1px solid #00ff41;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="index.html" class="nav-link">DIRECTORY</a>
+            <a href="foundations-hub.html" class="nav-link">FOUNDATIONS</a>
+            <a href="global-reach.html" class="nav-link">LOGISTICS MAP</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">DEPOSITORY v9.2 // ENCRYPTED</div>
+    </aside>
+
+    <main class="archive-main">
+        <header class="archive-header">
+            <div>
+                <h2 style="margin:0; font-size: 2rem;">Master Depository</h2>
+                <span style="color:#444; font-size: 0.8rem;">OFFICIAL PROVENANCE RECORDS // CANVAS & OIL</span>
+            </div>
+            <div style="text-align:right; color:var(--kin-gold); font-size:0.7rem;">
+                TOTAL RECORDED WORKS: 1,208
+            </div>
+        </header>
+
+        <div class="depository-grid">
+            <div class="work-card">
+                <div class="vault-status">● IN VAULT</div>
+                <div class="work-image">
+                    <span style="color:#333;">[SK-ART-001]</span>
+                </div>
+                <div class="work-details">
+                    <h3>Ancestral Grace #4</h3>
+                    <span>Oil on Canvas | 48" x 60"</span>
+                    <p style="font-size:0.75rem; color:#888;">Documenting the spiritual lineage of the 1999 founding era.</p>
+                    <div class="provenance-tag">ID: SKR-PRV-882-004</div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="vault-status" style="color:var(--kin-gold); border-color:var(--kin-gold);">● IN TRANSIT</div>
+                <div class="work-image">
+                    <span style="color:#333;">[SK-ART-002]</span>
+                </div>
+                <div class="work-details">
+                    <h3>Koinonia Study I</h3>
+                    <span>Mixed Media | 36" x 36"</span>
+                    <p style="font-size:0.75rem; color:#888;">Exploration of communal grace and collective economy.</p>
+                    <div class="provenance-tag">ID: SKR-PRV-412-001</div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="vault-status">● IN VAULT</div>
+                <div class="work-image">
+                    <span style="color:#333;">[SK-ART-003]</span>
+                </div>
+                <div class="work-details">
+                    <h3>Vexilla Rising</h3>
+                    <span>Oil & Gold Leaf | 60" x 72"</span>
+                    <p style="font-size:0.75rem; color:#888;">Commemorating the technical birth of the AITS protocol.</p>
+                    <div class="provenance-tag">ID: SKR-PRV-114-009</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </main>
+
+</body>
+</html>
