@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Preview | Kin Pages</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --kin-text: #a0a0a0; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; }
+
+        /* HERO HEADER */
+        .merchant-hero {
+            height: 400px; background: #000; border-bottom: 2px solid var(--kin-gold);
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            position: relative;
+        }
+        .video-placeholder { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .merchant-overlay { position: absolute; bottom: 30px; left: 50px; text-align: left; }
+        .merchant-overlay h1 { font-size: 2.5rem; color: var(--kin-gold); margin: 0; letter-spacing: 5px; }
+
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+
+        /* MEDIA GALLERY */
+        .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 40px; }
+        .photo-box { aspect-ratio: 1; background: #1a1a1a; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #444; font-size: 0.6rem; }
+
+        /* DESCRIPTION */
+        .bio-section h3 { color: var(--kin-gold); font-size: 0.8rem; letter-spacing: 3px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .bio-text { line-height: 1.8; color: var(--kin-text); font-size: 0.9rem; margin-top: 20px; }
+
+        /* SIDEBAR CONTACT */
+        .contact-card { background: var(--kin-grey); border: 1px solid var(--kin-gold); padding: 30px; position: sticky; top: 100px; }
+        .contact-item { margin-bottom: 20px; }
+        .contact-label { font-size: 0.6rem; color: #555; text-transform: uppercase; display: block; }
+        .contact-value { font-size: 0.9rem; color: #fff; display: block; margin-top: 5px; }
+
+        .btn-foundation-support {
+            width: 100%; background: transparent; border: 1px solid var(--kin-gold);
+            color: var(--kin-gold); padding: 15px; font-weight: bold; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="merchant-hero">
+        <div id="hero-media-container" style="width:100%; height:100%;">
+            <div class="video-placeholder">[ VEXILLA AITS SECURE VIDEO STREAM ]</div>
+        </div>
+        <div class="merchant-overlay">
+            <span style="font-size: 0.6rem; color: var(--kin-gold); letter-spacing: 5px;">VERIFIED MERCHANT</span>
+            <h1 id="view-biz-name">Legacy Services</h1>
+        </div>
+    </div>
+
+    
+
+    <div class="container">
+        <div class="main-content">
+            <div id="pro-gallery" class="photo-strip">
+                <div class="photo-box">IMAGE_01</div>
+                <div class="photo-box">IMAGE_02</div>
+                <div class="photo-box">IMAGE_03</div>
+            </div>
+
+            <div class="bio-section">
+                <h3>MISSION & SERVICES</h3>
+                <div id="view-biz-bio" class="bio-text">
+                    This business is a proud member of the Kin Pages Assembly. Established within the Tri-State Minority Yellow Pages legacy, they continue to provide excellence in their field.
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="contact-card">
+                <div class="contact-item">
+                    <span class="contact-label">Sovereign Node</span>
+                    <span class="contact-value">Philadelphia, PA</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Direct Contact</span>
+                    <span id="view-biz-email" class="contact-value">contact@legacy.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Identity Alignment</span>
+                    <span class="contact-value">Woman-Owned (She/Her)</span>
+                </div>
+
+                <button class="btn-foundation-support" onclick="alert('Proceeding to Checkout...')">BOOK SERVICES</button>
+                <p style="font-size: 0.5rem; text-align: center; margin-top: 15px; color: #444;">10% Supports Koinonia Grace Foundation</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DATA INJECTION ENGINE
+        document.addEventListener('DOMContentLoaded', () => {
+            // In a real app, this would fetch data based on the URL ?id=
+            // For this whiz-demo, we pull from the user's own saved profile data
+            const savedData = JSON.parse(localStorage.getItem('kin_profile_data')) || {};
+            const userTier = localStorage.getItem('current_user_tier') || 'basic';
+
+            if (savedData.name) document.getElementById('view-biz-name').innerText = savedData.name;
+            if (savedData.bio) document.getElementById('view-biz-bio').innerText = savedData.bio;
+            if (savedData.email) document.getElementById('view-biz-email').innerText = savedData.email;
+
+            // TIER CHECK: Hide media if the user is basic
+            if (userTier === 'basic') {
+                document.getElementById('pro-gallery').style.display = 'none';
+                document.getElementById('hero-media-container').style.background = '#080808';
+            }
+        });
+    </script>
+</body>
+</html>
