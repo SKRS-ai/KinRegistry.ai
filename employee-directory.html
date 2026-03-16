@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Directory | Personnel Management</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; padding: 40px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+        th { text-align: left; color: var(--kin-gold); border-bottom: 1px solid var(--kin-gold); padding: 10px; font-size: 0.7rem; }
+        td { padding: 15px; border-bottom: 1px solid #222; font-size: 0.75rem; }
+        .action-btn { color: #ff3b3b; cursor: pointer; border: 1px solid #ff3b3b; padding: 5px; font-size: 0.6rem; }
+    </style>
+</head>
+<body>
+    <h1>CORPORATE PERSONNEL LEDGER</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>FULL NAME</th>
+                <th>CORP EMAIL</th>
+                <th>CLEARANCE LEVEL</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody id="employee-list">
+            </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const list = document.getElementById('employee-list');
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('corp_user_')) {
+                    const user = JSON.parse(localStorage.getItem(key));
+                    list.innerHTML += `
+                        <tr>
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>LEVEL ${user.level}</td>
+                            <td><span class="action-btn">REVOKE ACCESS</span></td>
+                        </tr>
+                    `;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
