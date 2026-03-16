@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<script>
+    // SECURITY GATEKEEPER: Kicks out non-members
+    const session = localStorage.getItem('kin_session_active');
+    if (!session) {
+        window.location.href = 'login.html'; // Redirect to login if no session exists
+    }
+
+    // TIER ENFORCEMENT: Photo/Video Logic
+    const userTier = localStorage.getItem('current_user_tier') || 'basic';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const uploadSection = document.getElementById('media-upload-zone');
+        const tierBadge = document.getElementById('tier-status');
+
+        if (userTier === 'basic') {
+            tierBadge.innerText = "BASIC TIER (TEXT ONLY)";
+            // Disable Media Uploads
+            uploadSection.innerHTML = `
+                <div style="background: #1a1a1a; padding: 20px; border: 1px dashed #333; color: #555; font-size: 0.7rem;">
+                    ⚠️ PHOTO & VIDEO UPLOAD DISABLED <br>
+                    <a href="upgrade.html" style="color:var(--kin-gold); text-decoration:none;">Upgrade to Paid Tier</a> to unlock visual listings.
+                </div>
+            `;
+        } else {
+            tierBadge.innerText = "PRO MERCHANT TIER";
+            // Allow Uploads (Display your upload buttons here)
+        }
+    });
+</script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
