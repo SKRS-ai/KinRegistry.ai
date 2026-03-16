@@ -3,177 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIN Pages | The Sovereign Yellow Pages</title>
+    <title>KIN Pages | Tri-State Minority Yellow Pages | 11th Edition & Beyond</title>
     <style>
-        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
-        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        :root { 
+            --kin-gold: #d4af37; 
+            --kin-black: #050505; 
+            --kin-grey: #111; 
+            --text: #ccc; 
+            --y-pages: #ffd700; /* Traditional Yellow Pages Gold */
+        }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; line-height: 1.6; }
 
-        /* HEADER & TOP NAVIGATION */
-        header { background: #000; border-bottom: 2px solid var(--kin-gold); padding: 15px 40px; position: sticky; top: 0; z-index: 1000; }
-        .header-top { display: flex; justify-content: space-between; align-items: center; }
-        .kin-logo-link { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.4rem; letter-spacing: 4px; border: 2px solid var(--kin-gold); padding: 5px 20px; text-transform: uppercase; }
-        .header-links a { color: #888; text-decoration: none; font-size: 0.65rem; margin-left: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .header-links a:hover { color: var(--kin-gold); }
+        /* HEADER & IDENTITY */
+        header { background: #000; border-bottom: 3px solid var(--kin-gold); padding: 20px 40px; }
+        .logo-area { display: flex; justify-content: space-between; align-items: center; }
+        .kin-logo { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.6rem; letter-spacing: 5px; border: 2px solid var(--kin-gold); padding: 10px 25px; text-transform: uppercase; }
+        .legacy-tag { font-size: 0.6rem; color: #666; letter-spacing: 2px; margin-top: 5px; text-align: right; }
 
-        /* LIVE STOCK MARKET TICKER (LINKED) */
-        .market-ticker { height: 40px; background: #000; border-bottom: 1px solid #222; overflow: hidden; }
-
-        /* SEARCH HUB */
-        .search-hub { padding: 40px 20px; background: radial-gradient(circle, #0d0d0d 0%, #000 100%); text-align: center; }
-        .search-title { color: var(--kin-gold); letter-spacing: 10px; font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; }
-        .main-search { max-width: 900px; margin: 0 auto 15px; display: flex; border: 1px solid var(--kin-gold); }
-        .main-search input { flex: 1; background: #000; border: none; padding: 18px; color: #fff; font-family: inherit; font-size: 1rem; }
-        .btn-search { background: var(--kin-gold); border: none; padding: 0 40px; font-weight: bold; cursor: pointer; }
-
-        .filter-row { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .filter-row select { background: #111; border: 1px solid #333; color: #666; padding: 8px; font-size: 0.65rem; }
-
-        /* SHOWCASE SECTION */
-        .showcase { max-width: 1200px; margin: 40px auto; padding: 0 40px; }
-        .section-header { color: var(--kin-gold); font-size: 0.9rem; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 30px; letter-spacing: 3px; display: flex; justify-content: space-between; }
+        /* MULTI-CULTURAL & PRONOUN SEARCH HUB */
+        .search-vault { background: #0d0d0d; padding: 60px 40px; border-bottom: 1px solid #222; }
+        .search-title { text-align: center; color: var(--kin-gold); font-size: 1rem; letter-spacing: 5px; margin-bottom: 30px; text-transform: uppercase; }
         
-        .biz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .biz-card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 20px; transition: 0.3s; }
-        .biz-card:hover { border-color: var(--kin-gold); transform: translateY(-3px); }
-        .biz-card h4 { color: #fff; margin: 0 0 5px; font-size: 0.85rem; }
-        .biz-card .meta { font-size: 0.6rem; color: var(--kin-gold); margin-bottom: 10px; }
-        .biz-card p { font-size: 0.65rem; color: #555; line-height: 1.4; }
+        .master-search-bar { max-width: 1000px; margin: 0 auto 20px; display: flex; border: 2px solid var(--kin-gold); }
+        .master-search-bar input { flex: 1; background: #000; border: none; padding: 20px; color: #fff; font-size: 1.1rem; font-family: inherit; }
+        .btn-query { background: var(--kin-gold); color: #000; border: none; padding: 0 40px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
 
-        /* MASSIVE FOOTER (YELLOW PAGES STYLE) */
-        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 80px 40px; margin-top: 80px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; max-width: 1400px; margin: 0 auto; }
+        /* ADVANCED FILTERS (BLANKET COVERAGE) */
+        .filter-blanket { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .filter-blanket select { background: #111; border: 1px solid #333; color: #999; padding: 12px; font-size: 0.7rem; cursor: pointer; transition: 0.3s; }
+        .filter-blanket select:hover { border-color: var(--kin-gold); color: #fff; }
+
+        /* PRICING TIERS SECTION */
+        .pricing-section { max-width: 1200px; margin: 60px auto; padding: 0 40px; }
+        .section-header { color: var(--kin-gold); font-size: 1.2rem; border-left: 5px solid var(--kin-gold); padding-left: 20px; margin-bottom: 40px; letter-spacing: 4px; }
+        
+        .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .tier-card { background: #0a0a0a; border: 1px solid #222; padding: 30px; text-align: center; transition: 0.4s; }
+        .tier-card:hover { border-color: var(--kin-gold); transform: scale(1.02); }
+        .tier-card.featured { border: 2px solid var(--kin-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
+        .price { font-size: 2rem; color: #fff; margin: 20px 0; font-weight: bold; }
+        .price span { font-size: 0.8rem; color: #555; }
+        .tier-list { list-style: none; padding: 0; font-size: 0.7rem; color: #777; margin-bottom: 30px; text-align: left; }
+        .tier-list li { margin-bottom: 10px; border-bottom: 1px solid #1a1a1a; padding-bottom: 5px; }
+
+        /* FOOTER & LEGACY */
+        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 80px 40px 40px; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
         .footer-col h5 { color: var(--kin-gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; }
         .footer-col a { display: block; color: #444; text-decoration: none; font-size: 0.65rem; margin-bottom: 12px; transition: 0.2s; }
-        .footer-col a:hover { color: #fff; padding-left: 5px; }
+        .footer-col a:hover { color: #fff; text-decoration: underline; }
 
-        .legal-row { text-align: center; margin-top: 80px; font-size: 0.55rem; color: #222; border-top: 1px solid #111; padding-top: 20px; }
+        .legacy-footer { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid #111; color: #333; font-size: 0.6rem; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-top">
-            <a href="index.html" class="kin-logo-link">KIN Pages</a>
-            <div class="header-links">
-                <a href="register-tier.html">Business Registration</a>
-                <a href="profile-dashboard.html">Member Forge</a>
-                <a href="identity-vault.html">Identity Registry</a>
-                <a href="global-logistics.html">Market Logistics</a>
-                <a href="contact-support.html">Vanguard Support</a>
+        <div class="logo-area">
+            <a href="index.html" class="kin-logo">KIN Pages</a>
+            <div>
+                <div class="legacy-tag">TRI-STATE MINORITY YELLOW PAGES</div>
+                <div class="legacy-tag" style="color:var(--kin-gold)">11TH EDITION LEGACY CONTINUED</div>
             </div>
         </div>
     </header>
 
-    <div class="market-ticker">
+    <div style="height: 40px; background: #000; border-bottom: 1px solid #222;">
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-          "symbols": [
-            {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
-            {"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"},
-            {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"},
-            {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
-            {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
-            {"proName": "TVC:GOLD", "title": "Gold"}
-          ],
-          "showSymbolLogo": true,
-          "colorTheme": "dark",
-          "isTransparent": true,
-          "displayMode": "adaptive",
-          "locale": "en"
-        }
+        { "symbols": [{"proName":"TVC:GOLD","title":"GOLD"},{"proName":"BITSTAMP:BTCUSD","title":"BTC"},{"proName":"FX:EURUSD","title":"EUR/USD"}], "colorTheme": "dark", "isTransparent": true }
         </script>
     </div>
 
-    <section class="search-hub">
-        <div class="search-title">Universal Sovereign Business Directory</div>
-        <div class="main-search">
-            <input type="text" placeholder="Search Names, Businesses, IDs, or Pronouns...">
-            <button class="btn-search">SEARCH</button>
+    <section class="search-vault">
+        <div class="search-title">Multi-Cultural Business & Identity Search</div>
+        <div class="master-search-bar">
+            <input type="text" placeholder="Search by Business Name, Service, or Industry ID...">
+            <button class="btn-query">SEARCH</button>
         </div>
-        <div class="filter-row">
-            <select><option>Culture: All Heritage</option><option>African American</option><option>Indigenous</option><option>Multi-Cultural</option></select>
-            <select><option>Identity: All Genders</option><option>Cisgender</option><option>Transgender</option><option>Non-Binary</option></select>
-            <select><option>Pronouns: All</option><option>He/Him</option><option>She/Her</option><option>They/Them</option></select>
-            <select><option>Sector: All Industries</option><option>Trade/Logistics</option><option>Music/Media</option><option>Tech/AITS</option></select>
+
+        <div class="filter-blanket">
+            <select>
+                <option value="">Search by Culture / Heritage</option>
+                <optgroup label="African Diaspora">
+                    <option>African American</option>
+                    <option>Afro-Caribbean</option>
+                    <option>West African (Nigerian, Ghanaian, etc.)</option>
+                    <option>East African (Ethiopian, Kenyan, etc.)</option>
+                </optgroup>
+                <optgroup label="Asian & Pacific Islander">
+                    <option>Chinese American</option>
+                    <option>Indian American (South Asian)</option>
+                    <option>Filipino American</option>
+                    <option>Japanese American</option>
+                    <option>Korean American</option>
+                    <option>Vietnamese American</option>
+                </optgroup>
+                <optgroup label="Hispanic & Latino">
+                    <option>Mexican American</option>
+                    <option>Puerto Rican</option>
+                    <option>Central/South American</option>
+                    <option>Spanish/Iberian</option>
+                </optgroup>
+                <optgroup label="Indigenous">
+                    <option>Native American / First Nations</option>
+                    <option>Alaska Native</option>
+                    <option>Native Hawaiian</option>
+                </optgroup>
+                <optgroup label="Middle Eastern & North African">
+                    <option>Arab / Middle Eastern</option>
+                    <option>Persian / Iranian</option>
+                    <option>Turkish</option>
+                </optgroup>
+                <option>Multi-Cultural / Mixed Heritage</option>
+            </select>
+
+            <select>
+                <option value="">Filter by Pronouns / Identity</option>
+                <option>He / Him / His</option>
+                <option>She / Her / Hers</option>
+                <option>They / Them / Theirs</option>
+                <option>Ze / Zir / Zirs</option>
+                <option>Xe / Xem / Xyrs</option>
+                <option>He / They</option>
+                <option>She / They</option>
+                <option>Non-Binary / Genderqueer</option>
+                <option>Transgender Identity</option>
+                <option>Two-Spirit</option>
+                <option>Identity-Neutral Business</option>
+            </select>
+
+            <select>
+                <option value="">Business Sector</option>
+                <option>Trade & Logistics (IBINGOD)</option>
+                <option>Entertainment & Records (SKR)</option>
+                <option>Legal & Professional Services</option>
+                <option>Environmental (Clean Blue Green)</option>
+                <option>Technology (Vexilla AITS)</option>
+                <option>Retail & Wholesale (Global Citizen Joe)</option>
+            </select>
         </div>
     </section>
 
-    <section class="showcase">
-        <div class="section-header">
-            <span>FEATURED SOVEREIGN ENTERPRISES</span>
-            <a href="#" style="color: var(--kin-gold); font-size: 0.6rem; text-decoration: none;">VIEW ALL →</a>
-        </div>
-        <div class="biz-grid">
-            <div class="biz-card">
-                <h4>IBINGOD TRADE, INC.</h4>
-                <div class="meta">Logistics • Global • Est. 1999</div>
-                <p>Premier Import/Export records and international trade logistics management.</p>
+    <section class="pricing-section">
+        <div class="section-header">KIN PAGES MEMBERSHIP TIERS</div>
+        <div class="tier-grid">
+            <div class="tier-card">
+                <div style="color: #666; font-size: 0.7rem;">STARTER</div>
+                <h3>VANGUARD BASIC</h3>
+                <div class="price">$49<span>/mo</span></div>
+                <ul class="tier-list">
+                    <li>Standard Directory Listing</li>
+                    <li>Business Phone & Address</li>
+                    <li>Link to 1 Website</li>
+                    <li>1 Cultural Category Tag</li>
+                </ul>
+                <button class="btn-query" style="padding: 10px 20px; font-size: 0.7rem;">SELECT PLAN</button>
             </div>
-            <div class="biz-card">
-                <h4>CLEAN BLUE GREEN CORP.</h4>
-                <div class="meta">Environmental • Reclamation</div>
-                <p>Sustainable environmental records and large-scale reclamation services.</p>
+
+            <div class="tier-card featured">
+                <div class="badge" style="background:var(--kin-gold); color:#000; font-size:0.5rem; display:inline-block; padding:2px 10px; margin-bottom:10px;">MOST POPULAR</div>
+                <h3>SOVEREIGN PRO</h3>
+                <div class="price">$149<span>/mo</span></div>
+                <ul class="tier-list">
+                    <li>Priority Search Placement</li>
+                    <li>Multi-Cultural & Gender Tags</li>
+                    <li>Visual Ad (Canvas Art Style)</li>
+                    <li>Stock Market Sync Badge</li>
+                    <li>Verified Business Status</li>
+                </ul>
+                <button class="btn-query" style="padding: 10px 20px; font-size: 0.7rem;">SELECT PLAN</button>
             </div>
-            <div class="biz-card">
-                <h4>3DAYZ AHEAD RDA</h4>
-                <div class="meta">Media • Music • Disruption</div>
-                <p>Proprietary audio distribution and radical disruption agency for SKR Music Group.</p>
+
+            <div class="tier-card">
+                <div style="color: #666; font-size: 0.7rem;">ELITE</div>
+                <h3>KIN COMMAND</h3>
+                <div class="price">$499<span>/mo</span></div>
+                <ul class="tier-list">
+                    <li>Main Page Slider Feature</li>
+                    <li>Visual Wire News Integration</li>
+                    <li>IBINGOD Trade Hub Sync</li>
+                    <li>Vexilla AITS Analytics</li>
+                    <li>Custom Branding Forge</li>
+                </ul>
+                <button class="btn-query" style="padding: 10px 20px; font-size: 0.7rem;">SELECT PLAN</button>
             </div>
         </div>
     </section>
-
-    
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h5>KIN ENTERPRISE</h5>
-                <a href="index.html">KIN Pages Home</a>
-                <a href="records-trading-music.html">Corporate Ledger</a>
-                <a href="identity-vault.html">Identity Vault</a>
-                <a href="register-tier.html">Sovereign Registration</a>
-                <a href="master-sitemap.html">Master Site Map</a>
-                <a href="advertising-tiers.html">Advertising Hub</a>
+                <h5>LEGACY PORTAL</h5>
+                <a href="editors-message.html">Editor's Message (Legacy)</a>
+                <a href="index.html">KIN Pages Front Page</a>
+                <a href="master-sitemap.html">Complete Site Map</a>
+                <a href="advertising-tiers.html">Full Pricing Guide</a>
             </div>
             <div class="footer-col">
-                <h5>TRADE & LOGISTICS</h5>
+                <h5>TRADE & RECORDS</h5>
                 <a href="global-logistics.html">IBINGOD Trade Im/Ex</a>
-                <a href="http://ibingodtrade.com">ibingodtrade.com</a>
-                <a href="#">Global Citizen Joe, LLC</a>
-                <a href="#">Clean Blue Green Corp.</a>
-                <a href="#">Everward Tours</a>
-                <a href="http://xmasmade.com">Christmas Tree Farm</a>
-            </div>
-            <div class="footer-col">
-                <h5>SKR MUSIC GROUP</h5>
                 <a href="media-broadcast.html">Solomon Kin Records</a>
                 <a href="#">3Dayz Ahead RDA</a>
-                <a href="#">Gatekeeper Records</a>
-                <a href="#">The Filth Factor</a>
-                <a href="#">Lethal Ledger News</a>
-                <a href="#">Dockinstation TV</a>
+                <a href="#">Global Citizen Joe, LLC</a>
+                <a href="#">Clean Blue Green Corp.</a>
             </div>
             <div class="footer-col">
-                <h5>VEXILLA AITS</h5>
+                <h5>TECH & IDENTITY</h5>
                 <a href="https://skrs-ai.github.io/SKRMG-Command-Center/">Vexilla Command</a>
-                <a href="https://skrs-ai.github.io/KinOSA-USA_VEX/">KinOS Mobile</a>
-                <a href="#">Vanguard Collective</a>
-                <a href="#">Cast Ai Stars, Inc.</a>
+                <a href="identity-vault.html">Identity Registry</a>
+                <a href="profile-dashboard.html">Member Forge</a>
                 <a href="#">System Identity Bureau</a>
-                <a href="#">IT Support Forge</a>
+            </div>
+            <div class="footer-col">
+                <h5>NEWS & MEDIA</h5>
+                <a href="#">The Filth Factor</a>
+                <a href="#">Lethal Ledger Wire</a>
+                <a href="#">Dockinstation TV</a>
+                <a href="#">Koinonia Media</a>
             </div>
             <div class="footer-col">
                 <h5>FOUNDATIONS</h5>
                 <a href="http://tbblusa.org">TBBLUSA National</a>
-                <a href="#">Koinonia Grace</a>
-                <a href="#">KINsense Foundation</a>
                 <a href="https://brneo059.wixsite.com/against-electronic-a">AEAH Advocacy</a>
-                <a href="contact-support.html">Vanguard Support</a>
-                <a href="#">Privacy Protocol</a>
+                <a href="http://xmasmade.com">Christmas Tree Farm</a>
+                <a href="contact-support.html">Support Desk</a>
             </div>
         </div>
-        <div class="legal-row">
-            SOLOMON KIN RECORDS LLC | KIN PAGES DIRECTORY | EST. 1999 | BALA CYNWYD HUB
+        <div class="legacy-footer">
+            THE KIN PAGES DIRECTORY | CONTINUING THE TRI-STATE MINORITY YELLOW PAGES LEGACY | 11TH EDITION TO BEYOND | EST. 1999
         </div>
     </footer>
 
