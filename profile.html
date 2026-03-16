@@ -2,107 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entity Profile | Kin Pages Directory</title>
+    <title>Member Dashboard | Kin Pages Profile</title>
     <style>
-        :root { --gold: #d4af37; --bg: #050505; --panel: #111; --text: #888; }
-        body { background: var(--bg); color: #fff; font-family: 'Helvetica Neue', sans-serif; margin: 0; padding-top: 80px; }
-
-        /* OMNIPRESENT GATEKEEPER BAR */
-        .gatekeeper-bar {
-            position: fixed; top: 0; width: 100%; height: 70px; background: rgba(5, 5, 5, 0.95);
-            border-bottom: 2px solid var(--gold); display: flex; justify-content: space-between;
-            align-items: center; padding: 0 40px; box-sizing: border-box; z-index: 1000; backdrop-filter: blur(10px);
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #121212;
+            --kin-border: #222;
         }
-        .brand-sect { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .brand-sect h1 { font-size: 1.2rem; color: #fff; margin: 0; letter-spacing: 2px; }
-        .gate-actions { display: flex; gap: 20px; }
-        .gate-link { text-decoration: none; color: #fff; font-size: 0.8rem; font-weight: bold; padding: 10px 20px; }
-        .gate-btn { background: var(--gold); color: #000; }
 
-        /* PROFILE LAYOUT */
-        .profile-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 350px; gap: 40px; }
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0; display: flex;
+        }
 
-        /* Main Info */
-        .profile-main { background: var(--panel); border: 1px solid #222; padding: 40px; }
-        .verification-badge { display: inline-block; background: rgba(0, 255, 65, 0.1); color: #00ff41; padding: 5px 12px; font-size: 0.7rem; font-weight: bold; border: 1px solid #00ff41; margin-bottom: 20px; }
-        
-        h2 { font-size: 2.5rem; margin: 0; color: #fff; }
-        .category-path { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; display: block; }
+        /* SIDEBAR NAVIGATION */
+        .side-nav {
+            width: 250px; background: #000; height: 100vh;
+            border-right: 1px solid var(--kin-gold); padding: 40px 20px;
+            position: fixed;
+        }
 
-        .about-sect { line-height: 1.8; color: #bbb; margin-top: 30px; border-top: 1px solid #222; padding-top: 30px; }
-        
-        /* Sidebar stats */
-        .profile-sidebar { display: flex; flex-direction: column; gap: 20px; }
-        .data-card { background: #0c0c0c; border: 1px solid #222; padding: 25px; }
-        .data-card h4 { color: var(--gold); margin: 0 0 10px 0; font-size: 0.75rem; text-transform: uppercase; }
-        .data-val { display: block; font-size: 1.2rem; color: #fff; font-family: monospace; }
+        .side-nav h2 { font-size: 0.8rem; color: var(--kin-gold); letter-spacing: 3px; margin-bottom: 40px; }
+        .nav-link { color: #888; text-decoration: none; display: block; margin-bottom: 20px; font-size: 0.75rem; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--kin-gold); }
 
-        .canvas-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
-        .canvas-thumb { width: 100%; height: 100px; background: #222; border: 1px solid #333; }
+        /* MAIN CONTENT area */
+        .content-area { margin-left: 250px; padding: 60px; width: 100%; }
 
-        .btn-contact { display: block; width: 100%; background: var(--gold); color: black; border: none; padding: 15px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; margin-top: 10px; }
+        .profile-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--kin-border); padding-bottom: 20px; margin-bottom: 40px; }
+        .user-meta h1 { margin: 0; font-size: 1.5rem; letter-spacing: 2px; }
+        .status-badge { font-size: 0.6rem; background: var(--kin-gold); color: #000; padding: 2px 8px; font-weight: bold; }
+
+        /* DASHBOARD GRID */
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        .dash-card { background: var(--kin-grey); border: 1px solid var(--kin-border); padding: 30px; }
+        .dash-card h3 { font-size: 0.9rem; color: var(--kin-gold); margin-top: 0; border-bottom: 1px solid #222; padding-bottom: 10px; }
+
+        /* CLASSIFIED AD EDITOR (FOR MERCHANTS/ARTISTS) */
+        .ad-builder input, .ad-builder textarea {
+            width: 100%; background: #000; border: 1px solid #333; color: #fff;
+            padding: 10px; margin-bottom: 15px; font-family: inherit; font-size: 0.8rem;
+        }
+
+        .img-upload-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+        .img-slot { aspect-ratio: 1; background: #000; border: 1px dashed #444; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; color: #444; }
+
+        /* FAVORITES LIST */
+        .fav-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.75rem; }
+        .fav-item a { color: var(--kin-gold); text-decoration: none; }
+
+        .btn-save { background: var(--kin-gold); color: #000; border: none; padding: 12px 20px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; }
     </style>
 </head>
 <body>
 
-<div class="gatekeeper-bar">
-    <a href="index.html" class="brand-sect">
-        <h1 style="color:var(--gold);">KIN PAGES</h1>
-    </a>
-    <div class="gate-actions">
-        <a href="login.html" class="gate-link">MEMBER LOGIN</a>
-        <a href="register.html" class="gate-link gate-btn">REGISTER</a>
-    </div>
-</div>
+    <nav class="side-nav">
+        <h2>KIN DASHBOARD</h2>
+        <a href="#" class="nav-link active">MY PROFILE</a>
+        <a href="#" class="nav-link">FAVORITES</a>
+        <a href="#" class="nav-link">MY CLASSIFIED AD</a>
+        <a href="#" class="nav-link">ARTIST SALES</a>
+        <a href="index.html" class="nav-link" style="margin-top: 50px; color: #444;">← BACK TO SITE</a>
+    </nav>
 
-<div class="profile-container">
-    <div class="profile-main">
-        <div class="verification-badge">✓ EIN VERIFIED RECORD</div>
-        <span class="category-path">Directory / Fine Art / Canvas Collections</span>
-        <h2>Ancestral Grace Studio</h2>
-        <p style="color: #666;">Member Since 2024 | Registry ID: SKR-882-AG</p>
-
-        <div class="about-sect">
-            <h3>Institutional Overview</h3>
-            <p>Ancestral Grace Studio operates as a primary depository for original Solomon Kin canvas works. Specialized in oil and mixed media, the studio documents the cultural lineage of the collective through high-provenance art pieces.</p>
-            <p>Every acquisition through this profile triggers the mandatory 10% Foundation Tax, directly supporting "Think Team Not Gang" and "Koinonia Grace" community initiatives.</p>
+    <main class="content-area">
+        <div class="profile-header">
+            <div class="user-meta">
+                <span class="status-badge">ARTIST / MERCHANT</span>
+                <h1>SOLOMON KIN</h1>
+                <p style="font-size: 0.7rem; color: #555; margin: 5px 0;">EIN: XX-XXXX999 | NODE: ATL-01</p>
+            </div>
+            <div class="btn-save">Save Changes</div>
         </div>
 
-        <h3 style="margin-top:40px; border-bottom:1px solid #222; padding-bottom:10px;">Available Depository Works</h3>
-        <div class="canvas-preview">
-            <div class="canvas-thumb" style="background: url('https://via.placeholder.com/150/d4af37/000?text=Work+1') center/cover;"></div>
-            <div class="canvas-thumb" style="background: url('https://via.placeholder.com/150/d4af37/000?text=Work+2') center/cover;"></div>
+        <div class="dashboard-grid">
+            
+            <div class="dash-card ad-builder">
+                <h3>MANAGE MY CLASSIFIED AD</h3>
+                <p style="font-size: 0.6rem; color: #666; margin-bottom: 15px;">* FREE TEXT AD ACTIVE. UPGRADE TO ADD IMAGES.</p>
+                
+                <label style="font-size: 0.6rem; display:block; margin-bottom: 5px;">BUSINESS NAME</label>
+                <input type="text" value="Kin Canvas Collective">
+
+                <label style="font-size: 0.6rem; display:block; margin-bottom: 5px;">DESCRIPTION (TEXT-ONLY FOR FREE TIER)</label>
+                <textarea rows="4">Premium canvas art based on multicultural heritage. Located in the Atlanta Art Node.</textarea>
+
+                <label style="font-size: 0.6rem; display:block; margin-bottom: 5px;">UPLOAD MEDIA (MAX 3 IMAGES)</label>
+                <div class="img-upload-grid">
+                    <div class="img-slot">+ UPLOAD</div>
+                    <div class="img-slot">+ UPLOAD</div>
+                    <div class="img-slot">+ UPLOAD</div>
+                </div>
+
+                <div style="display: flex; gap: 20px;">
+                    <label style="font-size:0.6rem;"><input type="checkbox" checked> Show Phone Number</label>
+                    <label style="font-size:0.6rem;"><input type="checkbox" checked> Show Email Address</label>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3>SAVED FAVORITES</h3>
+                <div class="fav-item">
+                    <span>K-Grace Textiles (Merchant)</span>
+                    <a href="#">VIEW LISTING</a>
+                </div>
+                <div class="fav-item">
+                    <span>"Ancestral Grace #4" (Canvas Art)</span>
+                    <a href="#">VIEW PIECE</a>
+                </div>
+                <div class="fav-item">
+                    <span>Luna Tech Labs (Merchant)</span>
+                    <a href="#">VIEW LISTING</a>
+                </div>
+                <p style="font-size: 0.6rem; color: #444; margin-top: 20px;">You are currently following 12 multicultural businesses.</p>
+            </div>
+
+            <div class="dash-card">
+                <h3>NEWSLETTER & ALERTS</h3>
+                <label style="font-size:0.75rem; display:block; margin-bottom:10px;">
+                    <input type="checkbox" checked> Receive Vexilla AITS Market Updates
+                </label>
+                <label style="font-size:0.75rem; display:block; margin-bottom:10px;">
+                    <input type="checkbox" checked> New Art Alert (Sovereign Tier)
+                </label>
+            </div>
+
+            
+
         </div>
-    </div>
-
-    <div class="profile-sidebar">
-        <div class="data-card">
-            <h4>Sovereign Entity ID</h4>
-            <span class="data-val">45-XXXXX67</span>
-            <small style="color:#444;">Verification Type: IRS-EIN</small>
-        </div>
-
-        <div class="data-card">
-            <h4>Foundation Contribution</h4>
-            <span class="data-val" style="color:#00ff41;">Level: Platinum</span>
-            <p style="font-size:0.7rem; color:#555;">This entity has contributed over $50k to Foundation causes.</p>
-        </div>
-
-        <div class="data-card">
-            <h4>Location</h4>
-            <span class="data-val">Atlanta, GA</span>
-            <small style="color:#444;">Sector: Eastern Seaboard Hub</small>
-        </div>
-
-        <a href="mailto:inquiry@kinregistry.ai" class="btn-contact">INITIATE INQUIRY</a>
-        <a href="depository-archive.html" style="text-align:center; color:var(--gold); font-size:0.8rem; text-decoration:none;">View Full Provenance Archive</a>
-    </div>
-</div>
-
-<footer style="padding: 60px; text-align: center; color: #333; font-size: 0.7rem;">
-    OFFICIAL PROFILE RECORD | SOLOMON KIN RECORDS MEDIA GROUP | c.1999-2026
-</footer>
+    </main>
 
 </body>
 </html>
