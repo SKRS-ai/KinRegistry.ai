@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sovereign Dashboard | Kin Pages</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #121212; --border: #222; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; }
+        
+        /* SIDE NAVIGATION */
+        nav { width: 260px; background: #000; border-right: 1px solid var(--border); padding: 30px 20px; display: flex; flex-direction: column; }
+        .user-badge { margin-bottom: 40px; text-align: center; }
+        .avatar { width: 60px; height: 60px; background: var(--kin-gold); border-radius: 50%; margin: 0 auto 10px; }
+        .tier-label { font-size: 0.6rem; letter-spacing: 2px; color: var(--kin-gold); font-weight: bold; }
+
+        .nav-link { color: #888; text-decoration: none; font-size: 0.8rem; margin: 10px 0; transition: 0.3s; padding: 10px; }
+        .nav-link:hover, .nav-link.active { color: var(--kin-gold); background: rgba(212, 175, 55, 0.05); border-left: 2px solid var(--kin-gold); }
+
+        /* MAIN CONTENT */
+        main { flex: 1; padding: 40px; overflow-y: auto; }
+        .header-strip { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .status-pill { background: #1a1a1a; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; border: 1px solid #333; }
+
+        /* MULTI-PROFILE GRID */
+        .profile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .profile-card { background: var(--kin-grey); border: 1px solid var(--border); padding: 25px; transition: 0.3s; position: relative; }
+        .profile-card:hover { border-color: var(--kin-gold); }
+        .profile-card.locked { opacity: 0.4; cursor: not-allowed; border-style: dashed; }
+        .profile-card.locked::after { content: '🔒 PAY TO UNLOCK'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.6rem; color: var(--kin-gold); }
+
+        .profile-title { font-weight: bold; font-size: 1.1rem; color: #fff; margin-bottom: 5px; }
+        .profile-type { font-size: 0.6rem; color: var(--kin-gold); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* AD PRIVILEGES BOX */
+        .privilege-box { background: linear-gradient(135deg, #111, #000); border: 1px solid var(--kin-gold); padding: 20px; margin-top: 40px; }
+        .feature-list { display: flex; gap: 30px; margin-top: 15px; }
+        .feature { font-size: 0.7rem; color: #888; display: flex; align-items: center; gap: 5px; }
+        .feature.active { color: #fff; }
+        .feature.active::before { content: '✔'; color: var(--kin-gold); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="user-badge">
+            <div class="avatar"></div>
+            <div id="display-name" style="font-weight: bold;">User_Handle</div>
+            <div class="tier-label">EXECUTIVE MEMBER</div>
+        </div>
+        <a href="#" class="nav-link active">DASHBOARD</a>
+        <a href="#" class="nav-link">MY LISTINGS</a>
+        <a href="#" class="nav-link">AD ANALYTICS</a>
+        <a href="#" class="nav-link">BILLING & ID</a>
+        <a href="#" class="nav-link" style="margin-top: auto; color: #ff3b3b;">LOGOUT</a>
+    </nav>
+
+    <main>
+        <div class="header-strip">
+            <h1 style="margin:0; font-size: 1.5rem; letter-spacing: 2px;">PROFILE FORGE</h1>
+            <div class="status-pill">REAL ACTIVITY: ONLINE // VEXILLA SYNCED</div>
+        </div>
+
+        <div class="privilege-box">
+            <div style="font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CURRENT AD PRIVILEGES</div>
+            <div class="feature-list">
+                <div class="feature active">TEXT ADS</div>
+                <div class="feature active">BUSINESS LOGO</div>
+                <div class="feature active">RICH MEDIA (PHOTOS/VIDEO)</div>
+                <div class="feature active">PRIORITY SEARCH</div>
+            </div>
+        </div>
+
+        <h3 style="margin: 40px 0 20px; font-size: 0.9rem; color: #666;">MANAGE BUSINESS PROFILES (5 MAX)</h3>
+        
+        <div class="profile-grid">
+            <div class="profile-card">
+                <div class="profile-type">Primary Business</div>
+                <div class="profile-title">Solomon Kin Tech</div>
+                <p style="font-size: 0.75rem; color: #777;">Main repository and software enterprise listing.</p>
+                <button style="background: transparent; border: 1px solid #444; color: #fff; padding: 5px 15px; cursor: pointer; font-size: 0.7rem;">EDIT PROFILE</button>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-type">Subsidiary</div>
+                <div class="profile-title">Kin Records Group</div>
+                <p style="font-size: 0.75rem; color: #777;">Music distribution and label services profile.</p>
+                <button style="background: transparent; border: 1px solid #444; color: #fff; padding: 5px 15px; cursor: pointer; font-size: 0.7rem;">EDIT PROFILE</button>
+            </div>
+
+            <div class="profile-card" style="border-color: #333;">
+                <div class="profile-type">Empty Slot</div>
+                <div class="profile-title" style="color: #444;">CREATE NEW</div>
+                <p style="font-size: 0.75rem; color: #444;">Click to initialize your 3rd business profile.</p>
+                <button style="background: var(--kin-gold); border: none; color: #000; padding: 5px 15px; cursor: pointer; font-size: 0.7rem; font-weight: bold;">+ INITIALIZE</button>
+            </div>
+
+            <div class="profile-card locked">
+                <div class="profile-title">Profile Slot 4</div>
+            </div>
+
+            <div class="profile-card locked">
+                <div class="profile-title">Profile Slot 5</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
