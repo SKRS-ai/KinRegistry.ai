@@ -2,126 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Resource Library | Kin Pages Knowledge Base</title>
+    <title>Sovereign Library | Kin Pages Knowledge Vault</title>
     <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #111;
-            --kin-border: #333;
-        }
-
-        body {
-            background-color: var(--kin-black); color: #eee;
-            font-family: 'Courier New', monospace; margin: 0;
-            display: grid; grid-template-columns: 280px 1fr; height: 100vh;
-        }
-
-        /* CATEGORY SIDEBAR */
-        .lib-sidebar {
-            background: #000; border-right: 1px solid var(--kin-gold);
-            padding: 30px;
-        }
-
-        .lib-nav { list-style: none; padding: 0; }
-        .lib-nav li { margin-bottom: 20px; }
-        .lib-nav a {
-            color: #888; text-decoration: none; font-size: 0.8rem;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .lib-nav a:hover { color: var(--kin-gold); }
-
-        /* CONTENT AREA */
-        .lib-main { overflow-y: scroll; padding: 50px; }
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --kin-text: #a0a0a0; }
+        body { background: var(--kin-black); color: #ccc; font-family: 'Courier New', monospace; margin: 0; line-height: 1.6; }
         
-        .lib-header {
-            border-bottom: 4px double var(--kin-gold);
-            padding-bottom: 20px; margin-bottom: 40px;
-        }
+        header { padding: 80px 40px; text-align: center; background: #080808; border-bottom: 1px solid var(--kin-gold); }
+        h1 { color: var(--kin-gold); letter-spacing: 10px; font-size: 2rem; margin: 0; }
 
-        .doc-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 3fr; gap: 40px; }
 
-        .doc-card {
-            background: var(--kin-grey); border: 1px solid var(--kin-border);
-            padding: 20px; display: flex; flex-direction: column;
-            transition: 0.3s;
-        }
+        /* SIDEBAR CATEGORIES */
+        .lib-nav { position: sticky; top: 100px; height: fit-content; }
+        .lib-nav h4 { color: var(--kin-gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .lib-link { display: block; color: #666; text-decoration: none; font-size: 0.75rem; margin: 15px 0; transition: 0.3s; }
+        .lib-link:hover { color: #fff; transform: translateX(5px); }
 
-        .doc-card:hover { border-color: var(--kin-gold); }
+        /* CONTENT CARDS */
+        .doc-card { background: var(--kin-grey); border: 1px solid #222; padding: 40px; margin-bottom: 40px; position: relative; }
+        .doc-card::before { content: "DOCUMENT_REF: " attr(data-ref); position: absolute; top: 15px; right: 20px; font-size: 0.5rem; color: #444; }
+        h2 { color: var(--kin-gold); font-size: 1.1rem; margin-top: 0; }
+        p { font-size: 0.85rem; color: var(--kin-text); }
 
-        .doc-type { font-size: 0.5rem; color: var(--kin-gold); text-transform: uppercase; margin-bottom: 10px; }
-        .doc-title { font-size: 0.9rem; font-weight: bold; margin-bottom: 15px; color: #fff; }
-        .doc-meta { font-size: 0.65rem; color: #555; margin-top: auto; }
-
-        .btn-download {
-            margin-top: 15px; background: transparent; border: 1px solid #444;
-            color: #fff; padding: 8px; font-size: 0.7rem; cursor: pointer;
-            text-align: center; text-decoration: none;
-        }
-        .btn-download:hover { border-color: var(--kin-gold); color: var(--kin-gold); }
-
-        .restricted-tag { font-size: 0.55rem; color: #ff4444; font-weight: bold; }
+        .download-btn { display: inline-block; margin-top: 20px; font-size: 0.65rem; color: var(--kin-gold); border: 1px solid var(--kin-gold); padding: 8px 15px; text-decoration: none; text-transform: uppercase; }
+        .download-btn:hover { background: var(--kin-gold); color: #000; }
     </style>
 </head>
 <body>
 
-    <aside class="lib-sidebar">
-        <h2 style="color:var(--kin-gold); font-size:1rem; margin-bottom:30px;">RESOURCES</h2>
-        <ul class="lib-nav">
-            <li><a href="#">📁 LEGAL TEMPLATES</a></li>
-            <li><a href="#">📁 CULTURAL ARCHIVES</a></li>
-            <li><a href="#">📁 TRADE LOGISTICS</a></li>
-            <li><a href="#">📁 IDENTITY PROTECTION</a></li>
-            <li><a href="#">📁 VEXILLA AITS MANUALS</a></li>
-        </ul>
-    </aside>
+    <header>
+        <h1>RESOURCE LIBRARY</h1>
+        <p style="font-size: 0.6rem; color: #555; letter-spacing: 3px; margin-top: 10px;">OFFICIAL REPOSITORY // VEXILLA AITS PROTOCOLS</p>
+    </header>
 
-    <main class="lib-main">
-        <header class="lib-header">
-            <h1 style="margin:0; font-size:1.8rem;">Knowledge Repository</h1>
-            <p style="color:#555; font-size:0.75rem;">THE SHARED INTELLIGENCE OF THE SOLOMON KIN ASSEMBLY</p>
-        </header>
+    <div class="container">
+        <aside class="lib-nav">
+            <h4>ARCHIVE SECTIONS</h4>
+            <a href="#heritage" class="lib-link">01. LEGACY HISTORY</a>
+            <a href="#compliance" class="lib-link">02. EIN & COMPLIANCE</a>
+            <a href="#foundation" class="lib-link">03. FOUNDATION BYLAWS</a>
+            <a href="#security" class="lib-link">04. VEXILLA SECURITY</a>
+        </aside>
 
-        
+        <main>
+            <section id="heritage" class="doc-card" data-ref="KP-1999-ARCH">
+                <h2>THE TRI-STATE LEGACY</h2>
+                <p>
+                    Established in 1999, the Tri-State Minority Yellow Pages served as the primary physical directory for African American and minority-owned businesses in the Pennsylvania, New Jersey, and Delaware regions. Kin Pages acts as the digital continuation of this mission, preserving the heritage while enabling global trade.
+                </p>
+                <a href="#" class="download-btn">VIEW FULL HISTORY</a>
+            </section>
 
-        <div class="doc-grid">
-            <div class="doc-card">
-                <span class="doc-type">Legal Framework</span>
-                <div class="doc-title">Multicultural Trade Bylaws: Entity Protection v2.1</div>
-                <div class="doc-meta">CONTRIBUTOR: Heritage Law Group</div>
-                <a href="#" class="btn-download">DOWNLOAD PDF</a>
-            </div>
+            
 
-            <div class="doc-card">
-                <span class="doc-type">Identity Manual</span>
-                <div class="doc-title">Safety Protocols for Trans-Owned Enterprises in Logistics</div>
-                <div class="doc-meta">CONTRIBUTOR: Luna Tech Labs</div>
-                <a href="#" class="btn-download">DOWNLOAD PDF</a>
-            </div>
+            <section id="compliance" class="doc-card" data-ref="KP-EIN-PROC">
+                <h2>MERCHANT VERIFICATION (EIN)</h2>
+                <p>
+                    To maintain the integrity of the Assembly, all Pro Merchants must provide a valid Employer Identification Number (EIN). This process ensures that "Kin Pages" remains a network of legitimate entities, protecting both the buyer and the seller within our sovereign economy.
+                </p>
+                <a href="#" class="download-btn">DOWNLOAD COMPLIANCE PDF</a>
+            </section>
 
-            <div class="doc-card" style="border-style: dashed;">
-                <span class="doc-type">Sovereign Tier Only</span>
-                <div class="doc-title">10-Year Legacy Financial Roadmap</div>
-                <span class="restricted-tag">LOCKED: REQUIRES SOVEREIGN CLEARANCE</span>
-                <div class="doc-meta">CONTRIBUTOR: Solomon Kin Records</div>
-                <a href="advance-services.html" class="btn-download">UPGRADE TO ACCESS</a>
-            </div>
-
-            <div class="doc-card">
-                <span class="doc-type">Cultural Asset</span>
-                <div class="doc-title">Indigenous Symbolism in Canvas Art (1999 Collection)</div>
-                <div class="doc-meta">CONTRIBUTOR: Koinonia Collective</div>
-                <a href="#" class="btn-download">DOWNLOAD PDF</a>
-            </div>
-        </div>
-
-        <div style="margin-top: 80px; text-align: center; border-top: 1px solid #111; padding-top: 20px;">
-            <p style="font-size: 0.6rem; color: #333;">// ASSETS PROTECTED BY VEXILLA WATERMARKING // DO NOT DISTRIBUTE OUTSIDE THE ASSEMBLY //</p>
-        </div>
-    </main>
+            <section id="foundation" class="doc-card" data-ref="KGF-2026-MAN">
+                <h2>THE 10% MANDATE OVERVIEW</h2>
+                <p>
+                    The Koinonia Grace Foundation operates under a strict mandate: 10% of all gross platform revenue is diverted to the Fellowship fund. These resources are allocated toward "Think Team Not Gang" initiatives, focusing on coding bootcamps, trade certification, and youth entrepreneurship.
+                </p>
+                <a href="impact.html" class="download-btn">VIEW LIVE IMPACT REPORT</a>
+            </section>
+        </main>
+    </div>
 
 </body>
 </html>
