@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TTNG Fellowship | Think Team Not Gang</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-accent: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* HERO SECTION */
+        .fellowship-hero {
+            height: 80vh; background: linear-gradient(rgba(0,0,0,0.7), var(--kin-black)), url('fellowship-bg.jpg');
+            background-size: cover; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            border-bottom: 2px solid var(--kin-gold);
+        }
+
+        .fellowship-hero h1 { font-size: 4rem; letter-spacing: 10px; color: var(--kin-gold); margin: 0; }
+        .tagline { font-size: 1.2rem; color: #fff; margin-top: 20px; text-transform: uppercase; }
+
+        /* THE CURRICULUM */
+        .content-wrap { max-width: 1100px; margin: -100px auto 100px; padding: 0 20px; }
+
+        .curriculum-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+        }
+
+        .step-card {
+            background: var(--kin-grey); border: 1px solid #222; padding: 40px;
+            text-align: center; position: relative; transition: 0.3s;
+        }
+        .step-card:hover { border-color: var(--kin-gold); background: #0a0a0a; }
+
+        .step-num { 
+            font-size: 4rem; color: rgba(212, 175, 55, 0.1); 
+            position: absolute; top: 10px; right: 20px; font-weight: bold;
+        }
+
+        .step-card h3 { color: var(--kin-gold); font-size: 1rem; margin-bottom: 15px; }
+        .step-card p { font-size: 0.8rem; color: #888; line-height: 1.6; }
+
+        /* APPLICATION FORM */
+        .apply-section {
+            background: var(--kin-accent); padding: 80px 40px; border-top: 1px solid var(--kin-gold);
+        }
+
+        .apply-form {
+            max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;
+        }
+
+        input, textarea {
+            background: #000; border: 1px solid #333; color: #fff; padding: 15px;
+            font-family: inherit; font-size: 0.9rem;
+        }
+
+        .btn-apply {
+            background: var(--kin-gold); color: #000; border: none; padding: 20px;
+            font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fellowship-hero">
+        <h1>TTNG FELLOWSHIP</h1>
+        <p class="tagline">From the Streets to the Sovereignty of Trade</p>
+        <p style="max-width: 600px; color: #666; margin-top: 30px; font-size: 0.9rem;">
+            A 12-month intensive program funded by the Solomon Kin Records Foundation Mandate. We don't just teach business; we build legacies.
+        </p>
+    </header>
+
+    <main class="content-wrap">
+        <div class="curriculum-grid">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h3>ENTITY FORMATION</h3>
+                <p>Master the legal architecture. We guide you through EIN registration, operating agreements, and the creation of your sovereign trade node.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h3>VEXILLA MASTERY</h3>
+                <p>Technical training in the AITS Vision Engine. Learn how to track provenance, verify digital assets, and monitor the Master Ledger.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h3>COMMUNAL TRADE</h3>
+                <p>Execute your first "Sovereign Handshake" in the Kin Pages. Build a multicultural supply chain with established associates.</p>
+            </div>
+        </div>
+    </main>
+
+    
+
+    <section class="apply-section">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="color:var(--kin-gold); font-size: 1.5rem;">INITIATE CANDIDACY</h2>
+            <p style="color:#555; font-size: 0.75rem;">ALL APPLICATIONS ARE REVIEWED BY THE OFFICE OF THE GATEKEEPER</p>
+        </div>
+
+        <form class="apply-form">
+            <input type="text" placeholder="CANDIDATE NAME / ALIAS">
+            <input type="text" placeholder="REGIONAL NODE (E.G. ATL-01, NYC-04)">
+            <textarea rows="5" placeholder="WHY DO YOU SEEK SOVEREIGNTY? DESCRIBE YOUR VISION FOR THE TEAM."></textarea>
+            <button type="button" class="btn-apply">Submit to Gatekeeper</button>
+        </form>
+    </section>
+
+    <footer style="padding: 50px; text-align: center; font-size: 0.6rem; color: #222; letter-spacing: 5px;">
+        THINK TEAM NOT GANG // ESTABLISHED 1999 // THE FUTURE IS OURS
+    </footer>
+
+</body>
+</html>
