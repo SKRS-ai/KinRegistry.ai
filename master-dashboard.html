@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MASTER COMMAND | Solomon Kin Records LLC</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-red: #ff3b3b; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; }
+        .sidebar { width: 250px; height: 100vh; border-right: 1px solid var(--kin-gold); position: fixed; padding: 30px; }
+        .main { margin-left: 300px; padding: 50px; }
+        .card { background: #111; border: 1px solid #222; padding: 20px; margin-bottom: 20px; }
+        .admin-only { border-color: var(--kin-red) !important; }
+        h1 { color: var(--kin-gold); letter-spacing: 5px; font-size: 1.2rem; }
+        .status-light { width: 10px; height: 10px; background: #00ff00; border-radius: 50%; display: inline-block; margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>MASTER COMMAND</h1>
+        <p style="font-size: 0.5rem; color: var(--kin-gold);">ID: Solomon Kin [MASTER]</p>
+        <hr style="border: 0; border-top: 1px solid #222; margin: 20px 0;">
+        <nav style="font-size: 0.7rem; line-height: 2.5;">
+            <div>> SITE CONFIGURATION</div>
+            <div>> USER LEDGER MGT</div>
+            <div>> FINANCIAL REPORTS</div>
+            <div>> VEXILLA AITS SYNC</div>
+            <div style="color: var(--kin-red); cursor: pointer;" onclick="logout()">> TERMINATE ACCESS</div>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="card admin-only">
+            <h2 style="color: var(--kin-red); font-size: 0.8rem;">GLOBAL MASTER CONTROL</h2>
+            <p style="font-size: 0.7rem;">Every action taken here is synced to <strong>admin@solomonkinrecords.com</strong>.</p>
+            <button onclick="alert('Global Refresh Sent')">REFRESH ENTIRE ASSEMBLY</button>
+            <button onclick="alert('Backup Sent to Master Email')">EXPORT DATABASE TO EMAIL</button>
+        </div>
+
+        
+
+        <div class="card">
+            <h3>ACTIVE SUBSIDIARIES</h3>
+            <div id="subsidiary-list">
+                <p style="font-size: 0.7rem; color: #555;">Syncing 50+ entries from Next to Kin Records...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SECURITY GATE
+        if (!sessionStorage.getItem('active_master_admin') && !sessionStorage.getItem('active_corp_session')) {
+            window.location.href = 'records-trading-music.html';
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'records-trading-music.html';
+        }
+    </script>
+</body>
+</html>
