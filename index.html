@@ -3,221 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kin Pages | Solomon Kin Records LLC Gateway</title>
+    <title>Kin Pages | Solomon Kin Records LLC | Home</title>
     <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #111;
-            --text-main: #e0e0e0;
-        }
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
 
-        body {
-            background-color: var(--kin-black);
-            color: var(--text-main);
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* VANGUARD SYSTEM OVERLAY */
-        .vanguard-pulse {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 75%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* NAVIGATION */
-        nav {
-            background: #000;
-            border-bottom: 1px solid #222;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-brand { color: var(--kin-gold); font-weight: bold; letter-spacing: 3px; font-size: 0.8rem; }
-        .nav-links a { color: #666; text-decoration: none; font-size: 0.6rem; margin-left: 20px; transition: 0.3s; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--kin-gold); }
-
-        /* HERO HEADER */
-        header {
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-        }
-
-        .sys-id { font-size: 0.6rem; color: var(--kin-gold); letter-spacing: 5px; margin-bottom: 10px; }
-        h1 { font-size: 3rem; letter-spacing: 15px; margin: 0; color: #fff; text-transform: uppercase; }
-        .tagline { font-size: 0.7rem; color: #444; margin-top: 10px; letter-spacing: 6px; }
+        /* HEADER & KIN LOGO */
+        header { background: #000; border-bottom: 2px solid var(--kin-gold); padding: 20px 40px; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .kin-logo-link { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.2rem; letter-spacing: 4px; border: 1px solid var(--kin-gold); padding: 5px 15px; }
+        .kin-logo-link:hover { background: var(--kin-gold); color: #000; }
+        
+        .header-links a { color: #666; text-decoration: none; font-size: 0.65rem; margin-left: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .header-links a:hover { color: #fff; }
 
         /* SEARCH HUB */
-        .search-container {
-            max-width: 900px;
-            margin: -30px auto 40px;
-            background: var(--kin-grey);
-            border: 1px solid #222;
-            padding: 30px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .search-box { display: flex; border: 1px solid #333; background: #000; }
-        .search-box input { flex: 1; background: transparent; border: none; padding: 15px; color: var(--kin-gold); font-family: inherit; }
+        .hero-search { text-align: center; padding: 60px 20px; background: radial-gradient(circle, #0a0a0a 0%, #000 100%); }
+        .search-bar { max-width: 800px; margin: 20px auto; display: flex; border: 1px solid #333; }
+        .search-bar input { flex: 1; background: transparent; border: none; padding: 15px; color: var(--kin-gold); font-family: inherit; }
         .btn-query { background: var(--kin-gold); border: none; padding: 0 30px; font-weight: bold; cursor: pointer; }
 
-        /* --- THE LETHAL LEDGER NEWS WIRE (ENHANCED) --- */
-        .news-wire {
-            max-width: 900px;
-            margin: 0 auto 50px;
-            background: #000;
-            border: 1px solid #222;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
+        /* LIVE NEWS WIRE (EXTERNAL FEED EMULATION) */
+        .news-ledger { background: #000; border-bottom: 1px solid #222; height: 35px; display: flex; align-items: center; overflow: hidden; }
+        .wire-label { background: var(--kin-gold); color: #000; font-size: 0.6rem; font-weight: bold; padding: 0 15px; height: 100%; display: flex; align-items: center; }
+        .ticker-text { display: inline-block; white-space: nowrap; animation: scroll-news 40s linear infinite; color: #888; font-size: 0.7rem; }
+        @keyframes scroll-news { from { transform: translateX(100%); } to { transform: translateX(-150%); } }
 
-        .wire-label {
-            background: var(--kin-gold);
-            color: #000;
-            font-size: 0.6rem;
-            font-weight: bold;
-            padding: 0 15px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            z-index: 5;
-            letter-spacing: 1px;
-        }
+        /* NEW: CANVAS ART & TEXT BUSINESS SHOWCASE */
+        .showcase-section { max-width: 1200px; margin: 50px auto; padding: 0 40px; }
+        .section-header { color: var(--kin-gold); font-size: 0.9rem; border-left: 3px solid var(--kin-gold); padding-left: 15px; margin-bottom: 30px; letter-spacing: 3px; }
+        
+        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .art-card { background: #0a0a0a; border: 1px solid #222; padding: 10px; text-align: center; }
+        .canvas-placeholder { width: 100%; aspect-ratio: 1/1; background: #111; border: 1px solid #333; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; color: #222; font-size: 0.6rem; }
+        
+        .text-biz-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .biz-item { border-bottom: 1px solid #1a1a1a; padding: 15px 0; }
+        .biz-item h4 { margin: 0; color: #fff; font-size: 0.8rem; }
+        .biz-item p { margin: 5px 0 0; color: #555; font-size: 0.7rem; }
 
-        .ticker-wrap { flex: 1; overflow: hidden; }
-        .ticker-move {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: ticker-animation 40s linear infinite;
-            color: #888;
-            font-size: 0.7rem;
-        }
+        /* FOOTER COMMAND (ALL LINKS RESTORED) */
+        footer { background: #000; border-top: 2px solid var(--kin-gold); padding: 60px 40px; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-col h5 { color: var(--kin-gold); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 20px; }
+        .footer-col a { display: block; color: #555; text-decoration: none; font-size: 0.65rem; margin-bottom: 10px; transition: 0.2s; }
+        .footer-col a:hover { color: #fff; }
 
-        @keyframes ticker-animation {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-200%, 0, 0); }
-        }
-
-        .ticker-item { display: inline-block; padding: 0 40px; }
-        .ticker-item span { color: var(--kin-gold); font-weight: bold; margin-right: 10px; }
-
-        /* SECTORS */
-        .sector-row {
-            max-width: 1200px;
-            margin: 0 auto 100px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 0 40px;
-        }
-
-        .card {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            padding: 25px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .card:hover { border-color: var(--kin-gold); background: #0d0d0d; }
-        .card h3 { color: var(--kin-gold); font-size: 0.75rem; letter-spacing: 2px; margin: 0 0 10px; }
-        .card p { color: #555; font-size: 0.65rem; line-height: 1.5; }
-
-        /* SYSTEM FEED */
-        .status-bar {
-            position: fixed;
-            bottom: 0; width: 100%;
-            background: #000;
-            border-top: 1px solid #222;
-            padding: 8px 40px;
-            font-size: 0.55rem;
-            color: #333;
-            display: flex;
-            justify-content: space-between;
-        }
+        .system-footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #111; font-size: 0.55rem; color: #222; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
-    <div class="vanguard-pulse"></div>
-
-    <nav>
-        <div class="nav-brand">KIN PAGES // VEXILLA AITS [cite: 8]</div>
-        <div class="nav-links">
-            <a href="master-sitemap.html">Sitemap</a>
-            <a href="register-tier.html">Membership</a>
-            <a href="identity-vault.html">Identity Vault [cite: 27]</a>
-            <a href="global-logistics.html">Logistics</a>
-        </div>
-    </nav>
-
     <header>
-        <div class="sys-id">VEXILLA AUTONOMOUS COMMAND [cite: 9]</div>
-        <h1>SOLOMON KIN</h1>
-        <div class="tagline">RECORDS • TRADING • TECHNOLOGY [cite: 1, 4]</div>
-    </header>
-
-    <div class="search-container">
-        <div class="search-box">
-            <input type="text" placeholder="Query Master Ledger (IBINGOD, SKR, AEAH)... [cite: 1, 24]">
-            <button class="btn-query">SEARCH</button>
-        </div>
-    </div>
-
-    <div class="news-wire">
-        <div class="wire-label">LETHAL LEDGER WIRE </div>
-        <div class="ticker-wrap">
-            <div class="ticker-move">
-                <div class="ticker-item"><span>LIVE:</span> IBINGOD Trade Im/Ex Logs Synchronized [cite: 1]</div>
-                <div class="ticker-item"><span>TECH:</span> Vexilla AITS Vanguard Collective Online [cite: 8]</div>
-                <div class="ticker-item"><span>MEDIA:</span> The Filth Factor YouTube Session Live </div>
-                <div class="ticker-item"><span>TRADE:</span> Global Citizen Joe Wholesale Clearance [cite: 22]</div>
-                <div class="ticker-item"><span>CAUSE:</span> TBBLUSA National Identity Bureau Audit [cite: 26, 27]</div>
-                <div class="ticker-item"><span>MUSIC:</span> 3Dayz Ahead RDA Disruption EPK Updated [cite: 14]</div>
+        <div class="header-top">
+            <a href="index.html" class="kin-logo-link">KIN</a>
+            <div class="header-links">
+                <a href="register-tier.html">Registration</a>
+                <a href="profile-dashboard.html">The Forge</a>
+                <a href="identity-vault.html">Identity Vault</a>
+                <a href="contact-support.html">Vanguard Support</a>
             </div>
         </div>
+    </header>
+
+    <div class="news-ledger">
+        <div class="wire-label">LETHAL LEDGER LIVE</div>
+        <div class="ticker-text">
+            ● GLOBAL TRADE: IBINGOD IM/EX HUB SYNCED ● TECH: VEXILLA AITS CORE V.109 STABLE ● MEDIA: THE FILTH FACTOR LIVE BROADCAST AT 18:00 ● ART: NEW CANVAS COLLECTION RELEASED ● [SOURCE: KIN NEWS API]
+        </div>
     </div>
 
-    <div class="sector-row">
-        <a href="global-logistics.html" class="card">
-            <h3>LOGISTICS & TRADE [cite: 1]</h3>
-            <p>Managing IBINGOD Trade [cite: 1], Global Citizen Joe [cite: 22], and Clean Blue Green Corp[cite: 3].</p>
-        </a>
-        <a href="media-broadcast.html" class="card">
-            <h3>MEDIA BROADCAST </h3>
-            <p>Solomon Kin Records Media Group [cite: 17], Dockinstation TV [cite: 17], and Lethal Ledger.</p>
-        </a>
-        <a href="profile-dashboard.html" class="card">
-            <h3>PROFILE FORGE</h3>
-            <p>Enterprise command for Executive Members. Manage Ad Privileges and System Identity.</p>
-        </a>
-    </div>
+    <section class="hero-search">
+        <div style="font-size: 0.6rem; color: #444; letter-spacing: 5px;">SOVEREIGN VILLAGE DIRECTORY</div>
+        <h1>SOLOMON KIN</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Master Ledger / Records / Art / Businesses...">
+            <button class="btn-query">QUERY</button>
+        </div>
+    </section>
 
-    <div class="status-bar">
-        <div>● VEXILLA CORE: OPERATIONAL [cite: 8]</div>
-        <div>BALA CYNWYD HUB // EST. 1999 [cite: 1]</div>
-        <div>SECURE SOVEREIGN ACCESS</div>
-    </div>
+    <section class="showcase-section">
+        <div class="section-header">CANVAS ART & MEDIA ASSETS</div>
+        <div class="art-grid">
+            <div class="art-card">
+                <div class="canvas-placeholder">ASSET_01 [CANVAS]</div>
+                <div style="font-size: 0.7rem; color: var(--kin-gold);">Kin Sovereign Collection</div>
+            </div>
+            <div class="art-card">
+                <div class="canvas-placeholder">ASSET_02 [CANVAS]</div>
+                <div style="font-size: 0.7rem; color: var(--kin-gold);">Vexilla Abstract V1</div>
+            </div>
+            <div class="art-card">
+                <div class="canvas-placeholder">ASSET_03 [CANVAS]</div>
+                <div style="font-size: 0.7rem; color: var(--kin-gold);">Global Trade Series</div>
+            </div>
+        </div>
+
+        <div class="section-header">FEATURED TEXT BUSINESSES</div>
+        <div class="text-biz-list">
+            <div class="biz-item">
+                <h4>IBINGOD TRADE, INC.</h4>
+                <p>Global Import/Export Logistics established 1999. International trade records management.</p>
+            </div>
+            <div class="biz-item">
+                <h4>CLEAN BLUE GREEN CORP.</h4>
+                <p>Environmental reclamation and sustainable logistical fulfillment services.</p>
+            </div>
+            <div class="biz-item">
+                <h4>EVERWARD TOURS</h4>
+                <p>Elite travel and destination management for Sovereign Village members.</p>
+            </div>
+            <div class="biz-item">
+                <h4>GLOBAL CITIZEN JOE, LLC</h4>
+                <p>Wholesale consumer goods distribution and beverage manufacturing.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>01. CORE CHANNELS</h5>
+                <a href="master-sitemap.html">Master Site Map</a>
+                <a href="records-trading-music.html">Corporate Registry</a>
+                <a href="advertising-tiers.html">Advertising Tiers</a>
+                <a href="ad-analytics.html">Ad Analytics</a>
+            </div>
+            <div class="footer-col">
+                <h5>02. TRADE & TECH</h5>
+                <a href="global-logistics.html">Global Logistics</a>
+                <a href="https://skrs-ai.github.io/SKRMG-Command-Center/">Vexilla Command</a>
+                <a href="https://skrs-ai.github.io/KinOSA-USA_VEX/">KinOS Mobile</a>
+                <a href="identity-vault.html">Identity Vault</a>
+            </div>
+            <div class="footer-col">
+                <h5>03. MEDIA & NEWS</h5>
+                <a href="media-broadcast.html">Broadcast Center</a>
+                <a href="#">The Filth Factor</a>
+                <a href="#">Lethal Ledger</a>
+                <a href="#">Dockinstation TV</a>
+            </div>
+            <div class="footer-col">
+                <h5>04. FOUNDATIONS</h5>
+                <a href="http://tbblusa.org">TBBLUSA National</a>
+                <a href="https://brneo059.wixsite.com/against-electronic-a">AEAH Advocacy</a>
+                <a href="http://xmasmade.com">Christmas Tree Farm</a>
+                <a href="contact-support.html">Vanguard Support</a>
+            </div>
+        </div>
+        <div class="system-footer">
+            SOLOMON KIN RECORDS LLC | EST. 1999 | ALL SYSTEMS OPERATIONAL V.109
+        </div>
+    </footer>
 
 </body>
 </html>
