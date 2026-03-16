@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upgrade Tier | Kin Pages Sovereign Merchant</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #121212;
+            --kin-text: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0; padding: 40px;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+
+        .upgrade-container {
+            max-width: 800px; width: 100%; background: var(--kin-grey);
+            border: 1px solid var(--kin-gold); padding: 50px; text-align: center;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
+        }
+
+        h1 { color: var(--kin-gold); letter-spacing: 8px; font-size: 1.8rem; margin-bottom: 10px; }
+        .tier-label { font-size: 0.7rem; color: #555; letter-spacing: 3px; margin-bottom: 40px; }
+
+        .pricing-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;
+        }
+
+        .tier-card {
+            border: 1px solid #222; padding: 30px; background: #000;
+            display: flex; flex-direction: column; transition: 0.3s;
+        }
+
+        .tier-card.active { border-color: var(--kin-gold); transform: scale(1.05); }
+
+        .tier-card h3 { color: var(--kin-gold); margin: 0; font-size: 1.2rem; }
+        .price { font-size: 2rem; margin: 20px 0; color: #fff; }
+        .features { list-style: none; padding: 0; text-align: left; font-size: 0.75rem; color: var(--kin-text); }
+        .features li { margin-bottom: 12px; }
+        .features li::before { content: "✓ "; color: var(--kin-gold); }
+
+        .foundation-note {
+            margin-top: 40px; padding: 20px; border: 1px dashed #333;
+            font-size: 0.7rem; color: #666; line-height: 1.6;
+        }
+
+        .btn-upgrade {
+            width: 100%; background: var(--kin-gold); color: #000; border: none;
+            padding: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase;
+            margin-top: 30px; letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="upgrade-container">
+        <h1>TIER ELEVATION</h1>
+        <div class="tier-label">VEXILLA AITS LEDGER UPGRADE</div>
+
+        <div class="pricing-grid">
+            <div class="tier-card">
+                <h3>BASIC ASSEMBLY</h3>
+                <div class="price">FREE</div>
+                <ul class="features">
+                    <li>Text-Only Classified Ad</li>
+                    <li>Sovereign Profile</li>
+                    <li>Basic Search Listing</li>
+                    <li>Community Forum Access</li>
+                </ul>
+                <div style="margin-top:auto; font-size: 0.6rem; color: #444;">CURRENT LEVEL</div>
+            </div>
+
+            <div class="tier-card active">
+                <h3>PRO MERCHANT</h3>
+                <div class="price">$29<span style="font-size: 0.8rem;">/mo</span></div>
+                <ul class="features">
+                    <li><b>Photo & Video Uploads</b></li>
+                    <li><b>Logo Kin Priority View</b></li>
+                    <li>Featured Directory Status</li>
+                    <li>Direct Sales Integration</li>
+                    <li>Verified Artist Badge</li>
+                </ul>
+                <button class="btn-upgrade" onclick="processUpgrade()">UPGRADE ACCOUNT</button>
+            </div>
+        </div>
+
+        
+
+        <div class="foundation-note">
+            <b>THE 10% MANDATE:</b> $2.90 of your monthly subscription is automatically diverted to the <b>Koinonia Grace Foundation</b> to support youth tech development. Think Team Not Gang.
+        </div>
+    </div>
+
+    <script>
+        function processUpgrade() {
+            const btn = document.querySelector('.btn-upgrade');
+            btn.innerText = "PROCESSING SECURE TRANSACTION...";
+            btn.disabled = true;
+
+            // Simulate Payment Gateway Link (Stripe/PayPal)
+            setTimeout(() => {
+                alert("TRANSACTION VERIFIED. Your account has been upgraded to PRO MERCHANT tier.");
+                
+                // Update the Local Ledger
+                localStorage.setItem('current_user_tier', 'paid');
+                
+                window.location.href = 'profile.html';
+            }, 2500);
+        }
+    </script>
+
+</body>
+</html>
