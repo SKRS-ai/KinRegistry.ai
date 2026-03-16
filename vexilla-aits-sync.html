@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vexilla AITS Sync | Master Connectivity</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #0a0a0a; --kin-blue: #0077ff; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; padding: 40px; }
+        
+        .sync-container { max-width: 900px; margin: 0 auto; border: 1px solid #222; background: var(--kin-grey); padding: 40px; }
+        .header { border-bottom: 1px solid var(--kin-gold); padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: var(--kin-gold); letter-spacing: 5px; font-size: 1.2rem; }
+
+        /* NODES DISPLAY */
+        .node-map { display: flex; justify-content: space-around; margin: 40px 0; position: relative; }
+        .node { text-align: center; z-index: 2; }
+        .node-circle { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--kin-gold); display: flex; align-items: center; justify-content: center; background: #000; margin-bottom: 10px; font-size: 0.6rem; color: var(--kin-gold); box-shadow: 0 0 15px rgba(212,175,55,0.3); }
+        .line { position: absolute; top: 30px; left: 10%; right: 10%; height: 1px; background: #222; z-index: 1; }
+
+        /* SYNC LOG */
+        .sync-log { background: #000; border: 1px solid #333; height: 200px; padding: 15px; font-size: 0.65rem; color: #00ff41; overflow-y: auto; margin-top: 30px; }
+        .btn-sync { background: transparent; border: 1px solid var(--kin-gold); color: var(--kin-gold); padding: 15px 30px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; letter-spacing: 2px; }
+        .btn-sync:hover { background: var(--kin-gold); color: #000; }
+    </style>
+</head>
+<body>
+
+    <div class="sync-container">
+        <div class="header">
+            <h1>VEXILLA AITS SYNC ENGINE</h1>
+            <p style="font-size: 0.6rem; color: #555;">RECORDS SYNC: SOLOMON KIN RECORDS LLC <-> GITHUB CLOUD</p>
+        </div>
+
+        <div class="node-map">
+            <div class="line"></div>
+            <div class="node">
+                <div class="node-circle">MASTER<br>CORE</div>
+                <span style="font-size: 0.5rem;">DASHBOARD</span>
+            </div>
+            <div class="node">
+                <div class="node-circle" id="hub-status" style="border-color: var(--kin-blue); box-shadow: 0 0 15px rgba(0,119,255,0.3);">VEX<br>RELAY</div>
+                <span style="font-size: 0.5rem;">BALA CYNWYD</span>
+            </div>
+            <div class="node">
+                <div class="node-circle">GH<br>PAGES</div>
+                <span style="font-size: 0.5rem;">LIVE SITE</span>
+            </div>
+        </div>
+
+        
+
+        <div class="sync-log" id="log">
+            > Initializing AITS Sync Protocols...<br>
+            > Establishing handshake with admin@solomonkinrecords.com...<br>
+            > All Corporate Records Verified...<br>
+            > Ready for Master Push.
+        </div>
+
+        <div style="margin-top: 30px;">
+            <button class="btn-sync" onclick="startSync()">COMMENCE GLOBAL SYNC</button>
+        </div>
+    </div>
+
+    <script>
+        function startSync() {
+            const log = document.getElementById('log');
+            const lines = [
+                "> Scanning site-wide-editor.html for changes...",
+                "> Encrypting data packets (AES-256)...",
+                "> Pushing updates to GitHub Repository...",
+                "> Updating Next to Kin Records Master Ledger...",
+                "> Syncing with Bala Cynwyd Redundancy Node...",
+                "> SUCCESS: Assembly Up-to-Date."
+            ];
+            
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < lines.length) {
+                    log.innerHTML += `<br>${lines[i]}`;
+                    log.scrollTop = log.scrollHeight;
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    alert("GLOBAL SYNC COMPLETE. All changes are now live across the Assembly.");
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
