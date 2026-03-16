@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations Manual | Kin Pages Protocols</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0; display: grid; grid-template-columns: 280px 1fr;
+            height: 100vh; overflow: hidden;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            background: #0a0a0a; border-right: 2px solid var(--kin-gold);
+            padding: 30px; display: flex; flex-direction: column;
+        }
+
+        .sidebar h1 {
+            color: var(--kin-gold); font-size: 1.2rem; border-bottom: 2px solid var(--kin-gold);
+            padding-bottom: 10px; margin-bottom: 20px; text-align: center;
+        }
+
+        /* MANUAL CONTENT */
+        .help-main { overflow-y: scroll; padding: 60px; }
+        
+        .help-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 50px;
+        }
+
+        section { margin-bottom: 60px; }
+        h3 { color: var(--kin-gold); text-transform: uppercase; font-size: 1rem; border-left: 3px solid var(--kin-gold); padding-left: 15px; margin-bottom: 20px; }
+        
+        .protocol-box {
+            background: #0c0c0c; border: 1px solid var(--kin-border);
+            padding: 25px; margin-bottom: 20px;
+        }
+
+        .protocol-box h4 { margin: 0 0 10px 0; color: #fff; font-size: 0.9rem; }
+        .protocol-box p { font-size: 0.8rem; color: #888; line-height: 1.6; margin: 0; }
+
+        .step-list { list-style: decimal-leading-zero; padding-left: 20px; color: var(--kin-gold); font-size: 0.85rem; }
+        .step-list li { margin-bottom: 10px; }
+        .step-list span { color: #ccc; }
+
+        .warning-label {
+            color: #ff4444; font-size: 0.7rem; font-weight: bold; border: 1px solid #ff4444;
+            display: inline-block; padding: 5px 10px; margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="index.html" style="text-decoration:none;"><h1>KIN PAGES</h1></a>
+        <nav style="flex-grow:1;">
+            <a href="dashboard.html" style="display:block; color:#888; text-decoration:none; padding:10px 0; border-bottom:1px solid #1a1a1a; font-size:0.8rem;">DASHBOARD</a>
+            <a href="sitemap.html" style="display:block; color:#888; text-decoration:none; padding:10px 0; border-bottom:1px solid #1a1a1a; font-size:0.8rem;">MASTER INDEX</a>
+        </nav>
+        <div style="font-size:0.6rem; color:#444;">MANUAL VERSION 1.0.4</div>
+    </aside>
+
+    <main class="help-main">
+        <header class="help-header">
+            <h2 style="margin:0; font-size: 2rem;">Operations Manual</h2>
+            <span style="color:#444; font-size: 0.8rem;">SOVEREIGN PROTOCOLS FOR VERIFIED ASSOCIATES</span>
+        </header>
+
+        <section>
+            <h3>I. Entity Verification</h3>
+            <div class="protocol-box">
+                <h4>The Gatekeeper Protocol</h4>
+                <p>Entry into the Kin Pages requires a valid Employer Identification Number (EIN). Once submitted via the <b>Registration</b> terminal, your entity enters a 48-hour vetting period where the Gatekeeper verifies legal standing and sector alignment.</p>
+                <ul class="step-list" style="margin-top:20px;">
+                    <li><span>Submit EIN Credentials.</span></li>
+                    <li><span>Wait for Gatekeeper Authentication.</span></li>
+                    <li><span>Complete the Sovereign Association Mandate sign-off.</span></li>
+                </ul>
+            </div>
+        </section>
+
+        
+
+        <section>
+            <h3>II. Executing a Trade</h3>
+            <div class="protocol-box">
+                <h4>The Sovereign Handshake</h4>
+                <p>Transactions within the directory are formalized via the ScribeBoard terminal. A "Handshake" is a contractually binding acknowledgement between two EIN-verified entities.</p>
+                <ul class="step-list" style="margin-top:20px;">
+                    <li><span>Identify partner entity in the Directory.</span></li>
+                    <li><span>Initiate secure comms via ScribeBoard.</span></li>
+                    <li><span>The 10% Foundation Tax is automatically calculated by Vexilla AITS.</span></li>
+                    <li><span>Finalize and archive the trade receipt.</span></li>
+                </ul>
+                <div class="warning-label">FAILURE TO ALLOCATE THE 10% MANDATE RESULTS IN IMMEDIATE EIN REVOCATION.</div>
+            </div>
+        </section>
+
+        <section>
+            <h3>III. Utilizing Vexilla AITS</h3>
+            <div class="protocol-box">
+                <h4>Technical Assets</h4>
+                <p>Members are granted access to the AI Suite for provenance tracking and logistics optimization. Use the <b>AI Directory</b> to launch specific terminal nodes for your sector.</p>
+            </div>
+        </section>
+
+        <footer style="text-align:center; padding:40px; color:#222; font-size:0.7rem;">
+            // MANUAL SEALED BY SOLOMON KIN RECORDS // NO UNAUTHORIZED DUPLICATION //
+        </footer>
+    </main>
+
+</body>
+</html>
