@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Dashboard | Kin Pages Ads</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; display: flex; }
+        .sidebar { width: 250px; border-right: 1px solid var(--kin-gold); padding: 20px; height: 100vh; }
+        .main-content { flex-grow: 1; padding: 40px; overflow-y: scroll; }
+        .form-group { margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 20px; }
+        label { display: block; color: var(--kin-gold); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 10px; }
+        input, select, textarea { background: #111; border: 1px solid #333; color: #fff; padding: 10px; width: 100%; box-sizing: border-box; }
+        .tier-link { color: var(--kin-gold); font-size: 0.7rem; text-decoration: none; border: 1px solid var(--kin-gold); padding: 10px; display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h3>ENTITY TOOLS</h3>
+        <p style="font-size: 0.6rem; color: #555;">EIN: VERIFIED</p>
+        <nav>
+            <a href="index.html" style="color:#888; text-decoration:none; display:block; margin:10px 0;">← MAIN DIRECTORY</a>
+            <a href="#" class="tier-link">UPGRADE TRACTION (PAYMENT TIERS)</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h2>Business Classified Setup</h2>
+        <div class="form-group">
+            <label>Cultural/Ethnic Category</label>
+            <select>
+                <option>Any / Multicultural</option>
+                <option>African-American / Black</option>
+                <option>Hispanic / Latino</option>
+                <option>Asian-Pacific</option>
+                <option>Indigenous</option>
+                <option>South Asian</option>
+                <option>Middle Eastern</option>
+                <option>European / White</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Gender & Pronoun Ownership</label>
+            <select>
+                <option>Any Gender</option>
+                <option>Women-Owned (She/Her)</option>
+                <option>Men-Owned (He/Him)</option>
+                <option>Non-Binary / Genderqueer (They/Them)</option>
+                <option>Trans-Owned</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Business Description & History (Years in Operation)</label>
+            <textarea rows="4" placeholder="Describe your legacy..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Media Upload (Images & Video Brief)</label>
+            <input type="file" multiple>
+            <p style="font-size:0.6rem; color:#444;">Video uploads restricted to Associate/Sovereign Tiers.</p>
+        </div>
+
+        <button style="background:var(--kin-gold); color:black; padding:15px 30px; border:none; font-weight:bold; cursor:pointer;">PUBLISH TO DIRECTORY</button>
+    </main>
+</body>
+</html>
