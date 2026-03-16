@@ -1,0 +1,90 @@
+<div class="container">
+    <div id="corp-auth-box" class="auth-card">
+        <div class="auth-header">
+            <h3>CORPORATE COMMAND LOGIN</h3>
+            <p>RESTRICTED: @SolomonKinRecords.com Personnel Only</p>
+        </div>
+        
+        <div id="login-fields">
+            <input type="email" id="corp-email" placeholder="Employee Email (@SolomonKinRecords.com)">
+            <input type="password" id="corp-pass" placeholder="Security Clearance Key">
+            <div style="display: flex; gap: 10px;">
+                <button onclick="corpLogin()" class="btn-auth">SIGN IN</button>
+                <button onclick="toggleRegister()" class="btn-auth-alt">REQUEST REGISTRATION</button>
+            </div>
+        </div>
+
+        <div id="reg-fields" style="display:none;">
+            <input type="text" id="reg-name" placeholder="Full Legal Name">
+            <input type="email" id="reg-corp-email" placeholder="Assigned Corp Email">
+            <input type="password" id="reg-pass" placeholder="Create Security Key">
+            <button onclick="corpRegister()" class="btn-auth">SUBMIT CREDENTIALS</button>
+            <p onclick="toggleRegister()" style="cursor:pointer; font-size: 0.6rem; margin-top:10px; color: #555;">BACK TO LOGIN</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .auth-card { background: #0a0a0a; border: 1px solid var(--kin-gold); padding: 30px; margin-bottom: 50px; }
+    .auth-header h3 { color: var(--kin-gold); font-size: 0.8rem; margin: 0; letter-spacing: 3px; }
+    .auth-header p { font-size: 0.5rem; color: #555; margin: 5px 0 20px 0; }
+    
+    input { width: 100%; background: #000; border: 1px solid #222; color: #fff; padding: 12px; margin-bottom: 10px; font-family: inherit; box-sizing: border-box; }
+    input:focus { border-color: var(--kin-gold); outline: none; }
+    
+    .btn-auth { background: var(--kin-gold); color: #000; border: none; padding: 12px 20px; font-weight: bold; cursor: pointer; font-size: 0.7rem; width: 100%; }
+    .btn-auth-alt { background: transparent; color: var(--kin-gold); border: 1px solid var(--kin-gold); padding: 12px 20px; font-weight: bold; cursor: pointer; font-size: 0.7rem; width: 100%; }
+</style>
+
+<script>
+    // 1. STRICT DOMAIN VALIDATION
+    function isValidCorpEmail(email) {
+        return email.toLowerCase().endsWith('@solomonkinrecords.com');
+    }
+
+    // 2. CORPORATE REGISTRATION
+    function corpRegister() {
+        const email = document.getElementById('reg-corp-email').value;
+        const pass = document.getElementById('reg-pass').value;
+        const name = document.getElementById('reg-name').value;
+
+        if (!isValidCorpEmail(email)) {
+            alert("ACCESS DENIED: You must use a @SolomonKinRecords.com email address.");
+            return;
+        }
+
+        const corpUser = { email, pass, name, role: 'Employee', level: 1 };
+        localStorage.setItem('corp_user_' + email, JSON.stringify(corpUser));
+        alert("Credentials Logged to Vexilla Ledger. Proceed to Login.");
+        toggleRegister();
+    }
+
+    // 3. CORPORATE LOGIN
+    function corpLogin() {
+        const email = document.getElementById('corp-email').value;
+        const pass = document.getElementById('corp-pass').value;
+
+        // MASTER ADMIN OVERRIDE
+        if (email === 'admin@solomonkinrecords.com' && pass === 'MasterControl2026') {
+            sessionStorage.setItem('active_master_admin', 'true');
+            window.location.href = 'master-dashboard.html';
+            return;
+        }
+
+        const storedUser = JSON.parse(localStorage.getItem('corp_user_' + email));
+        
+        if (storedUser && storedUser.pass === pass) {
+            sessionStorage.setItem('active_corp_session', email);
+            window.location.href = 'master-dashboard.html';
+        } else {
+            alert("SECURITY ALERT: Invalid Corporate Credentials.");
+        }
+    }
+
+    function toggleRegister() {
+        const l = document.getElementById('login-fields');
+        const r = document.getElementById('reg-fields');
+        l.style.display = l.style.display === 'none' ? 'block' : 'none';
+        r.style.display = r.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
