@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resource Library | Kin Pages Knowledge Base</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #333;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0;
+            display: grid; grid-template-columns: 280px 1fr; height: 100vh;
+        }
+
+        /* CATEGORY SIDEBAR */
+        .lib-sidebar {
+            background: #000; border-right: 1px solid var(--kin-gold);
+            padding: 30px;
+        }
+
+        .lib-nav { list-style: none; padding: 0; }
+        .lib-nav li { margin-bottom: 20px; }
+        .lib-nav a {
+            color: #888; text-decoration: none; font-size: 0.8rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .lib-nav a:hover { color: var(--kin-gold); }
+
+        /* CONTENT AREA */
+        .lib-main { overflow-y: scroll; padding: 50px; }
+        
+        .lib-header {
+            border-bottom: 4px double var(--kin-gold);
+            padding-bottom: 20px; margin-bottom: 40px;
+        }
+
+        .doc-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-card {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 20px; display: flex; flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .doc-card:hover { border-color: var(--kin-gold); }
+
+        .doc-type { font-size: 0.5rem; color: var(--kin-gold); text-transform: uppercase; margin-bottom: 10px; }
+        .doc-title { font-size: 0.9rem; font-weight: bold; margin-bottom: 15px; color: #fff; }
+        .doc-meta { font-size: 0.65rem; color: #555; margin-top: auto; }
+
+        .btn-download {
+            margin-top: 15px; background: transparent; border: 1px solid #444;
+            color: #fff; padding: 8px; font-size: 0.7rem; cursor: pointer;
+            text-align: center; text-decoration: none;
+        }
+        .btn-download:hover { border-color: var(--kin-gold); color: var(--kin-gold); }
+
+        .restricted-tag { font-size: 0.55rem; color: #ff4444; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <aside class="lib-sidebar">
+        <h2 style="color:var(--kin-gold); font-size:1rem; margin-bottom:30px;">RESOURCES</h2>
+        <ul class="lib-nav">
+            <li><a href="#">📁 LEGAL TEMPLATES</a></li>
+            <li><a href="#">📁 CULTURAL ARCHIVES</a></li>
+            <li><a href="#">📁 TRADE LOGISTICS</a></li>
+            <li><a href="#">📁 IDENTITY PROTECTION</a></li>
+            <li><a href="#">📁 VEXILLA AITS MANUALS</a></li>
+        </ul>
+    </aside>
+
+    <main class="lib-main">
+        <header class="lib-header">
+            <h1 style="margin:0; font-size:1.8rem;">Knowledge Repository</h1>
+            <p style="color:#555; font-size:0.75rem;">THE SHARED INTELLIGENCE OF THE SOLOMON KIN ASSEMBLY</p>
+        </header>
+
+        
+
+        <div class="doc-grid">
+            <div class="doc-card">
+                <span class="doc-type">Legal Framework</span>
+                <div class="doc-title">Multicultural Trade Bylaws: Entity Protection v2.1</div>
+                <div class="doc-meta">CONTRIBUTOR: Heritage Law Group</div>
+                <a href="#" class="btn-download">DOWNLOAD PDF</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-type">Identity Manual</span>
+                <div class="doc-title">Safety Protocols for Trans-Owned Enterprises in Logistics</div>
+                <div class="doc-meta">CONTRIBUTOR: Luna Tech Labs</div>
+                <a href="#" class="btn-download">DOWNLOAD PDF</a>
+            </div>
+
+            <div class="doc-card" style="border-style: dashed;">
+                <span class="doc-type">Sovereign Tier Only</span>
+                <div class="doc-title">10-Year Legacy Financial Roadmap</div>
+                <span class="restricted-tag">LOCKED: REQUIRES SOVEREIGN CLEARANCE</span>
+                <div class="doc-meta">CONTRIBUTOR: Solomon Kin Records</div>
+                <a href="advance-services.html" class="btn-download">UPGRADE TO ACCESS</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-type">Cultural Asset</span>
+                <div class="doc-title">Indigenous Symbolism in Canvas Art (1999 Collection)</div>
+                <div class="doc-meta">CONTRIBUTOR: Koinonia Collective</div>
+                <a href="#" class="btn-download">DOWNLOAD PDF</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; text-align: center; border-top: 1px solid #111; padding-top: 20px;">
+            <p style="font-size: 0.6rem; color: #333;">// ASSETS PROTECTED BY VEXILLA WATERMARKING // DO NOT DISTRIBUTE OUTSIDE THE ASSEMBLY //</p>
+        </div>
+    </main>
+
+</body>
+</html>
