@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classifieds | The Kin Pages Town Square</title>
+    <style>
+        :root {
+            --kin-gold: #d4af37;
+            --kin-black: #050505;
+            --kin-grey: #111;
+            --kin-border: #222;
+        }
+
+        body {
+            background-color: var(--kin-black); color: #eee;
+            font-family: 'Courier New', monospace; margin: 0; padding: 0;
+        }
+
+        /* HEADER & FILTERS */
+        .page-header {
+            padding: 60px 40px; text-align: center; border-bottom: 1px solid var(--kin-border);
+            background: linear-gradient(to bottom, #0a0a0a, var(--kin-black));
+        }
+
+        .page-header h1 { font-size: 2.5rem; letter-spacing: 10px; color: var(--kin-gold); margin: 0; }
+
+        .filter-bar {
+            max-width: 1200px; margin: -30px auto 40px; background: var(--kin-grey);
+            border: 1px solid var(--kin-gold); padding: 20px;
+            display: flex; gap: 20px; justify-content: center;
+        }
+
+        .filter-bar select, .filter-bar input {
+            background: #000; border: 1px solid #333; color: #fff; padding: 10px; font-family: inherit;
+        }
+
+        /* CLASSIFIED GRID */
+        .listings-container {
+            max-width: 1200px; margin: 0 auto 100px; padding: 0 20px;
+            display: grid; grid-template-columns: 1fr; gap: 25px;
+        }
+
+        /* AD STYLES */
+        .ad-card {
+            background: var(--kin-grey); border: 1px solid var(--kin-border);
+            padding: 25px; display: grid; grid-template-columns: 1fr 2fr; gap: 30px;
+            transition: 0.3s;
+        }
+
+        .ad-card:hover { border-color: var(--kin-gold); }
+
+        /* TEXT-ONLY (FREE) VERSION */
+        .ad-card.text-only { grid-template-columns: 1fr; border-left: 4px solid #333; }
+
+        .ad-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .ad-img { width: 100%; aspect-ratio: 1; background: #000; border: 1px solid #222; object-fit: cover; }
+
+        .ad-info h2 { color: var(--kin-gold); font-size: 1.2rem; margin: 0 0 10px 0; text-transform: uppercase; }
+        .ad-meta { font-size: 0.65rem; color: #555; margin-bottom: 15px; }
+        .ad-description { font-size: 0.85rem; line-height: 1.6; color: #ccc; margin-bottom: 20px; }
+
+        .ad-contact { display: flex; gap: 20px; font-size: 0.75rem; border-top: 1px solid #222; padding-top: 15px; }
+        .ad-contact b { color: var(--kin-gold); }
+
+        .btn-favorite { background: transparent; border: 1px solid var(--kin-gold); color: var(--kin-gold); padding: 5px 15px; cursor: pointer; font-size: 0.6rem; }
+        .btn-favorite:hover { background: var(--kin-gold); color: #000; }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>CLASSIFIEDS</h1>
+        <p style="color: #444; font-size: 0.8rem; margin-top: 10px;">MULTICULTURAL TRADE & ANNOUNCEMENTS</p>
+    </header>
+
+    <div class="filter-bar">
+        <select><option>All Categories</option><option>Services</option><option>Artisans</option><option>Tech</option></select>
+        <input type="text" placeholder="Search Listings...">
+        <button style="background: var(--kin-gold); border:none; padding: 10px 20px; font-weight:bold; cursor:pointer;">FILTER</button>
+    </div>
+
+    
+
+    <main class="listings-container">
+
+        <div class="ad-card">
+            <div class="ad-gallery">
+                <div class="ad-img" style="background-image: url('art1.jpg'); background-size: cover;"></div>
+                <div class="ad-img" style="background-image: url('art2.jpg'); background-size: cover;"></div>
+                <div class="ad-img" style="background-image: url('art3.jpg'); background-size: cover;"></div>
+            </div>
+            <div class="ad-info">
+                <div class="ad-meta">ID: SKR-882 | CATEGORY: FINE ART | NODE: ATL-01</div>
+                <h2>Kin Canvas Collective</h2>
+                <p class="ad-description">
+                    Bespoke multicultural canvas art. We specialize in archival quality prints that tell the story of the assembly. Every purchase supports the 10% Foundation Mandate.
+                </p>
+                <div class="ad-contact">
+                    <span><b>EMAIL:</b> info@kincanvas.com</span>
+                    <span><b>PHONE:</b> 404-555-0199</span>
+                    <button class="btn-favorite">★ SAVE TO PROFILE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-card text-only">
+            <div class="ad-info">
+                <div class="ad-meta">ID: SKR-412 | CATEGORY: CONSULTING | NODE: NYC-04</div>
+                <h2>Luna Strategic Partners</h2>
+                <p class="ad-description">
+                    Providing business development and EIN guidance for multicultural entrepreneurs joining the Kin Pages ecosystem. First consultation is always community-funded.
+                </p>
+                <div class="ad-contact">
+                    <span><b>EMAIL:</b> contact@luna-partners.com</span>
+                    <button class="btn-favorite">★ SAVE TO PROFILE</button>
+                </div>
+            </div>
+        </div>
+
+        </main>
+
+    <footer style="text-align:center; padding: 60px; color: #222; border-top: 1px solid #111;">
+        <p>DO YOU HAVE A SOVEREIGN BUSINESS? <a href="registration.html" style="color:var(--kin-gold);">LIST IT FOR FREE.</a></p>
+        <p style="font-size: 0.5rem; letter-spacing: 5px; margin-top: 20px;">VEXILLA AITS PUBLIC LEDGER // 2026</p>
+    </footer>
+
+</body>
+</html>
