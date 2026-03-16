@@ -3,217 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kin Pages | Digital Continuation of Tri-State Minority Yellow Pages</title>
+    <title>Kin Pages | Solomon Kin Records LLC Gateway</title>
     <style>
         :root {
             --kin-gold: #d4af37;
             --kin-black: #050505;
-            --kin-grey: #121212;
-            --kin-text-dim: #a0a0a0; /* Lighter grey for visibility on dark backgrounds */
-            --glass: rgba(255, 255, 255, 0.03);
+            --kin-grey: #111;
+            --text-main: #e0e0e0;
         }
 
         body {
             background-color: var(--kin-black);
-            color: #eee;
+            color: var(--text-main);
             font-family: 'Courier New', monospace;
             margin: 0;
             overflow-x: hidden;
         }
 
-        /* NAVIGATION & AUTH */
+        /* VANGUARD SYSTEM OVERLAY */
+        .vanguard-pulse {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 75%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* NAVIGATION */
         nav {
-            background: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid var(--kin-gold);
+            background: #000;
+            border-bottom: 1px solid #222;
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .nav-logo { color: var(--kin-gold); font-weight: bold; letter-spacing: 5px; text-decoration: none; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: var(--kin-text-dim); text-decoration: none; font-size: 0.7rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-brand { color: var(--kin-gold); font-weight: bold; letter-spacing: 3px; font-size: 0.8rem; }
+        .nav-links a { color: #666; text-decoration: none; font-size: 0.6rem; margin-left: 20px; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--kin-gold); }
 
-        /* HERO SECTION */
+        /* HERO HEADER */
         header {
-            height: 45vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+            z-index: 2;
+            position: relative;
         }
 
-        h1 { font-size: 4rem; letter-spacing: 15px; margin: 0; color: var(--kin-gold); text-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-        .legacy-tag { font-size: 0.7rem; color: #555; letter-spacing: 2px; margin-top: 10px; }
+        .sys-id { font-size: 0.6rem; color: var(--kin-gold); letter-spacing: 5px; margin-bottom: 10px; }
+        h1 { font-size: 3rem; letter-spacing: 15px; margin: 0; color: #fff; text-transform: uppercase; }
+        .tagline { font-size: 0.7rem; color: #444; margin-top: 10px; letter-spacing: 6px; }
 
-        /* COMPREHENSIVE SEARCH ENGINE */
-        .master-search {
-            max-width: 1100px;
-            margin: -40px auto 40px;
+        /* SEARCH HUB */
+        .search-container {
+            max-width: 900px;
+            margin: -30px auto 40px;
             background: var(--kin-grey);
-            border: 1px solid var(--kin-gold);
-            padding: 25px;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr auto;
-            gap: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #222;
+            padding: 30px;
+            position: relative;
+            z-index: 10;
         }
 
-        <div class="news-ticker-container" style="background: #080808; border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 10px 0; overflow: hidden; white-space: nowrap;">
-    <div class="ticker-content" style="display: inline-block; animation: ticker 30s linear infinite; color: var(--kin-gold); font-size: 0.65rem; letter-spacing: 2px;">
-        [LETHAL LEDGER WIRE] ● GLOBAL TRADE UPDATE: SHIPPINGS DELAYS IN NORTH ATLANTIC ● TECH: VEXILLA AITS V.110 DEPLOYMENT SUCCESSFUL ● MUSIC: 3DAYZ AHEAD RDA DISRUPTION TOPPING CHARTS ● MARKET: GOLD TRADING UP 1.2%...
-    </div>
-</div>
+        .search-box { display: flex; border: 1px solid #333; background: #000; }
+        .search-box input { flex: 1; background: transparent; border: none; padding: 15px; color: var(--kin-gold); font-family: inherit; }
+        .btn-query { background: var(--kin-gold); border: none; padding: 0 30px; font-weight: bold; cursor: pointer; }
 
-<style>
-@keyframes ticker {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-</style>
-
-        input, select { background: #000; border: 1px solid #333; color: #fff; padding: 12px; font-family: inherit; font-size: 0.8rem; }
-        .btn-enter { background: var(--kin-gold); color: #000; border: none; padding: 0 25px; font-weight: bold; cursor: pointer; }
-
-        /* FOOTER: ENHANCED VISIBILITY */
-        footer {
-            border-top: 1px solid #222;
-            padding: 80px 40px;
-            background: #080808;
-            margin-top: 60px;
+        /* --- THE LETHAL LEDGER NEWS WIRE (ENHANCED) --- */
+        .news-wire {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: #000;
+            border: 1px solid #222;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
         }
 
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-        }
-
-        .footer-col h4 { 
-            color: var(--kin-gold); 
-            font-size: 0.75rem; 
-            margin-bottom: 25px; 
-            letter-spacing: 2px; 
-        }
-
-        .footer-col a { 
-            color: var(--kin-text-dim); /* Optimized lighter text */
-            text-decoration: none; 
-            display: block; 
-            margin-bottom: 12px; 
-            font-size: 0.7rem; 
-            transition: 0.2s;
-        }
-
-        .footer-col a:hover { color: #fff; }
-
-        <div class="footer-col">
-    <h4>Sovereign Entry</h4>
-    <a href="next-to-kin-records.html" style="color: var(--kin-gold); font-weight: bold;">NEXT TO KIN RECORDS</a>
-</div>
-
-        .hq-info {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #1a1a1a;
-            color: #444;
+        .wire-label {
+            background: var(--kin-gold);
+            color: #000;
             font-size: 0.6rem;
-            letter-spacing: 3px;
+            font-weight: bold;
+            padding: 0 15px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            z-index: 5;
+            letter-spacing: 1px;
+        }
+
+        .ticker-wrap { flex: 1; overflow: hidden; }
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: ticker-animation 40s linear infinite;
+            color: #888;
+            font-size: 0.7rem;
+        }
+
+        @keyframes ticker-animation {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-200%, 0, 0); }
+        }
+
+        .ticker-item { display: inline-block; padding: 0 40px; }
+        .ticker-item span { color: var(--kin-gold); font-weight: bold; margin-right: 10px; }
+
+        /* SECTORS */
+        .sector-row {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 40px;
+        }
+
+        .card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 25px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--kin-gold); background: #0d0d0d; }
+        .card h3 { color: var(--kin-gold); font-size: 0.75rem; letter-spacing: 2px; margin: 0 0 10px; }
+        .card p { color: #555; font-size: 0.65rem; line-height: 1.5; }
+
+        /* SYSTEM FEED */
+        .status-bar {
+            position: fixed;
+            bottom: 0; width: 100%;
+            background: #000;
+            border-top: 1px solid #222;
+            padding: 8px 40px;
+            font-size: 0.55rem;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 </head>
 <body>
 
+    <div class="vanguard-pulse"></div>
+
     <nav>
-        <a href="index.html" class="nav-logo">KIN PAGES</a>
+        <div class="nav-brand">KIN PAGES // VEXILLA AITS [cite: 8]</div>
         <div class="nav-links">
-            <a href="logo-kin.html">LOGO KIN</a>
-            <a href="canvas-art.html">CANVAS VAULT</a>
-            <a href="classifieds.html">CLASSIFIEDS</a>
-            <a href="registration.html">JOIN ASSEMBLY</a>
-            <a href="login.html">LOGIN</a>
+            <a href="master-sitemap.html">Sitemap</a>
+            <a href="register-tier.html">Membership</a>
+            <a href="identity-vault.html">Identity Vault [cite: 27]</a>
+            <a href="global-logistics.html">Logistics</a>
         </div>
     </nav>
 
     <header>
-        <h1>KIN PAGES</h1>
-        <div class="legacy-tag">Digital Continuation of Tri-State Minority Yellow Pages</div>
+        <div class="sys-id">VEXILLA AUTONOMOUS COMMAND [cite: 9]</div>
+        <h1>SOLOMON KIN</h1>
+        <div class="tagline">RECORDS • TRADING • TECHNOLOGY [cite: 1, 4]</div>
     </header>
 
-    <section class="master-search">
-        <input type="text" placeholder="Search Listings, Art, or Logos...">
-        
-        <select>
-            <option>Cultural Hubs</option>
-            <option>African American (Legacy)</option>
-            <option>Hispanic / Latino</option>
-            <option>Asian Pacific</option>
-            <option>Indigenous Trade</option>
-        </select>
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" placeholder="Query Master Ledger (IBINGOD, SKR, AEAH)... [cite: 1, 24]">
+            <button class="btn-query">SEARCH</button>
+        </div>
+    </div>
 
-        <select>
-            <option>Identity / Pronouns</option>
-            <option>Woman-Owned (She/Her)</option>
-            <option>Man-Owned (He/Him)</option>
-            <option>Non-Binary (They/Them)</option>
-            <option>Veteran Owned</option>
-        </select>
-
-        <button class="btn-enter" onclick="location.href='classifieds.html'">ENTER</button>
-    </section>
-
-    
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Sovereign Entry</h4>
-                <a href="gateway.html">System Gateway</a>
-                <a href="gatekeeper.html">The Gatekeeper</a>
-                <a href="login.html">Member Login</a>
-                <a href="registration.html">Join Assembly</a>
-                <a href="profile.html">Sovereign Dashboard</a>
-            </div>
-            <div class="footer-col">
-                <h4>Trade & Art</h4>
-                <a href="logo-kin.html">LOGO KIN Directory</a>
-                <a href="classifieds.html">Classified Square</a>
-                <a href="canvas-art.html">Canvas Vault</a>
-                <a href="checkout.html">Acquisition Ledger</a>
-                <a href="manifest-generator.html">Shipping Manifest</a>
-            </div>
-            <div class="footer-col">
-                <h4>Community & Legacy</h4>
-                <a href="about-us.html">Our Story (Tri-State)</a>
-                <a href="favorites.html">My Private Vault</a>
-                <a href="commune.html">Private Forum</a>
-                <a href="ttng-fellowship.html">Youth Fellowship</a>
-                <a href="impact-2026.html">Mandate Report</a>
-            </div>
-            <div class="footer-col">
-                <h4>System Tools</h4>
-                <a href="system-status.html">Vexilla Heartbeat</a>
-                <a href="sys-admin.html">Admin Terminal</a>
-                <a href="library.html">Resource Library</a>
-                <a href="global-network.html">Network Map</a>
-                <a href="transition-protocol.html">Launch Logic</a>
+    <div class="news-wire">
+        <div class="wire-label">LETHAL LEDGER WIRE </div>
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <div class="ticker-item"><span>LIVE:</span> IBINGOD Trade Im/Ex Logs Synchronized [cite: 1]</div>
+                <div class="ticker-item"><span>TECH:</span> Vexilla AITS Vanguard Collective Online [cite: 8]</div>
+                <div class="ticker-item"><span>MEDIA:</span> The Filth Factor YouTube Session Live </div>
+                <div class="ticker-item"><span>TRADE:</span> Global Citizen Joe Wholesale Clearance [cite: 22]</div>
+                <div class="ticker-item"><span>CAUSE:</span> TBBLUSA National Identity Bureau Audit [cite: 26, 27]</div>
+                <div class="ticker-item"><span>MUSIC:</span> 3Dayz Ahead RDA Disruption EPK Updated [cite: 14]</div>
             </div>
         </div>
+    </div>
 
-        <div class="hq-info">
-            PO BOX 2371, BALA CYNWYD, PA 19004-9998 // ESTABLISHED 1999 // YOUR LINK TO MINORITY BUSINESS
-        </div>
-    </footer>
+    <div class="sector-row">
+        <a href="global-logistics.html" class="card">
+            <h3>LOGISTICS & TRADE [cite: 1]</h3>
+            <p>Managing IBINGOD Trade [cite: 1], Global Citizen Joe [cite: 22], and Clean Blue Green Corp[cite: 3].</p>
+        </a>
+        <a href="media-broadcast.html" class="card">
+            <h3>MEDIA BROADCAST </h3>
+            <p>Solomon Kin Records Media Group [cite: 17], Dockinstation TV [cite: 17], and Lethal Ledger.</p>
+        </a>
+        <a href="profile-dashboard.html" class="card">
+            <h3>PROFILE FORGE</h3>
+            <p>Enterprise command for Executive Members. Manage Ad Privileges and System Identity.</p>
+        </a>
+    </div>
+
+    <div class="status-bar">
+        <div>● VEXILLA CORE: OPERATIONAL [cite: 8]</div>
+        <div>BALA CYNWYD HUB // EST. 1999 [cite: 1]</div>
+        <div>SECURE SOVEREIGN ACCESS</div>
+    </div>
 
 </body>
 </html>
