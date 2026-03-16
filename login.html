@@ -1,121 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Member Login | Kin Pages Access</title>
-    <style>
-        :root {
-            --kin-gold: #d4af37;
-            --kin-black: #050505;
-            --kin-grey: #111;
+<script>
+    // THE CREDENTIAL GUARD
+    function handleLogin() {
+        const email = document.getElementById('login-email').value;
+        const pass = document.getElementById('login-pass').value;
+        const btn = document.querySelector('.btn-login-main');
+
+        // 1. Basic Validation
+        if (!email.includes('@') || pass.length < 6) {
+            alert("SECURITY ALERT: Invalid Credential Format.");
+            return;
         }
 
-        body {
-            background-color: var(--kin-black); color: #eee;
-            font-family: 'Courier New', monospace; margin: 0; 
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-        }
+        btn.innerText = "VALIDATING VEXILLA KEY...";
 
-        .login-box {
-            width: 100%; max-width: 450px; background: var(--kin-grey);
-            border: 1px solid var(--kin-gold); padding: 50px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-        }
+        // 2. Database Check (Simulated for GitHub Pages)
+        // In a live environment, this calls your Firebase/Supabase Auth
+        const mockDatabaseUser = JSON.parse(localStorage.getItem('kin_user_' + email));
 
-        h1 { color: var(--kin-gold); text-align: center; letter-spacing: 5px; font-size: 1.5rem; margin-bottom: 40px; }
-
-        .input-group { margin-bottom: 25px; }
-        label { display: block; font-size: 0.7rem; color: #666; margin-bottom: 8px; text-transform: uppercase; }
-        input {
-            width: 100%; background: #000; border: 1px solid #333; color: #fff;
-            padding: 15px; font-family: inherit; box-sizing: border-box;
-        }
-
-        .btn-login-main {
-            width: 100%; background: var(--kin-gold); color: #000; border: none;
-            padding: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .social-grid {
-            margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
-            border-top: 1px solid #222; padding-top: 30px;
-        }
-
-        .btn-social {
-            background: #000; border: 1px solid #333; color: #888;
-            padding: 10px; font-size: 0.6rem; cursor: pointer; text-align: center;
-            transition: 0.3s;
-        }
-
-        .btn-social:hover { border-color: var(--kin-gold); color: #fff; }
-
-        .footer-links { text-align: center; margin-top: 30px; font-size: 0.7rem; }
-        .footer-links a { color: var(--kin-gold); text-decoration: none; }
-    </style>
-</head>
-<body>
-
-    <div class="login-box">
-        <h1>MEMBER ACCESS</h1>
-
-        <div class="input-group">
-            <label>Email Address</label>
-            <input type="email" id="login-email" placeholder="Sovereign Credentials">
-        </div>
-
-        <div class="input-group">
-            <label>Security Password</label>
-            <input type="password" id="login-pass">
-        </div>
-
-        <button class="btn-login-main" onclick="handleLogin()">ENTER VAULT</button>
-
-        <div class="social-grid">
-            <div class="btn-social" onclick="socialRedirect('Google')">GOOGLE</div>
-            <div class="btn-social" onclick="socialRedirect('X')">X (TWITTER)</div>
-            <div class="btn-social" onclick="socialRedirect('Microsoft')">MICROSOFT</div>
-        </div>
-
-        <div class="footer-links">
-            <p>New to the Assembly? <a href="registration.html">Join Here</a></p>
-        </div>
-    </div>
-
-    
-
-    <script>
-        function handleLogin() {
-            const email = document.getElementById('login-email').value;
-            const pass = document.getElementById('login-pass').value;
-            const btn = document.querySelector('.btn-login-main');
-
-            if(email && pass) {
-                btn.innerText = "AUTHENTICATING...";
-                // Simulate session creation
-                localStorage.setItem('kin_pages_session', 'active');
-                
-                setTimeout(() => {
-                    window.location.href = 'profile.html';
-                }, 1000);
+        setTimeout(() => {
+            if (mockDatabaseUser && mockDatabaseUser.password === pass) {
+                // SUCCESS: Set Secure Session
+                localStorage.setItem('kin_session_active', 'true');
+                localStorage.setItem('current_user_tier', mockDatabaseUser.tier); // 'basic' or 'paid'
+                window.location.href = 'profile.html';
             } else {
-                alert("Please enter valid credentials.");
+                btn.innerText = "ACCESS DENIED";
+                alert("ERROR: Credentials not found in the Assembly Ledger. Please Register.");
+                btn.innerText = "ENTER VAULT";
             }
-        }
+        }, 1200);
+    }
 
-        function socialRedirect(platform) {
-            console.log("Initiating " + platform + " OAuth Handshake...");
-            localStorage.setItem('kin_pages_session', 'active');
-            window.location.href = 'profile.html';
-        }
-
-        // Allow 'Enter' key to trigger login
-        document.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                handleLogin();
-            }
-        });
-    </script>
-
-</body>
-</html>
+    // 3. SOCIAL CREDENTIAL HANDSHAKE (Google, X, Microsoft)
+    function socialRedirect(platform) {
+        console.log(`Contacting ${platform} Auth Servers...`);
+        
+        // This simulates the OAuth callback
+        // When actually connecting to Google/X, you will replace this with their API keys
+        alert(`Redirecting to ${platform} Secure Sign-In...`);
+        
+        // Mocking a successful social login as a 'basic' user
+        localStorage.setItem('kin_session_active', 'true');
+        localStorage.setItem('current_user_tier', 'basic'); 
+        window.location.href = 'profile.html';
+    }
+</script>
