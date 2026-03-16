@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration | Kin Pages Sovereign Village</title>
+    <style>
+        :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --error-red: #ff3b3b; }
+        body { background: var(--kin-black); color: #eee; font-family: 'Courier New', monospace; margin: 0; padding: 40px 0; }
+        .reg-container { max-width: 700px; margin: 0 auto; background: var(--kin-grey); border: 1px solid #222; padding: 40px; }
+        h2 { color: var(--kin-gold); letter-spacing: 4px; text-transform: uppercase; font-size: 1.2rem; border-bottom: 1px solid var(--kin-gold); padding-bottom: 10px; }
+        
+        .form-section { margin-bottom: 30px; }
+        .section-label { font-size: 0.6rem; color: var(--kin-gold); margin-bottom: 15px; display: block; letter-spacing: 2px; }
+        
+        .input-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.7rem; color: #666; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px; font-family: inherit; box-sizing: border-box; }
+        input:focus { border-color: var(--kin-gold); outline: none; }
+
+        /* PAID TIER ONLY STYLING */
+        #billing-module { border: 1px solid var(--kin-gold); padding: 20px; background: #0c0c0c; display: none; margin-top: 20px; }
+        .tier-badge { background: var(--kin-gold); color: #000; padding: 2px 8px; font-weight: bold; font-size: 0.6rem; float: right; }
+
+        .btn-submit { background: var(--kin-gold); color: #000; border: none; width: 100%; padding: 15px; font-weight: bold; cursor: pointer; letter-spacing: 2px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="reg-container">
+    <div id="tier-indicator" class="tier-badge">BASIC ACCESS</div>
+    <h2>ACCOUNT REGISTRATION</h2>
+    <p style="font-size: 0.6rem; color: #555; margin-bottom: 30px;">IDENTITY VERIFICATION SYSTEM // KIN PAGES DIRECTORY</p>
+
+    <form id="regForm" onsubmit="return processRegistration(event)">
+        <div class="form-section">
+            <span class="section-label">01. LEGAL IDENTITY & CREDENTIALS</span>
+            <div style="display: flex; gap: 15px;">
+                <div class="input-group" style="flex:1;">
+                    <label>First Name</label>
+                    <input type="text" id="fname" required>
+                </div>
+                <div class="input-group" style="flex:1;">
+                    <label>Last Name</label>
+                    <input type="text" id="lname" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Corporate/Personal Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <div class="input-group" style="flex:1;">
+                    <label>Screen Name (Public Handle)</label>
+                    <input type="text" id="screen_name" required placeholder="@handle">
+                </div>
+                <div class="input-group" style="flex:1;">
+                    <label>Master Password</label>
+                    <input type="password" id="pass" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <span class="section-label">02. KIN AD PRIVILEGES</span>
+            <select id="tier-select" onchange="toggleTier()">
+                <option value="basic">BASIC (Free - Text Only, 1 Profile)</option>
+                <option value="executive">EXECUTIVE ($250/yr - Rich Media, 5 Profiles)</option>
+                <option value="ultimate">ULTIMATE ($1000/yr - Full Broadcast, 5 Profiles)</option>
+            </select>
+        </div>
+
+        <div id="billing-module">
+            <span class="section-label" style="color: #fff;">03. EXECUTIVE BILLING & KYC</span>
+            <div class="input-group">
+                <label>Billing Address</label>
+                <input type="text" id="address" placeholder="Street Address">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="City" style="flex:2;">
+                <input type="text" placeholder="ZIP" style="flex:1;">
+            </div>
+            <div class="input-group" style="margin-top: 15px;">
+                <label>Credit Card Information</label>
+                <input type="text" placeholder="0000 0000 0000 0000">
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <input type="text" placeholder="MM/YY">
+                    <input type="text" placeholder="CVC">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section" style="margin-top: 30px;">
+            <span class="section-label">04. PRIMARY BUSINESS PROFILE</span>
+            <div class="input-group">
+                <label>Official Business Name</label>
+                <input type="text" id="biz_name" required>
+            </div>
+            <div class="input-group">
+                <label>Business Description</label>
+                <textarea id="biz_desc" rows="3" placeholder="Describe your services..."></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">INITIALIZE ACCOUNT</button>
+    </form>
+</div>
+
+<script>
+    function toggleTier() {
+        const tier = document.getElementById('tier-select').value;
+        const billing = document.getElementById('billing-module');
+        const indicator = document.getElementById('tier-indicator');
+        
+        if (tier === 'basic') {
+            billing.style.display = 'none';
+            indicator.innerText = 'BASIC ACCESS';
+            indicator.style.background = '#d4af37';
+        } else {
+            billing.style.display = 'block';
+            indicator.innerText = tier.toUpperCase() + ' PRO';
+            indicator.style.background = '#fff';
+        }
+    }
+
+    function processRegistration(e) {
+        e.preventDefault();
+        // Here we would capture the data and send to your admin email
+        alert("Verification Data Logged. Redirecting to Profile Forge...");
+        window.location.href = "profile-dashboard.html";
+        return false;
+    }
+</script>
+
+</body>
+</html>
