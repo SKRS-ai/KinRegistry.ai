@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast AI Stars | Sovereign Gaming Directory | KIN Pages</title>
+    <style>
+        :root { 
+            --kin-gold: #d4af37; 
+            --kin-black: #050505; 
+            --cyber-yellow: #ffcc00; /* High-Visibility Yellow Pages Accent */
+            --glow: rgba(255, 204, 0, 0.2); 
+        }
+        body { background: var(--kin-black); color: #ccc; font-family: 'Courier New', monospace; margin: 0; scroll-behavior: smooth; }
+
+        /* KIN PAGES MASTER NAV (YELLOW PAGES STYLE) */
+        .kin-nav { background: #000; border-bottom: 3px solid var(--cyber-yellow); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .brand { color: var(--cyber-yellow); font-weight: bold; letter-spacing: 4px; text-transform: uppercase; font-size: 1.2rem; }
+        .nav-links a { color: #888; text-decoration: none; font-size: 0.65rem; margin-left: 20px; text-transform: uppercase; border: 1px solid transparent; padding: 5px 10px; }
+        .nav-links a:hover { color: #fff; border-color: var(--cyber-yellow); background: rgba(255, 204, 0, 0.05); }
+
+        /* HERO - DIRECTORY STYLE */
+        .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle, #1a1a00 0%, #000 100%); border-bottom: 1px solid #222; }
+        .hero h1 { color: #fff; font-size: 2.5rem; letter-spacing: 5px; margin: 0; }
+        .hero .subtitle { color: var(--cyber-yellow); font-size: 0.75rem; margin-top: 10px; letter-spacing: 5px; text-transform: uppercase; }
+
+        /* DIRECTORY LISTINGS */
+        .wrapper { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .section-label { color: var(--cyber-yellow); font-size: 1rem; border-left: 5px solid var(--cyber-yellow); padding-left: 15px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; }
+
+        .listing-card { display: flex; background: #0a0a0a; border: 1px solid #1a1a1a; margin-bottom: 30px; transition: 0.4s; align-items: stretch; position: relative; }
+        .listing-card:hover { border-color: var(--cyber-yellow); box-shadow: 0 0 25px var(--glow); transform: translateX(5px); }
+        
+        .logo-col { width: 220px; min-width: 220px; background: #000; display: flex; align-items: center; justify-content: center; border-right: 1px solid #222; padding: 20px; }
+        .logo-col img { width: 150px; height: 150px; object-fit: contain; transition: 0.5s; filter: grayscale(100%) contrast(1.2); }
+        .listing-card:hover .logo-col img { filter: grayscale(0%) drop-shadow(0 0 10px var(--cyber-yellow)); transform: scale(1.05); }
+
+        .content-col { padding: 40px; flex-grow: 1; }
+        .content-col h2 { color: #fff; margin: 0 0 5px; font-size: 1.4rem; }
+        .content-col .biz-category { color: var(--cyber-yellow); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .content-col p { font-size: 0.85rem; color: #777; line-height: 1.6; margin-bottom: 25px; }
+
+        .btn-visit { display: inline-block; color: var(--cyber-yellow); border: 1px solid var(--cyber-yellow); padding: 10px 25px; text-decoration: none; font-size: 0.65rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .btn-visit:hover { background: var(--cyber-yellow); color: #000; box-shadow: 0 0 15px var(--cyber-yellow); }
+
+        /* CAST AI GAMING ARMORY (DIGITAL PRODUCTS) */
+        .marketplace-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .product-card { background: #000; border: 1px solid #222; padding: 30px; text-align: center; transition: 0.3s; }
+        .product-card:hover { border-color: var(--cyber-yellow); transform: translateY(-5px); }
+        .product-card h4 { color: #fff; font-size: 0.8rem; margin: 15px 0 10px; text-transform: uppercase; }
+        .price { color: var(--cyber-yellow); font-size: 1.3rem; font-weight: bold; margin-bottom: 20px; }
+
+        /* FOOTER ADVERTISEMENTS */
+        footer { background: #000; border-top: 3px solid var(--cyber-yellow); padding: 80px 40px; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .ad-spot { background: #0a0a0a; border: 1px solid #222; padding: 20px; font-size: 0.6rem; color: #555; text-align: center; }
+        .ad-spot:hover { border-color: var(--cyber-yellow); color: #fff; }
+        .footer-col h5 { color: var(--cyber-yellow); font-size: 0.7rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .footer-col a { display: block; color: #444; text-decoration: none; font-size: 0.65rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav class="kin-nav">
+        <div class="brand">KIN PAGES // CAST AI STARS</div>
+        <div class="nav-links">
+            <a href="index.html">Master Directory</a>
+            <a href="philly-sovereign-foundations.html">Foundations</a>
+            <a href="amazing-kin-orgs.html">Elite Orgs</a>
+            <a href="#armory">Gaming Armory</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>THE GAMING COMMAND</h1>
+        <div class="subtitle">TRI-STATE MINORITY DIRECTORY: GAMING & AI SECTOR</div>
+    </section>
+
+    <div class="wrapper">
+        
+        <div class="section-label">Cast AI Stars Alliance</div>
+
+        <div class="listing-card">
+            <div class="logo-col"><img src="Logo1.png" alt="Cast AI Stars Logo"></div>
+            <div class="content-col">
+                <h2>CastAiStars.com</h2>
+                <span class="biz-category">AI Infrastructure • Sovereign Gaming Hardware</span>
+                <p>The innovation engine for the next generation of interactive media. Developing autonomous hardware solutions and AI-integrated gaming experiences that prioritize user privacy and biological sanctity in partnership with AEAH.</p>
+                <a href="http://CastAiStars.com" class="btn-visit">GO TO COMMAND BASE</a>
+            </div>
+        </div>
+
+        <div class="listing-card">
+            <div class="logo-col"><img src="Aeahlogo.png" alt="AEAH Logo"></div>
+            <div class="content-col">
+                <h2>AEAH GAMING DEFENSE</h2>
+                <span class="biz-category">Electronic Sanctuary • Player Protection</span>
+                <p>Establishing the global standard for electronic sanctuary in gaming. Protecting players from unauthorized digital targeting and ensuring the gaming landscape remains a safe haven for human expression.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/MEDDUSA_HEAD-WWW.AEAH.ORG/" class="btn-visit">ACCESS PROTOCOLS</a>
+            </div>
+        </div>
+
+        <div id="armory" class="section-label">Cast AI Stars: Digital Gaming Identity</div>
+
+        <div class="marketplace-grid">
+            <div class="product-card">
+                <div style="font-size: 0.5rem; color: var(--cyber-yellow);">VERIFICATION</div>
+                <h4>Proof-of-Life (PoL) Gaming ID</h4>
+                <p style="font-size: 0.6rem; color: #444; margin-bottom: 15px;">A digital watermark for your Discord/Steam profiles certifying you as a non-AI, human-operated player.</p>
+                <div class="price">$19.99</div>
+                <button class="btn-visit" style="width:100%">SECURE IDENTITY</button>
+            </div>
+
+            <div class="product-card">
+                <div style="font-size: 0.5rem; color: var(--cyber-yellow);">CERTIFICATION</div>
+                <h4>Sovereign Elite Competitor Cert</h4>
+                <p style="font-size: 0.6rem; color: #444; margin-bottom: 15px;">The industry-first certification for tournament eligibility. Verifies your history, wins, and fair-play status.</p>
+                <div class="price">$39.99</div>
+                <button class="btn-visit" style="width:100%">REQUEST CERT</button>
+            </div>
+
+            <div class="product-card">
+                <div style="font-size: 0.5rem; color: var(--cyber-yellow);">ARMOR</div>
+                <h4>AEAH Anti-Targeting Game Config</h4>
+                <p style="font-size: 0.6rem; color: #444; margin-bottom: 15px;">Custom network configuration files to shield your home IP from electronic targeting during high-stakes play.</p>
+                <div class="price">$15.00</div>
+                <button class="btn-visit" style="width:100%">DOWNLOAD ARMOR</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>SYSTEM LINKS</h5>
+                <a href="index.html">Master Directory</a>
+                <a href="philly-sovereign-foundations.html">Foundations</a>
+                <a href="amazing-kin-orgs.html">Amazing Orgs</a>
+            </div>
+            <div class="footer-col">
+                <h5>ADVERTISEMENTS</h5>
+                <div class="ad-spot">Space Available: Promote Your Gaming Clan</div>
+                <div class="ad-spot" style="margin-top:10px;">Cast AI Console Pre-Order Waitlist</div>
+            </div>
+            <div class="footer-col">
+                <h5>DEFENSE ALLIANCE</h5>
+                <a href="#">AEAH Global</a>
+                <a href="#">Vexilla Security</a>
+                <a href="#">Identity Registry</a>
+            </div>
+            <div class="footer-col">
+                <h5>RESOURCES</h5>
+                <a href="#">Tournament Brackets</a>
+                <a href="#">Identity Verification</a>
+                <a href="#">Support Forge</a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; font-size: 0.5rem; color: #222;">
+            CAST AI STARS | IN PARTNERSHIP WITH KIN PAGES YELLOW PAGES | EST. 1999
+        </div>
+    </footer>
+
+</body>
+</html>
