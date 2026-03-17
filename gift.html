@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RARE BOOKS FOR SALE | Bestow an Artifact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #bf953f;
+            --velvet-deep: #2a0505;
+            --cream: #fdfaf1;
+        }
+
+        body {
+            background-color: #050505;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .gift-container {
+            width: 100%;
+            max-width: 700px;
+            padding: 40px;
+            background: var(--velvet-deep);
+            border: 1px solid var(--gold);
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+            position: relative;
+        }
+
+        .gift-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .gift-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* The Virtual Gift Box */
+        .gift-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gift-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            padding: 12px;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+        }
+
+        input:focus { border-color: var(--gold); }
+
+        .message-area {
+            height: 120px;
+            resize: none;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            background: #1a1a1a;
+            color: var(--cream);
+        }
+
+        .bestow-btn {
+            background: linear-gradient(45deg, #bf953f, #fcf6ba, #bf953f);
+            color: #000;
+            border: none;
+            padding: 20px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 20px;
+        }
+
+        .bestow-btn:hover {
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px var(--gold);
+        }
+
+        .seal {
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gift-container">
+        <header class="gift-header">
+            <h1>Bestow a Treasure</h1>
+            <p>Send a digital artifact with a formal curator's invitation.</p>
+        </header>
+
+        <form class="gift-form">
+            <div class="gift-row">
+                <div>
+                    <label>Recipient Name</label>
+                    <input type="text" placeholder="The Collector's Name">
+                </div>
+                <div>
+                    <label>Recipient Email</label>
+                    <input type="email" placeholder="archive@delivery.com">
+                </div>
+            </div>
+
+            <div>
+                <label>Select Artifact to Bestow</label>
+                <select>
+                    <option>Alice's Adventures in Wonderland — $14.99</option>
+                    <option>De humani corporis fabrica — $39.99</option>
+                    <option>Astronomia nova — $34.99</option>
+                    <option>The Wealth of Nations — $29.99</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Personal Inscription (Written in Gold)</label>
+                <textarea class="message-area" placeholder="Enter your dedication here..."></textarea>
+            </div>
+
+            <button type="button" class="bestow-btn" onclick="confirmGift()">Send Digital Invitation</button>
+        </form>
+
+        <div class="seal">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" width="40" style="filter: invert(1) brightness(0.5);">
+        </div>
+    </div>
+
+    <script>
+        function confirmGift() {
+            alert("The invitation has been sealed. The artifact will be delivered to the recipient's vault instantly upon checkout.");
+        }
+    </script>
+</body>
+</html>
