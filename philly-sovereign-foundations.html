@@ -8,21 +8,17 @@
         :root { --kin-gold: #d4af37; --kin-black: #050505; --text: #ccc; --glow: rgba(212, 175, 55, 0.3); }
         body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; line-height: 1.6; }
         
-        /* HEADER */
         header { background: #000; border-bottom: 3px solid var(--kin-gold); padding: 30px 40px; text-align: center; }
         .kin-logo { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.8rem; letter-spacing: 6px; text-transform: uppercase; border: 1px solid var(--kin-gold); padding: 5px 20px; transition: 0.3s; }
         .kin-logo:hover { box-shadow: 0 0 15px var(--kin-gold); background: var(--kin-gold); color: #000; }
 
-        /* HERO */
         .hero-banner { padding: 60px 20px; text-align: center; background: linear-gradient(to bottom, #111, #000); border-bottom: 1px solid #222; }
         .hero-banner h1 { color: #fff; font-size: 2.2rem; letter-spacing: 3px; margin: 0; text-transform: uppercase; }
         .hero-banner p { color: var(--kin-gold); font-size: 0.75rem; letter-spacing: 2px; margin-top: 15px; }
 
-        /* REGISTRY STRUCTURE */
         .registry-wrapper { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
         .sector-title { color: var(--kin-gold); font-size: 1.1rem; border-bottom: 1px solid var(--kin-gold); padding-bottom: 10px; margin-bottom: 40px; letter-spacing: 5px; text-transform: uppercase; }
 
-        /* ENTRIES */
         .foundation-entry { display: flex; background: #0a0a0a; border: 1px solid #1a1a1a; margin-bottom: 30px; transition: 0.4s ease; align-items: stretch; }
         .foundation-entry:hover { border-color: var(--kin-gold); background: #0d0d0d; box-shadow: 0 0 20px var(--glow); }
 
@@ -31,22 +27,16 @@
         .foundation-entry:hover .logo-column img { transform: scale(1.05); filter: grayscale(0%) drop-shadow(0 0 10px var(--kin-gold)); }
 
         .content-column { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        .content-column h2 { color: #fff; font-size: 1.3rem; margin: 0 0 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .content-column h2 { color: #fff; font-size: 1.2rem; margin: 0 0 10px; letter-spacing: 1px; text-transform: uppercase; }
         .content-column .domain-tag { color: var(--kin-gold); font-size: 0.65rem; margin-bottom: 20px; display: block; letter-spacing: 2px; }
         .content-column p { color: #888; font-size: 0.85rem; margin-bottom: 25px; max-width: 800px; }
 
-        /* BUTTONS */
         .btn-link { display: inline-block; color: var(--kin-gold); text-decoration: none; font-size: 0.7rem; font-weight: bold; border: 1px solid var(--kin-gold); padding: 10px 25px; text-transform: uppercase; transition: 0.3s; text-align: center; width: fit-content; }
         .btn-link:hover { background: var(--kin-gold); color: #000; box-shadow: 0 0 15px var(--kin-gold); }
 
-        /* FOOTER */
         footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 40px; text-align: center; font-size: 0.6rem; color: #444; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* RESPONSIVE FIX */
-        @media (max-width: 768px) {
-            .foundation-entry { flex-direction: column; }
-            .logo-column { width: 100%; border-right: none; border-bottom: 1px solid #222; }
-        }
+        @media (max-width: 768px) { .foundation-entry { flex-direction: column; } .logo-column { width: 100%; border-right: none; border-bottom: 1px solid #222; } }
     </style>
 </head>
 <body>
@@ -55,50 +45,20 @@
 
     <section class="hero-banner">
         <h1>SOVEREIGN FOUNDATIONS & NON-PROFITS</h1>
-        <p>PHILADELPHIA • MINNESOTA • GLOBAL COMMAND</p>
+        <p>GLOBAL COMMAND • PHILADELPHIA • MINNESOTA</p>
     </section>
 
     <div class="registry-wrapper">
 
-        <div class="sector-title">Main Command Entities</div>
+        <div class="sector-title">Master Alphabetical Registry</div>
 
         <div class="foundation-entry">
-            <div class="logo-column"><img src="./tbblusalogo.png" alt="TBBLUSA Logo"></div>
+            <div class="logo-column"><img src="./Aeahlogo.png" alt="AEAH Logo"></div>
             <div class="content-column">
-                <h2>THIN BLACK AND BROWN LINE USA, NPC.</h2>
-                <span class="domain-tag">TBBLUSA.ORG</span>
-                <p>The premier advocacy network for minority protection and business logistics. Bridging the gap between sovereign identity and national infrastructure.</p>
-                <a href="https://vexilla1090801-bot-ds.github.io/ThinBlackandBrownLineUSA-TBBLUSA.ORG/" class="btn-link">GO TO MAIN COMMAND</a>
-            </div>
-        </div>
-
-        <div class="foundation-entry">
-            <div class="logo-column"><img src="./Tgsobabpousa3.png" alt="Great Seal Logo"></div>
-            <div class="content-column">
-                <h2>GREAT SEAL OF THE BLACK AND BROWN PEOPLE FOUNDATION MONUMENT</h2>
-                <span class="domain-tag">SOVEREIGN MONUMENT</span>
-                <p>Establishing the permanent legacy and historical recognition of Black and Brown people in the United States.</p>
-                <a href="https://skrs-ai.github.io/The-Great-Seal-of-the-BLACK---BROWN_PEOPLE-of-the-UNITED_STATES-of-AMERICA_MMXX/index.html" class="btn-link">VIEW MONUMENT</a>
-            </div>
-        </div>
-
-        <div class="foundation-entry">
-            <div class="logo-column"><img src="./Sexyheros.org.png" alt="SexyHeros Logo"></div>
-            <div class="content-column">
-                <h2>SEXYHEROS FOUNDATION</h2>
-                <span class="domain-tag">SEXYHEROS.ORG</span>
-                <p>The aesthetic and humanitarian branch of the AEAH network. Focused on empowerment through identity and visual sovereignty.</p>
-                <a href="https://vexilla1090801-bot-ds.github.io/WWW.AEAH.ORG-SEXYHEROS.ORG/#sexy-portal" class="btn-link">ACCESS SEXY PORTAL</a>
-            </div>
-        </div>
-
-        <div class="foundation-entry">
-            <div class="logo-column"><img src="./KGF 1.png" alt="Koinonia Grace Logo"></div>
-            <div class="content-column">
-                <h2>KOINONIA GRACE FOUNDATION</h2>
-                <span class="domain-tag">SOVEREIGN MOVEMENT</span>
-                <p>A Philadelphia-based nonprofit strengthening the foster care system by implementing rigorous digital verification standards to certify high-integrity protectors for youth.</p>
-                <a href="https://skrs-ai.github.io/koinonia-grace-foundation-web/" class="btn-link">GO TO MISSION</a>
+                <h2>AGAINST ELECTRONIC ABUSE AND HARASSMENT, NPC.</h2>
+                <span class="domain-tag">AEAH.ORG</span>
+                <p>Advocacy against electronic targeting and unauthorized digital interference. Protecting the digital sanctity of the community through specialized NPC protocols.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/MEDDUSA_HEAD-WWW.AEAH.ORG/" class="btn-link">ACCESS NETWORK</a>
             </div>
         </div>
 
@@ -107,36 +67,124 @@
             <div class="content-column">
                 <h2>BLACK & BROWN BUREAU OF NATIONAL IDENTITY REGISTRY, INC.</h2>
                 <span class="domain-tag">TGSOBAUSA.ORG</span>
-                <p>The official bureau for the registration and validation of Black and Brown national identity and sovereign records.</p>
+                <p>The official bureau for the validation of Black and Brown national identity. Secure management of sovereign records and lineage data synchronization.</p>
                 <a href="https://vexilla1090801-bot-ds.github.io/TheGreatSeal_of-Black-and-Brown-People-WWW.TGSOBAUSA.ORG/index.html" class="btn-link">IDENTITY REGISTRY</a>
             </div>
         </div>
 
         <div class="foundation-entry">
-            <div class="logo-column"><img src="./Aeahlogo.png" alt="AEAH Logo"></div>
+            <div class="logo-column"><img src="./Clean Blue Green Corp.png" alt="Clean Blue Green Logo"></div>
             <div class="content-column">
-                <h2>AGAINST ELECTRONIC ABUSE AND HARASSMENT, NPC.</h2>
-                <span class="domain-tag">AEAH.ORG</span>
-                <p>Advocacy against electronic targeting, harassment, and unauthorized digital interference in community sanctuary spaces.</p>
-                <a href="https://vexilla1090801-bot-ds.github.io/MEDDUSA_HEAD-WWW.AEAH.ORG/" class="btn-link">ACCESS AEAH NETWORK</a>
+                <h2>CLEAN BLUE GREEN CORP.</h2>
+                <span class="domain-tag">VEXILLAAITS.COM/CLEAN-BLUE-GREEN</span>
+                <p>Environmental reclamation and sustainable logistics. Utilizing advanced windmill technology and clean energy initiatives to restore community health.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/VexillaAITS.COM-CLEAN-BLUE-GREEN-WINDMILL/index.html" class="btn-link">ENVIRONMENTAL PORTAL</a>
             </div>
         </div>
 
-        <div class="sector-title">Regional Bedrock Foundations</div>
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./COME TO CHRIST.png" alt="Come to Christ Logo"></div>
+            <div class="content-column">
+                <h2>COME TO CHRIST FOUNDATION</h2>
+                <span class="domain-tag">TBBLUSA.ORG/GLM</span>
+                <p>Spiritual grounding and humanitarian outreach. Coordinating with TBBLUSA to provide core community support and global lineage monitoring.</p>
+                <a href="https://nehemiahbrown007.github.io/VexillaAITS.COM_COMETOCHRIST_GLM-TBBLUSA.ORG/index.html" class="btn-link">SPIRITUAL MISSION</a>
+            </div>
+        </div>
 
         <div class="foundation-entry">
             <div class="logo-column"><img src="./Kintoo4.png" alt="EK Logo"></div>
             <div class="content-column">
                 <h2>ENDANGERED KIND (PHILLY)</h2>
                 <span class="domain-tag">VIOLENCE INTERRUPTION</span>
-                <p>Philadelphia-based violence interruption and youth empowerment. Focused on peace-building through credible messengers and community healing.</p>
+                <p>Violence interruption and youth empowerment. Focused on dismantling cycles of conflict through credible messengers and restorative healing.</p>
                 <a href="https://thephiladelphiacitizen.org/citizen-of-the-week-john-solomon-of-endangered-kind/" class="btn-link">LOCAL IMPACT</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./tbblusalogo.png" alt="Records Logo"></div>
+            <div class="content-column">
+                <h2>FOUNDATION RECORDS COMPANY</h2>
+                <span class="domain-tag">EST. 2017</span>
+                <p>Preserving the auditory history and cultural narratives of the Sovereign Village. Managing legacy recording assets and community archives.</p>
+                <a href="https://skrs-ai.github.io/3dayz-ahead-RDA-Disruption-EPK/" class="btn-link">RECORDS ARCHIVE</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./Tgsobabpousa3.png" alt="Great Seal Logo"></div>
+            <div class="content-column">
+                <h2>GREAT SEAL OF THE BLACK AND BROWN PEOPLE FOUNDATION MONUMENT</h2>
+                <span class="domain-tag">SOVEREIGN MONUMENT</span>
+                <p>A permanent legacy foundation dedicated to the historical recognition and physical monumentation of Black and Brown people in America.</p>
+                <a href="https://skrs-ai.github.io/The-Great-Seal-of-the-BLACK---BROWN_PEOPLE-of-the-UNITED_STATES-of-AMERICA_MMXX/index.html" class="btn-link">VIEW MONUMENT</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./KGF 1.png" alt="Koinonia Grace Logo"></div>
+            <div class="content-column">
+                <h2>KOINONIA GRACE FOUNDATION</h2>
+                <span class="domain-tag">PROTECTOR CERTIFICATION</span>
+                <p>Strengthening the foster care system through rigorous digital verification standards to certify high-integrity protectors for underserved youth.</p>
+                <a href="https://skrs-ai.github.io/koinonia-grace-foundation-web/" class="btn-link">GO TO MISSION</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./Sexyheros.org.png" alt="SexyHeros Logo"></div>
+            <div class="content-column">
+                <h2>SEXYHEROS FOUNDATION</h2>
+                <span class="domain-tag">SEXYHEROS.ORG</span>
+                <p>The aesthetic humanitarian branch of the AEAH network. Focused on empowerment through visual sovereignty and identity protection.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/WWW.AEAH.ORG-SEXYHEROS.ORG/#sexy-portal" class="btn-link">SEXY PORTAL</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./The_Christmas_Tree_Foundation-logo.png" alt="Christmas Tree Logo"></div>
+            <div class="content-column">
+                <h2>THE CHRISTMAS TREE FOUNDATION</h2>
+                <span class="domain-tag">XMASMADE.COM</span>
+                <p>Community environmentalism and agricultural heritage. Managing sustainable farm foundations and holiday-driven community outreach.</p>
+                <a href="https://nehemiahbrown007.github.io/THE_CHRISTMAS-TREE_FARM-FOUNDATION-www.xmasmade.com/" class="btn-link">FARM FOUNDATION</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./tbblusalogo.png" alt="TBBLUSA Logo"></div>
+            <div class="content-column">
+                <h2>THIN BLACK AND BROWN LINE USA, NPC.</h2>
+                <span class="domain-tag">TBBLUSA.ORG</span>
+                <p>The primary advocacy network for minority protection and logistical sovereignty. Bridging the gap between identity and national infrastructure.</p>
+                <a href="https://vexilla1090801-bot-ds.github.io/ThinBlackandBrownLineUSA-TBBLUSA.ORG/" class="btn-link">GO TO MAIN COMMAND</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./VV Sqaure.png" alt="Vanguard Logo"></div>
+            <div class="content-column">
+                <h2>VEXILLA VANGUARD FOUNDATION</h2>
+                <span class="domain-tag">VEXILLAAITS.COM</span>
+                <p>The technological backbone of the Sovereign Collective. Managing Vexilla AITS Operating Systems and technical defense foundations.</p>
+                <a href="https://nehemiahbrown007.github.io/Vexilla--Vanguard--Collective-os-www.VexillaAITS.COM/" class="btn-link">TECH COMMAND</a>
+            </div>
+        </div>
+
+        <div class="foundation-entry">
+            <div class="logo-column"><img src="./ypc foundation.png" alt="YPC Logo"></div>
+            <div class="content-column">
+                <h2>YOUNG POLITICIANS COLLECTIVE, INC.</h2>
+                <span class="domain-tag">YOUTH SOVEREIGN OS</span>
+                <p>Empowering the next generation through political education and sovereign technology. Providing the tools for youth-led community leadership.</p>
+                <a href="https://skrs-ai.github.io/YPC-Youth-Sovereign-OS/ypc-main.html" class="btn-link">YOUTH LEADERSHIP</a>
             </div>
         </div>
 
     </div>
 
-    <footer>SOLOMON KIN RECORDS LLC | FOUNDATIONS DIVISION | PHILADELPHIA • MINNESOTA</footer>
+    <footer>SOLOMON KIN RECORDS LLC | FOUNDATIONS DIVISION | PHILADELPHIA • MINNESOTA • GLOBAL COMMAND</footer>
 
 </body>
 </html>
