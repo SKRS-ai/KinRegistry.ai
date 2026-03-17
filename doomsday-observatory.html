@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doomsday Observatory | KIN Pages Master Terminal</title>
+    <style>
+        :root { 
+            --danger: #ffcc00; 
+            --terminal-green: #00ff41;
+            --alert-red: #ff0000;
+            --kin-black: #050505; 
+        }
+        body { background: var(--kin-black); color: #888; font-family: 'Courier New', monospace; margin: 0; }
+
+        /* DETAILED MARKET TICKER */
+        .top-ticker { height: 40px; background: #000; border-bottom: 2px solid var(--danger); overflow: hidden; position: sticky; top: 0; z-index: 2000; }
+
+        /* MASTER NAVIGATION */
+        .observatory-nav { 
+            background: rgba(0,0,0,0.9); 
+            padding: 15px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            border-bottom: 1px solid #222; 
+        }
+        .nav-links a { color: #666; text-decoration: none; font-size: 0.7rem; margin-left: 20px; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--danger); }
+        .auth-buttons a { color: var(--danger); border: 1px solid var(--danger); padding: 5px 15px; text-decoration: none; font-size: 0.7rem; margin-left: 10px; }
+
+        /* RARE BOOKS BANNER */
+        .rare-books-ad { 
+            width: 100%; 
+            height: 250px; 
+            background: url('rare-books-banner.png') center/cover; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 3px solid var(--danger);
+            text-decoration: none;
+        }
+        .ad-overlay { background: rgba(0,0,0,0.7); padding: 20px; text-align: center; border: 1px solid var(--danger); }
+
+        /* SEARCH HUB */
+        .obs-search { max-width: 800px; margin: 40px auto; display: flex; border: 2px solid var(--danger); background: #000; }
+        .obs-search input { flex: 1; background: transparent; border: none; padding: 20px; color: #fff; font-family: inherit; }
+        .btn-query { background: var(--danger); border: none; padding: 0 40px; font-weight: bold; cursor: pointer; }
+
+        /* CLOCK & NASA DATA */
+        .command-deck { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; max-width: 1400px; margin: 0 auto; padding: 40px; }
+        .clock-section { background: #080808; border: 1px solid #222; padding: 60px; text-align: center; position: relative; }
+        .nasa-feed { background: #000; border: 1px solid #222; padding: 20px; font-size: 0.6rem; overflow-y: auto; height: 400px; }
+        .nasa-label { color: #0088ff; border-bottom: 1px solid #0088ff; padding-bottom: 5px; margin-bottom: 10px; display: block; }
+
+        /* DOOMSDAY MARKETPLACE GRID */
+        .marketplace-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1400px; margin: 0 auto 100px; padding: 0 40px; }
+        .product-card { background: #0a0a0a; border: 1px solid #222; padding: 20px; transition: 0.3s; }
+        .product-card:hover { border-color: var(--danger); background: #111; transform: translateY(-5px); }
+        .product-card h4 { font-size: 0.7rem; color: #fff; margin-bottom: 10px; }
+        .product-price { color: var(--danger); font-weight: bold; font-size: 1.1rem; }
+        .btn-buy { width: 100%; padding: 8px; background: transparent; border: 1px solid var(--danger); color: var(--danger); margin-top: 15px; cursor: pointer; font-size: 0.6rem; }
+
+        footer { border-top: 3px solid var(--danger); padding: 40px; text-align: center; font-size: 0.5rem; letter-spacing: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="top-ticker">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        { "symbols": [{"proName":"TVC:GOLD","title":"GOLD"},{"proName":"BITSTAMP:BTCUSD","title":"BTC"},{"proName":"FX_IDC:USDJPY","title":"USD/JPY"}], "colorTheme": "dark", "isTransparent": true }
+        </script>
+    </div>
+
+    <nav class="observatory-nav">
+        <div class="nav-links">
+            <a href="index.html">KIN Pages Home</a>
+            <a href="#marketplace">Doomsday Marketplace</a>
+            <a href="philly-sovereign-foundations.html">Foundations</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="#">SIGN IN</a>
+            <a href="#" style="background: var(--danger); color: #000;">REGISTER</a>
+        </div>
+    </nav>
+
+    <a href="rare-books-collection.html" class="rare-books-ad">
+        <div class="ad-overlay">
+            <div style="color:var(--danger); font-size: 0.6rem; letter-spacing: 3px;">PRESENTED BY KIN PAGES YELLOW</div>
+            <h2 style="color:#fff; letter-spacing: 5px;">THE RARE BOOK COLLECTION</h2>
+            <p style="color:#888; font-size: 0.7rem;">Ancient Knowledge for the Modern Endgame. Buy Rare Books Now.</p>
+        </div>
+    </a>
+
+    <div class="obs-search">
+        <input type="text" placeholder="Query Intelligence Archives / Threat Assessment...">
+        <button class="btn-query">SEARCH</button>
+    </div>
+
+    <section class="command-deck">
+        <div class="clock-section">
+            <div style="color: var(--alert-red); letter-spacing: 10px; margin-bottom: 20px;">SYSTEM STATUS: 85 SECONDS</div>
+            <h1 style="font-size: 8rem; color: var(--danger); margin: 0; text-shadow: 0 0 30px var(--danger);">11:58:35</h1>
+            <div style="color: #444; font-size: 0.8rem; letter-spacing: 5px;">UNTIL MIDNIGHT</div>
+        </div>
+
+        <div class="nasa-feed">
+            <span class="nasa-label">NASA LIVE TELEMETRY // REAL-TIME EVENT LOG</span>
+            <div id="telemetry" style="color: #00ff41;">
+                [SCANNING] NEO-APPROACH DETECTED: 2024-X1<br>
+                [LINK] DEEP SPACE NETWORK: GOLDSTONE STATION ACTIVE<br>
+                [DATA] SOLAR WIND VELOCITY: 450.2 KM/S<br>
+                [INFO] ISS POSITION: OVER NORTH ATLANTIC<br>
+                [ALERT] GEOMAGNETIC STORM INDEX: Kp-4 (STABLE)<br>
+                ... STREAMING LIVE DATA ...
+            </div>
+        </div>
+    </section>
+
+    <div id="marketplace" style="padding: 0 40px; margin-top: 50px;">
+        <h3 style="color: var(--danger); letter-spacing: 5px; border-bottom: 1px solid #222; padding-bottom: 10px;">DOOMSDAY MARKETPLACE</h3>
+    </div>
+
+    <div class="marketplace-grid">
+        <div class="product-card"><h4>Seed Vault Access Cert</h4><div class="product-price">$95.00</div><button class="btn-buy">AUTHENTICATE</button></div>
+        <div class="product-card"><h4>Bunker-Ready ID Framework</h4><div class="product-price">$45.00</div><button class="btn-buy">DOWNLOAD</button></div>
+        <div class="product-card"><h4>Post-Grid Barter Blueprint</h4><div class="product-price">$19.00</div><button class="btn-buy">GET KIT</button></div>
+        <div class="product-card"><h4>Ham Radio License Verification</h4><div class="product-price">$30.00</div><button class="btn-buy">CERTIFY</button></div>
+        <div class="product-card"><h4>Legacy Lineage Ledger (Backup)</h4><div class="product-price">$150.00</div><button class="btn-buy">SYNC</button></div>
+        <div class="product-card"><h4>Off-Grid Medical Protocol PDF</h4><div class="product-price">$25.00</div><button class="btn-buy">ACCESS</button></div>
+        <div class="product-card"><h4>EMP Shielding Verification</h4><div class="product-price">$60.00</div><button class="btn-buy">VERIFY</button></div>
+        <div class="product-card"><h4>Shortwave Communication Map</h4><div class="product-price">$12.00</div><button class="btn-buy">DOWNLOAD</button></div>
+        <div class="product-card"><h4>Vault Data Encryption Key</h4><div class="product-price">$200.00</div><button class="btn-buy">PURCHASE</button></div>
+        <div class="product-card"><h4>Sovereign Sustenance Audit</h4><div class="product-price">$35.00</div><button class="btn-buy">START AUDIT</button></div>
+        <div class="product-card"><h4>COG Member Clearance Cert</h4><div class="product-price">$500.00</div><button class="btn-buy">APPLY</button></div>
+        <div class="product-card"><h4>Water Reclamation Logic PDF</h4><div class="product-price">$15.00</div><button class="btn-buy">BUY</button></div>
+        <div class="product-card"><h4>Safe-Zone Geolocation Ledger</h4><div class="product-price">$40.00</div><button class="btn-buy">ACCESS</button></div>
+        <div class="product-card"><h4>Radiation Safety Certification</h4><div class="product-price">$85.00</div><button class="btn-buy">START TEST</button></div>
+        <div class="product-card"><h4>Primitive Tool Mastery Guide</h4><div class="product-price">$22.00</div><button class="btn-buy">DOWNLOAD</button></div>
+        <div class="product-card"><h4>Digital Ghosting Verification</h4><div class="product-price">$75.00</div><button class="btn-buy">ANONYMIZE</button></div>
+        <div class="product-card"><h4>Bunker Air-Filtration Cert</h4><div class="product-price">$55.00</div><button class="btn-buy">CERTIFY</button></div>
+        <div class="product-card"><h4>Post-Collapse Legal Compact</h4><div class="product-price">$110.00</div><button class="btn-buy">DOWNLOAD</button></div>
+        <div class="product-card"><h4>Star-Chart Navigation Kit</h4><div class="product-price">$18.00</div><button class="btn-buy">GET KIT</button></div>
+        <div class="product-card"><h4>Elite Preservationist Badge</h4><div class="product-price">$10.00</div><button class="btn-buy">PURCHASE</button></div>
+    </div>
+
+    <footer>
+        KIN PAGES | DOOMSDAY OBSERVATORY | THE END IS A NEW START
+    </footer>
+
+</body>
+</html>
