@@ -3,58 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIN Pages | The Sovereign Yellow Pages</title>
+    <title>KIN Pages | Tri-State Minority Yellow Pages | 11th Edition & Beyond</title>
     <style>
         :root { --kin-gold: #d4af37; --kin-black: #050505; --kin-grey: #111; --text: #ccc; }
-        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+        body { background: var(--kin-black); color: var(--text); font-family: 'Courier New', monospace; margin: 0; line-height: 1.6; }
 
         /* HEADER */
-        header { background: #000; border-bottom: 2px solid var(--kin-gold); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .kin-logo-link { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.4rem; letter-spacing: 4px; border: 2px solid var(--kin-gold); padding: 5px 20px; text-transform: uppercase; }
-        .header-links a { color: #888; text-decoration: none; font-size: 0.65rem; margin-left: 20px; text-transform: uppercase; }
+        header { background: #000; border-bottom: 3px solid var(--kin-gold); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .kin-logo { color: var(--kin-gold); text-decoration: none; font-weight: bold; font-size: 1.6rem; letter-spacing: 5px; border: 2px solid var(--kin-gold); padding: 10px 25px; text-transform: uppercase; }
+        .header-links a { color: #888; text-decoration: none; font-size: 0.65rem; margin-left: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* STOCK TICKER */
-        .market-ticker { height: 40px; background: #000; border-bottom: 1px solid #222; }
+        /* MARKET TICKER */
+        .market-ticker { height: 40px; background: #000; border-bottom: 1px solid #222; overflow: hidden; }
 
-        /* --- NEW ADVERTISEMENT BLOCK --- */
-        .foundation-ad-block {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .ad-container {
-            display: flex;
-            align-items: center;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            text-decoration: none;
-            transition: 0.3s;
-            overflow: hidden;
-        }
+        /* FOUNDATION ADVERTISEMENT BLOCK */
+        .foundation-ad-block { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+        .ad-container { display: flex; align-items: center; background: #0a0a0a; border: 1px solid #222; text-decoration: none; transition: 0.3s; overflow: hidden; }
         .ad-container:hover { border-color: var(--kin-gold); transform: translateY(-2px); }
         .ad-image { width: 300px; height: 120px; object-fit: cover; border-right: 1px solid #222; }
         .ad-text-area { padding: 0 30px; }
         .ad-label { color: #444; font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
         .ad-headline { color: var(--kin-gold); font-size: 1.1rem; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; }
-        .ad-sub { color: #666; font-size: 0.65rem; margin-top: 5px; }
 
         /* SEARCH HUB */
-        .search-hub { padding: 40px 20px; background: #0d0d0d; text-align: center; border-bottom: 1px solid #222; }
-        .main-search { max-width: 900px; margin: 0 auto 15px; display: flex; border: 1px solid var(--kin-gold); }
-        .main-search input { flex: 1; background: #000; border: none; padding: 18px; color: #fff; font-family: inherit; }
-        .btn-search { background: var(--kin-gold); border: none; padding: 0 40px; font-weight: bold; cursor: pointer; }
+        .search-vault { background: #0d0d0d; padding: 60px 40px; border-bottom: 1px solid #222; text-align: center; }
+        .master-search-bar { max-width: 1000px; margin: 0 auto 20px; display: flex; border: 2px solid var(--kin-gold); }
+        .master-search-bar input { flex: 1; background: #000; border: none; padding: 20px; color: #fff; font-size: 1.1rem; font-family: inherit; }
+        .btn-query { background: var(--kin-gold); color: #000; border: none; padding: 0 40px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .filter-blanket { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .filter-blanket select { background: #111; border: 1px solid #333; color: #999; padding: 12px; font-size: 0.7rem; cursor: pointer; }
 
-        /* FOOTER */
-        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 60px 40px; margin-top: 80px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; }
-        .footer-col h5 { color: var(--kin-gold); font-size: 0.7rem; margin-bottom: 20px; }
-        .footer-col a { display: block; color: #444; text-decoration: none; font-size: 0.65rem; margin-bottom: 10px; }
+        /* PRICING TIERS */
+        .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 60px auto; padding: 0 40px; }
+        .tier-card { background: #0a0a0a; border: 1px solid #222; padding: 30px; text-align: center; transition: 0.4s; }
+        .tier-card.featured { border: 2px solid var(--kin-gold); }
+        .price { font-size: 2rem; color: #fff; margin: 20px 0; }
+        .tier-list { list-style: none; padding: 0; font-size: 0.7rem; color: #777; text-align: left; }
+
+        /* MASSIVE FOOTER */
+        footer { background: #000; border-top: 3px solid var(--kin-gold); padding: 80px 40px 40px; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; }
+        .footer-col h5 { color: var(--kin-gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .footer-col a { display: block; color: #444; text-decoration: none; font-size: 0.65rem; margin-bottom: 12px; }
+        .footer-col a:hover { color: #fff; }
+        .legacy-footer { text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid #111; color: #333; font-size: 0.6rem; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="kin-logo-link">KIN Pages</a>
+        <a href="index.html" class="kin-logo">KIN Pages</a>
         <div class="header-links">
             <a href="philly-sovereign-foundations.html">Foundations</a>
             <a href="register-tier.html">Registration</a>
@@ -64,7 +62,7 @@
 
     <div class="market-ticker">
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        { "symbols": [{"proName":"TVC:GOLD","title":"GOLD"},{"proName":"BITSTAMP:BTCUSD","title":"BTC"}], "colorTheme": "dark", "isTransparent": true }
+        { "symbols": [{"proName":"TVC:GOLD","title":"GOLD"},{"proName":"BITSTAMP:BTCUSD","title":"BTC"},{"proName":"FX:EURUSD","title":"EUR/USD"}], "colorTheme": "dark", "isTransparent": true }
         </script>
     </div>
 
@@ -74,29 +72,93 @@
             <div class="ad-text-area">
                 <div class="ad-label">Sponsored Intelligence</div>
                 <div class="ad-headline">SOVEREIGN FOUNDATIONS & NON-PROFITS</div>
-                <div class="ad-sub">Access the KIN Pages Global Registry of Philadelphia & Minnesota Foundations</div>
+                <div class="ad-sub">Direct access to our Global Registry of community support.</div>
             </div>
         </a>
     </div>
 
-    <section class="search-hub">
-        <div class="main-search">
-            <input type="text" placeholder="Query Sovereign Ledger (Culture, Gender, Industry)...">
-            <button class="btn-search">SEARCH</button>
+    <section class="search-vault">
+        <div class="master-search-bar">
+            <input type="text" placeholder="Search Names, Businesses, IDs, or Pronouns...">
+            <button class="btn-query">SEARCH</button>
+        </div>
+        <div class="filter-blanket">
+            <select>
+                <option>Culture: All Heritage</option>
+                <option>African American</option>
+                <option>Indigenous</option>
+                <option>Asian American</option>
+                <option>Hispanic/Latino</option>
+            </select>
+            <select>
+                <option>Identity: All Genders</option>
+                <option>Cisgender</option>
+                <option>Transgender</option>
+                <option>Non-Binary</option>
+            </select>
+            <select>
+                <option>Pronouns: All</option>
+                <option>He/Him</option>
+                <option>She/Her</option>
+                <option>They/Them</option>
+            </select>
         </div>
     </section>
 
-    http://googleusercontent.com/image_generation_content/0
+    <section class="tier-grid">
+        <div class="tier-card">
+            <h3>VANGUARD BASIC</h3>
+            <div class="price">$49<span>/mo</span></div>
+            <ul class="tier-list"><li>Standard Listing</li><li>1 Cultural Tag</li></ul>
+        </div>
+        <div class="tier-card featured">
+            <h3>SOVEREIGN PRO</h3>
+            <div class="price">$149<span>/mo</span></div>
+            <ul class="tier-list"><li>Priority Search</li><li>Gender/Identity Tags</li></ul>
+        </div>
+        <div class="tier-card">
+            <h3>KIN COMMAND</h3>
+            <div class="price">$499<span>/mo</span></div>
+            <ul class="tier-list"><li>Main Page Feature</li><li>News Integration</li></ul>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h5>KIN ENTITY</h5>
-                <a href="index.html">KIN Pages Home</a>
-                <a href="philly-sovereign-foundations.html">Sovereign Foundations</a>
+                <h5>LEGACY PORTAL</h5>
                 <a href="editors-message.html">Editor's Message</a>
+                <a href="index.html">KIN Pages Home</a>
+                <a href="master-sitemap.html">Complete Site Map</a>
             </div>
+            <div class="footer-col">
+                <h5>TRADE & RECORDS</h5>
+                <a href="global-logistics.html">IBINGOD Trade</a>
+                <a href="media-broadcast.html">Solomon Kin Records</a>
+                <a href="#">3Dayz Ahead RDA</a>
             </div>
+            <div class="footer-col">
+                <h5>TECH & IDENTITY</h5>
+                <a href="https://skrs-ai.github.io/SKRMG-Command-Center/">Vexilla Command</a>
+                <a href="identity-vault.html">Identity Registry</a>
+                <a href="profile-dashboard.html">Member Forge</a>
+            </div>
+            <div class="footer-col">
+                <h5>NEWS & MEDIA</h5>
+                <a href="#">The Filth Factor</a>
+                <a href="#">Lethal Ledger Wire</a>
+                <a href="#">Dockinstation TV</a>
+            </div>
+            <div class="footer-col">
+                <h5>FOUNDATIONS</h5>
+                <a href="philly-sovereign-foundations.html">Sovereign Foundations</a>
+                <a href="http://tbblusa.org">TBBLUSA National</a>
+                <a href="contact-support.html">Support Desk</a>
+            </div>
+        </div>
+        <div class="legacy-footer">
+            THE KIN PAGES DIRECTORY | TRI-STATE MINORITY YELLOW PAGES LEGACY | EST. 1999
+        </div>
     </footer>
 
 </body>
